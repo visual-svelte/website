@@ -1,5 +1,5 @@
 const c = [
-	() => import("..\\runtime\\components\\layout.svelte"),
+	() => import("..\\..\\src\\routes\\__layout.svelte"),
 	() => import("..\\runtime\\components\\error.svelte"),
 	() => import("..\\..\\src\\routes\\index.svelte")
 ];

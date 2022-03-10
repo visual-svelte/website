@@ -1,5 +1,7 @@
 <div class="container">
   <div class="inner">
+    <img alt="data viz animation" src="static/dataviz.gif" />
+
     <h1>Welcome to Visual Svelte</h1>
     <p>Lots of luscious content coming soon!</p>
   </div>
@@ -9,6 +11,10 @@
   .container {
     position: relative;
     width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  img {
+    max-height: 200px;
   }
 
   .inner {
