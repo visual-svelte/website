@@ -1,0 +1,57 @@
+{
+  "name": "playwright-core",
+  "version": "1.19.2",
+  "description": "A high-level API to automate web browsers",
+  "repository": "github:Microsoft/playwright",
+  "homepage": "https://playwright.dev",
+  "engines": {
+    "node": ">=12"
+  },
+  "author": {
+    "name": "Microsoft Corporation"
+  },
+  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./cli": "./cli.js",
+    "./package.json": "./package.json",
+    "./lib/grid/gridServer": "./lib/grid/gridServer.js",
+    "./lib/grid/gridClient": "./lib/grid/gridClient.js",
+    "./lib/grid/dockerGridFactory": "./lib/grid/dockerGridFactory.js",
+    "./lib/outofprocess": "./lib/outofprocess.js",
+    "./lib/utils/async": "./lib/utils/async.js",
+    "./lib/utils/httpServer": "./lib/utils/httpServer.js",
+    "./lib/utils/multimap": "./lib/utils/multimap.js",
+    "./lib/utils/processLauncher": "./lib/utils/processLauncher.js",
+    "./lib/utils/registry": "./lib/utils/registry.js",
+    "./lib/utils/utils": "./lib/utils/utils.js",
+    "./lib/utils/stackTrace": "./lib/utils/stackTrace.js",
+    "./lib/remote/playwrightServer": "./lib/remote/playwrightServer.js",
+    "./lib/remote/playwrightClient": "./lib/remote/playwrightClient.js"
+  },
+  "types": "types/types.d.ts",
+  "bin": {
+    "playwright": "./cli.js"
+  },
+  "dependencies": {
+    "commander": "8.3.0",
+    "debug": "4.3.3",
+    "extract-zip": "2.0.1",
+    "https-proxy-agent": "5.0.0",
+    "jpeg-js": "0.4.3",
+    "mime": "3.0.0",
+    "pngjs": "6.0.0",
+    "progress": "2.0.3",
+    "proper-lockfile": "4.1.2",
+    "proxy-from-env": "1.1.0",
+    "rimraf": "3.0.2",
+    "socks-proxy-agent": "6.1.1",
+    "stack-utils": "2.0.5",
+    "ws": "8.4.2",
+    "yauzl": "2.10.0",
+    "yazl": "2.5.1"
+  }
+}
