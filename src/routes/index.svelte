@@ -1,6 +1,6 @@
 <div class="container">
   <div class="inner">
-    <span class="render" contenteditable="true">Visual Svelte</span>
+    <span class="render">Visual Svelte</span>
     <!-- <script
       src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
     <!-- <lottie-player
