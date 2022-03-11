@@ -4,8 +4,9 @@
 
 <style>
   #content {
-    min-height: 100%;
+    min-height: 100vh !important;
     min-width: 100%;
+    margin-top: -1px;
     background-size: 20px 20px;
     background-image: linear-gradient(
         to right,
