@@ -10,7 +10,6 @@
 	export let props_0 = null;
 	export let props_1 = null;
 	export let props_2 = null;
-	export let props_3 = null;
 
 	setContext('__svelte__', stores);
 
@@ -38,13 +37,7 @@
 	<svelte:component this={components[0]} {...(props_0 || {})}>
 		{#if components[2]}
 			<svelte:component this={components[1]} {...(props_1 || {})}>
-				{#if components[3]}
-					<svelte:component this={components[2]} {...(props_2 || {})}>
-						<svelte:component this={components[3]} {...(props_3 || {})}/>
-					</svelte:component>
-				{:else}
-					<svelte:component this={components[2]} {...(props_2 || {})} />
-				{/if}
+				<svelte:component this={components[2]} {...(props_2 || {})}/>
 			</svelte:component>
 		{:else}
 			<svelte:component this={components[1]} {...(props_1 || {})} />
