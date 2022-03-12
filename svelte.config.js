@@ -14,6 +14,10 @@ const config = {
   kit: {
     adapter: adapter(),
     vite: {
+      optimizeDeps: {
+        include: ["highlight.js/lib/core"],
+      },
+
       resolve: {
         alias: {
           $assets: path.resolve("./static/assets"),

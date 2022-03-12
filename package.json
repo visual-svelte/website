@@ -27,7 +27,9 @@
   "dependencies": {
     "@rollup/plugin-dsv": "^2.0.3",
     "d3": "^7.3.0",
+    "highlight.js": "^11.5.0",
     "sass": "^1.49.9",
+    "svelte-highlight": "^5.2.2",
     "vite-plugin-svgstring": "^1.0.0"
   }
 }

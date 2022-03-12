@@ -4,7 +4,13 @@
 </script>
 
 <div class="grid">
-  <header><Breadcrumb path={$page.url.pathname} /></header>
+  <header>
+    <div class="positioner">
+      {#if $page.url.pathname != "/"}
+        <Breadcrumb path={$page.url.pathname} />
+      {/if}
+    </div>
+  </header>
 
   <aside class="sidebar-left">
     <!-- {#if $page.URL.pathname } -->
@@ -21,9 +27,9 @@
     </main>
   </article>
 
-  <aside class="sidebar-right">Right Sidebar</aside>
+  <aside class="sidebar-right" />
 
-  <footer>Footer</footer>
+  <footer />
 </div>
 
 <style lang="scss">
@@ -38,6 +44,12 @@
     grid-column: 1 / 4;
   }
 
+  header {
+    .positioner {
+      width: 600px;
+      margin: 0 auto;
+    }
+  }
   @media all and (max-width: 700px) {
     aside,
     article {
@@ -56,7 +68,7 @@
   aside,
   article,
   footer {
-    background: #eaeaea;
+    // background: #eaeaea;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,10 +95,10 @@
   }
 
   #content {
-    max-width: 600px;
+    max-width: 600px !important;
     margin: 0 auto;
     min-height: 100vh !important;
-    min-width: 100%;
+    // min-width: 100%;
     margin-top: -1px;
     background-size: 20px 20px;
     background-image: linear-gradient(
