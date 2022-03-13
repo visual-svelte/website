@@ -1,32 +1,48 @@
 <script>
+  export let compid;
+
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
   import { HighlightSvelte } from "svelte-highlight";
   import github from "svelte-highlight/src/styles/github";
 
-  let code;
-  export let url;
-  let loaded = false;
+  $: url = `https://api.github.com/repos/visual-svelte/website/contents/src/components/d3/${compid}.svelte`;
+
+  async function fetchCode() {
+    const response = await self.fetch(url);
+
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error();
+    }
+  }
+
+  let promise = Promise.resolve([]);
   onMount(async () => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.content);
-        code = data.content;
-        loaded = true;
-      })
-      .catch((error) => {
-        console.log(error);
-        return [];
-      });
+    promise = fetchCode();
   });
+
+  function copyCode(code) {
+    navigator.clipboard.writeText(code);
+
+    /* Alert the copied text */
+    alert("Copied to clipboard!");
+  }
 </script>
 
-{#if loaded}
+{#await promise}
+  Loading ...
+{:then code}
+  <button on:click={copyCode(atob(code.content))}>Copy Code to Clipboard</button
+  >
   <div transition:fly={{ x: -50, duration: 300 }}>
-    <HighlightSvelte code={atob(code)} />
+    <HighlightSvelte code={atob(code.content)} />
   </div>
-{/if}
+  <button on:click={copyCode(atob(code.content))}>Copy Code to Clipboard</button
+  >
+{/await}
+
 <svelte:head>
   {@html github}
 </svelte:head>

@@ -1,14 +1,17 @@
 <script>
   export let points;
-  console.log("points", points);
 </script>
 
-{#each points as point}
-  <li>
-    {point.title}
-  </li>
-{/each}
-
+<div>
+  <p>In this post:</p>
+  {#each points as point}
+    <li>
+      <a href="#{point.id}">
+        {point.title}
+      </a>
+    </li>
+  {/each}
+</div>
 <!-- 
 {#each points as point}
   <ul>

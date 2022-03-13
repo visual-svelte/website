@@ -37,6 +37,14 @@
     display: grid;
     grid-template-columns: 200px auto 200px;
     grid-gap: 1em;
+    margin-top: -1px;
+    background-size: 20px 20px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.02) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
   }
 
   header,
@@ -99,13 +107,5 @@
     margin: 0 auto;
     min-height: 100vh !important;
     // min-width: 100%;
-    margin-top: -1px;
-    background-size: 20px 20px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.02) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
   }
 </style>

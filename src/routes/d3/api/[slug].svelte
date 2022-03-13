@@ -16,16 +16,22 @@
 
   import OnThisPage from "$components/OnThisPage.svelte";
   import CodeVisual from "$components/CodeVisual.svelte";
+  import GitHubLink from "$components/GitHubLink.svelte";
   $: components = content.components;
   import Tabs from "$components/Tabs.svelte";
 </script>
 
 <h1>{content.post_title}</h1>
+<p>{content.intro_text}</p>
 
+<GitHubLink
+  d3module={content.primary_key}
+  url={`https://github.com/d3/${content.primary_key}`}
+/>
 <OnThisPage points={content.components} />
 
 {#each components as comp}
-  <div class="container">
+  <div id={comp.id} class="container">
     <h2>
       {comp.title}
     </h2>
@@ -38,7 +44,7 @@
         <svelte:component this={comp.component} config={comp.props} />
       </div>
       <div slot="tab2">
-        <CodeVisual url={comp.github} />
+        <CodeVisual compid={comp.id} />
       </div>
     </Tabs>
   </div>
