@@ -1,5 +1,5 @@
 <script>
-  import d3Axis from "$components/d3/AxisSimple.svelte";
+  import d3Axis from "$components/d3/D3AxisSimple.svelte";
   // import Tab2 from "./Tab2.svelte";
 
   import Tabs from "./Tabs.svelte";

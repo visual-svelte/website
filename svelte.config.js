@@ -3,6 +3,7 @@ import preprocess from "svelte-preprocess";
 import svg from "vite-plugin-svgstring";
 import dsv from "@rollup/plugin-dsv";
 import path from "path";
+import autoImport from "vite-plugin-autoimport";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -31,7 +32,14 @@ const config = {
           $thumbnails: path.resolve("./thumbnails"),
         },
       },
-      plugins: [dsv(), svg()],
+      plugins: [
+        dsv(),
+        svg(),
+        autoImport({
+          components: ["./src/components", "./src/components/d3"],
+          include: ["**/*.svelte"],
+        }),
+      ],
     },
   },
 };

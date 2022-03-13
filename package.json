@@ -2,6 +2,7 @@
   "name": "visualsvelte",
   "version": "0.0.1",
   "scripts": {
+    "gdoc": "node tasks/fetch-google.cjs",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
@@ -13,23 +14,25 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.19.1",
+    "@rollup/plugin-dsv": "^2.0.3",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
+    "archieml": "0.4.2",
+    "d3": "^7.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^3.2.1",
+    "highlight.js": "^11.5.0",
+    "node-fetch": "2.6.2",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.0",
-    "svelte": "^3.44.0",
-    "svelte-preprocess": "^4.10.4"
-  },
-  "type": "module",
-  "dependencies": {
-    "@rollup/plugin-dsv": "^2.0.3",
-    "d3": "^7.3.0",
-    "highlight.js": "^11.5.0",
     "sass": "^1.49.9",
+    "svelte": "^3.44.0",
     "svelte-highlight": "^5.2.2",
+    "svelte-loader": "^3.1.2",
+    "svelte-preprocess": "^4.10.4",
+    "vite-plugin-autoimport": "^1.4.3",
     "vite-plugin-svgstring": "^1.0.0"
-  }
+  },
+  "type": "module"
 }

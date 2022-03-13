@@ -1,6 +1,6 @@
 <script>
   import Tabs from "$components/Tabs.svelte";
-  import AxisSimple from "$components/d3/AxisSimple.svelte";
+  // import AxisSimple from "$components/d3/AxisSimple.svelte";
   let axisConfig = { margin: 40, svg_height: 300, svg_width: 400 };
   import { HighlightSvelte } from "svelte-highlight";
   import github from "svelte-highlight/src/styles/github";
