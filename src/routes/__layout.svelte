@@ -37,7 +37,9 @@
   </article>
 
   <aside class="sidebar-right">
-    <InThisArticle />
+    {#if $tableOfContents.length}
+      <InThisArticle />
+    {/if}
 
     <!-- {#if $page.URL.pathname } -->
     <!-- <nav class="main-nav"> -->
