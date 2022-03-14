@@ -8,7 +8,7 @@
 <div class="grid">
   <header>
     <div class="header-grid">
-      <div class="header-left">Visual Svelte</div>
+      <div class="header-left"><a href="/">Visual Svelte</a></div>
       <div class="header-centre-left">
         <!-- <div class="positioner">
           {#if $page.url.pathname != "/"}
