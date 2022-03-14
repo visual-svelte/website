@@ -15,8 +15,8 @@
       };
     });
 
-    // Add a way to get home too.
-    crumbs.unshift({ label: "home", href: "/" });
+    // // Add a way to get home too.
+    // crumbs.unshift({ label: "home", href: "/" });
   }
 </script>
 
