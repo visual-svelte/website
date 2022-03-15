@@ -1,6 +1,6 @@
 <script>
   import CMS from "$data/cms";
-
+  import SimplePostCard from "$components/SimplePostCard.svelte";
   $: filteredData = CMS.map((post) => {
     return {
       id: post.primary_key,
@@ -31,6 +31,8 @@
     >D3.js</a
   > and how to implement the whole library in SvelteKit
 </p>
+
+<!-- <CrossfadeDemo /> -->
 
 {#each filteredData as post}
   <SimplePostCard data={post} />

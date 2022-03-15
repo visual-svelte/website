@@ -20,24 +20,34 @@
   import Scrolly from "$components/Scrolly.svelte";
   import { tableOfContents } from "$stores/post.js";
   import { onDestroy } from "svelte";
+  let errorState = false;
 
   let scrollValue = 0;
   let previousValue = 0;
   let titles = content.components.map((comp) => {
-    return { title: comp.title, bool: false };
+    return { id: comp.id, title: comp.title, bool: false };
   });
-  titles.unshift({ title: "Intro", bool: true });
-  $tableOfContents = titles;
+  titles.unshift({ id: "intro", title: "Intro", bool: true });
+  if (content.published) {
+    $tableOfContents = titles;
+  }
 
   onDestroy(() => {
     $tableOfContents = [];
   });
 
   function updateStore(newScrollValue) {
-    if (newScrollValue != undefined) {
-      $tableOfContents[previousValue].bool = false;
-      $tableOfContents[newScrollValue].bool = true;
-      previousValue = newScrollValue;
+    try {
+      if (newScrollValue != undefined) {
+        $tableOfContents[previousValue].bool = false;
+        $tableOfContents[newScrollValue].bool = true;
+        previousValue = newScrollValue;
+      }
+    } catch (error) {
+      errorState = true;
+      console.error(error);
+      // expected output: ReferenceError: nonExistentFunction is not defined
+      // Note - error messages will vary depending on browser
     }
   }
 
@@ -45,11 +55,11 @@
   $: scrollValue, updateStore(scrollValue);
 </script>
 
-{#if !content.published}
+{#if errorState || !content.published}
   <ComeBackLater />
 {:else}
   <Scrolly bind:value={scrollValue}>
-    <div class="intro">
+    <div id="intro" class="intro">
       <h1>{content.post_title}</h1>
       <p>{content.intro_text}</p>
 

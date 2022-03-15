@@ -34,5 +34,8 @@
     "vite-plugin-autoimport": "^1.4.3",
     "vite-plugin-svgstring": "^1.0.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "feather-icons": "^4.28.0"
+  }
 }
