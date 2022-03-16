@@ -39,6 +39,8 @@
 
 <style lang="scss">
   .container {
+    font-size: 0.9em;
+
     .heading {
       margin-left: 0px;
       margin-bottom: 5px;
@@ -67,7 +69,7 @@
       button {
         padding: 7px 10px;
         cursor: pointer;
-        font-size: 1.1rem;
+        font-size: 1rem;
         height: 100%;
         width: 100%;
         display: block;
@@ -101,7 +103,7 @@
     /* Similar syntax to box-shadow */
   }
   h5 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 
     text-transform: uppercase;
   }

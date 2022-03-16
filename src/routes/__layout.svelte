@@ -19,26 +19,20 @@
   export let sidebarData;
   // export let articleData;
 
-  import Breadcrumb from "$components/Breadcrumb.svelte";
   import InThisArticle from "$components/InThisArticle.svelte";
   import SideNavbar from "$components/SideNavbar.svelte";
+  import TopNav from "$components/TopNav.svelte";
   import { tableOfContents } from "$stores/post.js";
   console.log("toc");
   let innerWidth;
+  let scrollY;
 </script>
 
-<svelte:window bind:innerWidth />
+<svelte:window bind:innerWidth bind:scrollY />
 
 <div class="grid">
   <header>
-    <div class="header-grid">
-      <div class="header-left">
-        <div class="fade" />
-        <a href="/" rel="internal" class="logo"> visualsvelte </a>
-      </div>
-      <div class="header-centre-left" />
-      <div class="header-right"><button>Support</button></div>
-    </div>
+    <TopNav {innerWidth} {scrollY} {sidebarData} />
   </header>
 
   {#if innerWidth > 800}
@@ -120,99 +114,7 @@
     }
     header {
       width: 100%;
-      background: var(--c-darkgray);
-      height: 60px;
-
-      .header-grid {
-        // position: fixed;
-        top: 0px;
-        border-bottom: gray 1px solid;
-        max-width: 1200px;
-        min-width: 300px;
-        display: grid;
-        height: 60px;
-        width: 100%;
-        color: white !important;
-        @media (max-width: 600px) {
-          grid-template-columns: 150px auto 150px;
-        }
-
-        grid-template-columns: 200px auto 200px;
-        grid-template-columns: 200px auto 200px;
-
-        .header-right {
-          padding-left: 10px;
-          button {
-            box-shadow: 2px -2px 0 0 var(--c-green);
-            border: none;
-            background-color: var(--c-white);
-            padding: 10px 20px;
-            margin-left: 20%;
-            opacity: 0.9;
-            transition: all 0.5s;
-            cursor: pointer;
-            @media (max-width: 600px) {
-            }
-
-            &:hover {
-              opacity: 1;
-              box-shadow: 4px -4px 0 0 var(--c-green);
-            }
-          }
-        }
-
-        .header-left,
-        .header-centre-left,
-        .header-centre-right,
-        .header-right {
-          grid-row: 1;
-          display: flex;
-          align-self: center;
-        }
-
-        .header-left,
-        .header-centre-right {
-          margin-right: 5px; // text-align: end;
-          color: white;
-          margin-left: 20px;
-
-          a {
-            width: 150px;
-            text-align: start;
-            // margin-left: 40px;
-            @media (min-width: 600px) {
-              margin-right: 20px;
-            }
-
-            font-size: 2em;
-            // color: white;
-            color: var(--c-gray);
-            text-shadow: 1px -1px var(--c-black);
-            transition: color 0.3s;
-            text-decoration: none;
-            @media (max-width: 500px) {
-              font-size: 1em;
-            }
-
-            &:hover {
-              color: var(--c-white);
-            }
-          }
-        }
-
-        .header-centre-left,
-        .header-right {
-          margin-left: 5px;
-          justify-self: start;
-        }
-        .header-centre-right {
-          button {
-            margin-right: 10px;
-            background-color: transparent;
-            border: none;
-          }
-        }
-      }
+      height: 100px;
     }
   }
 

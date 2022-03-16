@@ -11,7 +11,6 @@
   });
 </script>
 
-<h1>Visual Svelte</h1>
 <p>
   An educational site providing code and examples of great data visualizations
   and visual journalism with <a href="https://kit.svelte.dev/">SvelteKit</a>.

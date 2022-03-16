@@ -6,22 +6,24 @@
 
   import Icon from "$components/helpers/Icon.svelte";
   export let data;
+  export let dark = false;
   let localData = data;
   function openTree(i, j) {
     localData[i].children[j].expanded = !localData[i].children[j].expanded;
   }
 </script>
 
+<div style={dark ? "color:var(--c-white)" : "color:var(--c-darkgray)"} />
 {#each localData as l1, i}
   <h5>{l1.data}</h5>
   {#each l1.children as l2, j}
     <p class:current={l2 == "Full API"} on:click={() => openTree(i, j)}>
       <Icon
         name="triangle"
-        fill="var(--c-darkgray)"
+        fill={dark ? "var(--c-white)" : "var(--c-darkgray)"}
         width="8px"
         height="8px"
-        stroke="var(--c-darkgray)"
+        stroke={dark ? "var(--c-white)" : "var(--c-darkgray)"}
         direction={localData[i].children[j].expanded ? "s" : "e"}
       />
       {l2.data}
@@ -54,7 +56,7 @@
     min-width: 100px;
     // padding: px 50px 5px 20px;
     background-color: transparent;
-
+    list-style-type: none;
     margin-left: 10px;
     button {
       padding: 7px 10px;
@@ -64,7 +66,7 @@
       width: 100%;
       display: block;
       text-decoration: none;
-      color: var(--c-darkgray);
+
       opacity: 0.7;
       text-align: left;
       background-color: transparent;
