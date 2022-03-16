@@ -4,13 +4,16 @@
   export let name;
   export let direction = "n";
   export let width = "1em";
+  export let fill;
   export let height = "1em";
   export let stroke = undefined;
+
   export let strokeWidth = undefined;
   $: icon = feather.icons[name];
   $: rotation = directions.indexOf(direction) * 45;
   $: if (icon) {
     if (stroke) icon.attrs["stroke"] = stroke;
+    if (fill) icon.attrs["fill"] = fill;
     if (strokeWidth) icon.attrs["stroke-width"] = strokeWidth;
   }
 </script>
@@ -32,5 +35,6 @@
     height: 1em;
     overflow: visible;
     transform-origin: 50% 50%;
+    transition: all 0.3s;
   }
 </style>

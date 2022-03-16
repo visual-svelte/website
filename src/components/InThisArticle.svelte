@@ -1,63 +1,97 @@
 <script>
-  import { tableOfContents } from "$stores/post.js";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
+  import { goto } from "$app/navigation";
+
   const current = tweened(0, {
     duration: 400,
     easing: cubicOut,
   });
 
-  $: $tableOfContents,
-    current.set($tableOfContents.findIndex((element) => element.bool));
+  export let tableOfContents;
+
+  $: tableOfContents,
+    current.set(tableOfContents.findIndex((element) => element.bool));
 </script>
 
-<div>
-  <p class="heading">IN THIS ARTICLE</p>
-  <svg class="shadow" xmlns="http://www.w3.org/2000/svg">
+<div class="container">
+  <h5 class="heading">IN THIS ARTICLE</h5>
+  <svg height="200" class="shadow" xmlns="http://www.w3.org/2000/svg">
     <!-- Simple rectangle -->
     <rect
-      style="transform: translateY({$current * 30}px)"
+      style="transform: translateY({$current * 35 + 5}px)"
       width="8"
       height="20"
       fill="var(--c-darkgr"
     />
   </svg>
-  {#each $tableOfContents as toc, i}
-    <p class:active={$current === i}>
-      <a href="#{toc.id}">{toc.title}</a>
-    </p>
+  {#each tableOfContents as toc, i}
+    <li class:current={$current === i}>
+      <button
+        on:click={() => {
+          goto("#" + toc.id);
+        }}>{toc.title}</button
+      >
+      <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
+    </li>
   {/each}
 </div>
 
 <style lang="scss">
-  div {
+  .container {
     .heading {
       margin-left: 0px;
       margin-bottom: 5px;
     }
-    margin-top: 20px;
+    height: 100px;
+
     padding-left: 0px;
-    position: fixed;
-    top: 80px;
+    @media (min-width: 1200px) {
+      position: sticky;
+      top: 20px;
+    }
+
     svg {
       transition: all 1s;
       position: absolute;
       margin-top: 2px;
     }
-    p {
-      position: relative;
-      height: 30px;
-      margin: 0;
-      margin-left: 25px;
-      transition: 0.2s all ease-in-out;
-      a {
-        min-width: 100px;
-        color: var(--c-darkgray);
+    li {
+      list-style-type: none;
+
+      min-width: 100px;
+      // padding: px 50px 5px 20px;
+      background-color: transparent;
+
+      margin-left: 10px;
+      button {
+        padding: 7px 10px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        height: 100%;
+        width: 100%;
+        display: block;
         text-decoration: none;
+        color: var(--c-darkgray);
+        opacity: 0.7;
+        text-align: left;
+        background-color: transparent;
+        border: none;
+        font-family: "Consola";
       }
-      &.active {
-        //   transform: translateX(-5px);
-        color: var(--c-black);
+
+      &.current {
+        button {
+          font-weight: 600;
+          opacity: 1;
+        }
+        cursor: default;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+      &:hover {
+        background-color: rgba(119, 227, 35, 0.15);
       }
     }
   }
@@ -65,5 +99,10 @@
     -webkit-filter: drop-shadow(2px -2px 0 var(--c-green));
     filter: drop-shadow(2px -2px 0 var(--c-green));
     /* Similar syntax to box-shadow */
+  }
+  h5 {
+    font-size: 1.2rem;
+
+    text-transform: uppercase;
   }
 </style>

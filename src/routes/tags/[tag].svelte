@@ -1,21 +1,23 @@
 <script context="module">
-  import CMS from "$data/cms";
+  import d3CMS from "$data/cms";
 
   export async function load(ctx) {
     let slug = ctx.url.pathname;
 
     const tag_id = slug.split("/").pop();
 
-    const content = CMS.filter(
-      (records) => records.published && records.keywords.includes(tag_id)
-    ).map((post) => {
-      return {
-        id: post.primary_key,
-        thumbnail: post.thumbnail,
-        title: post.post_title,
-        keywords: post.keywords,
-      };
-    });
+    const content = d3CMS
+      .filter(
+        (records) => records.published && records.keywords.includes(tag_id)
+      )
+      .map((post) => {
+        return {
+          id: post.primary_key,
+          thumbnail: post.thumbnail,
+          title: post.post_title,
+          keywords: post.keywords,
+        };
+      });
     //implement the search of the pageContent database with the primaryKey
     return { props: { content, tag_id } };
   }

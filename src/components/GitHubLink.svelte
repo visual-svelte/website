@@ -13,7 +13,7 @@
   div {
     background-color: rgba(119, 227, 35, 0.15);
     margin: 40px 0;
-    height: 40px;
+    /* height: 40px; */
 
     border-radius: 20px;
     padding: 20px;

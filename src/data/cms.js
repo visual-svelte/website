@@ -1,12 +1,12 @@
 import AxisSimple from "$components/d3/AxisSimple.svelte";
 import AxisDifferent from "$components/d3/AxisDifferent.svelte";
 
-let CMS = [
+let d3CMS = [
   {
     primary_key: "d3-axis",
     published: "2022-03-13",
     post_title: "Implementing D3 Axis in SvelteKit",
-    thumbnail: "d3-axis.jpg",
+    thumbnail: "images/graph.png",
     keywords: ["d3", "axis"],
     intro_text:
       "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
@@ -588,4 +588,4 @@ let CMS = [
   },
 ];
 
-export default CMS;
+export default d3CMS;

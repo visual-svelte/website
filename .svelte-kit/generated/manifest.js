@@ -3,7 +3,7 @@ const c = [
 	() => import("..\\runtime\\components\\error.svelte"),
 	() => import("..\\..\\src\\routes\\index.svelte"),
 	() => import("..\\..\\src\\routes\\about.svelte"),
-	() => import("..\\..\\src\\routes\\tags\\[slug].svelte"),
+	() => import("..\\..\\src\\routes\\tags\\[tag].svelte"),
 	() => import("..\\..\\src\\routes\\d3\\index.svelte"),
 	() => import("..\\..\\src\\routes\\d3\\other\\gotchas.svelte"),
 	() => import("..\\..\\src\\routes\\d3\\api\\index.svelte"),
@@ -19,8 +19,8 @@ export const routes = [
 	// src/routes/about.svelte
 	[/^\/about\/?$/, [c[0], c[3]], [c[1]]],
 
-	// src/routes/tags/[slug].svelte
-	[/^\/tags\/([^/]+?)\/?$/, [c[0], c[4]], [c[1]], (m) => ({ slug: d(m[1])})],
+	// src/routes/tags/[tag].svelte
+	[/^\/tags\/([^/]+?)\/?$/, [c[0], c[4]], [c[1]], (m) => ({ tag: d(m[1])})],
 
 	// src/routes/d3/index.svelte
 	[/^\/d3\/?$/, [c[0], c[5]], [c[1]]],

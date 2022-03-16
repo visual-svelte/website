@@ -1,7 +1,7 @@
 <script>
-  import CMS from "$data/cms";
+  import d3CMS from "$data/cms";
   import SimplePostCard from "$components/SimplePostCard.svelte";
-  $: filteredData = CMS.map((post) => {
+  $: filteredData = d3CMS.map((post) => {
     return {
       id: post.primary_key,
       thumbnail: post.thumbnail,
@@ -34,6 +34,18 @@
 
 <!-- <CrossfadeDemo /> -->
 
-{#each filteredData as post}
-  <SimplePostCard data={post} />
-{/each}
+<div class="post-gallery">
+  {#each filteredData as post}
+    <SimplePostCard data={post} />
+  {/each}
+</div>
+
+<style lang="scss">
+  .post-gallery {
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+  }
+</style>

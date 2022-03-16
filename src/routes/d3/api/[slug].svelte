@@ -1,10 +1,10 @@
 <script context="module">
-  import CMS from "$data/cms";
+  import d3CMS from "$data/cms";
 
   export async function load(ctx) {
     let slug = ctx.url.pathname;
     const primaryKey = slug.split("/").pop();
-    const content = CMS.find((record) => record.primary_key == primaryKey);
+    const content = d3CMS.find((record) => record.primary_key == primaryKey);
     //implement the search of the pageContent database with the primaryKey
     return { props: { content } };
   }
