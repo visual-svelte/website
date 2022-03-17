@@ -18,7 +18,7 @@
 <script>
   export let sidebarData;
   // export let articleData;
-
+  import Footer from "$components/Footer.svelte";
   import InThisArticle from "$components/InThisArticle.svelte";
   import SideNavbar from "$components/SideNavbar.svelte";
   import TopNav from "$components/TopNav.svelte";
@@ -61,7 +61,9 @@
         <InThisArticle tableOfContents={$tableOfContents} />
       {/if}{/key}
   </aside>
-  <footer />
+  <footer>
+    <Footer />
+  </footer>
 </div>
 
 <style lang="scss">
@@ -114,7 +116,7 @@
     }
     header {
       width: 100%;
-      height: 100px;
+      height: 90px;
     }
   }
 

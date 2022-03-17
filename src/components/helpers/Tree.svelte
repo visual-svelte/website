@@ -29,12 +29,16 @@
       {l2.data}
     </p>
     {#if localData[i].children[j].expanded}
-      {#each l2.children as link}
-        <li class:current={link.href == $page.params.slug} transition:slide>
-          <button on:click={goto(link.href)}>{link.title}</button>
-          <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
-        </li>
-      {/each}
+      {#if l2.children}
+        {#each l2.children as link}
+          <li class:current={link.href == $page.params.slug} transition:slide>
+            <button on:click={goto(link.href)}>{link.title}</button>
+            <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
+          </li>
+        {/each}
+      {:else}
+        <li>Nothing yet!</li>
+      {/if}
     {/if}
   {/each}
 {/each}

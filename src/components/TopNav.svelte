@@ -6,6 +6,10 @@
   export let innerWidth;
   export let scrollY;
   import { fly } from "svelte/transition";
+  import { googleLight } from "svelte-highlight/src/styles";
+  import Icon from "$components/helpers/Icon.svelte";
+  import ActionButton from "$components/helpers/ActionButton.svelte";
+  import Logo from "$components/helpers/Logo.svelte";
 
   export let sidebarData;
   let showHideMenu = false;
@@ -17,22 +21,35 @@
 <div class="container">
   <div class="header-grid">
     <div class="header-left">
-      <button class="logo"> visualsvelte </button>
+      <Logo />
     </div>
     <div class="header-centre" />
-    <div class="header-right"><button>Support</button></div>
+    <div class="header-right">
+      <ActionButton text="Support" href="/support" />
+    </div>
     {#if innerWidth < 800}
       <div class="toolbar" class:fixed={scrollY > 60}>
         <div>
           <Breadcrumb path={$page.url.pathname} />
         </div>
 
-        <button on:click={revealMenu}>Menu</button>
+        <button class="menu" on:click={revealMenu}>
+          <span
+            ><Icon
+              name="triangle"
+              fill={"var(--c-white)"}
+              width="8px"
+              height="8px"
+              stroke={"var(--c-white)"}
+              direction={"e"}
+            /> Menu
+          </span>
+        </button>
       </div>{/if}
   </div>
 </div>
 {#if showHideMenu}
-  <div class="mobile-menu" transition:fly={{ x: 100 }}>
+  <div class="mobile-menu" transition:fly={{ y: -50 }}>
     <button on:click={revealMenu}>Close</button>
     <div>
       <Tree data={sidebarData} dark={true} />
@@ -43,7 +60,8 @@
 <style lang="scss">
   .container {
     // background: var(--c-darkgray);
-    height: 100%;
+
+    height: 90px;
     width: 100%;
     .header-grid {
       display: grid;
@@ -87,10 +105,10 @@
         &.fixed {
           position: fixed;
         }
-        button {
+        .menu {
           justify-self: end !important;
           font-size: 0.9rem;
-
+          display: inline-block;
           border: none;
           background: transparent;
           margin-right: 20px;
@@ -106,31 +124,6 @@
         padding-left: 10px;
 
         display: flex;
-        .logo {
-          border: none;
-          background-color: transparent;
-          font-family: Consolas;
-          width: 150px;
-          //   text-align: start;
-          //   // margin-left: 40px;
-          //   @media (min-width: 600px) {
-          //     margin-right: 20px;
-          //   }
-
-          font-size: 1.5rem;
-          //   // color: white;
-          color: var(--c-gray);
-          text-shadow: 1px -1px var(--c-black);
-          //   transition: color 0.3s;
-          //   text-decoration: none;
-          //   @media (max-width: 500px) {
-          //     font-size: 1em;
-          //   }
-
-          //   &:hover {
-          //     color: var(--c-white);
-          //   }
-        }
       }
       .header-centre {
         grid-area: "hc";
@@ -142,25 +135,6 @@
         justify-content: end;
         padding-right: 20px;
         //     align-self: center;
-
-        button {
-          align-self: center;
-
-          box-shadow: 2px -2px 0 0 var(--c-green);
-          border: none;
-          background-color: var(--c-white);
-          padding: 10px 20px;
-          opacity: 0.9;
-          transition: all 0.5s;
-          cursor: pointer;
-          @media (max-width: 600px) {
-          }
-
-          &:hover {
-            opacity: 1;
-            box-shadow: 4px -4px 0 0 var(--c-green);
-          }
-        }
       }
     }
 

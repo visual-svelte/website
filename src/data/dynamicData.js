@@ -18,10 +18,7 @@ let sidebarData = [
       {
         data: "Examples/ Recipes",
         expanded: false,
-        children: [
-          { title: "Grand Child 1", href: "/" },
-          { title: "Grand Child 1", href: "/" },
-        ],
+        children: [],
       },
     ],
   },

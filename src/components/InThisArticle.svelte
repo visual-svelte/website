@@ -19,7 +19,7 @@
   <svg height="200" class="shadow" xmlns="http://www.w3.org/2000/svg">
     <!-- Simple rectangle -->
     <rect
-      style="transform: translateY({$current * 35 + 5}px)"
+      style="transform: translateY({$current * 32 + 5}px)"
       width="8"
       height="20"
       fill="var(--c-darkgr"
