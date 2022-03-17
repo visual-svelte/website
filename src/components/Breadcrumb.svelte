@@ -33,7 +33,7 @@
     {#if i == crumbs.length - 1}
       {c.label}
     {:else}
-      <a href={c.href}>{c.label}</a> &gt;&nbsp;
+      <a rel="interal" href={c.href}>{c.label}</a> &gt;&nbsp;
     {/if}
   {/each}
 </div>

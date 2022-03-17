@@ -5,7 +5,12 @@
   export let config;
   import { innerWidth } from "$stores/screen";
   $: svg_width = $innerWidth * 0.8 > 600 ? 600 : $innerWidth * 0.8;
-  $: svg_height = $innerWidth * 0.5 > 400 ? 400 : $innerWidth * 0.5;
+  $: svg_height =
+    $innerWidth * 0.5 > 400
+      ? 400
+      : $innerWidth * 0.5 < 200
+      ? 200
+      : $innerWidth * 0.5;
 
   $: height = svg_height - config.margin * 2;
   $: width = svg_width - config.margin * 2;

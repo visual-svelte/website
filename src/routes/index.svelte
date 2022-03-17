@@ -1,14 +1,16 @@
 <script>
   import d3CMS from "$data/cms";
   import SimplePostCard from "$components/SimplePostCard.svelte";
-  $: filteredData = d3CMS.map((post) => {
-    return {
-      id: post.primary_key,
-      thumbnail: post.thumbnail,
-      title: post.post_title,
-      keywords: post.keywords,
-    };
-  });
+  $: filteredData = d3CMS
+    .filter((d) => d.published)
+    .map((post) => {
+      return {
+        id: post.primary_key,
+        thumbnail: post.thumbnail,
+        title: post.post_title,
+        keywords: post.keywords,
+      };
+    });
 </script>
 
 <p>

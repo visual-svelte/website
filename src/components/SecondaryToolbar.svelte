@@ -4,6 +4,8 @@
   import { showHideMenu } from "$stores/menu";
   import { fly } from "svelte/transition";
   import { goto } from "$app/navigation";
+  $: home = $page.url.pathname == "/";
+
   function revealMenu() {
     $showHideMenu = !$showHideMenu;
   }
@@ -23,8 +25,10 @@
 
 <div class="container">
   <div>
-    {#if !$showHideMenu}
-      <Breadcrumb path={$page.url.pathname} expanded={$showHideMenu} />
+    {#if !home && !$showHideMenu}
+      <div transition:fly={{ x: -300 }}>
+        <Breadcrumb path={$page.url.pathname} expanded={$showHideMenu} />
+      </div>
     {/if}
   </div>
 
@@ -50,13 +54,14 @@
 <style lang="scss">
   .container {
     display: grid;
-    grid-template-columns: auto 100px;
+    grid-template-columns: auto 80px;
     border-top: 1px solid rgba(223, 223, 223, 0.3);
     // border-bottom: 1px solid var(--c-gray);
     .menu-button {
       align-self: start;
       font-size: 0.9rem;
-      padding: 6px;
+      padding: 9px 0px;
+
       border: none;
       background: transparent;
 

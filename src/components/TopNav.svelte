@@ -23,9 +23,8 @@
       <ActionButton text="Support" href="/support" />
     </div>
 
-    {#if $innerWidth < 800 && home}
+    {#if $innerWidth < 800}
       <div
-        transition:fly={{ x: -300 }}
         class="toolbar"
         class:expanded={$showHideMenu}
         class:fixed={scrollY > 60}
@@ -48,11 +47,12 @@
     .header-grid {
       display: grid;
       background-color: var(--c-darkgray);
-
+      // height: 60px;
       grid-template-areas:
         "hl hc hr"
         "tb tb tb";
-      grid-template-rows: 60px 40px;
+      height: 90px;
+      grid-template-rows: 60px auto;
 
       @media (max-width: 800px) {
         grid-template-columns: minmax(120px, 200px) auto minmax(120px, 200px);
@@ -69,15 +69,12 @@
       }
       display: intital;
       .toolbar {
-        padding: 5px 10px;
-
-        min-height: 30px;
+        height: 40px;
         align-self: start;
         position: relative;
         top: 0px;
         z-index: 10;
         grid-area: tb;
-        height: 20px;
         background-color: var(--c-darkgray);
         width: 100%;
 
