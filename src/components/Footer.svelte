@@ -24,7 +24,7 @@
     </p>
   </div>
   <div class="support">
-    <ActionButton text="Support (for free)" href="/support" />
+    <ActionButton text="Support" href="/support" />
   </div>
 </div>
 

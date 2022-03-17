@@ -4,3 +4,9 @@
 </p>
 
 <p>Want to be informed when it is released. sign up to our mailing list.</p>
+
+<style>
+  p {
+    overflow: wrap;
+  }
+</style>

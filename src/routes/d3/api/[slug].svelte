@@ -80,7 +80,9 @@
 
         <Tabs>
           <div slot="tab1">
-            <svelte:component this={comp.component} config={comp.props} />
+            <div class="svg-container">
+              <svelte:component this={comp.component} config={comp.props} />
+            </div>
           </div>
           <div slot="tab2">
             <CodeVisual compid={comp.id} />
@@ -92,10 +94,17 @@
 {/if}
 
 <style>
+  p {
+    font-size: 0.9rem;
+    /* text-overflow: wrap; */
+  }
   .topone {
     height: 600px;
   }
   .scroll {
     position: fixed;
+  }
+  .svg-container {
+    overflow-y: scroll;
   }
 </style>

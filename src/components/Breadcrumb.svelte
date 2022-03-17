@@ -1,5 +1,6 @@
 <script>
   export let path;
+  export let expanded;
   import Icon from "$components/helpers/Icon.svelte";
   let crumbs;
   import { page } from "$app/stores";
@@ -21,17 +22,12 @@
     });
 
     // // Add a way to get home too.
-    // crumbs.unshift({ label: "home", href: "/" });
+    crumbs.unshift({ label: "Home", href: "/" });
   }
 </script>
 
 <div>
-  {#if home}
-    <span>
-      <Icon name="home" width="20px" height="20px" stroke="var(--c-darkgray)" />
-      &gt;&nbsp;
-    </span>
-  {/if}
+  {#if home}{/if}
 
   {#each crumbs as c, i}
     {#if i == crumbs.length - 1}
@@ -44,10 +40,10 @@
 
 <style lang="scss">
   div {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     align-content: center;
     color: var(--c-white);
-    padding: 2px 5px;
+    padding: 10px 5px;
     span {
       color: var(--c-white);
 

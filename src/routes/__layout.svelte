@@ -17,28 +17,27 @@
 
 <script>
   export let sidebarData;
-  // export let articleData;
   import Footer from "$components/Footer.svelte";
   import InThisArticle from "$components/InThisArticle.svelte";
   import SideNavbar from "$components/SideNavbar.svelte";
   import TopNav from "$components/TopNav.svelte";
   import { tableOfContents } from "$stores/post.js";
   console.log("toc");
-  let innerWidth;
   let scrollY;
+  import { innerWidth } from "$stores/screen";
 </script>
 
-<svelte:window bind:innerWidth bind:scrollY />
+<svelte:window bind:innerWidth={$innerWidth} bind:scrollY />
 
 <div class="grid">
   <header>
-    <TopNav {innerWidth} {scrollY} {sidebarData} />
+    <TopNav {scrollY} {sidebarData} />
   </header>
 
-  {#if innerWidth > 800}
+  {#if $innerWidth > 800}
     <aside class="sidebar-left">
       {#if $tableOfContents.length}
-        {#key innerWidth}
+        {#key $innerWidth}
           <SideNavbar {sidebarData}>
             <InThisArticle tableOfContents={$tableOfContents} />
           </SideNavbar>
@@ -56,8 +55,8 @@
   </article>
 
   <aside class="sidebar-right">
-    {#key innerWidth}
-      {#if $tableOfContents.length && innerWidth >= 1200}
+    {#key $innerWidth}
+      {#if $tableOfContents.length && $innerWidth >= 1200}
         <InThisArticle tableOfContents={$tableOfContents} />
       {/if}{/key}
   </aside>
@@ -96,9 +95,9 @@
       grid-template-columns: 250px 700px 300px;
     }
 
-    // @media (max-width: 600px) {
-    //   grid-template-columns: 1px 300px 1px;
-    // }
+    @media (max-width: 600px) {
+      grid-template-columns: 1px auto 1px;
+    }
 
     .sidebar-left {
       background: linear-gradient(
@@ -158,8 +157,8 @@
     padding: 10px 20px;
   }
   #content {
-    min-width: 100%;
     position: relative;
+    max-width: 90vw;
   }
   .secondary-header {
     position: relative;

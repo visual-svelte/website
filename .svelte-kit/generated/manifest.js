@@ -1,6 +1,6 @@
 const c = [
 	() => import("..\\..\\src\\routes\\__layout.svelte"),
-	() => import("..\\runtime\\components\\error.svelte"),
+	() => import("..\\..\\src\\routes\\__error.svelte"),
 	() => import("..\\..\\src\\routes\\index.svelte"),
 	() => import("..\\..\\src\\routes\\about.svelte"),
 	() => import("..\\..\\src\\routes\\tags\\[tag].svelte"),

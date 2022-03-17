@@ -2,12 +2,13 @@
   export let sidebarData;
   import Tree from "$components/helpers/Tree.svelte";
   let hideShow = true;
+  import { innerWidth } from "$stores/screen";
 </script>
 
 {#if hideShow}
   <div class="container">
     <ul>
-      {#if innerWidth < 1200}
+      {#if $innerWidth < 1200}
         <li>
           <slot />
         </li>

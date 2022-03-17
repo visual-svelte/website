@@ -3,9 +3,14 @@
   let canvas;
   import * as d3 from "d3";
   export let config;
-  $: height = config.svg_height - config.margin * 2;
-  $: width = config.svg_width - config.margin * 2;
+  import { innerWidth } from "$stores/screen";
+  $: svg_width = $innerWidth * 0.8 > 600 ? 600 : $innerWidth * 0.8;
+  $: svg_height = $innerWidth * 0.5 > 400 ? 400 : $innerWidth * 0.5;
 
+  $: height = svg_height - config.margin * 2;
+  $: width = svg_width - config.margin * 2;
+
+  // $: $innerWidth, redraw(false);
   $: x = d3
     .scaleLinear()
     .domain([0, 100]) // This is what is written on the Axis: from 0 to 100
@@ -16,12 +21,16 @@
     .domain([100, 0]) // This is what is written on the Axis: from 0 to 100
     .range([100, height]); // This is where the axis is placed: from 100px to 800px
 
-  onMount(() => {
+  function redraw(intial) {
+    // if (!intial) {
+    //   d3.selectAll("svg").remove();
+    // }
+
     var svg = d3
       .select(canvas)
       .append("svg")
-      .attr("width", config.svg_width)
-      .attr("height", config.svg_height);
+      .attr("width", svg_width)
+      .attr("height", svg_height);
     svg
       .append("g")
       .attr(
@@ -34,6 +43,9 @@
       .append("g")
       .attr("transform", `translate(${config.margin},${-config.margin})`)
       .call(d3.axisLeft(y).ticks(height / 60));
+  }
+  onMount(() => {
+    redraw(true);
   });
 </script>
 

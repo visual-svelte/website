@@ -16,7 +16,7 @@ let d3CMS = [
         title: "Simple D3 Axis",
         notes:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: { margin: 40, svg_height: 300, svg_width: 400 },
+        props: { margin: 40, svg_height: 300, svg_width: 300 },
         component: AxisSimple,
       },
       {
