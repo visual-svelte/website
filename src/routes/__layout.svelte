@@ -22,7 +22,6 @@
   import SideNavbar from "$components/SideNavbar.svelte";
   import TopNav from "$components/TopNav.svelte";
   import { tableOfContents } from "$stores/post.js";
-  console.log("toc");
   let scrollY;
   import { innerWidth } from "$stores/screen";
 </script>

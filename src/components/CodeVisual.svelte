@@ -5,6 +5,8 @@
   import { fly } from "svelte/transition";
   import { HighlightSvelte } from "svelte-highlight";
   import github from "svelte-highlight/src/styles/github";
+  import ActionButton from "./helpers/ActionButton.svelte";
+  import Copy2Clipboard from "./helpers/Copy2Clipboard.svelte";
 
   $: url = `https://api.github.com/repos/visual-svelte/website/contents/src/components/d3/${compid}.svelte`;
 
@@ -22,25 +24,16 @@
   onMount(async () => {
     promise = fetchCode();
   });
-
-  function copyCode(code) {
-    navigator.clipboard.writeText(code);
-
-    /* Alert the copied text */
-    alert("Copied to clipboard!");
-  }
 </script>
 
 {#await promise}
   Loading ...
 {:then code}
-  <button on:click={copyCode(atob(code.content))}>Copy Code to Clipboard</button
-  >
+  <Copy2Clipboard content={code.content} />
   <div transition:fly={{ x: -50, duration: 300 }}>
     <HighlightSvelte code={atob(code.content)} />
   </div>
-  <button on:click={copyCode(atob(code.content))}>Copy Code to Clipboard</button
-  >
+  <Copy2Clipboard content={code.content} />
 {/await}
 
 <svelte:head>

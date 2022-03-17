@@ -1,6 +1,7 @@
 <script>
   import Logo from "$components/helpers/Logo.svelte";
   import ActionButton from "$components/helpers/ActionButton.svelte";
+  import { goto } from "$app/navigation";
 </script>
 
 <div class="container">

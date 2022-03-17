@@ -6,16 +6,16 @@
   import { innerWidth } from "$stores/screen";
   $: svg_width = $innerWidth * 0.8 > 600 ? 600 : $innerWidth * 0.8;
   $: svg_height =
-    $innerWidth * 0.5 > 400
-      ? 400
-      : $innerWidth * 0.5 < 200
-      ? 200
+    $innerWidth * 0.5 > 450
+      ? 450
+      : $innerWidth * 0.5 < 300
+      ? 300
       : $innerWidth * 0.5;
 
   $: height = svg_height - config.margin * 2;
   $: width = svg_width - config.margin * 2;
 
-  // $: $innerWidth, redraw(false);
+  $: $innerWidth, console.log("hello");
   $: x = d3
     .scaleLinear()
     .domain([0, 100]) // This is what is written on the Axis: from 0 to 100

@@ -1,5 +1,6 @@
 <script>
   import ActionButton from "$components/helpers/ActionButton.svelte";
+  import { goto } from "$app/navigation";
 </script>
 
 <div>
