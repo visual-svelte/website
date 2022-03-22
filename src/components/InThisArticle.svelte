@@ -2,6 +2,12 @@
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   import { goto } from "$app/navigation";
+  import handleAnchorClick from "$utils/handleAnchorClick";
+
+  function handleClick(id, event) {
+    goto("#" + id);
+    handleAnchorClick(event);
+  }
 
   const current = tweened(0, {
     duration: 400,
@@ -27,11 +33,7 @@
   </svg>
   {#each tableOfContents as toc, i}
     <li class:current={$current === i}>
-      <button
-        on:click={() => {
-          goto("#" + toc.id);
-        }}>{toc.title}</button
-      >
+      <a href="#{toc.id}" on:click={handleAnchorClick}>{toc.title}</a>
       <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
     </li>
   {/each}
@@ -66,7 +68,7 @@
       background-color: transparent;
 
       margin-left: 10px;
-      button {
+      a {
         padding: 7px 10px;
         cursor: pointer;
         font-size: 1rem;
@@ -83,7 +85,7 @@
       }
 
       &.current {
-        button {
+        a {
           font-weight: 600;
           opacity: 1;
         }

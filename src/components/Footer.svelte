@@ -39,17 +39,22 @@
     // height: 200px;
     background-color: var(--c-darkgray);
 
-    @media all and (max-width: 600px) {
-      .logo,
-      .writing,
-      .support {
-        grid-column: 1 / 4;
-      }
-    }
     .logo,
     .support,
     .writing {
       padding: 30px;
+    }
+
+    @media all and (max-width: 700px) {
+      .logo,
+      .writing,
+      .support {
+        grid-column: 1 / 4;
+        padding: 15px;
+      }
+      .container {
+        padding: 15px 0px;
+      }
     }
 
     .writing {
@@ -64,6 +69,11 @@
           color: var(--c-green);
         }
       }
+    }
+  }
+  @media all and (max-width: 700px) {
+    .container {
+      padding: 10px 0px;
     }
   }
 </style>

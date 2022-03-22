@@ -61,20 +61,6 @@
     // margin-left: 10px;
     // background-color: pink;
 
-    &::-webkit-scrollbar {
-      width: 0.5em;
-      height: 0.5em;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 3px;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-    }
-
     position: relative;
     svg {
       padding: 0;
