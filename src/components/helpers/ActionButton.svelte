@@ -6,7 +6,7 @@
   import { goto } from "$app/navigation";
 </script>
 
-<button on:click={() => goto(href)}>{text}}</button>
+<button on:click={() => goto(href)}>{text}</button>
 
 <style lang="scss">
   button {

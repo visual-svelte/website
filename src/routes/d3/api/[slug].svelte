@@ -71,7 +71,7 @@
     </div>
     {#each components as comp, i}
       <div id={comp.id} class="container step" class:active={scrollValue === i}>
-        <h2>
+        <h2 class="subheading">
           {comp.title}
         </h2>
         <p>
@@ -93,10 +93,15 @@
   </Scrolly>
 {/if}
 
-<style>
+<style lang="scss">
   p {
     font-size: 0.9rem;
     /* text-overflow: wrap; */
+  }
+  .subheading {
+    margin-top: 5rem;
+    padding-top: 20px;
+    border-top: 1px solid rgba(119, 227, 35, 0.55);
   }
   .topone {
     height: 600px;
@@ -106,5 +111,18 @@
   }
   .svg-container {
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0.5em;
+      height: 0.5em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
   }
 </style>

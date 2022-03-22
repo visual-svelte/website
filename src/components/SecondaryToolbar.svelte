@@ -26,7 +26,7 @@
 <div class="container">
   <div>
     {#if !home && !$showHideMenu}
-      <div transition:fly={{ x: -300 }}>
+      <div class="bread" transition:fly={{ x: -300 }}>
         <Breadcrumb path={$page.url.pathname} expanded={$showHideMenu} />
       </div>
     {/if}
@@ -52,6 +52,9 @@
 </div>
 
 <style lang="scss">
+  .bread {
+    margin-left: 2%;
+  }
   .container {
     display: grid;
     grid-template-columns: auto 80px;

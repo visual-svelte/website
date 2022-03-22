@@ -37,6 +37,7 @@
   .box {
     margin-bottom: 10px;
     max-width: 90%;
+    min-height: 300px;
 
     /* padding: 40px; */
     border: 1px solid #dee2e6;

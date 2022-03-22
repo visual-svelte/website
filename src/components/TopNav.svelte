@@ -1,8 +1,7 @@
 <script>
   import SecondaryToolbar from "$components/SecondaryToolbar.svelte";
   import MobileMenu from "$components/MobileMenu.svelte";
-  import { innerWidth } from "$stores/screen";
-  export let scrollY;
+  import { innerWidth, scrollY } from "$stores/screen";
   import ActionButton from "$components/helpers/ActionButton.svelte";
   import Logo from "$components/helpers/Logo.svelte";
   import { page } from "$app/stores";
@@ -27,7 +26,7 @@
       <div
         class="toolbar"
         class:expanded={$showHideMenu}
-        class:fixed={scrollY > 60}
+        class:fixed={$scrollY > 60}
       >
         <SecondaryToolbar />
       </div>

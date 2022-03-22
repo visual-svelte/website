@@ -22,15 +22,14 @@
   import SideNavbar from "$components/SideNavbar.svelte";
   import TopNav from "$components/TopNav.svelte";
   import { tableOfContents } from "$stores/post.js";
-  let scrollY;
-  import { innerWidth } from "$stores/screen";
+  import { innerWidth, scrollY } from "$stores/screen";
 </script>
 
-<svelte:window bind:innerWidth={$innerWidth} bind:scrollY />
+<svelte:window bind:innerWidth={$innerWidth} bind:scrollY={$scrollY} />
 
 <div class="grid">
   <header>
-    <TopNav {scrollY} {sidebarData} />
+    <TopNav {sidebarData} />
   </header>
 
   {#if $innerWidth > 800}
