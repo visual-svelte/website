@@ -19,11 +19,6 @@
   import Tabs from "$components/Tabs.svelte";
   import Scrolly from "$components/Scrolly.svelte";
   import { tableOfContents } from "$stores/post.js";
-  import { onDestroy } from "svelte";
-  let errorState = false;
-
-  let scrollValue = 0;
-  let previousValue = 0;
   let titles = content.components.map((comp) => {
     return { id: comp.id, title: comp.title, bool: false };
   });
@@ -32,10 +27,14 @@
     $tableOfContents = titles;
   }
 
+  import { onDestroy } from "svelte";
   onDestroy(() => {
     $tableOfContents = [];
   });
 
+  let errorState = false;
+  let scrollValue = 0;
+  let previousValue = 0;
   function updateStore(newScrollValue) {
     try {
       if (newScrollValue != undefined) {

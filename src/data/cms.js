@@ -6,7 +6,7 @@ let d3CMS = [
     primary_key: "d3-axis",
     published: "2022-03-13",
     post_title: "Implementing D3 Axis in SvelteKit",
-    thumbnail: "images/graph.png",
+    thumbnail: "/images/graph.png",
     keywords: ["d3", "axis"],
     intro_text:
       "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",

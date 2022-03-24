@@ -24,9 +24,7 @@
       >.
     </p>
   </div>
-  <div class="support">
-    <ActionButton text="Support" href="/support" />
-  </div>
+  <div class="support" />
 </div>
 
 <style lang="scss">

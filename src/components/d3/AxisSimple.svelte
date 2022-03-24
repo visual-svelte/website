@@ -27,10 +27,6 @@
     .range([100, height]); // This is where the axis is placed: from 100px to 800px
 
   function redraw(intial) {
-    // if (!intial) {
-    //   d3.selectAll("svg").remove();
-    // }
-
     var svg = d3
       .select(canvas)
       .append("svg")

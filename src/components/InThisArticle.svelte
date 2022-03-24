@@ -4,11 +4,6 @@
   import { goto } from "$app/navigation";
   import handleAnchorClick from "$utils/handleAnchorClick";
 
-  function handleClick(id, event) {
-    goto("#" + id);
-    handleAnchorClick(event);
-  }
-
   const current = tweened(0, {
     duration: 400,
     easing: cubicOut,
@@ -21,9 +16,8 @@
 </script>
 
 <div class="container">
-  <h5 class="heading">IN THIS ARTICLE</h5>
+  <h5 class="heading">On this page</h5>
   <svg height="200" class="shadow" xmlns="http://www.w3.org/2000/svg">
-    <!-- Simple rectangle -->
     <rect
       style="transform: translateY({$current * 32 + 5}px)"
       width="8"
@@ -34,7 +28,6 @@
   {#each tableOfContents as toc, i}
     <li class:current={$current === i}>
       <a href="#{toc.id}" on:click={handleAnchorClick}>{toc.title}</a>
-      <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
     </li>
   {/each}
 </div>

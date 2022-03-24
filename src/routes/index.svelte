@@ -1,6 +1,10 @@
 <script>
+  import Meta from "$components/helpers/Meta.svelte";
   import d3CMS from "$data/cms";
-  import SimplePostCard from "$components/SimplePostCard.svelte";
+  import PostGallery from "$components/PostGallery.svelte";
+  import { page } from "$app/stores";
+  console.log($page);
+  let metadata = { t: "Home | VisualSvelte", d: "", u: $page.url.pathname };
   $: filteredData = d3CMS
     .filter((d) => d.published)
     .map((post) => {
@@ -13,6 +17,7 @@
     });
 </script>
 
+<!-- <Meta {metadata} /> -->
 <p>
   An educational site providing code and examples of great data visualizations
   and visual journalism with <a href="https://kit.svelte.dev/">SvelteKit</a>.
@@ -28,25 +33,9 @@
 </p>
 
 <p>
-  Intially, the focus focus will be on the legendary <a href="https://d3js.org/"
-    >D3.js</a
-  > and how to implement the whole library in SvelteKit
+  Intially, the focus focus will be on the legendary D3.js and how to implement
+  the whole library in SvelteKit.
 </p>
 
 <!-- <CrossfadeDemo /> -->
-
-<div class="post-gallery">
-  {#each filteredData as post}
-    <SimplePostCard data={post} />
-  {/each}
-</div>
-
-<style lang="scss">
-  .post-gallery {
-    justify-items: center;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    margin: 0 auto;
-  }
-</style>
+<PostGallery posts={filteredData} />

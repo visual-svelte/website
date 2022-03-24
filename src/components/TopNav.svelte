@@ -7,7 +7,12 @@
   import { page } from "$app/stores";
   import { showHideMenu } from "$stores/menu";
   import { fly } from "svelte/transition";
+
   $: home = $page.url.pathname !== "/";
+  let loadSecondary = false;
+
+  $: $innerWidth,
+    $innerWidth < 800 ? (loadSecondary = true) : (loadSecondary = false);
 
   export let sidebarData;
 </script>
@@ -22,7 +27,7 @@
       <ActionButton text="Support" href="/support" />
     </div>
 
-    {#if $innerWidth < 800}
+    {#if loadSecondary}
       <div
         class="toolbar"
         class:expanded={$showHideMenu}

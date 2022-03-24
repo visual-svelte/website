@@ -1,19 +1,8 @@
 const aboutData = [
   {
     id: 0,
-    text: "AALorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  },
-  {
-    id: 1,
-    text: "AALorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  },
-  {
-    id: 2,
-    text: "AALorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  },
-  {
-    id: 3,
-    text: "AALorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    title: "About VisualSvelte",
+    text: "Welcome to VisualSvelte - a collection of code and tutorials to help you build cool visual stuff with Svelte. My goal is to make it as easy as possible for you to build wow-generating graphics with Svelte. I will focus on D3.js and Three.js and then see what else takes my fancy!",
   },
 ];
 

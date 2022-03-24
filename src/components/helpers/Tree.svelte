@@ -2,7 +2,6 @@
   import { slide } from "svelte/transition";
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
-  console.log($page);
 
   import Icon from "$components/helpers/Icon.svelte";
   export let data;
@@ -32,7 +31,8 @@
       {#if l2.children}
         {#each l2.children as link}
           <li class:current={link.href == $page.params.slug} transition:slide>
-            <button on:click={goto(link.href)}>{link.title}</button>
+            <button on:click={goto("/d3/api/" + link.href)}>{link.title}</button
+            >
             <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
           </li>
         {/each}
@@ -80,6 +80,8 @@
 
     &.current {
       button {
+        cursor: default;
+
         font-weight: 600;
         opacity: 1;
       }
