@@ -1,0 +1,6 @@
+import * as module from '../entries/pages/tags/_tag_.svelte.js';
+
+export { module };
+export const entry = 'pages/tags/_tag_.svelte-77cdba90.js';
+export const js = ["pages/tags/_tag_.svelte-77cdba90.js","chunks/vendor-36416740.js","chunks/cms-626144c1.js","chunks/screen-d861f768.js","chunks/SimplePostCard-7705477e.js","chunks/navigation-0e6511d1.js","chunks/singletons-d1fb5791.js"];
+export const css = ["assets/pages/tags/_tag_.svelte-ba8e6cdb.css","assets/vendor-8f80d76f.css","assets/cms-60233123.css","assets/SimplePostCard-9d79dca6.css"];
