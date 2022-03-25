@@ -52,6 +52,11 @@
     .writing {
       padding: 30px;
     }
+    .support {
+      a {
+        background: none !important;
+      }
+    }
 
     @media all and (max-width: 700px) {
       .logo,

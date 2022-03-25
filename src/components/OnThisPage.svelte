@@ -13,9 +13,9 @@
     </li>
   {/each}
 </div>
-<!-- 
-{#each points as point}
-  <ul>
-    <li>{point.primary_key}</li>
-  </ul>
-{/each} -->
+
+<style>
+  li {
+    margin-top: 0.5rem;
+  }
+</style>

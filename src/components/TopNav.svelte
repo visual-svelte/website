@@ -57,10 +57,11 @@
   </div>
 </div>
 
-<!-- {#if $showHideMenu}
-  <MobileMenu {sidebarData} />
-{/if} -->
 <style lang="scss">
+  a {
+    background: none !important;
+  }
+
   .container {
     // background: var(--c-darkgray);
     z-index: 16;

@@ -62,6 +62,8 @@
 
       margin-left: 10px;
       a {
+        background: none !important;
+
         padding: 7px 10px;
         cursor: pointer;
         font-size: 1rem;
