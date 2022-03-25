@@ -18,7 +18,7 @@
     { title: "Home", href: "/" },
     { title: "Integrate D3 and SvelteKit", href: "/d3" },
     { title: "About visualsvelte", href: "/about" },
-    { title: "Support", href: "/support" },
+    { title: "💖 Support", href: "https://ko-fi.com/visualsvelte" },
     { title: "Twitter", href: "https://twitter.com/visualsvelte" },
   ];
 </script>

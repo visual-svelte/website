@@ -3,7 +3,6 @@
   import d3CMS from "$data/cms";
   import PostGallery from "$components/PostGallery.svelte";
   import { page } from "$app/stores";
-  console.log($page);
   let metadata = { t: "Home | VisualSvelte", d: "", u: $page.url.pathname };
   $: filteredData = d3CMS
     .filter((d) => d.published)

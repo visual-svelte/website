@@ -59,8 +59,8 @@
 {:else}
   <Scrolly bind:value={scrollValue}>
     <div id="intro" class="intro">
-      <h1>{content.post_title}</h1>
-      <p>{content.intro_text}</p>
+      <h1>{content?.post_title}</h1>
+      <p>{content?.intro_text}</p>
 
       <GitHubLink
         d3module={content.primary_key}
@@ -73,14 +73,14 @@
         <h2 class="subheading">
           {comp.title}
         </h2>
-        <p>
-          {comp.notes}
+        <p class="comp-description">
+          {@html comp.notes}
         </p>
 
         <Tabs>
           <div slot="tab1">
             <div class="svg-container">
-              <svelte:component this={comp.component} config={comp.props} />
+              <svelte:component this={comp.component} />
             </div>
           </div>
           <div slot="tab2">
@@ -102,6 +102,14 @@
     padding-top: 20px;
     border-top: 1px solid rgba(119, 227, 35, 0.55);
   }
+  .comp-description :global(span) {
+    color: blue;
+    font-style: italic;
+    padding: 3px 5px;
+    border-radius: 10px;
+    font-family: monospace;
+  }
+
   .topone {
     height: 600px;
   }

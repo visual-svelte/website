@@ -74,6 +74,28 @@
   * {
     font-family: "Consola";
   }
+  :global(a) {
+    color: var(--c-darkgray);
+    transition: background 0.3s;
+    background: linear-gradient(
+      180deg,
+      transparent 85%,
+      rgba(119, 227, 35, 0.15) 15%
+    );
+    &:focus {
+      color: var(--c-darkgray);
+
+      background: linear-gradient(
+        180deg,
+        transparent 80%,
+        rgba(119, 227, 35, 0.35) 20%
+      );
+    }
+
+    &:hover {
+      background: rgba(119, 227, 35, 0.35);
+    }
+  }
 
   .grid {
     max-width: 1200px;

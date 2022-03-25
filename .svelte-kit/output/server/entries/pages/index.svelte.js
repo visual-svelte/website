@@ -1,5 +1,5 @@
 import { c as create_ssr_component, a as subscribe, v as validate_component } from "../../chunks/index-58574f58.js";
-import { d as d3CMS } from "../../chunks/cms-a4e52834.js";
+import { d as d3CMS } from "../../chunks/cms-12574a25.js";
 import { P as PostGallery } from "../../chunks/PostGallery-c4a250c9.js";
 import { p as page } from "../../chunks/stores-53fa375a.js";
 import "d3";
@@ -10,7 +10,6 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let filteredData;
   let $page, $$unsubscribe_page;
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
-  console.log($page);
   ({
     t: "Home | VisualSvelte",
     d: "",

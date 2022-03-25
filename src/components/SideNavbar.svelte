@@ -35,8 +35,10 @@
     width: 300px;
     position: sticky;
     padding: 10px;
-    top: 20px;
+    top: -20px;
     ul {
+      margin-block-start: 0em;
+
       padding-inline-start: 0px;
       list-style-type: none;
       li {

@@ -21,7 +21,7 @@
 
   // define generator functions for x and y axes
   $: x = d3.scaleLinear().domain([0, 100]).range([0, width]);
-  $: y = d3.scaleLinear().domain([100, 0]).range([100, height]);
+  $: y = d3.scaleLog().domain([10000, 1]).range([100, height]).base(10);
 
   // drawAxis() binds what we generate to the <div bind:this={bindSVGHere} /> DOM element.
   function drawAxis() {
@@ -40,7 +40,12 @@
     svg
       .append("g")
       .attr("transform", `translate(${margin},${-margin})`)
-      .call(d3.axisLeft(y).ticks(height / 60));
+      .call(
+        d3
+          .axisLeft(y)
+          .tickValues([1, 10, 100, 1000, 10000])
+          .tickFormat(d3.format(".2"))
+      );
   }
 
   //Due to SSR, we call drawAxis within the onMount() hook

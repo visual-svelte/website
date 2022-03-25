@@ -3,7 +3,7 @@ export const manifest = {
 	assets: new Set(["dataviz.gif","favicon.png","fonts/CONSOLA.TTF","fonts/CONSOLAB.TTF","fonts/consolai.ttf","fonts/Consolas.ttf","fonts/consolaz.ttf","images/graph.png"]),
 	_: {
 		mime: {".gif":"image/gif",".png":"image/png",".TTF":"font/ttf",".ttf":"font/ttf"},
-		entry: {"file":"start-18c0b518.js","js":["start-18c0b518.js","chunks/vendor-36416740.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-8f80d76f.css"]},
+		entry: {"file":"start-2f93500e.js","js":["start-2f93500e.js","chunks/vendor-238979f0.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-8f80d76f.css"]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),

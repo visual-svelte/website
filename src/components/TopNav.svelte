@@ -24,7 +24,25 @@
     </div>
     <div class="header-centre" />
     <div class="header-right">
-      <ActionButton text="Support" href="/support" />
+      <!-- <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"
+        ><img
+          height="36"
+          style="border:0px;height:36px;"
+          src="https://cdn.ko-fi.com/cdn/kofi4.png?v=3"
+          border="0"
+          alt="Buy Me a Coffee at ko-fi.com"
+        /></a
+      > -->
+      <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"
+        ><img
+          height="36"
+          style="border:0px;height:36px;"
+          src="https://cdn.ko-fi.com/cdn/kofi2.png?v=3"
+          border="0"
+          alt="Buy Me a Coffee at ko-fi.com"
+        /></a
+      >
+      <!-- <ActionButton text="Support" href="/support" /> -->
     </div>
 
     {#if loadSecondary}
@@ -102,6 +120,9 @@
         grid-area: "hc";
       }
       .header-right {
+        a {
+          margin-top: 12px;
+        }
         grid-area: "hr";
         align-content: center;
         display: flex;

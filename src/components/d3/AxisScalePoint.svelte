@@ -4,24 +4,25 @@
   import { innerWidth } from "$stores/screen"; // innerWidth of a Svelte Window saved in a store for covenience
 
   let bindSVGHere;
-  let margin = 50;
+  let margin = 40;
 
   // define dynamically the outer svg width and height based on the screen width
-  $: svg_width = $innerWidth * 0.8 > 500 ? 500 : $innerWidth * 0.8;
+  $: svg_width = $innerWidth * 0.8 > 600 ? 600 : $innerWidth * 0.8;
   $: svg_height =
-    $innerWidth * 0.3 > 500
-      ? 500
-      : $innerWidth * 0.3 < 400
-      ? 400
-      : $innerWidth * 0.3;
+    $innerWidth * 0.5 > 450
+      ? 450
+      : $innerWidth * 0.5 < 300
+      ? 300
+      : $innerWidth * 0.5;
 
   // height and width of the Axes (Svg width/heights minus the margin width on both sides)
-  $: height = svg_height;
+  $: height = svg_height - margin * 2;
   $: width = svg_width - margin * 2;
 
+  let categories = ["Apple", "Banana", "Cherry", "Donut"];
+
   // define generator functions for x and y axes
-  $: x = d3.scaleLinear().domain([0, 100]).range([0, width]);
-  $: y = d3.scaleLinear().domain([100, 0]).range([100, height]);
+  $: x = d3.scalePoint().domain(categories).range([0, width]);
 
   // drawAxis() binds what we generate to the <div bind:this={bindSVGHere} /> DOM element.
   function drawAxis() {
@@ -38,9 +39,10 @@
       .call(d3.axisBottom(x).ticks(width / 60));
 
     svg
-      .append("g")
-      .attr("transform", `translate(${margin},${-margin})`)
-      .call(d3.axisLeft(y).ticks(height / 60));
+      .append("circle")
+      .attr("cx", x("Banana") + margin)
+      .attr("cy", height / 2)
+      .attr("r", 8);
   }
 
   //Due to SSR, we call drawAxis within the onMount() hook

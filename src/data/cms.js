@@ -1,5 +1,8 @@
 import AxisSimple from "$components/d3/AxisSimple.svelte";
-import AxisDifferent from "$components/d3/AxisDifferent.svelte";
+import AxisLog from "$components/d3/AxisLog.svelte";
+import AxisScalePoint from "$components/d3/AxisScalePoint.svelte";
+import AxisScaleBand from "$components/d3/AxisScaleBand.svelte";
+import AxisLabels from "$components/d3/AxisLabels.svelte";
 
 let d3CMS = [
   {
@@ -9,15 +12,43 @@ let d3CMS = [
     thumbnail: "/images/graph.png",
     keywords: ["d3", "axis"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in SvelteKit. Each axis type is similar but implemented slightly differently. The code for each is provided. ",
     components: [
       {
         id: "AxisSimple",
-        title: "Simple D3 Axis",
+        title: "Basic axis - scaleLinear()",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: { margin: 40, svg_height: 300, svg_width: 300 },
+          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. ",
         component: AxisSimple,
+      },
+      {
+        id: "AxisLog",
+        title: "Log scale - scaleLog()",
+        notes:
+          "To create a logarithmic axis, we need to use the <span>scaleLog()</span> generator (see code block below for full example). The rest of the implementation in SvelteKit is the same as the <span class='test'>d3.scaleLinear()</span> example above. <br/><br/> I have also added a <span class='test'>tickFormat()</span> to make it easy for the reader to see that a logarithmic scale is being used.",
+        component: AxisLog,
+      },
+      {
+        id: "AxisScalePoint",
+        title: "Categorical axis - scalePoint()",
+        notes:
+          "Axes for categorical data can be created using either the <span>scalePoint()</span> or the <span>scaleBand()</span> functions. <span>scalePoint()</span> is typically used with points and scatter plots; when the data/visual marker you are plotting does not have a width.<br/><br/><span>scaleBand()</span>(as we see in the next example below) is typically used with bar charts and histograms.",
+        component: AxisScalePoint,
+      },
+      {
+        id: "AxisScaleBand",
+        title: "Categorical (bars) - scaleBand()",
+        notes:
+          "The <span>scaleBand()</span> scale is implemented similarly to the previous <span>scalePoint()</span> but we add <span>.padding([0.5])</span> to the end of the construction chain. <br/><br/> This tells D3 to generate an axis with a bandwidth (retrievable using <span>x.bandwith()</span> where x is what you named your scaleBand(). This can then be passed to the svg rect to dictate the width of the 'bar').",
+        component: AxisScaleBand,
+      },
+
+      {
+        id: "AxisLabels",
+        title: "Axis Labels",
+        notes:
+          "Axis labels can be added by appending a 'text' to the svg that holds our axes (see example code below). Sometimes you will have to manually adjust the positioning to fit margin constraints.<br/><br/>You will notice I've added a custom style to the x-axis label. To do this, I first added a class attribute to the axis label upon creation <span>.attr('class', 'x-axis-label')</span> and then in the style-tags of the Svelte file for your component, add whichever styles you like. You like need to use <span>:global(.x-axis-label)</span> to target the element. See the full code for more details!",
+        component: AxisLabels,
       },
     ],
   },
