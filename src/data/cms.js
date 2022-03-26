@@ -3,6 +3,8 @@ import AxisLog from "$components/d3/AxisLog.svelte";
 import AxisScalePoint from "$components/d3/AxisScalePoint.svelte";
 import AxisScaleBand from "$components/d3/AxisScaleBand.svelte";
 import AxisLabels from "$components/d3/AxisLabels.svelte";
+import BrushXSimple from "$components/d3/BrushXSimple.svelte";
+import BrushStore from "$components/d3/BrushStore.svelte";
 
 let d3CMS = [
   {
@@ -54,20 +56,26 @@ let d3CMS = [
   },
   {
     primary_key: "d3-brush",
-    published: "",
-    post_title: "",
+    published: "2022-03-25",
+    post_title: "D3-brush techniques in SvelteKit",
     thumbnail: "",
     keywords: ["d3"],
     intro_text:
       "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
     components: [
       {
-        id: "",
-        title: "",
+        id: "BrushXSimple",
+        title: "Simple Brush",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "In our first brush example, the simplest of brush functionality is shown. If you dig into the code, you will see I plotted a few points, set the brush area, and update the class of the circles that fall within the brushX selection range. <br/><br/> On its own this example is quite pointless but does help us understand a little better the underlying mechanics of setting up a brush.",
+        component: BrushXSimple,
+      },
+      {
+        id: "BrushStore",
+        title: "Brush with Svelte Store",
+        notes:
+          "In the previous toy example I generated a simple dataset to show basic brush functionality. In reality, we would use brushing as a technique typically as a filter across a set of visuals. For example I might want to brush a date timeline and look at the effect on a a scatter plot. Luckily Svelte provides us with Stores to pass data between components.<br/><br/> In this example, we will see how to get different D3 visuals talking to each other via the Svelte store. ",
+        component: BrushStore,
       },
     ],
   },
@@ -185,25 +193,7 @@ let d3CMS = [
       },
     ],
   },
-  {
-    primary_key: "d3-dsv",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
+
   {
     primary_key: "d3-ease",
     published: "",

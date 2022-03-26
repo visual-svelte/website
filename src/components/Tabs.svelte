@@ -39,7 +39,7 @@
     max-width: 90%;
     min-height: 300px;
 
-    /* padding: 40px; */
+    padding: 10px;
     border: 1px solid #dee2e6;
     border-radius: 0 0 0.5rem 0.5rem;
     border-top: 0;
