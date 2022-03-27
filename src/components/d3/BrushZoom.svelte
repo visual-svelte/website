@@ -5,8 +5,8 @@
   import _ from "lodash";
   let mySvg;
   let svg;
-  let focus;
-  let context;
+  let focusHere;
+  let contextHere;
   let bounds = [0, 0];
   let margin = { top: 20, right: 20, bottom: 110, left: 40 };
   let margin2 = { top: 330, right: 20, bottom: 30, left: 40 };
@@ -15,27 +15,24 @@
   let pinyAxis;
   let brushHere;
   let zoomHere;
+  let xDomain = d3.extent($areaData, function (d) {
+    return d.date;
+  });
+
+  let yDomain = [
+    0,
+    d3.max($areaData, function (d) {
+      return d.price - 1;
+    }),
+  ];
+
   $: width = 500 - margin.left - margin.right;
   $: height = 400 - margin.top - margin.bottom;
   $: height2 = 400 - margin2.top - margin2.bottom;
-  $: x = d3
-    .scaleTime()
-    .domain(
-      d3.extent($areaData, function (d) {
-        return d.date;
-      })
-    )
-    .range([0, width]);
+  $: x = d3.scaleTime().domain(xDomain).range([0, width]);
+  $: x, console.log("x", x);
   $: x2 = d3.scaleTime().domain(x.domain()).range([0, width]);
-  $: y = d3
-    .scaleLinear()
-    .domain([
-      0,
-      d3.max($areaData, function (d) {
-        return d.price - 1;
-      }),
-    ])
-    .range([height, 0]);
+  $: y = d3.scaleLinear().domain(yDomain).range([height, 0]);
   $: y2 = d3.scaleLinear().domain(y.domain()).range([height2, 0]);
 
   $: xAxis = d3.axisBottom(x);
@@ -64,8 +61,10 @@
     ])
     .on("brush end", brushed);
 
-  $: if (brushHere) {
-    d3.select(brushHere).call(brush).call(brush.move, x.range());
+  let brushMove = x ? x.range() : [0, 100];
+
+  $: if (brushHere && brushMove) {
+    d3.select(brushHere).call(brush).call(brush.move, brushMove);
   }
 
   $: area = d3
@@ -90,10 +89,6 @@
       return y2(d.price);
     });
 
-  $: a1 = area($areaData);
-  $: a2 = area2($areaData);
-  $: console.log("a1: ", a1, "a2: ", a2);
-
   $: zoom = d3
     .zoom()
     .scaleExtent([1, Infinity])
@@ -107,31 +102,34 @@
     ])
     .on("zoom", zoomed);
 
-  $: if (zoomHere) {
+  let zoomT;
+
+  $: if (zoomHere && zoomT) {
+    d3.select(zoomHere).call(zoom.transform, zoomT);
+  } else {
     d3.select(zoomHere).call(zoom);
   }
 
   function brushed(event) {
     if (event.sourceEvent && event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
     let s = event.selection || x2.range();
-    x.domain(s.map(x2.invert, x2));
-    focus.select(".area").attr("d", area);
-    focus.select(".axis--x").call(xAxis);
-    svg
-      .select(".zoom")
-      .call(
-        zoom.transform,
-        d3.zoomIdentity.scale(width / (s[1] - s[0])).translate(-s[0], 0)
-      );
+    xDomain = s.map(x2.invert, x2);
+    // zoomT = d3.zoomIdentity.scale(width / (s[1] - s[0])).translate(-s[0], 0);
+    // focus.select(".area").attr("d", area); - done
+    // focus.select(".axis--x").call(xAxis); -done
+    // svg
+    //   .select(".zoom")
+    //   .call(
+    //     zoom.transform,
+    //     d3.zoomIdentity.scale(width / (s[1] - s[0])).translate(-s[0], 0)
+    //   );
   }
 
   function zoomed(event) {
     if (event.sourceEvent && event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
     let t = event.transform;
-    x.domain(t.rescaleX(x2).domain());
-    focus.select(".area").attr("d", area);
-    focus.select(".axis--x").call(xAxis);
-    context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+    xDomain = t.rescaleX(x2).domain();
+    brushMove = x.range().map(t.invertX, t);
   }
 
   function drawAxis() {
@@ -151,7 +149,7 @@
 
 <svg bind:this={mySvg} width="500" height="400">
   <g
-    bind:this={focus}
+    bind:this={focusHere}
     class="focus"
     style="transform:translate({margin.left}px,{margin.top}px)"
   >
@@ -160,7 +158,7 @@
     <g class="axis axis--y" bind:this={pinyAxis} />
   </g>
   <g
-    bind:this={context}
+    bind:this={contextHere}
     class="context"
     style="transform:translate({margin2.left}px,{margin2.top}px);"
   >
