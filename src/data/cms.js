@@ -5,6 +5,7 @@ import AxisScaleBand from "$components/d3/AxisScaleBand.svelte";
 import AxisLabels from "$components/d3/AxisLabels.svelte";
 import BrushXSimple from "$components/d3/BrushXSimple.svelte";
 import BrushStore from "$components/d3/BrushStore.svelte";
+import BrushZoom from "$components/d3/BrushZoom.svelte";
 
 let d3CMS = [
   {
@@ -61,7 +62,7 @@ let d3CMS = [
     thumbnail: "",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "Brushing is a technique used frequently in data visualization. It allows the user to interact with one or more visual, to identify patterns and relationships between them.<br/><br/> In this article, I'll be walking through a number of examples of implementing different brushing techniques (using d3-brush). ",
     components: [
       {
         id: "BrushXSimple",
@@ -74,8 +75,15 @@ let d3CMS = [
         id: "BrushStore",
         title: "Brush with Svelte Store",
         notes:
-          "In the previous toy example I generated a simple dataset to show basic brush functionality. In reality, we would use brushing as a technique typically as a filter across a set of visuals. For example I might want to brush a date timeline and look at the effect on a a scatter plot. Luckily Svelte provides us with Stores to pass data between components.<br/><br/> In this example, we will see how to get different D3 visuals talking to each other via the Svelte store. ",
+          "In the previous toy example I generated a simple dataset to show basic brush functionality. In reality, we would use brushing as a technique typically as a filter across a set of visuals. For example I might want to brush a date timeline and look at the effect on a scatter plot. Luckily Svelte provides us with Stores to pass data between components.<br/><br/> In this example, you will see that the brush updates a dataset ($filtered) which is saved to a Svelte store and then read by the Bar visual below. <br/><br/> If you dive into the code for this visual, you will also note that I am creating the SVG elements using a Svelte {#each} tag rather than with svg.selectAll(circle).append() etc. This is because as the complexity increases (here with two visuals interacting), I find it easier to write as much Svelte HTML as possible, rather than generating elements with D3/ JS code.  ",
         component: BrushStore,
+      },
+      {
+        id: "BrushZoom",
+        title: "Brush and Zoom combined",
+        notes:
+          "d3-brush and d3-zoom provide a nice user experience for exploring time-series data; in this example I have implemented an <a rel='external' href='https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172'>old Mike Bostock sample</a> ",
+        component: BrushZoom,
       },
     ],
   },

@@ -60,7 +60,7 @@
   <Scrolly bind:value={scrollValue}>
     <div id="intro" class="intro">
       <h1>{content?.post_title}</h1>
-      <p>{content?.intro_text}</p>
+      <p>{@html content?.intro_text}</p>
 
       <GitHubLink
         d3module={content.primary_key}
@@ -71,7 +71,7 @@
     {#each components as comp, i}
       <div id={comp.id} class="container step" class:active={scrollValue === i}>
         <h2 class="subheading">
-          {comp.title}
+          {@html comp.title}
         </h2>
         <p class="comp-description">
           {@html comp.notes}

@@ -36,6 +36,7 @@
   },
   "type": "module",
   "dependencies": {
-    "feather-icons": "^4.28.0"
+    "feather-icons": "^4.28.0",
+    "lodash": "^4.17.21"
   }
 }

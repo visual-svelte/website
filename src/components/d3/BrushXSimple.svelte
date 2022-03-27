@@ -34,7 +34,6 @@
 
   function resetCircles() {
     myBrush.call(brush.move, null);
-    circles.attr("class", "");
   }
 
   function drawAxis() {
