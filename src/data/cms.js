@@ -8,6 +8,7 @@ import BrushStore from "$components/d3/BrushStore.svelte";
 import BrushZoom from "$components/d3/BrushZoom.svelte";
 import ChordBasic from "$components/d3/ChordBasic.svelte";
 import ChordComplex from "$components/d3/ChordComplex.svelte";
+import ContourBasic from "$components/d3/ContourBasic.svelte";
 
 let d3CMS = [
   {
@@ -137,20 +138,19 @@ let d3CMS = [
   },
   {
     primary_key: "d3-contour",
-    published: "",
-    post_title: "",
-    thumbnail: "",
+    published: "2022-03-28",
+    post_title: "Contours with D3 and SvelteKit",
+    thumbnail: "images/thumbnails/contour.png",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "Contours are an interesting visual type - used typically for maps, but can also be used to display continuous functions by sampling. In this article, we provide an example of how to use d3-contour within SvelteKit.",
     components: [
       {
-        id: "",
-        title: "",
+        id: "ContourBasic",
+        title: "Contours (basic)",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "The classic example (found in the docs and this  Basic example) is using contours to visualize the <a href='https://en.wikipedia.org/wiki/Test_functions_for_optimization' >Goldstein-Price function</a>. Here's how I implmented it in SvelteKit. <br/><br/>The code is relatively straightforward, once you have your data in the required format. The contour generator expects an array of length n by m where [n, m] is the contour generator's size. <br/><br/> The output is then typically passed to d3.geoPath() to convert the projection into SVG paths.",
+        component: ContourBasic,
       },
     ],
   },
