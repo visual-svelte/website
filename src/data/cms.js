@@ -9,6 +9,12 @@ import BrushZoom from "$components/d3/BrushZoom.svelte";
 import ChordBasic from "$components/d3/ChordBasic.svelte";
 import ChordComplex from "$components/d3/ChordComplex.svelte";
 import ContourBasic from "$components/d3/ContourBasic.svelte";
+import DragSimple from "$components/d3/DragSimple.svelte";
+import DragD3 from "$components/d3/DragD3.svelte";
+import DragD3Svelte from "$components/d3/DragD3Svelte.svelte";
+import ForceSimple from "$components/d3/ForceSimple.svelte";
+import PolygonBasic from "$components/d3/PolygonBasic.svelte";
+import PolygonPlus from "$components/d3/PolygonPlus.svelte";
 
 let d3CMS = [
   {
@@ -164,27 +170,16 @@ let d3CMS = [
       "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
     components: [
       {
-        id: "",
-        title: "",
+        id: "Voronoi",
+        title: "Voronoi ",
         notes:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
         props: {},
         component: NaN,
       },
-    ],
-  },
-  {
-    primary_key: "d3-dispatch",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
       {
         id: "",
-        title: "",
+        title: "delaunay.find ",
         notes:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
         props: {},
@@ -194,20 +189,33 @@ let d3CMS = [
   },
   {
     primary_key: "d3-drag",
-    published: "",
-    post_title: "",
-    thumbnail: "",
+    published: "2022-03-28",
+    post_title: "Drag interactions in SvelteKit with d3-drag",
+    thumbnail: "images/thumbnails/drag.png",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "Drag and drop is a pretty common use case, especially in interactive journalism! On a SvelteKit app, you could potentially implement drag and drop with HTML, with Svelte event hooks or with D3-drag. <br/><br/> This article looks at different scenarios and suggests when to use which technology. ",
     components: [
       {
-        id: "",
-        title: "",
+        id: "DragSimple",
+        title: "Simple Drag (mouseup/down only)",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "Firstly, I've implemented a simple drag functionality using mouseup and mousedown (from the HTML Drag and Drop Api) Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+        component: DragSimple,
+      },
+      {
+        id: "DragD3",
+        title: "Drag with d3-drag",
+        notes:
+          "Next, I looked at implementing dragging functionality with d3-drag. The code is quite straightforward. I bounded a set of circles to the DOM from the within the onMount() hook (because I'm using SvelteKit/SSR). I then called the dragHandler() on the circles to activate dragging.<br/><br/> This serves a purpose and demostrated that it is possible to implement drag using d3.js in SvelteKit. <br/><br/>",
+        component: DragD3,
+      },
+      {
+        id: "DragD3",
+        title: "d3-drag on Svelte/HTML elements",
+        notes:
+          "Finally, I prefer writing SVG elements in HTML, rather than programmatically with D3, so in this example I show how to add dragHandlers to svg elements creating in as HTML/ SVG (not with d3 code).<br/><br/> The benefits of this method are that (to me) it's more readable, less error prone, and you can add other Svelte event listeners/ animations to the SVG elements.",
+        component: DragD3Svelte,
       },
     ],
   },
@@ -253,19 +261,18 @@ let d3CMS = [
   {
     primary_key: "d3-force",
     published: "",
-    post_title: "",
+    post_title: "D3 Force Simulation and SvelteKit",
     thumbnail: "",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "In this article, I'll be playing around with d3-force and look at how to implment it specifically in SvelteKit.",
     components: [
       {
-        id: "",
-        title: "",
+        id: "ForceSimple",
+        title: "Simple Force Simulation",
         notes:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+        component: ForceSimple,
       },
     ],
   },
@@ -327,59 +334,27 @@ let d3CMS = [
     ],
   },
   {
-    primary_key: "d3-interpolate",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-  {
-    primary_key: "d3-path",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-  {
     primary_key: "d3-polygon",
-    published: "",
-    post_title: "",
-    thumbnail: "",
+    published: "2022-03-29",
+    post_title: "Polygons with D3 and SvelteKit",
+    thumbnail: "images/thumbnails/polygon.png",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "The d3-polygon module is relatively simple library for generating 2D polygon geometries from a set of points. ",
     components: [
       {
-        id: "",
-        title: "",
+        id: "PolygonBasic",
+        title: "Basic Polygon",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "Starting with the simplest example, I compute the convex hull (read more <a href='https://en.wikipedia.org/wiki/Convex_hull'>here</a>) and then plot the points and the resultant path.",
+        component: PolygonBasic,
+      },
+      {
+        id: "PolygonPlus",
+        title: "Polygon utilities",
+        notes:
+          "Now we have seen how to generate then polygons and hulls, we can take advantage of the utility functions that come with it. polygonArea(), polygonCentroid(), polygonLength() and polygonContains() are the functions demonstrated in this example. ",
+        component: PolygonPlus,
       },
     ],
   },
@@ -402,44 +377,7 @@ let d3CMS = [
       },
     ],
   },
-  {
-    primary_key: "d3-random",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-  {
-    primary_key: "d3-scale-chromatic",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
+
   {
     primary_key: "d3-scale",
     published: "",
