@@ -15,6 +15,13 @@ import DragD3Svelte from "$components/d3/DragD3Svelte.svelte";
 import ForceSimple from "$components/d3/ForceSimple.svelte";
 import PolygonBasic from "$components/d3/PolygonBasic.svelte";
 import PolygonPlus from "$components/d3/PolygonPlus.svelte";
+import ShapeArc from "$components/d3/ShapeArc.svelte";
+import ShapeArea from "$components/d3/ShapeArea.svelte";
+import ShapeCurve from "$components/d3/ShapeCurve.svelte";
+import ShapeLine from "$components/d3/ShapeLine.svelte";
+import ShapeLinks from "$components/d3/ShapeLinks.svelte";
+import ShapePie from "$components/d3/ShapePie.svelte";
+import ShapeStack from "$components/d3/ShapeStack.svelte";
 
 let d3CMS = [
   {
@@ -418,20 +425,54 @@ let d3CMS = [
   },
   {
     primary_key: "d3-shape",
-    published: "",
-    post_title: "",
+    published: "2022-03-29",
+    post_title: "D3 Shapes with SvelteKit",
     thumbnail: "",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "D3 Shape is really at the core of building data visuals. With it, you can produce arcs, pies, lines, areas, curves, links, and stacks. In this article, I'll make one of each of these shapes, specifically in a SvelteKit environment. <br/><br/>Note: the examples I show are intended to show just the basics of how to render all the standard shape types in a Svelte app. This is not meant to be a D3 tutorial, as such. Once you know how to get your D3 shape into Svelte, the possibilities are then endless, and you can add more complexity, typically to shape generator functions.",
     components: [
       {
-        id: "",
-        title: "",
+        id: "ShapeArc",
+        title: "D3 Arc",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "D3 Arc on it's own is not too useful but it a good building block for pie charts and chord charts. An arc generator expects an object with the keys: innerRadius, outerRadius, startAngle and endAngle. From this you will get an SVG path, which we can display in our app.",
+        component: ShapeArc,
+      },
+      {
+        id: "ShapePie",
+        title: "D3 Pie",
+        notes:
+          "The pie generator takes as input an array of data, and calculates the arc startAngle and endAngle, which we can then feed into our arc generator (seen above).",
+        component: ShapePie,
+      },
+      {
+        id: "ShapeLine",
+        title: "D3 Line and D3 Curve",
+        notes:
+          "Given an x-array and a y-array of data, we can also generate line (and then curve) geometry. In this example, the black line represents a simple line generated from from date/value data. <br/><br/> To make this line curved (blue), we can supply the line generator with a number of different curves (see <a href='https://github.com/d3/d3-shape#curves'>d3 docs</a> for more info on this).",
+        component: ShapeLine,
+      },
+      {
+        id: "ShapeArea",
+        title: "D3 Area",
+        notes:
+          "Area charts are similar to line charts, but generate a fillable area down to the X-axis (by default). We can generate them with D3 and visualize them in SvelteKit in the same way. ",
+        component: ShapeArea,
+      },
+      {
+        id: "ShapeLinks",
+        title: "D3 Links",
+        notes:
+          "The link generator can be useful for a variery of network-type diagrams, hierarchichal charts and general relationship diagramming. The line generator expects an object with source and target keys to define the mapping (see code).<br/><br/> You can customize the style of the link between nodes in lots of different way. Check out the <a href='https://github.com/d3/d3-shape#line'>D3 docs</a> for inspiration. ",
+        component: ShapeLinks,
+      },
+      {
+        id: "ShapeStack",
+        title: "D3 Stack",
+        notes:
+          "Stack charts can be made using d3-stack. From the output of the stack generator, you have the choice to render either a stacked bar chart or a stacked area chart. In this example, I chose a bar chart! ",
+        component: ShapeStack,
       },
     ],
   },
