@@ -22,6 +22,11 @@ import ShapeLine from "$components/d3/ShapeLine.svelte";
 import ShapeLinks from "$components/d3/ShapeLinks.svelte";
 import ShapePie from "$components/d3/ShapePie.svelte";
 import ShapeStack from "$components/d3/ShapeStack.svelte";
+import HierarchyPack from "$components/d3/HierarchyPack.svelte";
+import HierarchyTree from "$components/d3/HierarchyTree.svelte";
+import HierarchyTreemap from "$components/d3/HierarchyTreemap.svelte";
+import HierarchyCluster from "$components/d3/HierarchyCluster.svelte";
+import HierarchyRadial from "$components/d3/HierarchyRadial.svelte";
 
 let d3CMS = [
   {
@@ -323,20 +328,48 @@ let d3CMS = [
   },
   {
     primary_key: "d3-hierarchy",
-    published: "",
-    post_title: "",
-    thumbnail: "",
+    published: "2022-03-30",
+    post_title: "Visualizing hierarchies with D3 and Svelte",
+    thumbnail: "images/thumbnails/hierarchy.png",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "We can use d3 to generate lots of visual layouts from hierarchichal data. Typically the process is: 1) construct a hierarchichal model from the data, 2) feed the model into a layout generator such as a circle-packing generator. This gives us the 'instructions' for what to render where with SVG elements. <br/><br/> In this article, we'll look at the basic layout types and look at how we can render them specifically with SvelteKit. This is not a detailed tutorial on how to customize hierarchichal layouts with D3 - for that I recommend the <a href='https://github.com/d3/d3-hierarchy'>D3 docs</a>. <br/><br/> Much of the data/ examples with this section was adapted from <a href='http://using-d3js.com/06_01_hierarchal.html'>using-d3js.com</a> - a great resource for learning more about d3 modules.",
     components: [
       {
-        id: "",
-        title: "",
+        id: "HierarchyTree",
+        title: "Tree Layout ",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "If you inspect the code for this first example, you can see the process unfold. First we construction the hierarchichal model with d3.hierarchy(). We then feed this hierarchichal model into a tree layout generator.<br/><br/>This gives us a handy set of instructions to plot our tree layout. ",
+        component: HierarchyTree,
+      },
+      {
+        id: "HierarchyCluster",
+        title: "Cluster Layout",
+        notes:
+          "The cluster layout is nearly the same as the tree layout, but instead of passing in an X/Y to the .size() function of the generator, we give it a radius.",
+        component: HierarchyCluster,
+      },
+      {
+        id: "HierarchyRadial",
+        title: "Radial Layout",
+        notes:
+          "The radial layout is an extension of the cluster layout. We create a d3.lineRadial() generator function for our radial links and create a path for each of the tree.links(), passing in the source and the target coordinates. To plot our circles, we need to change the cx position to 0 and rotate all points by d.x.",
+        component: HierarchyRadial,
+      },
+      // {
+      //   id: "HierarchyTreemap",
+      //   title: "Treemap Layout",
+      //   notes:
+      //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+      //   props: {},
+      //   component: HierarchyTreemap,
+      // },
+      {
+        id: "HierarchyPack",
+        title: "Circle Packing Layout",
+        notes:
+          "Once you understand how the preceeding visuals are built, the circle-packing is a simple extension - it follows the same pattern as described above. See the code for more details. ",
+        component: HierarchyPack,
       },
     ],
   },
@@ -427,7 +460,7 @@ let d3CMS = [
     primary_key: "d3-shape",
     published: "2022-03-29",
     post_title: "D3 Shapes with SvelteKit",
-    thumbnail: "",
+    thumbnail: "images/thumbnails/shapes.png",
     keywords: ["d3"],
     intro_text:
       "D3 Shape is really at the core of building data visuals. With it, you can produce arcs, pies, lines, areas, curves, links, and stacks. In this article, I'll make one of each of these shapes, specifically in a SvelteKit environment. <br/><br/>Note: the examples I show are intended to show just the basics of how to render all the standard shape types in a Svelte app. This is not meant to be a D3 tutorial, as such. Once you know how to get your D3 shape into Svelte, the possibilities are then endless, and you can add more complexity, typically to shape generator functions.",
@@ -473,44 +506,6 @@ let d3CMS = [
         notes:
           "Stack charts can be made using d3-stack. From the output of the stack generator, you have the choice to render either a stacked bar chart or a stacked area chart. In this example, I chose a bar chart! ",
         component: ShapeStack,
-      },
-    ],
-  },
-  {
-    primary_key: "d3-time-format",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-  {
-    primary_key: "d3-time",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
       },
     ],
   },
