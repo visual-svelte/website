@@ -1,13 +1,12 @@
 <script>
   import * as d3 from "d3";
-  import { onMount } from "svelte";
   import { brushData, filtered } from "$stores/brush";
-  import _ from "lodash";
-  let mySvg;
+
+  let pinBrush;
   let width = 400;
   let height = 300;
-  let svg;
   let bounds = [0, 0];
+  $: x = d3.scaleLinear().domain([0, 400]).range([0, width]); // define generator functions for x and y axes
 
   $: brush = d3
     .brushX()
@@ -17,8 +16,6 @@
     ])
     .on("start brush end", brushEnd);
 
-  $: x = d3.scaleLinear().domain([0, 400]).range([0, width]); // define generator functions for x and y axes
-
   function brushEnd(event) {
     const selection = event.selection;
     if (selection === null) {
@@ -27,26 +24,23 @@
     }
   }
 
+  // update the store filtered dataset when bounds change.
   $: $filtered = $brushData.filter(
     (d) => bounds[0] <= d[0] && d[0] <= bounds[1]
   );
 
-  function drawAxis() {
-    svg = d3.select(mySvg);
-    svg.append("g").attr("class", "brush").call(brush);
+  // pin brush to DOM
+  $: if (pinBrush) {
+    d3.select(pinBrush).attr("class", "brush").call(brush);
   }
-
-  onMount(() => {
-    drawAxis();
-  });
 </script>
 
 <p>Original: {$brushData.length}</p>
 <p>Filtered: {$filtered.length}</p>
 <p>Bounds: {bounds[0].toPrecision(4)}, {bounds[1].toPrecision(4)}</p>
-<svg bind:this={mySvg} width="400" height="500">
+<svg width="400" height="500">
   <g class="circles">
-    {#each $brushData as point, i}
+    {#each $brushData as point}
       <circle
         class:selected={bounds[0] <= point[0] && point[0] <= bounds[1]}
         class="circle"
@@ -57,7 +51,7 @@
     {/each}
   </g>
   <g class="bars">
-    {#each $filtered as bar, i}
+    {#each $filtered as bar}
       <rect
         class="bar"
         width={width / $brushData.length}
@@ -66,6 +60,7 @@
       />
     {/each}
   </g>
+  <g class="brush" bind:this={pinBrush} />
 </svg>
 
 <style>
