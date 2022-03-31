@@ -13,7 +13,7 @@ let sidebarData = [
     expanded: true,
     children: [
       {
-        data: "Full API",
+        data: "Building blocks",
         expanded: false,
         children: d3Articles,
       },

@@ -44,7 +44,7 @@
   <div class="container">
     {#each aboutData as sect}
       <h2 id={sect.id.toString()}>{sect.title}</h2>
-      <p>{sect.text}</p>
+      <p>{@html sect.text}</p>
     {/each}
   </div>
 </Scrolly>

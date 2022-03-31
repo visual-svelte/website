@@ -27,6 +27,7 @@ import HierarchyTree from "$components/d3/HierarchyTree.svelte";
 import HierarchyTreemap from "$components/d3/HierarchyTreemap.svelte";
 import HierarchyCluster from "$components/d3/HierarchyCluster.svelte";
 import HierarchyRadial from "$components/d3/HierarchyRadial.svelte";
+import GeoPath from "$components/d3/GeoPath.svelte";
 
 let d3CMS = [
   {
@@ -309,20 +310,19 @@ let d3CMS = [
   },
   {
     primary_key: "d3-geo",
-    published: "",
-    post_title: "",
-    thumbnail: "",
+    published: "2022-03-30",
+    post_title: "Visualizing geo data with D3 and Svelte",
+    thumbnail: "images/thumbnails/geo.png",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "This article gives an example of the creation of svg path geomtry with geoJSON with the d3-geo module. I then render the result in a Svelte app. <br/><br/> The d3-geo library is vast and I'll only be starting with a simple example, with the aim to expand on it over time. <br/><br/> This data use in on this page is from <a href='https://datahub.io/examples/geojson-tutorial'>DataHub</a>.",
     components: [
       {
-        id: "",
-        title: "",
+        id: "GeoPath",
+        title: "Simple GeoPath",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "In the simplest implmentation of d3.geoPath(), a geoPath generator is created and fed with GeoJSON data. This outputs an svg path description that can be given to an SVG path element.",
+        component: GeoPath,
       },
     ],
   },
