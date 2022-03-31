@@ -8,5 +8,11 @@
 </script>
 
 <svg viewBox="93,149,10,12" {width} {height}>
-  <path d={path} transform="translate(100,100)" stroke="black" />
+  <path
+    d={path}
+    transform="translate(100,100)"
+    fill="lightblue"
+    stroke="darkgray"
+    stroke-width="0.05"
+  />
 </svg>

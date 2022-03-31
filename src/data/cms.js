@@ -37,13 +37,13 @@ let d3CMS = [
     thumbnail: "/images/thumbnails/graph.png",
     keywords: ["d3", "axis"],
     intro_text:
-      "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in SvelteKit. Each axis type is similar but implemented slightly differently. The code for each is provided. ",
+      "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in SvelteKit. Each axis type is similar but implemented slightly differently. The code for each is provided.<br/><br/> There is a variety of different ways to approach the D3/ SvelteKit integration, my method shown favours describing as much of the SVG elements as possible in Svelte HTML/ SVG markup (as opposed to creating elements programmatically with D3 code). This keeps code really clean and readable and makes it easier to apply Svelte event handlers or custom styles. ",
     components: [
       {
         id: "AxisSimple",
         title: "Basic axis - scaleLinear()",
         notes:
-          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. ",
+          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. In SvelteKit, I make use of the bind:this={} syntax to select an empty SVG group element and call the axis generator function. See the full code for details.",
         component: AxisSimple,
       },
       {
@@ -72,7 +72,7 @@ let d3CMS = [
         id: "AxisLabels",
         title: "Axis Labels",
         notes:
-          "Axis labels can be added by appending a 'text' to the svg that holds our axes (see example code below). Sometimes you will have to manually adjust the positioning to fit margin constraints.<br/><br/>You will notice I've added a custom style to the x-axis label. To do this, I first added a class attribute to the axis label upon creation <span>.attr('class', 'x-axis-label')</span> and then in the style-tags of the Svelte file for your component, add whichever styles you like. You like need to use <span>:global(.x-axis-label)</span> to target the element. See the full code for more details!",
+          "Axis labels can be added simply with a 'text' element in the SVG markup. Sometimes you will have to manually adjust the positioning to fit margin constraints.<br/><br/>Custom styling can be added either inline to the Text element or in the Svelte <style> tags.",
         component: AxisLabels,
       },
     ],
@@ -437,25 +437,7 @@ let d3CMS = [
       },
     ],
   },
-  {
-    primary_key: "d3-selection",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
+
   {
     primary_key: "d3-shape",
     published: "2022-03-29",
