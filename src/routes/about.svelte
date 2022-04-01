@@ -7,6 +7,7 @@
   let scrollValue = 0;
   let errorState = false;
   import Scrolly from "$components/Scrolly.svelte";
+  import * as d3 from "d3";
 
   let titles = aboutData.map((comp) => {
     return { id: comp.id, title: comp.title, bool: false };
@@ -37,6 +38,13 @@
   }
 
   $: scrollValue, updateStore(scrollValue);
+  function color(transition, fill, stroke) {
+    transition.style("fill", fill).style("stroke", stroke);
+  }
+  let divHere;
+  $: if (divHere) {
+    d3.selectAll(divHere).transition().call(color, "red", "blue");
+  }
 </script>
 
 <!--  -->
@@ -48,6 +56,8 @@
     {/each}
   </div>
 </Scrolly>
+
+<div bind:this={divHere} style="width:300px;height:300px;" />
 
 <style lang="scss">
   .container {

@@ -28,6 +28,10 @@ import HierarchyTreemap from "$components/d3/HierarchyTreemap.svelte";
 import HierarchyCluster from "$components/d3/HierarchyCluster.svelte";
 import HierarchyRadial from "$components/d3/HierarchyRadial.svelte";
 import GeoPath from "$components/d3/GeoPath.svelte";
+import ZoomBasic from "$components/d3/ZoomBasic.svelte";
+import ZoomBrush from "$components/d3/ZoomBrush.svelte";
+import ZoomScales from "$components/d3/ZoomScales.svelte";
+import ZoomSvelteUse from "$components/d3/ZoomSvelteUse.svelte";
 
 let d3CMS = [
   {
@@ -100,13 +104,13 @@ let d3CMS = [
           "In the previous toy example I generated a simple dataset to show basic brush functionality. In reality, we would use brushing as a technique typically as a filter across a set of visuals. For example, I might want to brush a date timeline and look at the effect on a scatter plot. <br/><br/> Luckily Svelte provides us with Stores to pass data between components.<br/><br/> In this example, you will see that the brush updates a dataset ($filtered) which is saved to a Svelte store and then read by the Bar visual below. <br/><br/> If you dive into the code for this visual, you will also note that I am creating the SVG elements using a Svelte {#each} tag rather than with svg.selectAll(circle).append() etc. This is because as the complexity increases (here with two visuals interacting), I find it easier to write as much Svelte HTML as possible, rather than generating elements with D3/ JS code.  ",
         component: BrushStore,
       },
-      // {
-      //   id: "BrushZoom",
-      //   title: "Brush and Zoom combined",
-      //   notes:
-      //     "d3-brush and d3-zoom provide a nice user experience for exploring time-series data; in this example I have implemented an <a rel='external' href='https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172'>old Mike Bostock sample</a> ",
-      //   component: BrushZoom,
-      // },
+      {
+        id: "BrushZoom",
+        title: "Brush and Zoom combined",
+        notes:
+          "d3-brush and d3-zoom provide a nice user experience for exploring time-series data; in this example I have implemented an <a rel='external' href='https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172'>old Mike Bostock sample</a> ",
+        component: BrushZoom,
+      },
     ],
   },
   {
@@ -224,7 +228,7 @@ let d3CMS = [
         component: DragD3,
       },
       {
-        id: "DragD3",
+        id: "DragD3Svelte",
         title: "d3-drag on Svelte/HTML elements",
         notes:
           "Finally, I prefer writing SVG elements in HTML, rather than programmatically with D3, so in this example I show how to add dragHandlers to svg elements creating in as HTML/ SVG (not with d3 code).<br/><br/> The benefits of this method are that (to me) it's more readable, less error prone, and you can add other Svelte event listeners/ animations to the SVG elements.",
@@ -531,21 +535,41 @@ let d3CMS = [
   },
   {
     primary_key: "d3-zoom",
-    published: "",
-    post_title: "",
+    published: "2022-03-31",
+    post_title: "Zooming with D3 and Svelte",
     thumbnail: "",
     keywords: ["d3"],
     intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
+      "Zooming is one of the most difficult aspects of using D3 with a front-end framework like SvelteKit, as it deals with UI interaction, the updating of scales and (sometimes) the redrawing of geometry dynamically. <br/><br/>We begin with a really simple example of Zooming with D3 and SvelteKit and hope to add more advanced configurations in the future. ",
     components: [
       {
-        id: "",
-        title: "",
+        id: "ZoomBasic",
+        title: "Simple Zoom",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
+          "We start with a simple zoom implementation adapted from the great site <a href='https://www.d3indepth.com/zoom-and-pan/'>D3 in Depth</a>. More examples will be added to the site as it grows! ",
+        component: ZoomBasic,
       },
+      // {
+      //   id: "ZoomScales",
+      //   title: "Zoom with Scales",
+      //   notes:
+      //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+      //   component: ZoomScales,
+      // },
+      // {
+      //   id: "ZoomBrush",
+      //   title: "Zoom Brush",
+      //   notes:
+      //     "We start with a simple zoom implementation adapted from the great site <a href='https://www.d3indepth.com/zoom-and-pan/'>D3 in Depth</a>.",
+      //   component: ZoomBrush,
+      // },
+      // {
+      //   id: "ZoomSvelteUse",
+      //   title: "D3 Zoom with use: directive",
+      //   notes:
+      //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+      //   component: ZoomSvelteUse,
+      // },
     ],
   },
 ];

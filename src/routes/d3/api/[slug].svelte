@@ -19,10 +19,10 @@
   import Tabs from "$components/Tabs.svelte";
   import Scrolly from "$components/Scrolly.svelte";
   import { tableOfContents } from "$stores/post.js";
-  let titles = content.components.map((comp) => {
+  let titles = content?.components.map((comp) => {
     return { id: comp.id, title: comp.title, bool: false };
   });
-  titles.unshift({ id: "intro", title: "Intro", bool: true });
+  titles?.unshift({ id: "intro", title: "Intro", bool: true });
   if (content.published) {
     $tableOfContents = titles;
   }
