@@ -16,13 +16,13 @@
     </p>
     <p>
       still hungry for more? <a sveltekit:prefetch href="/about">read more</a> about
-      visualsvelte,
+      visualsvelte!
     </p>
-    <p>
+    <!-- <p>
       or browse our most <a sveltekit:prefetch href="/popular-posts"
         >popular posts</a
       >.
-    </p>
+    </p> -->
   </div>
   <div class="support">
     <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"

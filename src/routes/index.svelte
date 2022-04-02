@@ -17,24 +17,35 @@
 </script>
 
 <!-- <Meta {metadata} /> -->
-<p>
-  An educational site providing code and examples of great data visualizations
-  and visual journalism with <a href="https://kit.svelte.dev/">SvelteKit</a>.
-</p>
+<h1>Techniques for powerful, visual storytelling with Svelte</h1>
+<div>
+  <p>
+    An educational site providing code and examples of great data visualizations
+    and visual journalism with <a href="https://kit.svelte.dev/">SvelteKit</a>.
+  </p>
 
-<p>
-  This site was born out of my own frustrations on the learning curve of both
-  D3.js and Javascript/ CSS/ HTML.
-</p>
-<p>I'm creating the resource I wish I had to learn faster.</p>
-<p>
-  You can read more about how and why I'm doing that, <a href="/about">here</a>.
-</p>
+  <p>
+    This site was born out of my own frustrations on the learning curve of both
+    D3.js and Javascript/ CSS/ HTML.
+  </p>
+  <p>I'm creating the resource I wish I had to learn faster.</p>
+  <p>
+    You can read more about how and why I'm doing that, <a href="/about">here</a
+    >.
+  </p>
 
-<p>
-  Intially, the focus focus will be on the legendary D3.js and how to implement
-  the whole library in SvelteKit.
-</p>
+  <p>
+    Intially, the focus focus will be on the legendary D3.js and how to
+    implement the whole library in SvelteKit.
+  </p>
+</div>
 
-<!-- <CrossfadeDemo /> -->
+<h2>Recent D3 & SvelteKit Series:</h2>
 <PostGallery posts={filteredData} />
+
+<style>
+  div {
+    text-align: center;
+    margin: 50px 0px;
+  }
+</style>

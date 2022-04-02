@@ -73,7 +73,9 @@
   }
   * {
     font-family: "Consola";
+    background-color: "#EEEFE1";
   }
+
   :global(a) {
     color: var(--c-darkgray);
     transition: background 0.3s;

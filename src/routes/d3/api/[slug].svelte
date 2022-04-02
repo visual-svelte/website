@@ -23,7 +23,7 @@
     return { id: comp.id, title: comp.title, bool: false };
   });
   titles?.unshift({ id: "intro", title: "Intro", bool: true });
-  if (content.published) {
+  if (content && content.published) {
     $tableOfContents = titles;
   }
 
@@ -50,7 +50,7 @@
     }
   }
 
-  $: components = content.components;
+  $: components = content?.components;
   $: scrollValue, updateStore(scrollValue);
 </script>
 

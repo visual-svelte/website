@@ -11,10 +11,9 @@
 
 <style lang="scss">
   .post-gallery {
-    justify-items: center;
-    width: 100%;
-    // height: 100%;
+    display: grid;
     position: relative;
     margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 2fr));
   }
 </style>

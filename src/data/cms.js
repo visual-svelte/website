@@ -13,6 +13,8 @@ import DragSimple from "$components/d3/DragSimple.svelte";
 import DragD3 from "$components/d3/DragD3.svelte";
 import DragD3Svelte from "$components/d3/DragD3Svelte.svelte";
 import ForceSimple from "$components/d3/ForceSimple.svelte";
+import ForceRadial from "$components/d3/ForceRadial.svelte";
+import ForceFull from "$components/d3/ForceFull.svelte";
 import PolygonBasic from "$components/d3/PolygonBasic.svelte";
 import PolygonPlus from "$components/d3/PolygonPlus.svelte";
 import ShapeArc from "$components/d3/ShapeArc.svelte";
@@ -163,7 +165,7 @@ let d3CMS = [
     primary_key: "d3-contour",
     published: "2022-03-28",
     post_title: "Contours with D3 and SvelteKit",
-    thumbnail: "images/thumbnails/contour.png",
+    thumbnail: "/images/thumbnails/contour.png",
     keywords: ["d3"],
     intro_text:
       "Contours are an interesting visual type - used typically for maps, but can also be used to display continuous functions by sampling. In this article, we provide an example of how to use d3-contour within SvelteKit.",
@@ -208,7 +210,7 @@ let d3CMS = [
     primary_key: "d3-drag",
     published: "2022-03-28",
     post_title: "Drag interactions in SvelteKit with d3-drag",
-    thumbnail: "images/thumbnails/drag.png",
+    thumbnail: "/images/thumbnails/drag.png",
     keywords: ["d3"],
     intro_text:
       "Drag and drop is a pretty common use case, especially in interactive journalism! On a SvelteKit app, you could potentially implement drag and drop with HTML, with Svelte event hooks or with D3-drag. <br/><br/> This article looks at different scenarios and suggests when to use which technology. ",
@@ -277,7 +279,7 @@ let d3CMS = [
   },
   {
     primary_key: "d3-force",
-    published: "",
+    published: "2022-04-01",
     post_title: "D3 Force Simulation and SvelteKit",
     thumbnail: "",
     keywords: ["d3"],
@@ -290,6 +292,21 @@ let d3CMS = [
         notes:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
         component: ForceSimple,
+      },
+
+      {
+        id: "ForceRadial",
+        title: "Radial Force Simulation",
+        notes:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+        component: ForceRadial,
+      },
+      {
+        id: "ForceFull",
+        title: "Full Example Force Simulation",
+        notes:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+        component: ForceFull,
       },
     ],
   },
@@ -316,7 +333,7 @@ let d3CMS = [
     primary_key: "d3-geo",
     published: "2022-03-30",
     post_title: "Visualizing geo data with D3 and Svelte",
-    thumbnail: "images/thumbnails/geo.png",
+    thumbnail: "/images/thumbnails/geo.png",
     keywords: ["d3"],
     intro_text:
       "This article gives an example of the creation of svg path geomtry with geoJSON with the d3-geo module. I then render the result in a Svelte app. <br/><br/> The d3-geo library is vast and I'll only be starting with a simple example, with the aim to expand on it over time. <br/><br/> This data use in on this page is from <a href='https://datahub.io/examples/geojson-tutorial'>DataHub</a>.",
@@ -334,7 +351,7 @@ let d3CMS = [
     primary_key: "d3-hierarchy",
     published: "2022-03-30",
     post_title: "Visualizing hierarchies with D3 and Svelte",
-    thumbnail: "images/thumbnails/hierarchy.png",
+    thumbnail: "/images/thumbnails/hierarchy.png",
     keywords: ["d3"],
     intro_text:
       "We can use d3 to generate lots of visual layouts from hierarchichal data. Typically the process is: 1) construct a hierarchichal model from the data, 2) feed the model into a layout generator such as a circle-packing generator. This gives us the 'instructions' for what to render where with SVG elements. <br/><br/> In this article, we'll look at the basic layout types and look at how we can render them specifically with SvelteKit. This is not a detailed tutorial on how to customize hierarchichal layouts with D3 - for that I recommend the <a href='https://github.com/d3/d3-hierarchy'>D3 docs</a>. <br/><br/> Much of the data/ examples with this section was adapted from <a href='http://using-d3js.com/06_01_hierarchal.html'>using-d3js.com</a> - a great resource for learning more about d3 modules.",
@@ -381,7 +398,7 @@ let d3CMS = [
     primary_key: "d3-polygon",
     published: "2022-03-29",
     post_title: "Polygons with D3 and SvelteKit",
-    thumbnail: "images/thumbnails/polygon.png",
+    thumbnail: "/images/thumbnails/polygon.png",
     keywords: ["d3"],
     intro_text:
       "The d3-polygon module is relatively simple library for generating 2D polygon geometries from a set of points. ",
@@ -446,7 +463,7 @@ let d3CMS = [
     primary_key: "d3-shape",
     published: "2022-03-29",
     post_title: "D3 Shapes with SvelteKit",
-    thumbnail: "images/thumbnails/shapes.png",
+    thumbnail: "/images/thumbnails/shapes.png",
     keywords: ["d3"],
     intro_text:
       "D3 Shape is really at the core of building data visuals. With it, you can produce arcs, pies, lines, areas, curves, links, and stacks. In this article, I'll make one of each of these shapes, specifically in a SvelteKit environment. <br/><br/>Note: the examples I show are intended to show just the basics of how to render all the standard shape types in a Svelte app. This is not meant to be a D3 tutorial, as such. Once you know how to get your D3 shape into Svelte, the possibilities are then endless, and you can add more complexity, typically to shape generator functions.",
@@ -537,7 +554,7 @@ let d3CMS = [
     primary_key: "d3-zoom",
     published: "2022-03-31",
     post_title: "Zooming with D3 and Svelte",
-    thumbnail: "",
+    thumbnail: "/images/thumbnails/zoom.png",
     keywords: ["d3"],
     intro_text:
       "Zooming is one of the most difficult aspects of using D3 with a front-end framework like SvelteKit, as it deals with UI interaction, the updating of scales and (sometimes) the redrawing of geometry dynamically. <br/><br/>We begin with a really simple example of Zooming with D3 and SvelteKit and hope to add more advanced configurations in the future. ",

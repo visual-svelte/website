@@ -24,15 +24,6 @@
     </div>
     <div class="header-centre" />
     <div class="header-right">
-      <!-- <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"
-        ><img
-          height="36"
-          style="border:0px;height:36px;"
-          src="https://cdn.ko-fi.com/cdn/kofi4.png?v=3"
-          border="0"
-          alt="Buy Me a Coffee at ko-fi.com"
-        /></a
-      > -->
       <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"
         ><img
           height="36"
@@ -42,18 +33,15 @@
           alt="Buy Me a Coffee at ko-fi.com"
         /></a
       >
-      <!-- <ActionButton text="Support" href="/support" /> -->
     </div>
 
-    {#if loadSecondary}
-      <div
-        class="toolbar"
-        class:expanded={$showHideMenu}
-        class:fixed={$scrollY > 60}
-      >
-        <SecondaryToolbar />
-      </div>
-    {/if}
+    <div
+      class="toolbar"
+      class:expanded={$showHideMenu}
+      class:fixed={$scrollY > 60}
+    >
+      <SecondaryToolbar />
+    </div>
   </div>
 </div>
 
@@ -65,6 +53,8 @@
   .container {
     // background: var(--c-darkgray);
     z-index: 16;
+    max-width: 1260px;
+
     height: 90px;
     width: 100%;
     .header-grid {
@@ -82,7 +72,6 @@
       }
       @media (min-width: 800px) {
         grid-template-columns: minmax(240px, 280px) auto minmax(200px, 300px);
-        grid-template-areas: "hl hc hr";
         grid-template-rows: 60px;
         height: 60px;
       }
