@@ -1,8 +1,16 @@
 <script>
   import Meta from "$components/helpers/Meta.svelte";
+  import { fade, fly } from "svelte/transition";
   import d3CMS from "$data/cms";
   import PostGallery from "$components/PostGallery.svelte";
   import { page } from "$app/stores";
+  import { onMount } from "svelte";
+  import { annotate } from "svelte-rough-notation";
+  import Typewriter from "svelte-typewriter";
+  let visible = false;
+  onMount(() => {
+    setTimeout(() => (visible = true), 1500);
+  });
   let metadata = { t: "Home | VisualSvelte", d: "", u: $page.url.pathname };
   $: filteredData = d3CMS
     .filter((d) => d.published)
@@ -17,8 +25,24 @@
 </script>
 
 <!-- <Meta {metadata} /> -->
-<h1>Techniques for powerful, visual storytelling with Svelte</h1>
-<div>
+<Typewriter cascade>
+  <div class="intro">
+    <h1>Unlock your</h1>
+    <h1>
+      <span
+        use:annotate={{
+          color: "lightgreen",
+          type: "highlight",
+          iterations: 2,
+          visible: visible,
+        }}>visual storytelling superpowers</span
+      >
+    </h1>
+    <h1>with Svelte</h1>
+  </div>
+</Typewriter>
+<div in:fly={{ x: 50, duration: 300, delay: 250 }}>
+  <p>Svelte is what the pro's use to tell visual stories.</p>
   <p>
     An educational site providing code and examples of great data visualizations
     and visual journalism with <a href="https://kit.svelte.dev/">SvelteKit</a>.
@@ -39,13 +63,19 @@
     implement the whole library in SvelteKit.
   </p>
 </div>
+<div in:fly={{ y: 100, duration: 300, delay: 500 }}>
+  <h2>Recent D3 & SvelteKit Series:</h2>
+  <PostGallery posts={filteredData} />
+</div>
 
-<h2>Recent D3 & SvelteKit Series:</h2>
-<PostGallery posts={filteredData} />
+<style lang="scss">
+  div,
+  .intro {
+    padding: 100px 0px;
 
-<style>
-  div {
-    text-align: center;
-    margin: 50px 0px;
+    h1 {
+      text-align: center;
+      margin: 0;
+    }
   }
 </style>

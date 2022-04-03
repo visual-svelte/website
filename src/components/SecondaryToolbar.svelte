@@ -21,9 +21,12 @@
     { title: "💖 Support", href: "https://ko-fi.com/visualsvelte" },
     { title: "Twitter", href: "https://twitter.com/visualsvelte" },
   ];
+  const handleEscape = (e) => {
+    console.log("hello", e);
+  };
 </script>
 
-<div class="container">
+<div class="container" on:keypress={handleEscape}>
   <div>
     {#if !home && !$showHideMenu}
       <div class="bread" transition:fly={{ x: -300 }}>

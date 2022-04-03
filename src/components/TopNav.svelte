@@ -23,25 +23,15 @@
       <Logo />
     </div>
     <div class="header-centre" />
-    <div class="header-right">
-      <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"
-        ><img
-          height="36"
-          style="border:0px;height:36px;"
-          src="https://cdn.ko-fi.com/cdn/kofi2.png?v=3"
-          border="0"
-          alt="Buy Me a Coffee at ko-fi.com"
-        /></a
-      >
-    </div>
+    <div class="header-right" />
 
-    <div
+    <!-- <div
       class="toolbar"
       class:expanded={$showHideMenu}
       class:fixed={$scrollY > 60}
     >
       <SecondaryToolbar />
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -55,30 +45,15 @@
     z-index: 16;
     max-width: 1260px;
 
-    height: 90px;
+    height: 60px;
     width: 100%;
     .header-grid {
       display: grid;
       background-color: var(--c-darkgray);
       // height: 60px;
-      grid-template-areas:
-        "hl hc hr"
-        "tb tb tb";
-      height: 90px;
-      grid-template-rows: 60px auto;
+      grid-template-areas: "hl hc hr";
+      height: 60px;
 
-      @media (max-width: 800px) {
-        grid-template-columns: minmax(120px, 200px) auto minmax(120px, 200px);
-      }
-      @media (min-width: 800px) {
-        grid-template-columns: minmax(240px, 280px) auto minmax(200px, 300px);
-        grid-template-rows: 60px;
-        height: 60px;
-      }
-      @media (min-width: 1000px) {
-        grid-template-columns: 250px auto 300px;
-        height: 60px;
-      }
       display: intital;
       .toolbar {
         height: 40px;

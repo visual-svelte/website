@@ -54,45 +54,60 @@
   $: scrollValue, updateStore(scrollValue);
 </script>
 
-{#if errorState || !content.published}
-  <ComeBackLater />
-{:else}
-  <Scrolly bind:value={scrollValue}>
-    <div id="intro" class="intro">
-      <h1>{content?.post_title}</h1>
-      <p>{@html content?.intro_text}</p>
+<div class="wrapper">
+  {#if errorState || !content.published}
+    <ComeBackLater />
+  {:else}
+    <Scrolly bind:value={scrollValue}>
+      <div id="intro" class="intro">
+        <h1>{content?.post_title}</h1>
+        <p>{@html content?.intro_text}</p>
 
-      <GitHubLink
-        d3module={content.primary_key}
-        url={`https://github.com/d3/${content.primary_key}`}
-      />
-      <OnThisPage points={content.components} />
-    </div>
-    {#each components as comp, i}
-      <div id={comp.id} class="container step" class:active={scrollValue === i}>
-        <h2 class="subheading">
-          {@html comp.title}
-        </h2>
-        <p class="comp-description">
-          {@html comp.notes}
-        </p>
-
-        <Tabs>
-          <div slot="tab1">
-            <div class="svg-container">
-              <svelte:component this={comp.component} />
-            </div>
-          </div>
-          <div slot="tab2">
-            <CodeVisual compid={comp.id} />
-          </div>
-        </Tabs>
+        <GitHubLink
+          d3module={content.primary_key}
+          url={`https://github.com/d3/${content.primary_key}`}
+        />
+        <OnThisPage points={content.components} />
       </div>
-    {/each}
-  </Scrolly>
-{/if}
+      {#each components as comp, i}
+        <div
+          id={comp.id}
+          class="container step"
+          class:active={scrollValue === i}
+        >
+          <h2 class="subheading">
+            {@html comp.title}
+          </h2>
+          <p class="comp-description">
+            {@html comp.notes}
+          </p>
+
+          <Tabs>
+            <div slot="tab1">
+              <div class="svg-container">
+                <svelte:component this={comp.component} />
+              </div>
+            </div>
+            <div slot="tab2">
+              <CodeVisual compid={comp.id} />
+            </div>
+          </Tabs>
+        </div>
+      {/each}
+    </Scrolly>
+  {/if}
+</div>
 
 <style lang="scss">
+  .wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+  }
+  .intro {
+    h1 {
+      margin: 0;
+    }
+  }
   p {
     font-size: 0.9rem;
     /* text-overflow: wrap; */

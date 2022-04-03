@@ -1,22 +1,26 @@
 <script>
+  import { treeData } from "$stores/menu";
   import { slide } from "svelte/transition";
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
 
   import Icon from "$components/helpers/Icon.svelte";
-  export let data;
+  import { tree } from "d3";
   export let dark = false;
-  let localData = data;
+  let localData = $treeData;
   function openTree(i, j) {
     localData[i].children[j].expanded = !localData[i].children[j].expanded;
   }
 </script>
 
-<div style={dark ? "color:var(--c-white)" : "color:var(--c-darkgray)"} />
 {#each localData as l1, i}
   <h5>{l1.data}</h5>
   {#each l1.children as l2, j}
-    <p class:current={l2 == "Full API"} on:click={() => openTree(i, j)}>
+    <p
+      class="subh"
+      class:current={l2 == "Full API"}
+      on:click={() => openTree(i, j)}
+    >
       <Icon
         name="triangle"
         fill={dark ? "var(--c-white)" : "var(--c-darkgray)"}
@@ -31,8 +35,7 @@
       {#if l2.children}
         {#each l2.children as link}
           <li class:current={link.href == $page.params.slug} transition:slide>
-            <button on:click={goto("/d3/api/" + link.href)}>{link.title}</button
-            >
+            <a href={"/d3/api/" + link.href}><span>•</span> {link.title}</a>
             <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
           </li>
         {/each}
@@ -44,6 +47,10 @@
 {/each}
 
 <style lang="scss">
+  .subh {
+    user-select: none;
+  }
+
   p {
     font-size: 1.1em;
 
@@ -62,24 +69,29 @@
     background-color: transparent;
     list-style-type: none;
     margin-left: 10px;
-    button {
-      padding: 7px 10px;
+    a {
+      padding: 10px 10px;
       cursor: pointer;
       font-size: 1.1rem;
       height: 100%;
       width: 100%;
       display: block;
       text-decoration: none;
-
       opacity: 0.7;
       text-align: left;
-      background-color: transparent;
+      background: none;
       border: none;
       font-family: "Consola";
+      position: relative;
+      span {
+        font-size: 0.8rem;
+        margin-top: -4px;
+        position: absolute;
+      }
     }
 
     &.current {
-      button {
+      a {
         cursor: default;
 
         font-weight: 600;
