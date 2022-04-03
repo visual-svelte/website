@@ -1,6 +1,5 @@
 <script>
   import * as d3 from "d3";
-  import graph from "$data/graphdata";
   import { onMount } from "svelte";
   let svg;
   let width = 500;
@@ -85,31 +84,9 @@
     currentEvent.subject.fx = null;
     currentEvent.subject.fy = null;
   }
-  function resize() {
-    ({ width, height } = svg.getBoundingClientRect());
-  }
 </script>
 
-<svelte:window on:resize={resize} />
-
-<!-- SVG was here -->
 <svg bind:this={svg} {width} {height}>
-  <circle
-    r={r1}
-    cx={x}
-    cy={y}
-    stroke="brown"
-    stroke-opacity="0.5"
-    fill="none"
-  />
-  <circle
-    r={r2}
-    cx={x}
-    cy={y}
-    stroke="steelblue"
-    stroke-opacity="0.5"
-    fill="none"
-  />
   {#each nodes as point}
     <circle
       class="node"
@@ -117,19 +94,8 @@
       fill={point.type == "a" ? "brown" : "steelblue"}
       cx={point.x}
       cy={point.y}
-      transform="translate({transform.x} {transform.y}) scale({transform.k} {transform.k})"
     >
       <title>{point.id}</title></circle
     >
   {/each}
 </svg>
-
-<style>
-  svg {
-    float: left;
-  }
-  circle {
-    stroke: #fff;
-    stroke-width: 1.5;
-  }
-</style>

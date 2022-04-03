@@ -1,18 +1,23 @@
-import { d as d3CMS } from "../../../chunks/cms-12574a25.js";
-import "../../../chunks/index-58574f58.js";
+import { d as d3CMS } from "../../../chunks/cms-72afd1c9.js";
+import "../../../chunks/index-8f27b94e.js";
 import "d3";
-import "../../../chunks/screen-47820f5b.js";
-import "../../../chunks/index-79b72b18.js";
-let d3Articles = d3CMS.filter((d) => d.published).map((d) => {
+import "../../../chunks/index-872736db.js";
+import "d3-scale";
+import "d3-zoom";
+import "d3-scale-chromatic";
+import "d3-selection";
+import "d3-drag";
+import "d3-force";
+let d3Articles = d3CMS.length ? d3CMS.filter((d) => d.published).map((d) => {
   return { title: d.primary_key, href: `${d.primary_key}` };
-});
+}) : [];
 let sidebarData = [
   {
     data: "D3 & SvelteKit",
     expanded: true,
     children: [
       {
-        data: "Full API",
+        data: "Building blocks",
         expanded: false,
         children: d3Articles
       },

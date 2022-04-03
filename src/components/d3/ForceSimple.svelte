@@ -1,50 +1,39 @@
 <script>
   import * as d3 from "d3";
-  import graph from "$data/graphdata";
   import { onMount } from "svelte";
-  let svg;
-  let width = 500;
-  let height = 600;
-  let x = 150;
-  let y = 150;
-  let r1 = 140;
-  let r2 = 70;
+  let simulation;
 
+  let width = 300;
+  let height = 400;
+
+  const colourScale = d3.scaleOrdinal(d3.schemeCategory10); // make a nice colorscale
+
+  // generate a toy dataset for this example.
   $: nodes = [].concat(
     d3.range(88).map(function () {
-      return { type: "a", r: d3.randomInt(5, 10)() };
+      return { r: d3.randomInt(5, 10)() };
     })
   );
 
-  let transform = d3.zoomIdentity;
+  //define our on tick update function
+  function simulationUpdate() {
+    simulation.tick();
+    nodes = [...nodes]; //refresh the nodes array to render/trigger simulation
+  }
 
-  let simulation;
   onMount(() => {
     simulation = d3
       .forceSimulation(nodes)
-      .force("x", d3.forceX(0))
-      .force("y", d3.forceY(0))
+      .force("x", d3.forceX(150))
+      .force("y", d3.forceY(150))
       .force("collide", d3.forceCollide(12))
       .on("tick", simulationUpdate)
       .alphaTarget(0.1);
   });
-  function simulationUpdate() {
-    simulation.tick();
-    nodes = [...nodes];
-  }
-
-  function resize() {
-    ({ width, height } = svg.getBoundingClientRect());
-  }
-
-  const colourScale = d3.scaleOrdinal(d3.schemeCategory10);
 </script>
 
-<svelte:window on:resize={resize} />
-
-<!-- SVG was here -->
-<svg bind:this={svg} {width} {height}>
-  <g class="points" transform="translate(200,200)">
+<svg {width} {height}>
+  <g class="points">
     {#each nodes as point, i}
       <circle
         class="node"
@@ -52,20 +41,7 @@
         fill={colourScale(i)}
         cx={point.x}
         cy={point.y}
-        transform="translate({transform.x} {transform.y}) scale({transform.k} {transform.k})"
-      >
-        <title>{point.id}</title></circle
-      >
+      />
     {/each}
   </g>
 </svg>
-
-<style>
-  svg {
-    float: left;
-  }
-  circle {
-    stroke: #fff;
-    stroke-width: 1.5;
-  }
-</style>

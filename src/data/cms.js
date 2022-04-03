@@ -106,13 +106,13 @@ let d3CMS = [
           "In the previous toy example I generated a simple dataset to show basic brush functionality. In reality, we would use brushing as a technique typically as a filter across a set of visuals. For example, I might want to brush a date timeline and look at the effect on a scatter plot. <br/><br/> Luckily Svelte provides us with Stores to pass data between components.<br/><br/> In this example, you will see that the brush updates a dataset ($filtered) which is saved to a Svelte store and then read by the Bar visual below. <br/><br/> If you dive into the code for this visual, you will also note that I am creating the SVG elements using a Svelte {#each} tag rather than with svg.selectAll(circle).append() etc. This is because as the complexity increases (here with two visuals interacting), I find it easier to write as much Svelte HTML as possible, rather than generating elements with D3/ JS code.  ",
         component: BrushStore,
       },
-      {
-        id: "BrushZoom",
-        title: "Brush and Zoom combined",
-        notes:
-          "d3-brush and d3-zoom provide a nice user experience for exploring time-series data; in this example I have implemented an <a rel='external' href='https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172'>old Mike Bostock sample</a> ",
-        component: BrushZoom,
-      },
+      // {
+      //   id: "BrushZoom",
+      //   title: "Brush and Zoom combined",
+      //   notes:
+      //     "d3-brush and d3-zoom provide a nice user experience for exploring time-series data; in this example I have implemented an <a rel='external' href='https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172'>old Mike Bostock sample</a> ",
+      //   component: BrushZoom,
+      // },
     ],
   },
   {
@@ -280,17 +280,17 @@ let d3CMS = [
   {
     primary_key: "d3-force",
     published: "2022-04-01",
-    post_title: "D3 Force Simulation and SvelteKit",
-    thumbnail: "",
+    post_title: "D3 Force Simulation and Svelte",
+    thumbnail: "/images/thumbnails/force.png",
     keywords: ["d3"],
     intro_text:
-      "In this article, I'll be playing around with d3-force and look at how to implment it specifically in SvelteKit.",
+      "Trying to implment the d3-force in Svelte caused me the most problems of all the d3 libraries! It wasn't until I stumbled upon <a href='https://github.com/happybeing/d3-fdg-svelte'>this repo</a> on GitHub that it all clicked into place, so thanks @happybear! As a result the methods and code I use here borrow heavily from his great work.<br/><br/> Once you understand how to call the simulation, things become clear and you implement any force simulations you can see in the docs.",
     components: [
       {
         id: "ForceSimple",
         title: "Simple Force Simulation",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+          "Starting off with a simple force x, force y, and force collide. The simulation is initialized within the onMount() hook. The collide simulation prevents nodes from overlapping, the force x and force y simulations spread the nodes across an x and y axis.<br/><br/> All other interactions have been stripped away from this example to keep it as simple as possible.",
         component: ForceSimple,
       },
 
@@ -298,14 +298,14 @@ let d3CMS = [
         id: "ForceRadial",
         title: "Radial Force Simulation",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+          "Typically, simulations come into their own upon interaction; through drag, zoom, data updates or animations. Drag and zoom interactions have been added in this example and a different type of simulation has been applied - d3.forceRadial(). ",
         component: ForceRadial,
       },
       {
         id: "ForceFull",
-        title: "Full Example Force Simulation",
+        title: "Network graph simulation",
         notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+          "In this example (mostly from this <a href='https://github.com/happybeing/d3-fdg-svelte'>awesome repo</a> - thanks Mark!), nodes and links are visualized with interacting simulations. ",
         component: ForceFull,
       },
     ],

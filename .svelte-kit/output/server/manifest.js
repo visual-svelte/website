@@ -1,9 +1,9 @@
 export const manifest = {
 	appDir: "_app",
-	assets: new Set(["dataviz.gif","favicon.png","fonts/CONSOLA.TTF","fonts/CONSOLAB.TTF","fonts/consolai.ttf","fonts/Consolas.ttf","fonts/consolaz.ttf","images/graph.png"]),
+	assets: new Set(["dataviz.gif","favicon.png","fonts/CONSOLA.TTF","fonts/CONSOLAB.TTF","fonts/consolai.ttf","fonts/Consolas.ttf","fonts/consolaz.ttf","images/thumbnails/brush.PNG","images/thumbnails/chord.png","images/thumbnails/contour.PNG","images/thumbnails/drag.png","images/thumbnails/force.PNG","images/thumbnails/geo.PNG","images/thumbnails/graph.png","images/thumbnails/hierarchy.png","images/thumbnails/polygon.png","images/thumbnails/shapes.PNG","images/thumbnails/zoom.PNG"]),
 	_: {
-		mime: {".gif":"image/gif",".png":"image/png",".TTF":"font/ttf",".ttf":"font/ttf"},
-		entry: {"file":"start-2f93500e.js","js":["start-2f93500e.js","chunks/vendor-238979f0.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-8f80d76f.css"]},
+		mime: {".gif":"image/gif",".png":"image/png",".TTF":"font/ttf",".ttf":"font/ttf",".PNG":"image/png"},
+		entry: {"file":"start-5d9950ef.js","js":["start-5d9950ef.js","chunks/vendor-a43dc3a5.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-8f80d76f.css"]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),

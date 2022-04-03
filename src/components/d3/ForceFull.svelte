@@ -31,7 +31,6 @@
   let width = 500;
   let height = 600;
   const nodeRadius = 5;
-  const padding = { top: 20, right: 40, bottom: 40, left: 25 };
   $: links = graph.links.map((d) => Object.create(d));
   $: nodes = graph.nodes.map((d) => Object.create(d));
   const colourScale = d3.scaleOrdinal(d3.schemeCategory10);

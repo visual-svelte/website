@@ -1,14 +1,19 @@
-import { c as create_ssr_component, h as each, g as escape, r as compute_rest_props, t as createEventDispatcher, j as spread, k as escape_object, u as is_promise, n as noop, v as validate_component, b as add_attribute, w as null_to_empty, a as subscribe, q as set_store_value, p as onDestroy, m as missing_component } from "../../../../chunks/index-58574f58.js";
-import { d as d3CMS } from "../../../../chunks/cms-12574a25.js";
+import { c as create_ssr_component, b as each, e as escape, t as compute_rest_props, u as createEventDispatcher, o as spread, p as escape_object, w as is_promise, g as noop, v as validate_component, a as add_attribute, n as null_to_empty, d as subscribe, f as set_store_value, r as onDestroy, m as missing_component } from "../../../../chunks/index-8f27b94e.js";
+import { d as d3CMS } from "../../../../chunks/cms-72afd1c9.js";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
 import javascript from "highlight.js/lib/languages/javascript";
-import css$5 from "highlight.js/lib/languages/css";
-/* empty css                                                                      */import { S as Scrolly } from "../../../../chunks/Scrolly-c0776ab4.js";
-import { t as tableOfContents } from "../../../../chunks/post-3f36dfb4.js";
+import css$6 from "highlight.js/lib/languages/css";
+/* empty css                                                                      */import { S as Scrolly } from "../../../../chunks/Scrolly-9df7e2da.js";
+import { t as tableOfContents } from "../../../../chunks/post-a11ba699.js";
 import "d3";
-import "../../../../chunks/screen-47820f5b.js";
-import "../../../../chunks/index-79b72b18.js";
+import "../../../../chunks/index-872736db.js";
+import "d3-scale";
+import "d3-zoom";
+import "d3-scale-chromatic";
+import "d3-selection";
+import "d3-drag";
+import "d3-force";
 const github = `<style>pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
   Theme: GitHub
   Description: Light theme as seen on github.com
@@ -20,16 +25,22 @@ const github = `<style>pre code.hljs{display:block;overflow-x:auto;padding:1em}c
   Current colors taken from GitHub's CSS
 */.hljs{color:#24292e;background:#fff}.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-variable.language_{color:#d73a49}.hljs-title,.hljs-title.class_,.hljs-title.class_.inherited__,.hljs-title.function_{color:#6f42c1}.hljs-attr,.hljs-attribute,.hljs-literal,.hljs-meta,.hljs-number,.hljs-operator,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-variable{color:#005cc5}.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#032f62}.hljs-built_in,.hljs-symbol{color:#e36209}.hljs-code,.hljs-comment,.hljs-formula{color:#6a737d}.hljs-name,.hljs-quote,.hljs-selector-pseudo,.hljs-selector-tag{color:#22863a}.hljs-subst{color:#24292e}.hljs-section{color:#005cc5;font-weight:700}.hljs-bullet{color:#735c0f}.hljs-emphasis{color:#24292e;font-style:italic}.hljs-strong{color:#24292e;font-weight:700}.hljs-addition{color:#22863a;background-color:#f0fff4}.hljs-deletion{color:#b31d28;background-color:#ffeef0}</style>`;
 var github$1 = github;
+var OnThisPage_svelte_svelte_type_style_lang = "";
+const css$5 = {
+  code: "li.svelte-1lrdn70{margin-top:0.5rem}",
+  map: null
+};
 const OnThisPage = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { points } = $$props;
   if ($$props.points === void 0 && $$bindings.points && points !== void 0)
     $$bindings.points(points);
+  $$result.css.add(css$5);
   return `<div><p>In this post:</p>
   ${each(points, (point) => {
-    return `<li><a href="${"#" + escape(point.id)}">${escape(point.title)}</a>
+    return `<li class="${"svelte-1lrdn70"}"><a href="${"#" + escape(point.id)}">${escape(point.title)}</a>
     </li>`;
-  })}</div>
-`;
+  })}
+</div>`;
 });
 var ComeBackLater_svelte_svelte_type_style_lang = "";
 const css$4 = {
@@ -59,7 +70,7 @@ const HighlightSvelte = create_ssr_component(($$result, $$props, $$bindings, slo
   createEventDispatcher();
   hljs.registerLanguage("xml", xml);
   hljs.registerLanguage("javascript", javascript);
-  hljs.registerLanguage("css", css$5);
+  hljs.registerLanguage("css", css$6);
   if ($$props.code === void 0 && $$bindings.code && code !== void 0)
     $$bindings.code(code);
   if ($$props.langtag === void 0 && $$bindings.langtag && langtag !== void 0)
@@ -129,19 +140,19 @@ const GitHubLink = create_ssr_component(($$result, $$props, $$bindings, slots) =
 });
 var Tabs_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: ".box.svelte-bakiw6.svelte-bakiw6{margin-bottom:10px;max-width:90%;min-height:300px;border:1px solid #dee2e6;border-radius:0 0 0.5rem 0.5rem;border-top:0}ul.svelte-bakiw6.svelte-bakiw6{display:flex;flex-wrap:wrap;padding-left:0;margin-bottom:0;list-style:none;border-bottom:1px solid #dee2e6}li.svelte-bakiw6.svelte-bakiw6{margin-bottom:-1px}span.svelte-bakiw6.svelte-bakiw6{border:1px solid transparent;border-top-left-radius:0.25rem;border-top-right-radius:0.25rem;display:block;padding:0.5rem 1rem;cursor:pointer}span.svelte-bakiw6.svelte-bakiw6:hover{border-color:#e9ecef #e9ecef #dee2e6}li.active.svelte-bakiw6>span.svelte-bakiw6{color:#495057;background-color:#fff;border-color:#dee2e6 #dee2e6 #fff}",
+  code: ".box.svelte-1q253y5.svelte-1q253y5{margin-bottom:10px;max-width:90%;min-height:300px;padding:10px;border:1px solid #dee2e6;border-radius:0 0 0.5rem 0.5rem;border-top:0}ul.svelte-1q253y5.svelte-1q253y5{display:flex;flex-wrap:wrap;padding-left:0;margin-bottom:0;list-style:none;border-bottom:1px solid #dee2e6}li.svelte-1q253y5.svelte-1q253y5{margin-bottom:-1px}span.svelte-1q253y5.svelte-1q253y5{border:1px solid transparent;border-top-left-radius:0.25rem;border-top-right-radius:0.25rem;display:block;padding:0.5rem 1rem;cursor:pointer}span.svelte-1q253y5.svelte-1q253y5:hover{border-color:#e9ecef #e9ecef #dee2e6}li.active.svelte-1q253y5>span.svelte-1q253y5{color:#495057;background-color:#fff;border-color:#dee2e6 #dee2e6 #fff}",
   map: null
 };
 const Tabs = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let items = [{ label: "Visual", value: 1 }, { label: "Code", value: 2 }];
   let activeTabValue = 1;
   $$result.css.add(css$1);
-  return `<ul class="${"svelte-bakiw6"}">${each(items, (item) => {
-    return `<li class="${escape(null_to_empty(activeTabValue === item.value ? "active" : "")) + " svelte-bakiw6"}"><span class="${"svelte-bakiw6"}">${escape(item.label)}</span>
+  return `<ul class="${"svelte-1q253y5"}">${each(items, (item) => {
+    return `<li class="${escape(null_to_empty(activeTabValue === item.value ? "active" : "")) + " svelte-1q253y5"}"><span class="${"svelte-1q253y5"}">${escape(item.label)}</span>
     </li>`;
   })}</ul>
 ${each(items, (item) => {
-    return `${activeTabValue == item.value ? `<div class="${"box svelte-bakiw6"}">${`${slots.tab1 ? slots.tab1({}) : ``}`}
+    return `${activeTabValue == item.value ? `<div class="${"box svelte-1q253y5"}">${`${slots.tab1 ? slots.tab1({}) : ``}`}
       
 
       
@@ -164,15 +175,15 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
   let $tableOfContents, $$unsubscribe_tableOfContents;
   $$unsubscribe_tableOfContents = subscribe(tableOfContents, (value) => $tableOfContents = value);
   let { content } = $$props;
-  let titles = content.components.map((comp) => {
+  let titles = content?.components.map((comp) => {
     return {
       id: comp.id,
       title: comp.title,
       bool: false
     };
   });
-  titles.unshift({ id: "intro", title: "Intro", bool: true });
-  if (content.published) {
+  titles?.unshift({ id: "intro", title: "Intro", bool: true });
+  if (content && content.published) {
     set_store_value(tableOfContents, $tableOfContents = titles, $tableOfContents);
   }
   onDestroy(() => {
@@ -200,7 +211,7 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
   let $$rendered;
   do {
     $$settled = true;
-    components = content.components;
+    components = content?.components;
     {
       updateStore(scrollValue);
     }
@@ -212,7 +223,7 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
     }, {
       default: () => {
         return `<div id="${"intro"}" class="${"intro"}"><h1>${escape(content?.post_title)}</h1>
-      <p class="${"svelte-xv2oya"}">${escape(content?.intro_text)}</p>
+      <p class="${"svelte-xv2oya"}"><!-- HTML_TAG_START -->${content?.intro_text}<!-- HTML_TAG_END --></p>
 
       ${validate_component(GitHubLink, "GitHubLink").$$render($$result, {
           d3module: content.primary_key,
@@ -220,7 +231,7 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
         }, {}, {})}
       ${validate_component(OnThisPage, "OnThisPage").$$render($$result, { points: content.components }, {}, {})}</div>
     ${each(components, (comp, i) => {
-          return `<div${add_attribute("id", comp.id, 0)} class="${["container step", scrollValue === i ? "active" : ""].join(" ").trim()}"><h2 class="${"subheading svelte-xv2oya"}">${escape(comp.title)}</h2>
+          return `<div${add_attribute("id", comp.id, 0)} class="${["container step", scrollValue === i ? "active" : ""].join(" ").trim()}"><h2 class="${"subheading svelte-xv2oya"}"><!-- HTML_TAG_START -->${comp.title}<!-- HTML_TAG_END --></h2>
         <p class="${"comp-description svelte-xv2oya"}"><!-- HTML_TAG_START -->${comp.notes}<!-- HTML_TAG_END --></p>
 
         ${validate_component(Tabs, "Tabs").$$render($$result, {}, {}, {

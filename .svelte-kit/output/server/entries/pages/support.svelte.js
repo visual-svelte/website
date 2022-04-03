@@ -1,4 +1,4 @@
-import { c as create_ssr_component } from "../../chunks/index-58574f58.js";
+import { c as create_ssr_component } from "../../chunks/index-8f27b94e.js";
 const Support = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `<h1>Ways to support VisualSvelte</h1>
 <p>Found any of our content useful? Great! Here&#39;s a list of ways you can support

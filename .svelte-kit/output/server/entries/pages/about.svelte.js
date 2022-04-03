@@ -1,12 +1,13 @@
-import { c as create_ssr_component, a as subscribe, p as onDestroy, v as validate_component, h as each, q as set_store_value, b as add_attribute, g as escape } from "../../chunks/index-58574f58.js";
-import { t as tableOfContents } from "../../chunks/post-3f36dfb4.js";
-import { S as Scrolly } from "../../chunks/Scrolly-c0776ab4.js";
-import "../../chunks/index-79b72b18.js";
+import { c as create_ssr_component, d as subscribe, r as onDestroy, v as validate_component, b as each, a as add_attribute, f as set_store_value, e as escape } from "../../chunks/index-8f27b94e.js";
+import { t as tableOfContents } from "../../chunks/post-a11ba699.js";
+import { S as Scrolly } from "../../chunks/Scrolly-9df7e2da.js";
+import "d3";
+import "../../chunks/index-872736db.js";
 const aboutData = [
   {
     id: 0,
     title: "About VisualSvelte",
-    text: "Welcome to VisualSvelte - a collection of code and tutorials to help you build cool visual stuff with Svelte. My goal is to make it as easy as possible for you to build wow-generating graphics with Svelte. I will focus on D3.js and Three.js and then see what else takes my fancy!"
+    text: "Hey!<br/><br/> Thanks for visiting Visual Svelte - a corner of the internet I use to teach myself about the magical mystical world of web development, interactivity and data visulization. <br/><br/>Specifically, I'm interested in technologies like Svelte, D3.js, Three.js, SVG and CSS and use Visual Svelte as a way to sharpen my skills in these areas. <br/><br/>I learn best through teaching, which I why some of these articles are presented as tutorials. Others are just cool things I built. <br/><br/>In building this resource, I hope to make it easier for visual storytellers to create amazing visual stories on the web, especially those without software engineering backgrounds.<br/><br/>All the code is <a href='https://github.com/visual-svelte/website' >open-source</a>.<br/><br/> If you're feeling generous (and you are able to do so), I would love it if you supported my open source work by <a href='https://ko-fi.com/visualsvelte'>buying me a coffee</a>. <br/><br/> Thanks, <br/><br/> Will (<a href='https://twitter.com/visualsvelte'>follow me</a>) "
   }
 ];
 var about_svelte_svelte_type_style_lang = "";
@@ -41,6 +42,7 @@ const About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       console.error(error);
     }
   }
+  let divHere;
   $$result.css.add(css);
   let $$settled;
   let $$rendered;
@@ -59,10 +61,12 @@ ${validate_component(Scrolly, "Scrolly").$$render($$result, { value: scrollValue
       default: () => {
         return `<div class="${"container svelte-m7fl4g"}">${each(aboutData, (sect) => {
           return `<h2${add_attribute("id", sect.id.toString(), 0)}>${escape(sect.title)}</h2>
-      <p>${escape(sect.text)}</p>`;
+      <p><!-- HTML_TAG_START -->${sect.text}<!-- HTML_TAG_END --></p>`;
         })}</div>`;
       }
-    })}`;
+    })}
+
+<div style="${"width:300px;height:300px;"}"${add_attribute("this", divHere, 0)}></div>`;
   } while (!$$settled);
   $$unsubscribe_tableOfContents();
   return $$rendered;
