@@ -33,7 +33,7 @@ __export(stdin_exports, {
   module: () => module2
 });
 var module2 = __toESM(require("../entries/pages/d3/api/_slug_.svelte.js"));
-const entry = "pages/d3/api/_slug_.svelte-3247ce3c.js";
-const js = ["pages/d3/api/_slug_.svelte-3247ce3c.js", "chunks/vendor-b96c9505.js", "chunks/cms-ef8be8c3.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js"];
-const css = ["assets/pages/d3/api/_slug_.svelte-38afeb42.css", "assets/ActionButton.svelte_svelte_type_style_lang-aa259b2c.css", "assets/vendor-0cdc4f15.css", "assets/cms-23b27263.css"];
+const entry = "pages/d3/api/_slug_.svelte-2c0f2a80.js";
+const js = ["pages/d3/api/_slug_.svelte-2c0f2a80.js", "chunks/vendor-21d61cc0.js", "chunks/cms-1546ab8b.js", "chunks/navigation-0e6511d1.js", "chunks/singletons-d1fb5791.js", "chunks/stores-e6b4faaf.js", "chunks/PostGallery-d8410425.js", "chunks/SimplePostCard-eb9a4a06.js"];
+const css = ["assets/pages/d3/api/_slug_.svelte-f820e3f2.css", "assets/ActionButton.svelte_svelte_type_style_lang-aa259b2c.css", "assets/vendor-0cdc4f15.css", "assets/cms-23b27263.css", "assets/PostGallery-d3a57876.css", "assets/SimplePostCard-be96cf02.css"];
 module.exports = __toCommonJS(stdin_exports);

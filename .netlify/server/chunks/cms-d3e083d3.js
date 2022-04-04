@@ -142,9 +142,6 @@ const BrushXSimple = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings
   rx = d3.randomUniform(...x.domain());
   ry = d3.randomNormal(height$e / 2, height$e / 12);
   data2 = Float64Array.from({ length: 40 }, rx);
-  {
-    console.log("data", data2);
-  }
   return `<div><p>\u{1F447} Click and drag over a set of points below to see brush effect.</p>
   <p>Bounds: (${(0, import_index_02532eaa.e)(Math.round(bounds[0]))},${(0, import_index_02532eaa.e)(Math.round(bounds[1]))})</p>
   <p>Brush active: ${(0, import_index_02532eaa.e)(selectionMade)}</p>

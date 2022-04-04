@@ -31,8 +31,8 @@ __export(stdin_exports, {
 });
 var import_index_02532eaa = require("../../chunks/index-02532eaa.js");
 var import_feather_icons = __toESM(require("feather-icons"));
-var import_cms_f956b8af = require("../../chunks/cms-f956b8af.js");
-var import_dynamicData_4edd9c63 = require("../../chunks/dynamicData-4edd9c63.js");
+var import_cms_d3e083d3 = require("../../chunks/cms-d3e083d3.js");
+var import_dynamicData_0ed09738 = require("../../chunks/dynamicData-0ed09738.js");
 var import_stores_9fa16f27 = require("../../chunks/stores-9fa16f27.js");
 var import_d3 = require("d3");
 var import_d3_scale = require("d3-scale");
@@ -93,8 +93,8 @@ const Icon = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slots)
     }
   ], { classes: "svelte-1eky3f8" })}><g><!-- HTML_TAG_START -->${icon.contents}<!-- HTML_TAG_END --></g></svg>` : ``}`;
 });
-const navOpen = (0, import_cms_f956b8af.w)(false);
-const treeData = (0, import_cms_f956b8af.w)(import_dynamicData_4edd9c63.s);
+const navOpen = (0, import_cms_d3e083d3.w)(false);
+const treeData = (0, import_cms_d3e083d3.w)(import_dynamicData_0ed09738.s);
 var BottomNav_svelte_svelte_type_style_lang = "";
 const css$5 = {
   code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.fixed.svelte-j22fjp.svelte-j22fjp{background-color:var(--c-darkgray);margin:0;color:var(--c-white);display:grid;grid-template-columns:2fr 3fr}.fixed.svelte-j22fjp a.svelte-j22fjp{color:white;border:none;background:none}.fixed.svelte-j22fjp .other-links.svelte-j22fjp{display:inline-block;padding:2rem 1rem}.fixed.svelte-j22fjp .other-links div.svelte-j22fjp{margin-bottom:20px}.fixed.svelte-j22fjp .right .socials.svelte-j22fjp{margin:1rem 0;padding:0.8rem 0 0 0.8rem}.fixed.svelte-j22fjp .right .socials a.svelte-j22fjp{padding:10px}.fixed.svelte-j22fjp .right .donate.svelte-j22fjp{grid-area:donate;padding:0.8rem 0 0 0.8rem}",
@@ -189,25 +189,25 @@ const Logo = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slots)
 });
 var Footer_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.container.svelte-twook3{justify-items:space-around}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.container.svelte-swjsyi.svelte-swjsyi{justify-items:space-around;display:grid;grid-template-columns:1fr 3fr 1fr;background-color:var(--c-darkgray);padding:0px 16px;text-align:center;min-height:200px;color:white}.container.svelte-swjsyi .logo.svelte-swjsyi,.container.svelte-swjsyi .support.svelte-swjsyi,.container.svelte-swjsyi .writing.svelte-swjsyi{padding:30px}.container.svelte-swjsyi .logo a.svelte-swjsyi,.container.svelte-swjsyi .support a.svelte-swjsyi,.container.svelte-swjsyi .writing a.svelte-swjsyi{cursor:pointer !important;color:var(--c-green)}.container.svelte-swjsyi .support a.svelte-swjsyi{background:none !important}@media all and (max-width: 700px){.container.svelte-swjsyi .logo.svelte-swjsyi,.container.svelte-swjsyi .writing.svelte-swjsyi,.container.svelte-swjsyi .support.svelte-swjsyi{grid-column:1/4;padding:20px}}",
   map: null
 };
 const Footer = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$1);
-  return `<div class="${"container svelte-twook3"}"><div class="${"logo"}">${(0, import_index_02532eaa.v)(Logo, "Logo").$$render($$result, {}, {}, {})}</div>
-  <div class="${"writing"}"><p>thanks for visiting visualsvelte!</p>
-    <p>before you go, let\u2019s connect! <a rel="${"external"}" href="${"https://twitter.com/visualsvelte"}">@visualsvelte</a></p>
-    <p>still hungry for more? <a sveltekit:prefetch href="${"/about"}">read more</a> about
+  return `<div class="${"container svelte-swjsyi"}"><div class="${"logo svelte-swjsyi"}">${(0, import_index_02532eaa.v)(Logo, "Logo").$$render($$result, {}, {}, {})}</div>
+  <div class="${"writing svelte-swjsyi"}"><p>thanks for visiting visualsvelte!</p>
+    <p>before you go, let\u2019s connect! <a rel="${"external"}" href="${"https://twitter.com/visualsvelte"}" class="${"svelte-swjsyi"}">@visualsvelte</a></p>
+    <p>still hungry for more? <a sveltekit:prefetch href="${"/about"}" class="${"svelte-swjsyi"}">read more</a> about
       visualsvelte!
     </p></div>
-  <div class="${"support"}"><a href="${"https://ko-fi.com/C0C7BRLF8"}" target="${"_blank"}"><img height="${"36"}" style="${"border:0px;height:36px;"}" src="${"https://cdn.ko-fi.com/cdn/kofi2.png?v=3"}" border="${"0"}" alt="${"Buy Me a Coffee at ko-fi.com"}"></a></div>
+  <div class="${"support svelte-swjsyi"}"><a href="${"https://ko-fi.com/C0C7BRLF8"}" target="${"_blank"}" class="${"svelte-swjsyi"}"><img height="${"36"}" style="${"border:0px;height:36px;"}" src="${"https://cdn.ko-fi.com/cdn/kofi2.png?v=3"}" border="${"0"}" alt="${"Buy Me a Coffee at ko-fi.com"}"></a></div>
 </div>`;
 });
-const innerWidth = (0, import_cms_f956b8af.w)(600);
-const scrollY = (0, import_cms_f956b8af.w)(0);
+const innerWidth = (0, import_cms_d3e083d3.w)(600);
+const scrollY = (0, import_cms_d3e083d3.w)(0);
 var __layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ':root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.dimmer.svelte-3zt85k.svelte-3zt85k{position:fixed;min-width:100%;min-height:100%;z-index:2;background-color:rgba(0, 0, 0, 0.5)}.wrapper.svelte-3zt85k.svelte-3zt85k{background-size:20px 20px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)}.wrapper.svelte-3zt85k main.svelte-3zt85k{padding:10px 10px 100px 80px}@font-face{font-family:"Consola";font-style:normal;font-weight:400;src:local(""), url("/fonts/CONSOLA.ttf") format("truetype")}.svelte-3zt85k.svelte-3zt85k{font-family:"Consola";background-color:"#EEEFE1"}p{line-height:1.4rem}h1{padding:1rem 0}a{color:var(--c-darkgray);transition:background 0.3s;background:linear-gradient(180deg, transparent 85%, rgba(119, 227, 35, 0.15) 15%)}a:focus{color:var(--c-darkgray);background:linear-gradient(180deg, transparent 80%, rgba(119, 227, 35, 0.35) 20%)}a:hover{background:rgba(119, 227, 35, 0.35)}',
+  code: ':root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.dimmer.svelte-1n1m68r.svelte-1n1m68r{position:fixed;min-width:100%;min-height:100%;z-index:2;background-color:rgba(0, 0, 0, 0.5)}.wrapper.svelte-1n1m68r.svelte-1n1m68r{background-size:20px 20px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)}.wrapper.svelte-1n1m68r main.svelte-1n1m68r{padding:10px 10px 100px 80px}*{font-family:"Inconsolata", monospace}p{line-height:1.4rem}h1{padding:1rem 0}a{color:var(--c-darkgray);transition:background 0.3s;background:linear-gradient(180deg, transparent 85%, rgba(119, 227, 35, 0.15) 15%)}a:focus{color:var(--c-darkgray);background:linear-gradient(180deg, transparent 80%, rgba(119, 227, 35, 0.35) 20%)}a:hover{background:rgba(119, 227, 35, 0.35)}',
   map: null
 };
 const _layout = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slots) => {
@@ -221,11 +221,13 @@ const _layout = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slo
   $$unsubscribe_innerWidth();
   $$unsubscribe_scrollY();
   $$unsubscribe_navOpen();
-  return `
-${$navOpen ? `<div class="${"dimmer svelte-3zt85k"}"></div>` : ``}
-<div class="${"wrapper svelte-3zt85k"}"><header class="${"svelte-3zt85k"}">${(0, import_index_02532eaa.v)(MinimalNav, "MinimalNav").$$render($$result, {}, {}, {})}</header>
-  <main id="${"content"}" class="${"svelte-3zt85k"}">${slots.default ? slots.default({}) : ``}</main>
-  <footer class="${"svelte-3zt85k"}">${(0, import_index_02532eaa.v)(Footer, "Footer").$$render($$result, {}, {}, {})}</footer>
+  return `${$$result.head += `<style data-svelte="svelte-14rra2v">@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&display=swap");
+  </style>`, ""}
+
+${$navOpen ? `<div class="${"dimmer svelte-1n1m68r"}"></div>` : ``}
+<div class="${"wrapper svelte-1n1m68r"}"><header>${(0, import_index_02532eaa.v)(MinimalNav, "MinimalNav").$$render($$result, {}, {}, {})}</header>
+  <main id="${"content"}" class="${"svelte-1n1m68r"}">${slots.default ? slots.default({}) : ``}</main>
+  <footer>${(0, import_index_02532eaa.v)(Footer, "Footer").$$render($$result, {}, {}, {})}</footer>
 </div>`;
 });
 module.exports = __toCommonJS(stdin_exports);

@@ -31,11 +31,13 @@ __export(stdin_exports, {
   load: () => load
 });
 var import_index_02532eaa = require("../../../../chunks/index-02532eaa.js");
-var import_cms_f956b8af = require("../../../../chunks/cms-f956b8af.js");
+var import_cms_d3e083d3 = require("../../../../chunks/cms-d3e083d3.js");
 var import_core = __toESM(require("highlight.js/lib/core"));
 var import_xml = __toESM(require("highlight.js/lib/languages/xml"));
 var import_javascript = __toESM(require("highlight.js/lib/languages/javascript"));
 var import_css = __toESM(require("highlight.js/lib/languages/css"));
+var import_stores_9fa16f27 = require("../../../../chunks/stores-9fa16f27.js");
+var import_PostGallery_c6ec5968 = require("../../../../chunks/PostGallery-c6ec5968.js");
 var import_d3 = require("d3");
 var import_d3_scale = require("d3-scale");
 var import_d3_zoom = require("d3-zoom");
@@ -43,6 +45,7 @@ var import_d3_scale_chromatic = require("d3-scale-chromatic");
 var import_d3_selection = require("d3-selection");
 var import_d3_drag = require("d3-drag");
 var import_d3_force = require("d3-force");
+var import_SimplePostCard_778ec895 = require("../../../../chunks/SimplePostCard-778ec895.js");
 const github = `<style>pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
   Theme: GitHub
   Description: Light theme as seen on github.com
@@ -250,23 +253,34 @@ const Scrolly = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slo
   }
   return `<div${(0, import_index_02532eaa.a)("this", container, 0)}>${slots.default ? slots.default({}) : ``}</div>`;
 });
-const tableOfContents = (0, import_cms_f956b8af.w)([]);
+const tableOfContents = (0, import_cms_d3e083d3.w)([]);
 var _slug__svelte_svelte_type_style_lang = "";
 const css = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.wrapper.svelte-9kkeiq.svelte-9kkeiq{margin:0 auto;max-width:700px}.intro.svelte-9kkeiq h1.svelte-9kkeiq{margin:0}p.svelte-9kkeiq.svelte-9kkeiq{font-size:0.9rem}.subheading.svelte-9kkeiq.svelte-9kkeiq{margin-top:5rem;padding-top:20px;border-top:1px solid rgba(119, 227, 35, 0.55)}.comp-description.svelte-9kkeiq span{color:blue;font-style:italic;padding:3px 5px;border-radius:10px;font-family:monospace}.svg-container.svelte-9kkeiq.svelte-9kkeiq{overflow-y:scroll}.svg-container.svelte-9kkeiq.svelte-9kkeiq::-webkit-scrollbar{width:0.5em;height:0.5em}.svg-container.svelte-9kkeiq.svelte-9kkeiq::-webkit-scrollbar-thumb{background-color:rgba(255, 255, 255, 0.1);border-radius:3px}.svg-container.svelte-9kkeiq.svelte-9kkeiq::-webkit-scrollbar-thumb:hover{background:rgba(255, 255, 255, 0.2)}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.wrapper.svelte-17wglqz.svelte-17wglqz{margin:0 auto;max-width:700px}h2.svelte-17wglqz.svelte-17wglqz{margin:100px 0 30px 0}.intro.svelte-17wglqz h1.svelte-17wglqz{margin:0}p.svelte-17wglqz.svelte-17wglqz{font-size:0.9rem}.subheading.svelte-17wglqz.svelte-17wglqz{margin-top:5rem;padding-top:20px;border-top:1px solid rgba(119, 227, 35, 0.55)}.comp-description.svelte-17wglqz span{color:blue;font-style:italic;padding:3px 5px;border-radius:10px;font-family:monospace}.svg-container.svelte-17wglqz.svelte-17wglqz{overflow-y:scroll}.svg-container.svelte-17wglqz.svelte-17wglqz::-webkit-scrollbar{width:0.5em;height:0.5em}.svg-container.svelte-17wglqz.svelte-17wglqz::-webkit-scrollbar-thumb{background-color:rgba(255, 255, 255, 0.1);border-radius:3px}.svg-container.svelte-17wglqz.svelte-17wglqz::-webkit-scrollbar-thumb:hover{background:rgba(255, 255, 255, 0.2)}",
   map: null
 };
 async function load(ctx) {
   let slug = ctx.url.pathname;
   const primaryKey = slug.split("/").pop();
-  const content = import_cms_f956b8af.d.find((record) => record.primary_key == primaryKey);
-  return { props: { content } };
+  const content = import_cms_d3e083d3.d.find((record) => record.primary_key == primaryKey);
+  let filteredData = import_cms_d3e083d3.d.filter((d) => d.published).map((post) => {
+    return {
+      id: post.primary_key,
+      thumbnail: post.thumbnail,
+      title: post.post_title,
+      keywords: post.keywords
+    };
+  });
+  return { props: { filteredData, content } };
 }
 const U5Bslugu5D = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slots) => {
   let components;
   let $tableOfContents, $$unsubscribe_tableOfContents;
+  let $page, $$unsubscribe_page;
   $$unsubscribe_tableOfContents = (0, import_index_02532eaa.g)(tableOfContents, (value) => $tableOfContents = value);
+  $$unsubscribe_page = (0, import_index_02532eaa.g)(import_stores_9fa16f27.p, (value) => $page = value);
   let { content } = $$props;
+  let { filteredData } = $$props;
   let titles = content == null ? void 0 : content.components.map((comp) => {
     return {
       id: comp.id,
@@ -298,24 +312,29 @@ const U5Bslugu5D = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, 
   }
   if ($$props.content === void 0 && $$bindings.content && content !== void 0)
     $$bindings.content(content);
+  if ($$props.filteredData === void 0 && $$bindings.filteredData && filteredData !== void 0)
+    $$bindings.filteredData(filteredData);
   $$result.css.add(css);
   let $$settled;
   let $$rendered;
   do {
     $$settled = true;
+    {
+      $page.url;
+    }
     components = content == null ? void 0 : content.components;
     {
       updateStore(scrollValue);
     }
-    $$rendered = `<div class="${"wrapper svelte-9kkeiq"}">${errorState || !content.published ? `${(0, import_index_02532eaa.v)(ComeBackLater, "ComeBackLater").$$render($$result, {}, {}, {})}` : `${(0, import_index_02532eaa.v)(Scrolly, "Scrolly").$$render($$result, { value: scrollValue }, {
+    $$rendered = `<div class="${"wrapper svelte-17wglqz"}">${errorState || !content.published ? `${(0, import_index_02532eaa.v)(ComeBackLater, "ComeBackLater").$$render($$result, {}, {}, {})}` : `${(0, import_index_02532eaa.v)(Scrolly, "Scrolly").$$render($$result, { value: scrollValue }, {
       value: ($$value) => {
         scrollValue = $$value;
         $$settled = false;
       }
     }, {
       default: () => {
-        return `<div id="${"intro"}" class="${"intro svelte-9kkeiq"}"><h1 class="${"svelte-9kkeiq"}">${(0, import_index_02532eaa.e)(content == null ? void 0 : content.post_title)}</h1>
-        <p class="${"svelte-9kkeiq"}"><!-- HTML_TAG_START -->${content == null ? void 0 : content.intro_text}<!-- HTML_TAG_END --></p>
+        return `<div id="${"intro"}" class="${"intro svelte-17wglqz"}"><h1 class="${"svelte-17wglqz"}">${(0, import_index_02532eaa.e)(content == null ? void 0 : content.post_title)}</h1>
+        <p class="${"svelte-17wglqz"}"><!-- HTML_TAG_START -->${content == null ? void 0 : content.intro_text}<!-- HTML_TAG_END --></p>
 
         ${(0, import_index_02532eaa.v)(GitHubLink, "GitHubLink").$$render($$result, {
           d3module: content.primary_key,
@@ -323,8 +342,8 @@ const U5Bslugu5D = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, 
         }, {}, {})}
         ${(0, import_index_02532eaa.v)(OnThisPage, "OnThisPage").$$render($$result, { points: content.components }, {}, {})}</div>
       ${(0, import_index_02532eaa.b)(components, (comp, i) => {
-          return `<div${(0, import_index_02532eaa.a)("id", comp.id, 0)} class="${["container step", scrollValue === i ? "active" : ""].join(" ").trim()}"><h2 class="${"subheading svelte-9kkeiq"}"><!-- HTML_TAG_START -->${comp.title}<!-- HTML_TAG_END --></h2>
-          <p class="${"comp-description svelte-9kkeiq"}"><!-- HTML_TAG_START -->${comp.notes}<!-- HTML_TAG_END --></p>
+          return `<div${(0, import_index_02532eaa.a)("id", comp.id, 0)} class="${["container step", scrollValue === i ? "active" : ""].join(" ").trim()}"><h2 class="${"subheading svelte-17wglqz"}"><!-- HTML_TAG_START -->${comp.title}<!-- HTML_TAG_END --></h2>
+          <p class="${"comp-description svelte-17wglqz"}"><!-- HTML_TAG_START -->${comp.notes}<!-- HTML_TAG_END --></p>
 
           ${(0, import_index_02532eaa.v)(Tabs, "Tabs").$$render($$result, {}, {}, {
             tab2: () => {
@@ -332,17 +351,21 @@ const U5Bslugu5D = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, 
             </div>`;
             },
             tab1: () => {
-              return `<div slot="${"tab1"}"><div class="${"svg-container svelte-9kkeiq"}">${(0, import_index_02532eaa.v)(comp.component || import_index_02532eaa.m, "svelte:component").$$render($$result, {}, {}, {})}</div>
+              return `<div slot="${"tab1"}"><div class="${"svg-container svelte-17wglqz"}">${(0, import_index_02532eaa.v)(comp.component || import_index_02532eaa.m, "svelte:component").$$render($$result, {}, {}, {})}</div>
             </div>`;
             }
           })}
         </div>`;
         })}`;
       }
-    })}`}
+    })}
+
+    <h2 class="${"svelte-17wglqz"}">You might also like:</h2>
+    ${(0, import_index_02532eaa.v)(import_PostGallery_c6ec5968.P, "PostGallery").$$render($$result, { posts: filteredData, showMax: 3 }, {}, {})}`}
 </div>`;
   } while (!$$settled);
   $$unsubscribe_tableOfContents();
+  $$unsubscribe_page();
   return $$rendered;
 });
 module.exports = __toCommonJS(stdin_exports);

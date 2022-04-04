@@ -26,7 +26,7 @@ __export(stdin_exports, {
   load: () => load
 });
 var import_index_02532eaa = require("../../../chunks/index-02532eaa.js");
-var import_cms_f956b8af = require("../../../chunks/cms-f956b8af.js");
+var import_cms_d3e083d3 = require("../../../chunks/cms-d3e083d3.js");
 var import_SimplePostCard_778ec895 = require("../../../chunks/SimplePostCard-778ec895.js");
 var import_d3 = require("d3");
 var import_d3_scale = require("d3-scale");
@@ -43,7 +43,7 @@ const css = {
 async function load(ctx) {
   let slug = ctx.url.pathname;
   const tag_id = slug.split("/").pop();
-  const content = import_cms_f956b8af.d.filter((records) => records.published && records.keywords.includes(tag_id)).map((post) => {
+  const content = import_cms_d3e083d3.d.filter((records) => records.published && records.keywords.includes(tag_id)).map((post) => {
     return {
       id: post.primary_key,
       thumbnail: post.thumbnail,

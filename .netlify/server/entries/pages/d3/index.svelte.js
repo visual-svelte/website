@@ -25,8 +25,8 @@ __export(stdin_exports, {
   default: () => D3
 });
 var import_index_02532eaa = require("../../../chunks/index-02532eaa.js");
-var import_cms_f956b8af = require("../../../chunks/cms-f956b8af.js");
-var import_PostGallery_5ae5768e = require("../../../chunks/PostGallery-5ae5768e.js");
+var import_cms_d3e083d3 = require("../../../chunks/cms-d3e083d3.js");
+var import_PostGallery_c6ec5968 = require("../../../chunks/PostGallery-c6ec5968.js");
 var import_d3 = require("d3");
 var import_d3_scale = require("d3-scale");
 var import_d3_zoom = require("d3-zoom");
@@ -35,9 +35,10 @@ var import_d3_selection = require("d3-selection");
 var import_d3_drag = require("d3-drag");
 var import_d3_force = require("d3-force");
 var import_SimplePostCard_778ec895 = require("../../../chunks/SimplePostCard-778ec895.js");
+var import_stores_9fa16f27 = require("../../../chunks/stores-9fa16f27.js");
 const D3 = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slots) => {
   let filteredData;
-  filteredData = import_cms_f956b8af.d.filter((d) => d.published).map((post) => {
+  filteredData = import_cms_d3e083d3.d.filter((d) => d.published).map((post) => {
     return {
       id: post.primary_key,
       thumbnail: post.thumbnail,
@@ -46,6 +47,6 @@ const D3 = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slots) =
     };
   });
   return `<h1>All posts about D3 &amp; SvelteKit</h1>
-${(0, import_index_02532eaa.v)(import_PostGallery_5ae5768e.P, "PostGallery").$$render($$result, { posts: filteredData }, {}, {})}`;
+${(0, import_index_02532eaa.v)(import_PostGallery_c6ec5968.P, "PostGallery").$$render($$result, { posts: filteredData }, {}, {})}`;
 });
 module.exports = __toCommonJS(stdin_exports);

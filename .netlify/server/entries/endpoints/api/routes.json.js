@@ -24,8 +24,8 @@ var stdin_exports = {};
 __export(stdin_exports, {
   get: () => get
 });
-var import_dynamicData_4edd9c63 = require("../../../chunks/dynamicData-4edd9c63.js");
-var import_cms_f956b8af = require("../../../chunks/cms-f956b8af.js");
+var import_dynamicData_0ed09738 = require("../../../chunks/dynamicData-0ed09738.js");
+var import_cms_d3e083d3 = require("../../../chunks/cms-d3e083d3.js");
 var import_index_02532eaa = require("../../../chunks/index-02532eaa.js");
 var import_d3 = require("d3");
 var import_d3_scale = require("d3-scale");
@@ -36,7 +36,7 @@ var import_d3_drag = require("d3-drag");
 var import_d3_force = require("d3-force");
 const get = async () => {
   const body = {
-    sidebarData: import_dynamicData_4edd9c63.s
+    sidebarData: import_dynamicData_0ed09738.s
   };
   return { body };
 };

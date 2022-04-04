@@ -31,10 +31,10 @@ __export(stdin_exports, {
 });
 const manifest = {
   appDir: "_app",
-  assets: /* @__PURE__ */ new Set(["dataviz.gif", "favicon.png", "fonts/CONSOLA.TTF", "fonts/CONSOLAB.TTF", "fonts/consolai.ttf", "fonts/Consolas.ttf", "fonts/consolaz.ttf", "images/thumbnails/brush.PNG", "images/thumbnails/chord.png", "images/thumbnails/contour.PNG", "images/thumbnails/drag.png", "images/thumbnails/force.PNG", "images/thumbnails/geo.PNG", "images/thumbnails/graph.png", "images/thumbnails/hierarchy.png", "images/thumbnails/polygon.png", "images/thumbnails/shapes.PNG", "images/thumbnails/zoom.PNG"]),
+  assets: /* @__PURE__ */ new Set(["dataviz.gif", "favicon.png", "fonts/CONSOLA.TTF", "fonts/CONSOLAB.TTF", "fonts/consolai.ttf", "fonts/Consolas.ttf", "fonts/consolaz.ttf", "images/thumbnails/brush.png", "images/thumbnails/chord.png", "images/thumbnails/contour.png", "images/thumbnails/drag.png", "images/thumbnails/force.png", "images/thumbnails/geo.png", "images/thumbnails/graph.png", "images/thumbnails/hierarchy.png", "images/thumbnails/polygon.png", "images/thumbnails/shapes.png", "images/thumbnails/zoom.png"]),
   _: {
-    mime: { ".gif": "image/gif", ".png": "image/png", ".TTF": "font/ttf", ".ttf": "font/ttf", ".PNG": "image/png" },
-    entry: { "file": "start-c0704714.js", "js": ["start-c0704714.js", "chunks/vendor-b96c9505.js", "chunks/singletons-d1fb5791.js"], "css": ["assets/vendor-0cdc4f15.css"] },
+    mime: { ".gif": "image/gif", ".png": "image/png", ".TTF": "font/ttf", ".ttf": "font/ttf" },
+    entry: { "file": "start-175497ce.js", "js": ["start-175497ce.js", "chunks/vendor-21d61cc0.js", "chunks/singletons-d1fb5791.js"], "css": ["assets/vendor-0cdc4f15.css"] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),

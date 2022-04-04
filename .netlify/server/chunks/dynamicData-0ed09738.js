@@ -24,8 +24,8 @@ var stdin_exports = {};
 __export(stdin_exports, {
   s: () => sidebarData
 });
-var import_cms_f956b8af = require("./cms-f956b8af.js");
-let d3Articles = import_cms_f956b8af.d.length ? import_cms_f956b8af.d.filter((d) => d.published).map((d) => {
+var import_cms_d3e083d3 = require("./cms-d3e083d3.js");
+let d3Articles = import_cms_d3e083d3.d.length ? import_cms_d3e083d3.d.filter((d) => d.published).map((d) => {
   return { title: d.primary_key, href: `${d.primary_key}` };
 }) : [];
 let sidebarData = [

@@ -25,7 +25,7 @@ __export(stdin_exports, {
   default: () => Routes
 });
 var import_index_02532eaa = require("../../chunks/index-02532eaa.js");
-var import_cms_f956b8af = require("../../chunks/cms-f956b8af.js");
+var import_cms_d3e083d3 = require("../../chunks/cms-d3e083d3.js");
 var import_stores_9fa16f27 = require("../../chunks/stores-9fa16f27.js");
 var import_d3 = require("d3");
 var import_d3_scale = require("d3-scale");
@@ -105,7 +105,7 @@ const Routes = (0, import_index_02532eaa.c)(($$result, $$props, $$bindings, slot
     u: $page.url.pathname
   });
   $$result.css.add(css);
-  import_cms_f956b8af.d.filter((d) => d.published).map((post) => {
+  import_cms_d3e083d3.d.filter((d) => d.published).map((post) => {
     return {
       id: post.primary_key,
       thumbnail: post.thumbnail,
