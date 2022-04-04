@@ -1,13 +1,10 @@
-import { c as create_ssr_component, b as each, e as escape, t as compute_rest_props, u as createEventDispatcher, o as spread, p as escape_object, w as is_promise, g as noop, v as validate_component, a as add_attribute, n as null_to_empty, d as subscribe, f as set_store_value, r as onDestroy, m as missing_component } from "../../../../chunks/index-8f27b94e.js";
-import { d as d3CMS } from "../../../../chunks/cms-72afd1c9.js";
+import { c as create_ssr_component, b as each, e as escape, p as compute_rest_props, l as createEventDispatcher, i as spread, j as escape_object, q as is_promise, d as noop, v as validate_component, a as add_attribute, n as null_to_empty, g as subscribe, h as set_store_value, r as onDestroy, m as missing_component } from "../../../../chunks/index-02532eaa.js";
+import { w as writable, d as d3CMS } from "../../../../chunks/cms-f956b8af.js";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
 import javascript from "highlight.js/lib/languages/javascript";
 import css$6 from "highlight.js/lib/languages/css";
-/* empty css                                                                      */import { S as Scrolly } from "../../../../chunks/Scrolly-9df7e2da.js";
-import { t as tableOfContents } from "../../../../chunks/post-a11ba699.js";
-import "d3";
-import "../../../../chunks/index-872736db.js";
+/* empty css                                                                      */import "d3";
 import "d3-scale";
 import "d3-zoom";
 import "d3-scale-chromatic";
@@ -86,7 +83,7 @@ const HighlightSvelte = create_ssr_component(($$result, $$props, $$bindings, slo
 });
 var Copy2Clipboard_svelte_svelte_type_style_lang = "";
 const css$3 = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)\n  --scale-0: 1rem;--scale-1:1.125rem;--scale-2:1.25rem;--scale-3:1.5rem;--scale-4:1.875rem;--scale-5:2.25rem;--scale-6:3rem;--scale-7:3.75rem;--scale-8:4.5rem;--scale-9:6rem;--scale-10:8rem;--scale-000:0.75rem;--scale-00:0.875rem;--weight-light:300;--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;--weight-extrabold:800;--weight-black:900;--line-none:1;--line-xs:1.125;--line-sm:1.275;--line-md:1.5;--line-lg:1.625;--line-xl:2;--letter-xs:-0.05em;--letter-sm:-0.025em;--letter-none:0em;--letter-lg:0.025em;--letter-xl:0.05em;--prose-xs:45ch;--prose-sm:55ch;--prose-md:65ch;--prose-lg:75ch;--prose-xl:85ch;--size-1:4px;--size-2:8px;--size-3:12px;--size-4:16px;--size-5:20px;--size-6:24px;--size-7:28px;--size-8:32px;--size-9:36px;--size-10:40px;--size-11:44px;--size-12:48px;--size-14:56px;--size-16:64px;--size-20:80px;--size-24:96px;--size-28:112px;--size-32:128px;--size-36:144px;--size-40:160px;--size-44:176px;--size-48:192px;--size-52:208px;--size-56:224px;--size-60:240px;--size-64:256px;--size-72:288px;--size-80:320px;--size-96:384px;--size-px:1px;--size-full:100%;--size-screen:100vw;--size-min:min-content;--size-max:max-content;--width-xs:480px;--width-sm:640px;--width-md:768px;--width-lg:1024px;--width-xl:1280px;--radius-100:100%;--radius-xs:3px;--radius-sm:6px;--radius-md:8px;--radius-lg:12px;--radius-xl:16px;--radius-full:9999px;--blur-xs:blur(4px);--blur-sm:blur(8px);--blur-md:blur(16px);--blur-lg:blur(24px);--blur-xl:blur(40px);--layer-1:10;--layer-2:20;--layer-3:30;--layer-4:40;--layer-5:50;--layer-below:-1;--layer-top:2147483647;--elevation-1:0 1px 2px 0 rgba(0, 0, 0, 0.05);--elevation-2:0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);--elevation-3:0 4px 6px -2px rgba(0, 0, 0, 0.1),\n    0 2px 4px -2px rgba(0, 0, 0, 0.06);--elevation-4:0 12px 16px -4px rgba(0, 0, 0, 0.1),\n    0 4px 6px -2px rgba(0, 0, 0, 0.05);--elevation-5:0 20px 24px -4px rgba(0, 0, 0, 0.1),\n    0 8px 8px -4px rgba(0, 0, 0, 0.04);--elevation-6:0 24px 48px -12px rgba(0, 0, 0, 0.25);--elevation-7:0 32px 64px -12px rgba(0, 0, 0, 0.2);--easing-standard:cubic-bezier(0.4, 0, 0.2, 1);--easing-accelerate:cubic-bezier(0.4, 0, 1, 1);--easing-decelerate:cubic-bezier(0, 0, 0.2, 1);--color-grey-50:#f9fafb;--color-grey-100:#f2f4f5;--color-grey-200:#e8eaed;--color-grey-300:#d4d7dd;--color-grey-400:#a5aab4;--color-grey-500:#767c89;--color-grey-600:#555d6e;--color-grey-700:#3f4754;--color-grey-800:#2c343f;--color-grey-900:#10181c;--color-black:#14141b;--color-grey:var(--color-grey-500);--color-red-300:#fc8181;--color-red-500:#e53e3e;--color-red-700:#c53030;--color-red:var(--color-red-500);--color-green-300:#9ae6b4;--color-green-500:#48bb78;--color-green-700:#2f855a;--color-green:var(--color-green-500);--color-blue-300:#63b3ed;--color-blue-500:#4299e1;--color-blue-700:#3182ce;--color-blue:var(--color-blue-500);--color-pink-300:#fbb6ce;--color-pink-500:#ed64a6;--color-pink-700:#d53f8c;--color-pink:var(--color-pink-500);--color-purple-300:#b794f4;--color-purple-500:#805ad5;--color-purple-700:#6b46c1;--color-purple:var(--color-purple-500);--color-teal-300:#81e6d9;--color-teal-500:#38b2ac;--color-teal-700:#2c7a7b;--color-teal:var(--color-teal-500);--color-yellow-300:#faf089;--color-yellow-500:#ecc94b;--color-yellow-700:#d69e2e;--color-yellow:var(--color-yellow-500);--color-orange-300:#fbd38d;--color-orange-500:#ed8936;--color-orange-700:#dd6b20;--color-orange:var(--color-orange-500);--color-brown-300:#a1887f;--color-brown-500:#795548;--color-brown-700:#5d4037;--color-brown:var(--color-brown-500);--grid-2:repeat(2, minmax(0, 1fr));--grid-3:repeat(3, minmax(0, 1fr));--grid-4:repeat(4, minmax(0, 1fr));--grid-5:repeat(5, minmax(0, 1fr));--grid-6:repeat(6, minmax(0, 1fr));--grid-7:repeat(7, minmax(0, 1fr));--grid-8:repeat(8, minmax(0, 1fr));--grid-9:repeat(9, minmax(0, 1fr));--grid-10:repeat(10, minmax(0, 1fr));--grid-11:repeat(11, minmax(0, 1fr));--grid-12:repeat(12, minmax(0, 1fr));--grid-page-width:var(--width-xl);--grid-page-gutter:5vw;--grid-page-main:2 / 3;--grid-page:minmax(var(--grid-page-gutter), 1fr)\n    minmax(0, var(--grid-page-width)) minmax(var(--grid-page-gutter), 1fr)}button.svelte-1j0swci{border:1px solid var(--c-gray);align-self:center;width:200px;box-shadow:2px -2px 0 0 var(--c-green);border:none;background-color:var(--c-white);padding:10px 20px;opacity:0.9;transition:all 0.5s;cursor:pointer}button.svelte-1j0swci:hover{opacity:1;box-shadow:4px -4px 0 0 var(--c-green)}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}button.svelte-14wm0vg{border:1px solid var(--c-gray);align-self:center;width:200px;box-shadow:2px -2px 0 0 var(--c-green);border:none;background-color:var(--c-white);padding:10px 20px;opacity:0.9;transition:all 0.5s;cursor:pointer}button.svelte-14wm0vg:hover{opacity:1;box-shadow:4px -4px 0 0 var(--c-green)}",
   map: null
 };
 const Copy2Clipboard = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -94,7 +91,7 @@ const Copy2Clipboard = create_ssr_component(($$result, $$props, $$bindings, slot
   if ($$props.content === void 0 && $$bindings.content && content !== void 0)
     $$bindings.content(content);
   $$result.css.add(css$3);
-  return `<button class="${"svelte-1j0swci"}">${escape("Copy to Clipboard")}
+  return `<button class="${"svelte-14wm0vg"}">${escape("Copy to Clipboard")}
 </button>`;
 });
 const CodeVisual = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -140,28 +137,91 @@ const GitHubLink = create_ssr_component(($$result, $$props, $$bindings, slots) =
 });
 var Tabs_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: ".box.svelte-1q253y5.svelte-1q253y5{margin-bottom:10px;max-width:90%;min-height:300px;padding:10px;border:1px solid #dee2e6;border-radius:0 0 0.5rem 0.5rem;border-top:0}ul.svelte-1q253y5.svelte-1q253y5{display:flex;flex-wrap:wrap;padding-left:0;margin-bottom:0;list-style:none;border-bottom:1px solid #dee2e6}li.svelte-1q253y5.svelte-1q253y5{margin-bottom:-1px}span.svelte-1q253y5.svelte-1q253y5{border:1px solid transparent;border-top-left-radius:0.25rem;border-top-right-radius:0.25rem;display:block;padding:0.5rem 1rem;cursor:pointer}span.svelte-1q253y5.svelte-1q253y5:hover{border-color:#e9ecef #e9ecef #dee2e6}li.active.svelte-1q253y5>span.svelte-1q253y5{color:#495057;background-color:#fff;border-color:#dee2e6 #dee2e6 #fff}",
+  code: ".box.svelte-bm9546.svelte-bm9546{margin-bottom:10px;max-width:90%;min-height:300px;background-color:white;box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;padding:10px;border:1px solid #dee2e6;border-radius:0 0 0.5rem 0.5rem;border-top:0}ul.svelte-bm9546.svelte-bm9546{display:flex;flex-wrap:wrap;padding-left:0;margin-bottom:0;list-style:none;border-bottom:1px solid #dee2e6}li.svelte-bm9546.svelte-bm9546{margin-bottom:-1px}span.svelte-bm9546.svelte-bm9546{border:1px solid transparent;border-top-left-radius:0.25rem;border-top-right-radius:0.25rem;display:block;padding:0.5rem 1rem;cursor:pointer}span.svelte-bm9546.svelte-bm9546:hover{border-color:#e9ecef #e9ecef #dee2e6}li.active.svelte-bm9546>span.svelte-bm9546{color:#495057;background-color:#fff;border-color:#dee2e6 #dee2e6 #fff}",
   map: null
 };
 const Tabs = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let items = [{ label: "Visual", value: 1 }, { label: "Code", value: 2 }];
   let activeTabValue = 1;
   $$result.css.add(css$1);
-  return `<ul class="${"svelte-1q253y5"}">${each(items, (item) => {
-    return `<li class="${escape(null_to_empty(activeTabValue === item.value ? "active" : "")) + " svelte-1q253y5"}"><span class="${"svelte-1q253y5"}">${escape(item.label)}</span>
+  return `<ul class="${"svelte-bm9546"}">${each(items, (item) => {
+    return `<li class="${escape(null_to_empty(activeTabValue === item.value ? "active" : "")) + " svelte-bm9546"}"><span class="${"svelte-bm9546"}">${escape(item.label)}</span>
     </li>`;
   })}</ul>
 ${each(items, (item) => {
-    return `${activeTabValue == item.value ? `<div class="${"box svelte-1q253y5"}">${`${slots.tab1 ? slots.tab1({}) : ``}`}
+    return `${activeTabValue == item.value ? `<div class="${"box svelte-bm9546"}">${`${slots.tab1 ? slots.tab1({}) : ``}`}
       
 
       
     </div>` : ``}`;
   })}`;
 });
+const Scrolly = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { root = null } = $$props;
+  let { top = 0 } = $$props;
+  let { bottom = 0 } = $$props;
+  let { increments = 100 } = $$props;
+  let { value = 0 } = $$props;
+  const steps = [];
+  const threshold = [];
+  let nodes = [];
+  let intersectionObservers = [];
+  let container;
+  const update = () => {
+    if (!nodes.length)
+      return;
+    nodes.forEach(createObserver);
+  };
+  const mostInView = () => {
+    let maxRatio = 0;
+    let maxIndex = 0;
+    for (let i = 0; i < steps.length; i++) {
+      if (steps[i] > maxRatio) {
+        maxRatio = steps[i];
+        maxIndex = i;
+      }
+    }
+    if (maxRatio > 0)
+      value = maxIndex;
+    else
+      value = 0;
+  };
+  const createObserver = (node, index) => {
+    const handleIntersect = (e) => {
+      e[0].isIntersecting;
+      const ratio = e[0].intersectionRatio;
+      steps[index] = ratio;
+      mostInView();
+    };
+    const marginTop = top ? top * -1 : 0;
+    const marginBottom = bottom ? bottom * -1 : 0;
+    const rootMargin = `${marginTop}px 0px ${marginBottom}px 0px`;
+    const options = { root, rootMargin, threshold };
+    if (intersectionObservers[index])
+      intersectionObservers[index].disconnect();
+    const io = new IntersectionObserver(handleIntersect, options);
+    io.observe(node);
+    intersectionObservers[index] = io;
+  };
+  if ($$props.root === void 0 && $$bindings.root && root !== void 0)
+    $$bindings.root(root);
+  if ($$props.top === void 0 && $$bindings.top && top !== void 0)
+    $$bindings.top(top);
+  if ($$props.bottom === void 0 && $$bindings.bottom && bottom !== void 0)
+    $$bindings.bottom(bottom);
+  if ($$props.increments === void 0 && $$bindings.increments && increments !== void 0)
+    $$bindings.increments(increments);
+  if ($$props.value === void 0 && $$bindings.value && value !== void 0)
+    $$bindings.value(value);
+  {
+    update();
+  }
+  return `<div${add_attribute("this", container, 0)}>${slots.default ? slots.default({}) : ``}</div>`;
+});
+const tableOfContents = writable([]);
 var _slug__svelte_svelte_type_style_lang = "";
 const css = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)\n  --scale-0: 1rem;--scale-1:1.125rem;--scale-2:1.25rem;--scale-3:1.5rem;--scale-4:1.875rem;--scale-5:2.25rem;--scale-6:3rem;--scale-7:3.75rem;--scale-8:4.5rem;--scale-9:6rem;--scale-10:8rem;--scale-000:0.75rem;--scale-00:0.875rem;--weight-light:300;--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;--weight-extrabold:800;--weight-black:900;--line-none:1;--line-xs:1.125;--line-sm:1.275;--line-md:1.5;--line-lg:1.625;--line-xl:2;--letter-xs:-0.05em;--letter-sm:-0.025em;--letter-none:0em;--letter-lg:0.025em;--letter-xl:0.05em;--prose-xs:45ch;--prose-sm:55ch;--prose-md:65ch;--prose-lg:75ch;--prose-xl:85ch;--size-1:4px;--size-2:8px;--size-3:12px;--size-4:16px;--size-5:20px;--size-6:24px;--size-7:28px;--size-8:32px;--size-9:36px;--size-10:40px;--size-11:44px;--size-12:48px;--size-14:56px;--size-16:64px;--size-20:80px;--size-24:96px;--size-28:112px;--size-32:128px;--size-36:144px;--size-40:160px;--size-44:176px;--size-48:192px;--size-52:208px;--size-56:224px;--size-60:240px;--size-64:256px;--size-72:288px;--size-80:320px;--size-96:384px;--size-px:1px;--size-full:100%;--size-screen:100vw;--size-min:min-content;--size-max:max-content;--width-xs:480px;--width-sm:640px;--width-md:768px;--width-lg:1024px;--width-xl:1280px;--radius-100:100%;--radius-xs:3px;--radius-sm:6px;--radius-md:8px;--radius-lg:12px;--radius-xl:16px;--radius-full:9999px;--blur-xs:blur(4px);--blur-sm:blur(8px);--blur-md:blur(16px);--blur-lg:blur(24px);--blur-xl:blur(40px);--layer-1:10;--layer-2:20;--layer-3:30;--layer-4:40;--layer-5:50;--layer-below:-1;--layer-top:2147483647;--elevation-1:0 1px 2px 0 rgba(0, 0, 0, 0.05);--elevation-2:0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);--elevation-3:0 4px 6px -2px rgba(0, 0, 0, 0.1),\n    0 2px 4px -2px rgba(0, 0, 0, 0.06);--elevation-4:0 12px 16px -4px rgba(0, 0, 0, 0.1),\n    0 4px 6px -2px rgba(0, 0, 0, 0.05);--elevation-5:0 20px 24px -4px rgba(0, 0, 0, 0.1),\n    0 8px 8px -4px rgba(0, 0, 0, 0.04);--elevation-6:0 24px 48px -12px rgba(0, 0, 0, 0.25);--elevation-7:0 32px 64px -12px rgba(0, 0, 0, 0.2);--easing-standard:cubic-bezier(0.4, 0, 0.2, 1);--easing-accelerate:cubic-bezier(0.4, 0, 1, 1);--easing-decelerate:cubic-bezier(0, 0, 0.2, 1);--color-grey-50:#f9fafb;--color-grey-100:#f2f4f5;--color-grey-200:#e8eaed;--color-grey-300:#d4d7dd;--color-grey-400:#a5aab4;--color-grey-500:#767c89;--color-grey-600:#555d6e;--color-grey-700:#3f4754;--color-grey-800:#2c343f;--color-grey-900:#10181c;--color-black:#14141b;--color-grey:var(--color-grey-500);--color-red-300:#fc8181;--color-red-500:#e53e3e;--color-red-700:#c53030;--color-red:var(--color-red-500);--color-green-300:#9ae6b4;--color-green-500:#48bb78;--color-green-700:#2f855a;--color-green:var(--color-green-500);--color-blue-300:#63b3ed;--color-blue-500:#4299e1;--color-blue-700:#3182ce;--color-blue:var(--color-blue-500);--color-pink-300:#fbb6ce;--color-pink-500:#ed64a6;--color-pink-700:#d53f8c;--color-pink:var(--color-pink-500);--color-purple-300:#b794f4;--color-purple-500:#805ad5;--color-purple-700:#6b46c1;--color-purple:var(--color-purple-500);--color-teal-300:#81e6d9;--color-teal-500:#38b2ac;--color-teal-700:#2c7a7b;--color-teal:var(--color-teal-500);--color-yellow-300:#faf089;--color-yellow-500:#ecc94b;--color-yellow-700:#d69e2e;--color-yellow:var(--color-yellow-500);--color-orange-300:#fbd38d;--color-orange-500:#ed8936;--color-orange-700:#dd6b20;--color-orange:var(--color-orange-500);--color-brown-300:#a1887f;--color-brown-500:#795548;--color-brown-700:#5d4037;--color-brown:var(--color-brown-500);--grid-2:repeat(2, minmax(0, 1fr));--grid-3:repeat(3, minmax(0, 1fr));--grid-4:repeat(4, minmax(0, 1fr));--grid-5:repeat(5, minmax(0, 1fr));--grid-6:repeat(6, minmax(0, 1fr));--grid-7:repeat(7, minmax(0, 1fr));--grid-8:repeat(8, minmax(0, 1fr));--grid-9:repeat(9, minmax(0, 1fr));--grid-10:repeat(10, minmax(0, 1fr));--grid-11:repeat(11, minmax(0, 1fr));--grid-12:repeat(12, minmax(0, 1fr));--grid-page-width:var(--width-xl);--grid-page-gutter:5vw;--grid-page-main:2 / 3;--grid-page:minmax(var(--grid-page-gutter), 1fr)\n    minmax(0, var(--grid-page-width)) minmax(var(--grid-page-gutter), 1fr)}p.svelte-xv2oya{font-size:0.9rem}.subheading.svelte-xv2oya{margin-top:5rem;padding-top:20px;border-top:1px solid rgba(119, 227, 35, 0.55)}.comp-description.svelte-xv2oya span{color:blue;font-style:italic;padding:3px 5px;border-radius:10px;font-family:monospace}.svg-container.svelte-xv2oya{overflow-y:scroll}.svg-container.svelte-xv2oya::-webkit-scrollbar{width:0.5em;height:0.5em}.svg-container.svelte-xv2oya::-webkit-scrollbar-thumb{background-color:rgba(255, 255, 255, 0.1);border-radius:3px}.svg-container.svelte-xv2oya::-webkit-scrollbar-thumb:hover{background:rgba(255, 255, 255, 0.2)}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.wrapper.svelte-9kkeiq.svelte-9kkeiq{margin:0 auto;max-width:700px}.intro.svelte-9kkeiq h1.svelte-9kkeiq{margin:0}p.svelte-9kkeiq.svelte-9kkeiq{font-size:0.9rem}.subheading.svelte-9kkeiq.svelte-9kkeiq{margin-top:5rem;padding-top:20px;border-top:1px solid rgba(119, 227, 35, 0.55)}.comp-description.svelte-9kkeiq span{color:blue;font-style:italic;padding:3px 5px;border-radius:10px;font-family:monospace}.svg-container.svelte-9kkeiq.svelte-9kkeiq{overflow-y:scroll}.svg-container.svelte-9kkeiq.svelte-9kkeiq::-webkit-scrollbar{width:0.5em;height:0.5em}.svg-container.svelte-9kkeiq.svelte-9kkeiq::-webkit-scrollbar-thumb{background-color:rgba(255, 255, 255, 0.1);border-radius:3px}.svg-container.svelte-9kkeiq.svelte-9kkeiq::-webkit-scrollbar-thumb:hover{background:rgba(255, 255, 255, 0.2)}",
   map: null
 };
 async function load(ctx) {
@@ -215,39 +275,40 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
     {
       updateStore(scrollValue);
     }
-    $$rendered = `${errorState || !content.published ? `${validate_component(ComeBackLater, "ComeBackLater").$$render($$result, {}, {}, {})}` : `${validate_component(Scrolly, "Scrolly").$$render($$result, { value: scrollValue }, {
+    $$rendered = `<div class="${"wrapper svelte-9kkeiq"}">${errorState || !content.published ? `${validate_component(ComeBackLater, "ComeBackLater").$$render($$result, {}, {}, {})}` : `${validate_component(Scrolly, "Scrolly").$$render($$result, { value: scrollValue }, {
       value: ($$value) => {
         scrollValue = $$value;
         $$settled = false;
       }
     }, {
       default: () => {
-        return `<div id="${"intro"}" class="${"intro"}"><h1>${escape(content?.post_title)}</h1>
-      <p class="${"svelte-xv2oya"}"><!-- HTML_TAG_START -->${content?.intro_text}<!-- HTML_TAG_END --></p>
+        return `<div id="${"intro"}" class="${"intro svelte-9kkeiq"}"><h1 class="${"svelte-9kkeiq"}">${escape(content?.post_title)}</h1>
+        <p class="${"svelte-9kkeiq"}"><!-- HTML_TAG_START -->${content?.intro_text}<!-- HTML_TAG_END --></p>
 
-      ${validate_component(GitHubLink, "GitHubLink").$$render($$result, {
+        ${validate_component(GitHubLink, "GitHubLink").$$render($$result, {
           d3module: content.primary_key,
           url: `https://github.com/d3/${content.primary_key}`
         }, {}, {})}
-      ${validate_component(OnThisPage, "OnThisPage").$$render($$result, { points: content.components }, {}, {})}</div>
-    ${each(components, (comp, i) => {
-          return `<div${add_attribute("id", comp.id, 0)} class="${["container step", scrollValue === i ? "active" : ""].join(" ").trim()}"><h2 class="${"subheading svelte-xv2oya"}"><!-- HTML_TAG_START -->${comp.title}<!-- HTML_TAG_END --></h2>
-        <p class="${"comp-description svelte-xv2oya"}"><!-- HTML_TAG_START -->${comp.notes}<!-- HTML_TAG_END --></p>
+        ${validate_component(OnThisPage, "OnThisPage").$$render($$result, { points: content.components }, {}, {})}</div>
+      ${each(components, (comp, i) => {
+          return `<div${add_attribute("id", comp.id, 0)} class="${["container step", scrollValue === i ? "active" : ""].join(" ").trim()}"><h2 class="${"subheading svelte-9kkeiq"}"><!-- HTML_TAG_START -->${comp.title}<!-- HTML_TAG_END --></h2>
+          <p class="${"comp-description svelte-9kkeiq"}"><!-- HTML_TAG_START -->${comp.notes}<!-- HTML_TAG_END --></p>
 
-        ${validate_component(Tabs, "Tabs").$$render($$result, {}, {}, {
+          ${validate_component(Tabs, "Tabs").$$render($$result, {}, {}, {
             tab2: () => {
               return `<div slot="${"tab2"}">${validate_component(CodeVisual, "CodeVisual").$$render($$result, { compid: comp.id }, {}, {})}
-          </div>`;
+            </div>`;
             },
             tab1: () => {
-              return `<div slot="${"tab1"}"><div class="${"svg-container svelte-xv2oya"}">${validate_component(comp.component || missing_component, "svelte:component").$$render($$result, {}, {}, {})}</div>
-          </div>`;
+              return `<div slot="${"tab1"}"><div class="${"svg-container svelte-9kkeiq"}">${validate_component(comp.component || missing_component, "svelte:component").$$render($$result, {}, {}, {})}</div>
+            </div>`;
             }
           })}
-      </div>`;
+        </div>`;
         })}`;
       }
-    })}`}`;
+    })}`}
+</div>`;
   } while (!$$settled);
   $$unsubscribe_tableOfContents();
   return $$rendered;

@@ -13,12 +13,12 @@ let sidebarData = [
     expanded: true,
     children: [
       {
-        data: "Building blocks",
-        expanded: false,
+        data: "D3 API + Svelte",
+        expanded: true,
         children: d3Articles,
       },
       {
-        data: "Examples/ Recipes",
+        data: "D3 + Svelte recipes ",
         expanded: false,
         children: [],
       },

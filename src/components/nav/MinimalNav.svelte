@@ -1,4 +1,6 @@
 <script>
+  import BottomNav from "./BottomNav.svelte";
+
   import Tree from "$components/helpers/Tree.svelte";
   import { fly } from "svelte/transition";
   import Icon from "$components/helpers/Icon.svelte";
@@ -20,43 +22,7 @@
     <div class="tree">
       <Tree />
     </div>
-    <div class="fixed">
-      <div class="other-links">
-        <div>
-          <a href="/">Home</a>
-        </div>
-        <div>
-          <a href="about">About</a>
-        </div>
-      </div>
-      <div class="right">
-        <div class="socials">
-          Say hi: <a
-            target="_blank"
-            rel="external"
-            href="https://twitter.com/visualsvelte"
-          >
-            <Icon
-              name="twitter"
-              fill="var(--c-white)"
-              width="20px"
-              height="20px"
-            />
-          </a>
-        </div>
-        <div class="donate">
-          <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"
-            ><img
-              height="36"
-              style="border:0px;height:36px;"
-              src="https://cdn.ko-fi.com/cdn/kofi2.png?v=3"
-              border="0"
-              alt="Buy Me a Coffee at ko-fi.com"
-            /></a
-          >
-        </div>
-      </div>
-    </div>
+    <BottomNav />
   </div>
 {/if}
 
@@ -90,39 +56,6 @@
       //
       overflow-y: auto;
       overflow-x: hidden;
-    }
-    .fixed {
-      background-color: var(--c-darkgray);
-      margin: 0;
-
-      color: var(--c-white);
-      a {
-        color: white;
-        border: none;
-        background: none;
-      }
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      .other-links {
-        display: inline-block;
-        padding: 2rem 1rem;
-        div {
-          margin-bottom: 20px;
-        }
-      }
-      .right {
-        .socials {
-          margin: 1rem 0;
-          a {
-            padding: 10px;
-          }
-          padding: 0.8rem 0 0 0.8rem;
-        }
-        .donate {
-          grid-area: donate;
-          padding: 0.8rem 0 0 0.8rem;
-        }
-      }
     }
   }
 

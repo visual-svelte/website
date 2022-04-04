@@ -25,57 +25,71 @@
 </script>
 
 <!-- <Meta {metadata} /> -->
-<Typewriter cascade>
-  <div class="intro">
-    <h1>Unlock your</h1>
-    <h1>
-      <span
-        use:annotate={{
-          color: "lightgreen",
-          type: "highlight",
-          iterations: 2,
-          visible: visible,
-        }}>visual storytelling superpowers</span
-      >
-    </h1>
-    <h1>with Svelte</h1>
+<div class="spacer">
+  <Typewriter cascade>
+    <div class="intro">
+      <h1>Unlock your</h1>
+      <h1>
+        <span
+          use:annotate={{
+            color: "lightgreen",
+            type: "highlight",
+            iterations: 2,
+            visible: visible,
+          }}>visual storytelling superpowers</span
+        >
+      </h1>
+      <h1>with Svelte</h1>
+    </div>
+  </Typewriter>
+</div>
+{#if visible}
+  <div class="text" in:fly={{ x: -50, duration: 1000, delay: 1200 }}>
+    <p>Svelte is what the pro's use to tell visual stories.</p>
+    <p>
+      An educational site providing code and examples of great data
+      visualizations and visual journalism with <a
+        href="https://kit.svelte.dev/">SvelteKit</a
+      >.
+    </p>
+
+    <p>
+      This site was born out of my own frustrations on the learning curve of
+      both D3.js and Javascript/ CSS/ HTML.
+    </p>
+    <p>I'm creating the resource I wish I had to learn faster.</p>
+    <p>
+      You can read more about how and why I'm doing that, <a href="/about"
+        >here</a
+      >.
+    </p>
+
+    <p>
+      Intially, the focus focus will be on the legendary D3.js and how to
+      implement the whole library in SvelteKit.
+    </p>
   </div>
-</Typewriter>
-<div in:fly={{ x: 50, duration: 300, delay: 250 }}>
-  <p>Svelte is what the pro's use to tell visual stories.</p>
-  <p>
-    An educational site providing code and examples of great data visualizations
-    and visual journalism with <a href="https://kit.svelte.dev/">SvelteKit</a>.
-  </p>
 
-  <p>
-    This site was born out of my own frustrations on the learning curve of both
-    D3.js and Javascript/ CSS/ HTML.
-  </p>
-  <p>I'm creating the resource I wish I had to learn faster.</p>
-  <p>
-    You can read more about how and why I'm doing that, <a href="/about">here</a
-    >.
-  </p>
-
-  <p>
-    Intially, the focus focus will be on the legendary D3.js and how to
-    implement the whole library in SvelteKit.
-  </p>
-</div>
-<div in:fly={{ y: 100, duration: 300, delay: 500 }}>
-  <h2>Recent D3 & SvelteKit Series:</h2>
-  <PostGallery posts={filteredData} />
-</div>
+  <div in:fly={{ y: 100, duration: 1000, delay: 2500 }}>
+    <h2>Recent D3 & SvelteKit Series:</h2>
+    <PostGallery posts={filteredData} />
+  </div>
+{/if}
 
 <style lang="scss">
-  div,
+  .spcaer {
+    // min-height: 300px;
+  }
   .intro {
+    // min-height: 50vh;
     padding: 100px 0px;
 
     h1 {
       text-align: center;
       margin: 0;
     }
+  }
+  .text {
+    text-align: center;
   }
 </style>

@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-auto";
+import adapter from "@sveltejs/adapter-netlify";
 import preprocess from "svelte-preprocess";
 import svg from "vite-plugin-svgstring";
 import dsv from "@rollup/plugin-dsv";

@@ -5,20 +5,35 @@
     let slug = ctx.url.pathname;
     const primaryKey = slug.split("/").pop();
     const content = d3CMS.find((record) => record.primary_key == primaryKey);
+    let filteredData = d3CMS
+      .filter((d) => d.published)
+      .map((post) => {
+        return {
+          id: post.primary_key,
+          thumbnail: post.thumbnail,
+          title: post.post_title,
+          keywords: post.keywords,
+        };
+      });
     //implement the search of the pageContent database with the primaryKey
-    return { props: { content } };
+    return { props: { filteredData, content } };
   }
 </script>
 
 <script>
   export let content;
+  export let filteredData;
   import OnThisPage from "$components/OnThisPage.svelte";
   import ComeBackLater from "$components/ComeBackLater.svelte";
   import CodeVisual from "$components/CodeVisual.svelte";
   import GitHubLink from "$components/GitHubLink.svelte";
   import Tabs from "$components/Tabs.svelte";
-  import Scrolly from "$components/Scrolly.svelte";
+  import Scrolly from "$components/helpers/Scrolly.svelte";
   import { tableOfContents } from "$stores/post.js";
+  import { page } from "$app/stores";
+  let updatePosts = 0;
+  $: $page.url, (updatePosts += 1);
+
   let titles = content?.components.map((comp) => {
     return { id: comp.id, title: comp.title, bool: false };
   });
@@ -28,6 +43,7 @@
   }
 
   import { onDestroy } from "svelte";
+  import PostGallery from "$components/PostGallery.svelte";
   onDestroy(() => {
     $tableOfContents = [];
   });
@@ -95,6 +111,11 @@
         </div>
       {/each}
     </Scrolly>
+
+    <h2>You might also like:</h2>
+    {#key updatePosts}
+      <PostGallery posts={filteredData} showMax={3} />
+    {/key}
   {/if}
 </div>
 
@@ -102,6 +123,9 @@
   .wrapper {
     margin: 0 auto;
     max-width: 700px;
+  }
+  h2 {
+    margin: 100px 0 30px 0;
   }
   .intro {
     h1 {

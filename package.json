@@ -16,6 +16,7 @@
     "@playwright/test": "^1.19.1",
     "@rollup/plugin-dsv": "^2.0.3",
     "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.51",
     "@sveltejs/kit": "next",
     "archieml": "0.4.2",
     "d3": "^7.3.0",

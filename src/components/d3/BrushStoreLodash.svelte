@@ -26,8 +26,8 @@
 
   $: x = d3.scaleLinear().domain([0, 400]).range([0, width]); // define generator functions for x and y axes
 
-  $: filters, console.log("filters", filters);
-  $: filteredData, console.log("filteredDataLength", filteredData.length);
+  // $: filters, console.log("filters", filters);
+  // $: filteredData, console.log("filteredDataLength", filteredData.length);
 
   function brushEnd(event) {
     let selection = event.selection;

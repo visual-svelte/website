@@ -19,7 +19,6 @@
   $: rx = d3.randomUniform(...x.domain()); // for data generator only
   $: ry = d3.randomNormal(height / 2, height / 12); // for data generator only
   $: data = Float64Array.from({ length: 40 }, rx); // for data generator only
-  $: console.log("data", data);
   let bounds = [0, 0];
   let selectionMade = false;
 
