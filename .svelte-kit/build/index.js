@@ -5,7 +5,7 @@ import { set_paths, assets, base } from '/Users/PC/Documents/GitHub/visualsvelte
 import { set_prerendering } from '/Users/PC/Documents/GitHub/visualsvelte/.svelte-kit/runtime/env.js';
 import * as user_hooks from "./hooks.js";
 
-const template = ({ head, body, assets, nonce }) => "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"description\" content=\"\" />\r\n    <link rel=\"icon\" href=\"static/images/favicon/favicon.ico\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    " + head + "\r\n  </head>\r\n  <body style=\"margin: 0 !important\">\r\n    <div>" + body + "</div>\r\n  </body>\r\n</html>\r\n";
+const template = ({ head, body, assets, nonce }) => "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"description\" content=\"\" />\r\n    <link rel=\"icon\" href=\"static/images/favicon/favicon-16x16.png\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    " + head + "\r\n  </head>\r\n  <body style=\"margin: 0 !important\">\r\n    <div>" + body + "</div>\r\n  </body>\r\n</html>\r\n";
 
 let read = null;
 

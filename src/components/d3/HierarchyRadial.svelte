@@ -30,7 +30,6 @@
   let radius = 100;
   $: treeGen = d3.cluster().size([width - 2 * margin, radius]); // the second size param here represents radius
   $: tree = treeGen(root);
-
   $: lineGen = d3
     .lineRadial()
     .angle((d) => (d.x * Math.PI) / 180)
@@ -51,7 +50,7 @@
         cy={d.y}
         r={10}
         fill="lightblue"
-        transform="rotate({372 - d.x},0,0)"
+        transform="rotate({d.x + 180},0,0)"
       />
     {/each}
   </g>

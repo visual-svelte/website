@@ -14,5 +14,5 @@
     });
 </script>
 
-<h1>All posts about D3 & SvelteKit</h1>
+<h1>All posts about D3 & Svelte</h1>
 <PostGallery posts={filteredData} />

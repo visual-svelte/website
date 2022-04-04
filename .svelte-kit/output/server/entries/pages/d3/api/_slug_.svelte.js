@@ -1,11 +1,12 @@
 import { c as create_ssr_component, b as each, e as escape, l as compute_rest_props, o as createEventDispatcher, i as spread, j as escape_object, p as is_promise, d as noop, v as validate_component, a as add_attribute, n as null_to_empty, g as subscribe, h as set_store_value, q as onDestroy, m as missing_component } from "../../../../chunks/index-b8b7f0d9.js";
-import { w as writable, d as d3CMS } from "../../../../chunks/cms-04ea08e6.js";
+import { w as writable, d as d3CMS } from "../../../../chunks/cms-c1824dde.js";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";
 import javascript from "highlight.js/lib/languages/javascript";
 import css$6 from "highlight.js/lib/languages/css";
 /* empty css                                                                      */import { p as page } from "../../../../chunks/stores-9d6a58c7.js";
-import { P as PostGallery } from "../../../../chunks/PostGallery-56ad1cdd.js";
+import { M as Meta } from "../../../../chunks/Meta-63120277.js";
+import { P as PostGallery } from "../../../../chunks/PostGallery-4b7a9da2.js";
 import "d3";
 import "d3-scale";
 import "d3-zoom";
@@ -13,7 +14,7 @@ import "d3-scale-chromatic";
 import "d3-selection";
 import "d3-drag";
 import "d3-force";
-import "../../../../chunks/SimplePostCard-a6cd209b.js";
+import "../../../../chunks/SimplePostCard-b8d61954.js";
 /* empty css                                                                        *//* empty css                                                                     */const github = `<style>pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
   Theme: GitHub
   Description: Light theme as seen on github.com
@@ -133,7 +134,7 @@ const GitHubLink = create_ssr_component(($$result, $$props, $$bindings, slots) =
   if ($$props.d3module === void 0 && $$bindings.d3module && d3module !== void 0)
     $$bindings.d3module(d3module);
   $$result.css.add(css$2);
-  return `<div class="${"svelte-nh07a1"}">Note: this page shows you how to implment the ${escape(d3module)} module in SvelteKit. For
+  return `<div class="${"svelte-nh07a1"}">Note: this page shows you how to implment the ${escape(d3module)} module in Svelte. For
   more details about the ${escape(d3module)} module, please consult the
   <a${add_attribute("href", url, 0)}>docs on GitHub</a>.
 </div>`;
@@ -231,6 +232,12 @@ async function load(ctx) {
   let slug = ctx.url.pathname;
   const primaryKey = slug.split("/").pop();
   const content = d3CMS.find((record) => record.primary_key == primaryKey);
+  let metadata = {
+    t: `${content?.post_title} | VisualSvelte`,
+    d: "Tell visual stories on the internet with Svelte and other technologies.",
+    u: slug,
+    tags: content.keywords.join()
+  };
   let filteredData = d3CMS.filter((d) => d.published).map((post) => {
     return {
       id: post.primary_key,
@@ -239,7 +246,9 @@ async function load(ctx) {
       keywords: post.keywords
     };
   });
-  return { props: { filteredData, content } };
+  return {
+    props: { filteredData, content, metadata }
+  };
 }
 const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let components;
@@ -249,6 +258,8 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
   let { content } = $$props;
   let { filteredData } = $$props;
+  let { metadata } = $$props;
+  console.log("slug", metadata.tags);
   let titles = content?.components.map((comp) => {
     return {
       id: comp.id,
@@ -282,6 +293,8 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
     $$bindings.content(content);
   if ($$props.filteredData === void 0 && $$bindings.filteredData && filteredData !== void 0)
     $$bindings.filteredData(filteredData);
+  if ($$props.metadata === void 0 && $$bindings.metadata && metadata !== void 0)
+    $$bindings.metadata(metadata);
   $$result.css.add(css);
   let $$settled;
   let $$rendered;
@@ -294,7 +307,8 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
     {
       updateStore(scrollValue);
     }
-    $$rendered = `<div class="${"wrapper svelte-dbhb1r"}">${errorState || !content.published ? `${validate_component(ComeBackLater, "ComeBackLater").$$render($$result, {}, {}, {})}` : `${validate_component(Scrolly, "Scrolly").$$render($$result, { value: scrollValue }, {
+    $$rendered = `${validate_component(Meta, "Meta").$$render($$result, { metadata }, {}, {})}
+<div class="${"wrapper svelte-dbhb1r"}">${errorState || !content.published ? `${validate_component(ComeBackLater, "ComeBackLater").$$render($$result, {}, {}, {})}` : `${validate_component(Scrolly, "Scrolly").$$render($$result, { value: scrollValue }, {
       value: ($$value) => {
         scrollValue = $$value;
         $$settled = false;

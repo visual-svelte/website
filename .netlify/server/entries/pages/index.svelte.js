@@ -1,5 +1,6 @@
-import { c as create_ssr_component, g as subscribe } from "../../chunks/index-b8b7f0d9.js";
-import { d as d3CMS } from "../../chunks/cms-04ea08e6.js";
+import { c as create_ssr_component, g as subscribe, v as validate_component } from "../../chunks/index-b8b7f0d9.js";
+import { M as Meta } from "../../chunks/Meta-63120277.js";
+import { d as d3CMS } from "../../chunks/cms-c1824dde.js";
 /* empty css                                                                  */import { p as page } from "../../chunks/stores-9d6a58c7.js";
 /* empty css                                                               */import "d3";
 import "d3-scale";
@@ -17,11 +18,11 @@ const css = {
 const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $page, $$unsubscribe_page;
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
-  ({
+  let metadata = {
     t: "Home | VisualSvelte",
-    d: "",
+    d: "Tell visual stories on the internet with Svelte and other technologies.",
     u: $page.url.pathname
-  });
+  };
   $$result.css.add(css);
   d3CMS.filter((d) => d.published).map((post) => {
     return {
@@ -32,7 +33,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     };
   });
   $$unsubscribe_page();
-  return `
+  return `${validate_component(Meta, "Meta").$$render($$result, { metadata }, {}, {})}
 <div class="${"spacer svelte-1vfej18"}">
   <div class="${"intro svelte-1vfej18"}"><h1 class="${"svelte-1vfej18"}">Unlock your</h1>
     <h1 class="${"svelte-1vfej18"}"><span>visual storytelling superpowers</span></h1>

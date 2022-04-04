@@ -1,6 +1,7 @@
 <script>
   import Icon from "$components/helpers/Icon.svelte";
   import { navOpen } from "$stores/menu";
+  import Kofi from "$components/helpers/Kofi.svelte";
   let links = [
     { href: "/", text: "Home" },
     { href: "/about", text: "About" },
@@ -26,15 +27,7 @@
       </a>
     </div>
     <div class="donate">
-      <a href="https://ko-fi.com/C0C7BRLF8" target="_blank"
-        ><img
-          height="36"
-          style="border:0px;height:36px;"
-          src="https://cdn.ko-fi.com/cdn/kofi2.png?v=3"
-          border="0"
-          alt="Buy Me a Coffee at ko-fi.com"
-        /></a
-      >
+      <Kofi />
     </div>
   </div>
 </div>

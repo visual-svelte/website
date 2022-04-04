@@ -63,7 +63,7 @@
     background: linear-gradient(
       180deg,
       transparent 85%,
-      rgba(119, 227, 35, 0.15) 15%
+      rgba(119, 227, 35, 0.1) 15%
     );
     &:focus {
       color: var(--c-darkgray);

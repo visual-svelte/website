@@ -11,7 +11,11 @@
   onMount(() => {
     setTimeout(() => (visible = true), 500);
   });
-  let metadata = { t: "Home | VisualSvelte", d: "", u: $page.url.pathname };
+  let metadata = {
+    t: "Home | VisualSvelte",
+    d: "Tell visual stories on the internet with Svelte and other technologies.",
+    u: $page.url.pathname,
+  };
   $: filteredData = d3CMS
     .filter((d) => d.published)
     .map((post) => {
@@ -24,7 +28,7 @@
     });
 </script>
 
-<!-- <Meta {metadata} /> -->
+<Meta {metadata} />
 <div class="spacer">
   <!-- <Typewriter cascade> -->
   <div class="intro">
@@ -71,7 +75,16 @@
         }}>frustrations</span
       > on the learning curve of both D3.js and Svelte/ Javascript/ CSS/ HTML.
     </p>
-    <p>I'm creating the resource I wish I had to learn faster.</p>
+    <p>
+      I'm creating the resource I wish I had to <span
+        use:annotate={{
+          color: "pink",
+          type: "highlight",
+          iterations: 2,
+          visible: visible,
+        }}>learn faster</span
+      >.
+    </p>
     <p>
       You can read more about how and why I'm doing that → <a href="/about"
         >here</a
@@ -80,7 +93,7 @@
   </div>
 
   <div class="bottom-section" in:fly={{ y: 100, duration: 1000, delay: 2500 }}>
-    <h2>Recent D3 & SvelteKit Series:</h2>
+    <h2>Recent D3 & Svelte Series:</h2>
     <PostGallery posts={filteredData} />
   </div>
 {/if}

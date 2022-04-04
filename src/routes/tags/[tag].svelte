@@ -18,14 +18,12 @@
           keywords: post.keywords,
         };
       });
-    //implement the search of the pageContent database with the primaryKey
     return { props: { content, tag_id } };
   }
 </script>
 
 <script>
   import SimplePostCard from "$components/SimplePostCard.svelte";
-
   export let content;
   export let tag_id;
 </script>

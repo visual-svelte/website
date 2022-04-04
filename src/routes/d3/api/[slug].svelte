@@ -5,6 +5,12 @@
     let slug = ctx.url.pathname;
     const primaryKey = slug.split("/").pop();
     const content = d3CMS.find((record) => record.primary_key == primaryKey);
+    let metadata = {
+      t: `${content?.post_title} | VisualSvelte`,
+      d: "Tell visual stories on the internet with Svelte and other technologies.",
+      u: slug,
+      tags: content.keywords.join(),
+    };
     let filteredData = d3CMS
       .filter((d) => d.published)
       .map((post) => {
@@ -15,14 +21,15 @@
           keywords: post.keywords,
         };
       });
-    //implement the search of the pageContent database with the primaryKey
-    return { props: { filteredData, content } };
+    return { props: { filteredData, content, metadata } };
   }
 </script>
 
 <script>
   export let content;
   export let filteredData;
+  export let metadata;
+  console.log("slug", metadata.tags);
   import OnThisPage from "$components/OnThisPage.svelte";
   import ComeBackLater from "$components/ComeBackLater.svelte";
   import CodeVisual from "$components/CodeVisual.svelte";
@@ -31,6 +38,8 @@
   import Scrolly from "$components/helpers/Scrolly.svelte";
   import { tableOfContents } from "$stores/post.js";
   import { page } from "$app/stores";
+  import Meta from "$components/helpers/Meta.svelte";
+
   let updatePosts = 0;
   $: $page.url, (updatePosts += 1);
 
@@ -61,8 +70,6 @@
     } catch (error) {
       errorState = true;
       console.error(error);
-      // expected output: ReferenceError: nonExistentFunction is not defined
-      // Note - error messages will vary depending on browser
     }
   }
 
@@ -70,6 +77,7 @@
   $: scrollValue, updateStore(scrollValue);
 </script>
 
+<Meta {metadata} />
 <div class="wrapper">
   {#if errorState || !content.published}
     <ComeBackLater />

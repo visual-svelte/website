@@ -5,10 +5,11 @@ import AxisScaleBand from "$components/d3/AxisScaleBand.svelte";
 import AxisLabels from "$components/d3/AxisLabels.svelte";
 import BrushXSimple from "$components/d3/BrushXSimple.svelte";
 import BrushStore from "$components/d3/BrushStore.svelte";
-import BrushZoom from "$components/d3/BrushZoom.svelte";
+// import BrushZoom from "$components/d3/BrushZoom.svelte";
 import ChordBasic from "$components/d3/ChordBasic.svelte";
 import ChordComplex from "$components/d3/ChordComplex.svelte";
 import ContourBasic from "$components/d3/ContourBasic.svelte";
+import DelaunaySimple from "$components/d3/DelaunaySimple.svelte";
 import DragSimple from "$components/d3/DragSimple.svelte";
 import DragD3 from "$components/d3/DragD3.svelte";
 import DragD3Svelte from "$components/d3/DragD3Svelte.svelte";
@@ -19,44 +20,44 @@ import PolygonBasic from "$components/d3/PolygonBasic.svelte";
 import PolygonPlus from "$components/d3/PolygonPlus.svelte";
 import ShapeArc from "$components/d3/ShapeArc.svelte";
 import ShapeArea from "$components/d3/ShapeArea.svelte";
-import ShapeCurve from "$components/d3/ShapeCurve.svelte";
+// import ShapeCurve from "$components/d3/ShapeCurve.svelte";
 import ShapeLine from "$components/d3/ShapeLine.svelte";
 import ShapeLinks from "$components/d3/ShapeLinks.svelte";
 import ShapePie from "$components/d3/ShapePie.svelte";
 import ShapeStack from "$components/d3/ShapeStack.svelte";
 import HierarchyPack from "$components/d3/HierarchyPack.svelte";
 import HierarchyTree from "$components/d3/HierarchyTree.svelte";
-import HierarchyTreemap from "$components/d3/HierarchyTreemap.svelte";
+// import HierarchyTreemap from "$components/d3/HierarchyTreemap.svelte";
 import HierarchyCluster from "$components/d3/HierarchyCluster.svelte";
 import HierarchyRadial from "$components/d3/HierarchyRadial.svelte";
 import GeoPath from "$components/d3/GeoPath.svelte";
 import ZoomBasic from "$components/d3/ZoomBasic.svelte";
-import ZoomBrush from "$components/d3/ZoomBrush.svelte";
-import ZoomScales from "$components/d3/ZoomScales.svelte";
-import ZoomSvelteUse from "$components/d3/ZoomSvelteUse.svelte";
+// import ZoomBrush from "$components/d3/ZoomBrush.svelte";
+// import ZoomScales from "$components/d3/ZoomScales.svelte";
+// import ZoomSvelteUse from "$components/d3/ZoomSvelteUse.svelte";
 
 let d3CMS = [
   {
     primary_key: "d3-axis",
     published: "2022-03-13",
-    post_title: "Implementing D3 Axis in SvelteKit",
+    post_title: "Implementing D3 Axis in Svelte",
     thumbnail: "/images/thumbnails/graph.png",
-    keywords: ["d3", "axis"],
+    keywords: ["d3", "axis", "svelte", "log", "labels", "linear"],
     intro_text:
-      "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in SvelteKit. Each axis type is similar but implemented slightly differently. The code for each is provided.<br/><br/> There is a variety of different ways to approach the D3/ SvelteKit integration, my method shown favours describing as much of the SVG elements as possible in Svelte HTML/ SVG markup (as opposed to creating elements programmatically with D3 code). This keeps code really clean and readable and makes it easier to apply Svelte event handlers or custom styles. ",
+      "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in Svelte. Each axis type is similar but implemented slightly differently. The code for each is provided.<br/><br/> There is a variety of different ways to approach the D3/ Svelte integration, my method shown favours describing as much of the SVG elements as possible in Svelte HTML/ SVG markup (as opposed to creating elements programmatically with D3 code). This keeps code really clean and readable and makes it easier to apply Svelte event handlers or custom styles. ",
     components: [
       {
         id: "AxisSimple",
         title: "Basic axis - scaleLinear()",
         notes:
-          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. In SvelteKit, I make use of the bind:this={} syntax to select an empty SVG group element and call the axis generator function. See the full code for details.",
+          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. In Svelte, I make use of the bind:this={} syntax to select an empty SVG group element and call the axis generator function. See the full code for details.",
         component: AxisSimple,
       },
       {
         id: "AxisLog",
         title: "Log scale - scaleLog()",
         notes:
-          "To create a logarithmic axis, we need to use the <span>scaleLog()</span> generator (see code block below for full example). The rest of the implementation in SvelteKit is the same as the <span class='test'>d3.scaleLinear()</span> example above. <br/><br/> I have also added a <span class='test'>tickFormat()</span> to make it easy for the reader to see that a logarithmic scale is being used.",
+          "To create a logarithmic axis, we need to use the <span>scaleLog()</span> generator (see code block below for full example). The rest of the implementation in Svelte is the same as the <span class='test'>d3.scaleLinear()</span> example above. <br/><br/> I have also added a <span class='test'>tickFormat()</span> to make it easy for the reader to see that a logarithmic scale is being used.",
         component: AxisLog,
       },
       {
@@ -86,9 +87,9 @@ let d3CMS = [
   {
     primary_key: "d3-brush",
     published: "2022-03-25",
-    post_title: "D3-brush techniques in SvelteKit",
+    post_title: "D3-brush techniques in Svelte",
     thumbnail: "/images/thumbnails/brush.png",
-    keywords: ["d3"],
+    keywords: ["d3", "brush", "svelte"],
     intro_text:
       "Brushing is a technique used frequently in data visualization. It allows the user to interact with one or more visual, to identify patterns and relationships between them.<br/><br/> In this article, I'll be walking through a number of examples of implementing different brushing techniques (using d3-brush). ",
     components: [
@@ -118,11 +119,11 @@ let d3CMS = [
   {
     primary_key: "d3-chord",
     published: "2022-03-27",
-    post_title: "D3-Chord in SvelteKit ",
+    post_title: "D3-Chord in Svelte ",
     thumbnail: "/images/thumbnails/chord.png",
-    keywords: ["d3"],
+    keywords: ["d3", "chord", "svelte"],
     intro_text:
-      "The d3-chord api allows you to generate chord geometries. In this article, I'll describe the method I use to generate these kind of gemoetries, specifically within a SvelteKit environment.",
+      "The d3-chord api allows you to generate chord geometries. In this article, I'll describe the method I use to generate these kind of geometries, specifically within a Svelte environment.",
     components: [
       {
         id: "ChordBasic",
@@ -142,91 +143,47 @@ let d3CMS = [
       },
     ],
   },
-  {
-    primary_key: "d3-color",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
+
   {
     primary_key: "d3-contour",
     published: "2022-03-28",
-    post_title: "Contours with D3 and SvelteKit",
+    post_title: "Contours with D3 and Svelte",
     thumbnail: "/images/thumbnails/contour.png",
-    keywords: ["d3"],
+    keywords: ["d3", "contour", "svelte", "topography"],
     intro_text:
-      "Contours are an interesting visual type - used typically for maps, but can also be used to display continuous functions by sampling. In this article, we provide an example of how to use d3-contour within SvelteKit.",
+      "Contours are an interesting visual type - used typically for maps, but can also be used to display continuous functions by sampling. In this article, we provide an example of how to use d3-contour within Svelte.",
     components: [
       {
         id: "ContourBasic",
         title: "Contours (basic)",
         notes:
-          "The classic example (found in the docs and this  Basic example) is using contours to visualize the <a href='https://en.wikipedia.org/wiki/Test_functions_for_optimization' >Goldstein-Price function</a>. Here's how I implmented it in SvelteKit. <br/><br/>The code is relatively straightforward, once you have your data in the required format. The contour generator expects an array of length n by m where [n, m] is the contour generator's size. <br/><br/> The output is then typically passed to d3.geoPath() to convert the projection into SVG paths.",
+          "The classic example (found in the docs and this  Basic example) is using contours to visualize the <a href='https://en.wikipedia.org/wiki/Test_functions_for_optimization' >Goldstein-Price function</a>. Here's how I implemented it in Svelte. <br/><br/>The code is relatively straightforward, once you have your data in the required format. The contour generator expects an array of length n by m where [n, m] is the contour generator's size. <br/><br/> The output is then typically passed to d3.geoPath() to convert the projection into SVG paths.",
         component: ContourBasic,
       },
     ],
   },
-  {
-    primary_key: "d3-delaunay",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "Voronoi",
-        title: "Voronoi ",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-      {
-        id: "",
-        title: "delaunay.find ",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
+
   {
     primary_key: "d3-drag",
     published: "2022-03-28",
-    post_title: "Drag interactions in SvelteKit with d3-drag",
+    post_title: "Drag interactions in Svelte with d3-drag",
     thumbnail: "/images/thumbnails/drag.png",
-    keywords: ["d3"],
+    keywords: ["d3", "svelte", "drag", "interaction"],
     intro_text:
-      "Drag and drop is a pretty common use case, especially in interactive journalism! On a SvelteKit app, you could potentially implement drag and drop with HTML, with Svelte event hooks or with D3-drag. <br/><br/> This article looks at different scenarios and suggests when to use which technology. ",
+      "Drag and drop is a pretty common use case, especially in interactive journalism! On a Svelte app, you could potentially implement drag and drop with HTML, with Svelte event hooks or with D3-drag. <br/><br/> This article looks at different scenarios and suggests when to use which technology. ",
     components: [
       {
         id: "DragSimple",
         title: "Simple Drag (mouseup/down only)",
         notes:
-          "Firstly, I've implemented a simple drag functionality using mouseup and mousedown (from the HTML Drag and Drop Api) Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
+          "Firstly, I've implemented a simple drag functionality using mouseup and mousedown (from the HTML Drag and Drop Api, hence this interaction will not work on touch devices).",
         component: DragSimple,
       },
       {
         id: "DragD3",
         title: "Drag with d3-drag",
         notes:
-          "Next, I looked at implementing dragging functionality with d3-drag. The code is quite straightforward. I bounded a set of circles to the DOM from the within the onMount() hook (because I'm using SvelteKit/SSR). I then called the dragHandler() on the circles to activate dragging.<br/><br/> This serves a purpose and demostrated that it is possible to implement drag using d3.js in SvelteKit. <br/><br/>",
+          "Next, I looked at implementing dragging functionality with d3-drag. The code is quite straightforward. I bounded a set of circles to the DOM from the within the onMount() hook (because I'm using SvelteKit/SSR). I then called the dragHandler() on the circles to activate dragging.<br/><br/> This serves a purpose and demonstrated that it is possible to implement drag using d3.js in Svelte. <br/><br/>",
         component: DragD3,
       },
       {
@@ -238,53 +195,14 @@ let d3CMS = [
       },
     ],
   },
-
-  {
-    primary_key: "d3-ease",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-  {
-    primary_key: "d3-fetch",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
   {
     primary_key: "d3-force",
     published: "2022-04-01",
     post_title: "D3 Force Simulation and Svelte",
     thumbnail: "/images/thumbnails/force.png",
-    keywords: ["d3"],
+    keywords: ["d3", "svelte", "force", "collide", "simulation", "radial"],
     intro_text:
-      "Trying to implment the d3-force in Svelte caused me the most problems of all the d3 libraries! It wasn't until I stumbled upon <a href='https://github.com/happybeing/d3-fdg-svelte'>this repo</a> on GitHub that it all clicked into place, so thanks @happybear! As a result the methods and code I use here borrow heavily from his great work.<br/><br/> Once you understand how to call the simulation, things become clear and you implement any force simulations you can see in the docs.",
+      "Trying to implement the d3-force in Svelte caused me the most problems of all the d3 libraries! It wasn't until I stumbled upon <a href='https://github.com/happybeing/d3-fdg-svelte'>this repo</a> on GitHub that it all clicked into place, so thanks @happybear! As a result the methods and code I use here borrow heavily from his great work.<br/><br/> Once you understand how to call the simulation, things become clear and you implement any force simulations you can see in the docs.",
     components: [
       {
         id: "ForceSimple",
@@ -311,38 +229,19 @@ let d3CMS = [
     ],
   },
   {
-    primary_key: "d3-format",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-  {
     primary_key: "d3-geo",
     published: "2022-03-30",
     post_title: "Visualizing geo data with D3 and Svelte",
     thumbnail: "/images/thumbnails/geo.png",
-    keywords: ["d3"],
+    keywords: ["d3", "geo", "geoJSON", "svelte"],
     intro_text:
-      "This article gives an example of the creation of svg path geomtry with geoJSON with the d3-geo module. I then render the result in a Svelte app. <br/><br/> The d3-geo library is vast and I'll only be starting with a simple example, with the aim to expand on it over time. <br/><br/> This data use in on this page is from <a href='https://datahub.io/examples/geojson-tutorial'>DataHub</a>.",
+      "This article gives an example of the creation of svg path geometry with geoJSON with the d3-geo module. I then render the result in a Svelte app. <br/><br/> The d3-geo library is vast and I'll only be starting with a simple example, with the aim to expand on it over time. <br/><br/> This data use in on this page is from <a href='https://datahub.io/examples/geojson-tutorial'>DataHub</a>.",
     components: [
       {
         id: "GeoPath",
         title: "Simple GeoPath",
         notes:
-          "In the simplest implmentation of d3.geoPath(), a geoPath generator is created and fed with GeoJSON data. This outputs an svg path description that can be given to an SVG path element.",
+          "In the simplest implementation of d3.geoPath(), a geoPath generator is created and fed with GeoJSON data. This outputs an svg path description that can be given to an SVG path element.",
         component: GeoPath,
       },
     ],
@@ -352,15 +251,23 @@ let d3CMS = [
     published: "2022-03-30",
     post_title: "Visualizing hierarchies with D3 and Svelte",
     thumbnail: "/images/thumbnails/hierarchy.png",
-    keywords: ["d3"],
+    keywords: [
+      "d3",
+      "hierarchy",
+      "svelte",
+      "tree",
+      "cluster",
+      "radial",
+      "pack",
+    ],
     intro_text:
-      "We can use d3 to generate lots of visual layouts from hierarchichal data. Typically the process is: 1) construct a hierarchichal model from the data, 2) feed the model into a layout generator such as a circle-packing generator. This gives us the 'instructions' for what to render where with SVG elements. <br/><br/> In this article, we'll look at the basic layout types and look at how we can render them specifically with SvelteKit. This is not a detailed tutorial on how to customize hierarchichal layouts with D3 - for that I recommend the <a href='https://github.com/d3/d3-hierarchy'>D3 docs</a>. <br/><br/> Much of the data/ examples with this section was adapted from <a href='http://using-d3js.com/06_01_hierarchal.html'>using-d3js.com</a> - a great resource for learning more about d3 modules.",
+      "We can use d3 to generate lots of visual layouts from hierarchical data. Typically the process is: 1) construct a hierarchical model from the data, 2) feed the model into a layout generator such as a circle-packing generator. This gives us the 'instructions' for what to render where with SVG elements. <br/><br/> In this article, we'll look at the basic layout types and look at how we can render them specifically with Svelte. This is not a detailed tutorial on how to customize hierarchical layouts with D3 - for that I recommend the <a href='https://github.com/d3/d3-hierarchy'>D3 docs</a>. <br/><br/> Much of the data/ examples with this section was adapted from <a href='http://using-d3js.com/06_01_hierarchal.html'>using-d3js.com</a> - a great resource for learning more about d3 modules.",
     components: [
       {
         id: "HierarchyTree",
         title: "Tree Layout ",
         notes:
-          "If you inspect the code for this first example, you can see the process unfold. First we construction the hierarchichal model with d3.hierarchy(). We then feed this hierarchichal model into a tree layout generator.<br/><br/>This gives us a handy set of instructions to plot our tree layout. ",
+          "If you inspect the code for this first example, you can see the process unfold. First we construction the hierarchical model with d3.hierarchy(). We then feed this hierarchical model into a tree layout generator.<br/><br/>This gives us a handy set of instructions to plot our tree layout. ",
         component: HierarchyTree,
       },
       {
@@ -377,19 +284,12 @@ let d3CMS = [
           "The radial layout is an extension of the cluster layout. We create a d3.lineRadial() generator function for our radial links and create a path for each of the tree.links(), passing in the source and the target coordinates. To plot our circles, we need to change the cx position to 0 and rotate all points by d.x.",
         component: HierarchyRadial,
       },
-      // {
-      //   id: "HierarchyTreemap",
-      //   title: "Treemap Layout",
-      //   notes:
-      //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-      //   props: {},
-      //   component: HierarchyTreemap,
-      // },
+
       {
         id: "HierarchyPack",
         title: "Circle Packing Layout",
         notes:
-          "Once you understand how the preceeding visuals are built, the circle-packing is a simple extension - it follows the same pattern as described above. See the code for more details. ",
+          "Once you understand how the preceding visuals are built, the circle-packing is a simple extension - it follows the same pattern as described above. See the code for more details. ",
         component: HierarchyPack,
       },
     ],
@@ -397,9 +297,9 @@ let d3CMS = [
   {
     primary_key: "d3-polygon",
     published: "2022-03-29",
-    post_title: "Polygons with D3 and SvelteKit",
+    post_title: "Polygons with D3 and Svelte",
     thumbnail: "/images/thumbnails/polygon.png",
-    keywords: ["d3"],
+    keywords: ["d3", "polygon"],
     intro_text:
       "The d3-polygon module is relatively simple library for generating 2D polygon geometries from a set of points. ",
     components: [
@@ -419,54 +319,15 @@ let d3CMS = [
       },
     ],
   },
-  {
-    primary_key: "d3-quadtree",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-
-  {
-    primary_key: "d3-scale",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
 
   {
     primary_key: "d3-shape",
     published: "2022-03-29",
-    post_title: "D3 Shapes with SvelteKit",
+    post_title: "D3 Shapes with Svelte",
     thumbnail: "/images/thumbnails/shapes.png",
-    keywords: ["d3"],
+    keywords: ["d3", "svelte", "arc", "pie", "line", "area", "links", "stack"],
     intro_text:
-      "D3 Shape is really at the core of building data visuals. With it, you can produce arcs, pies, lines, areas, curves, links, and stacks. In this article, I'll make one of each of these shapes, specifically in a SvelteKit environment. <br/><br/>Note: the examples I show are intended to show just the basics of how to render all the standard shape types in a Svelte app. This is not meant to be a D3 tutorial, as such. Once you know how to get your D3 shape into Svelte, the possibilities are then endless, and you can add more complexity, typically to shape generator functions.",
+      "D3 Shape is really at the core of building data visuals. With it, you can produce arcs, pies, lines, areas, curves, links, and stacks. In this article, I'll make one of each of these shapes, specifically in a Svelte environment. <br/><br/>Note: the examples I show are intended to show just the basics of how to render all the standard shape types in a Svelte app. This is not meant to be a D3 tutorial, as such. Once you know how to get your D3 shape into Svelte, the possibilities are then endless, and you can add more complexity, typically to shape generator functions.",
     components: [
       {
         id: "ShapeArc",
@@ -493,14 +354,14 @@ let d3CMS = [
         id: "ShapeArea",
         title: "D3 Area",
         notes:
-          "Area charts are similar to line charts, but generate a fillable area down to the X-axis (by default). We can generate them with D3 and visualize them in SvelteKit in the same way. ",
+          "Area charts are similar to line charts, but generate a fillable area down to the X-axis (by default). We can generate them with D3 and visualize them in Svelte in the same way. ",
         component: ShapeArea,
       },
       {
         id: "ShapeLinks",
         title: "D3 Links",
         notes:
-          "The link generator can be useful for a variery of network-type diagrams, hierarchichal charts and general relationship diagramming. The line generator expects an object with source and target keys to define the mapping (see code).<br/><br/> You can customize the style of the link between nodes in lots of different way. Check out the <a href='https://github.com/d3/d3-shape#line'>D3 docs</a> for inspiration. ",
+          "The link generator can be useful for a variety of network-type diagrams, hierarchical charts and general relationship diagramming. The line generator expects an object with source and target keys to define the mapping (see code).<br/><br/> You can customize the style of the link between nodes in lots of different way. Check out the <a href='https://github.com/d3/d3-shape#line'>D3 docs</a> for inspiration. ",
         component: ShapeLinks,
       },
       {
@@ -512,52 +373,15 @@ let d3CMS = [
       },
     ],
   },
-  {
-    primary_key: "d3-timer",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
-  {
-    primary_key: "d3-transition",
-    published: "",
-    post_title: "",
-    thumbnail: "",
-    keywords: ["d3"],
-    intro_text:
-      "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are al",
-    components: [
-      {
-        id: "",
-        title: "",
-        notes:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quod omnis enim quae, obcaecati sed a officiis sit nesciunt blanditiis consequatur, pariatur ipsa quidem ipsam velit porro? Porro, modi molestias.",
-        props: {},
-        component: NaN,
-      },
-    ],
-  },
+
   {
     primary_key: "d3-zoom",
     published: "2022-03-31",
     post_title: "Zooming with D3 and Svelte",
     thumbnail: "/images/thumbnails/zoom.png",
-    keywords: ["d3"],
+    keywords: ["d3", "zoom"],
     intro_text:
-      "Zooming is one of the most difficult aspects of using D3 with a front-end framework like SvelteKit, as it deals with UI interaction, the updating of scales and (sometimes) the redrawing of geometry dynamically. <br/><br/>We begin with a really simple example of Zooming with D3 and SvelteKit and hope to add more advanced configurations in the future. ",
+      "Zooming is one of the most difficult aspects of using D3 with a front-end framework like Svelte, as it deals with UI interaction, the updating of scales and (sometimes) the redrawing of geometry dynamically. <br/><br/>We begin with a really simple example of Zooming with D3 and Svelte and hope to add more advanced configurations in the future. ",
     components: [
       {
         id: "ZoomBasic",

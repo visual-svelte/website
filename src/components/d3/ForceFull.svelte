@@ -29,7 +29,7 @@
   };
   let svg;
   let width = 500;
-  let height = 600;
+  let height = 400;
   const nodeRadius = 5;
   $: links = graph.links.map((d) => Object.create(d));
   $: nodes = graph.nodes.map((d) => Object.create(d));

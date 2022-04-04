@@ -4,7 +4,7 @@
 </script>
 
 <div>
-  Note: this page shows you how to implment the {d3module} module in SvelteKit. For
+  Note: this page shows you how to implment the {d3module} module in Svelte. For
   more details about the {d3module} module, please consult the
   <a href={url}>docs on GitHub</a>.
 </div>

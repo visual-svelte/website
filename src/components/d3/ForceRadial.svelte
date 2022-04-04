@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   let svg;
   let width = 500;
-  let height = 600;
+  let height = 450;
   let x = 150;
   let y = 150;
   let r1 = 140;

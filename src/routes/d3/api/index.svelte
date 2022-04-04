@@ -14,9 +14,9 @@
     });
 </script>
 
-<h1>All API posts about D3 & SvelteKit</h1>
+<h1>All API posts about D3 & Svelte</h1>
 <p>
   We walk through all the key modules in the D3.js API and implmenet them in
-  SvelteKit
+  Svelte
 </p>
 <PostGallery posts={filteredData} />

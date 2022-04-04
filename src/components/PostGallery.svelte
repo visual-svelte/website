@@ -3,7 +3,6 @@
   export let posts;
   export let showMax = undefined;
   import { page } from "$app/stores";
-  console.log("path", $page);
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -16,7 +15,6 @@
     } else {
       let postList = [];
       let oldIndexes = [];
-      console.log("showMax", showMax);
       for (let i = 0; i < showMax; i++) {
         let index = getRandomInt(0, posts?.length - 1);
 

@@ -13,9 +13,14 @@
   };
 </script>
 
-<button bind:this={myButton} class="common moreButton" on:click={handleClick}
-  >{$navOpen ? "Hide" : "More"}</button
+<button
+  class:active={$navOpen ? "active" : ""}
+  bind:this={myButton}
+  class="common moreButton"
+  on:click={handleClick}
 >
+  {$navOpen ? "Hide" : "More"}
+</button>
 
 {#if $navOpen}
   <div transition:fly={{ x: -300, duration: 300 }} class="menu common">
@@ -36,12 +41,18 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
   .moreButton {
+    background-color: #f7f7f7;
     padding: 1rem;
     z-index: 200;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.3s ease-in-out all;
     &:disabled {
       color: black;
+    }
+    &.active,
+    &:hover {
+      background-color: white;
     }
   }
   .menu {

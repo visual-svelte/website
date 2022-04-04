@@ -1,7 +1,7 @@
 import { c as create_ssr_component, i as spread, j as escape_object, e as escape, g as subscribe, b as each, a as add_attribute, v as validate_component } from "../../chunks/index-b8b7f0d9.js";
 import feather from "feather-icons";
-import { w as writable } from "../../chunks/cms-04ea08e6.js";
-import { s as sidebarData } from "../../chunks/dynamicData-d1b1065c.js";
+import { w as writable } from "../../chunks/cms-c1824dde.js";
+import { s as sidebarData } from "../../chunks/dynamicData-c7fd7b1e.js";
 import { p as page } from "../../chunks/stores-9d6a58c7.js";
 import "d3";
 import "d3-scale";
@@ -11,7 +11,7 @@ import "d3-selection";
 import "d3-drag";
 import "d3-force";
 var Icon_svelte_svelte_type_style_lang = "";
-const css$6 = {
+const css$7 = {
   code: "svg.svelte-1eky3f8{width:1em;height:1em;overflow:visible;transform-origin:50% 50%;transition:all 0.3s}",
   map: null
 };
@@ -42,7 +42,7 @@ const Icon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.stroke(stroke);
   if ($$props.strokeWidth === void 0 && $$bindings.strokeWidth && strokeWidth !== void 0)
     $$bindings.strokeWidth(strokeWidth);
-  $$result.css.add(css$6);
+  $$result.css.add(css$7);
   icon = feather.icons[name];
   rotation = directions.indexOf(direction) * 45;
   {
@@ -64,6 +64,17 @@ const Icon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const navOpen = writable(false);
 const treeData = writable(sidebarData);
+var Kofi_svelte_svelte_type_style_lang = "";
+const css$6 = {
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}a.svelte-xva9ih.svelte-xva9ih{max-height:40px;width:140px;text-decoration:none;background:none;background-color:white;color:black;font-weight:600;float:left;border-radius:20px;transition:all 0.3s}a.svelte-xva9ih.svelte-xva9ih:hover{-webkit-filter:drop-shadow(5px -5px 0 var(--c-green));filter:drop-shadow(5px -4px 0 var(--c-green))}a.svelte-xva9ih:hover img.svelte-xva9ih{transform:scale(1.3);transform:rotate(0deg)}a.svelte-xva9ih div.svelte-xva9ih{padding:9px 9px;position:relative}a.svelte-xva9ih div span.svelte-xva9ih{padding:0;font-size:0.8rem;margin:0px 0 0 15px}a.svelte-xva9ih div img.svelte-xva9ih{position:absolute;transition:0.3s transform;left:-20px;top:-20px;height:50px;width:50px;transform:rotate(-45deg);box-shadow:none !important}",
+  map: null
+};
+const Kofi = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  $$result.css.add(css$6);
+  return `<a rel="${"external"}" target="${"_blank"}" href="${"https://ko-fi.com/C0C7BRLF8"}" class="${"svelte-xva9ih"}"><div class="${"svelte-xva9ih"}"><span class="${"svelte-xva9ih"}">Buy me a coffee!</span>
+    <img src="${"static/images/kofi.png"}" alt="${""}" class="${"svelte-xva9ih"}"></div>
+</a>`;
+});
 var BottomNav_svelte_svelte_type_style_lang = "";
 const css$5 = {
   code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.fixed.svelte-j22fjp.svelte-j22fjp{background-color:var(--c-darkgray);margin:0;color:var(--c-white);display:grid;grid-template-columns:2fr 3fr}.fixed.svelte-j22fjp a.svelte-j22fjp{color:white;border:none;background:none}.fixed.svelte-j22fjp .other-links.svelte-j22fjp{display:inline-block;padding:2rem 1rem}.fixed.svelte-j22fjp .other-links div.svelte-j22fjp{margin-bottom:20px}.fixed.svelte-j22fjp .right .socials.svelte-j22fjp{margin:1rem 0;padding:0.8rem 0 0 0.8rem}.fixed.svelte-j22fjp .right .socials a.svelte-j22fjp{padding:10px}.fixed.svelte-j22fjp .right .donate.svelte-j22fjp{grid-area:donate;padding:0.8rem 0 0 0.8rem}",
@@ -85,7 +96,7 @@ const BottomNav = create_ssr_component(($$result, $$props, $$bindings, slots) =>
     width: "20px",
     height: "20px"
   }, {}, {})}</a></div>
-    <div class="${"donate svelte-j22fjp"}"><a href="${"https://ko-fi.com/C0C7BRLF8"}" target="${"_blank"}" class="${"svelte-j22fjp"}"><img height="${"36"}" style="${"border:0px;height:36px;"}" src="${"https://cdn.ko-fi.com/cdn/kofi2.png?v=3"}" border="${"0"}" alt="${"Buy Me a Coffee at ko-fi.com"}"></a></div></div>
+    <div class="${"donate svelte-j22fjp"}">${validate_component(Kofi, "Kofi").$$render($$result, {}, {}, {})}</div></div>
 </div>`;
 });
 var Tree_svelte_svelte_type_style_lang = "";
@@ -133,7 +144,7 @@ const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 var MinimalNav_svelte_svelte_type_style_lang = "";
 const css$3 = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.common.svelte-1wkb4i.svelte-1wkb4i{background-color:white;border:transparent 1px solid;position:fixed;border-top-right-radius:5px;border-bottom-right-radius:5px;box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px}.moreButton.svelte-1wkb4i.svelte-1wkb4i{padding:1rem;z-index:200;font-weight:600;cursor:pointer}.moreButton.svelte-1wkb4i.svelte-1wkb4i:disabled{color:black}.menu.svelte-1wkb4i.svelte-1wkb4i{z-index:2;display:grid;grid-template-rows:auto 180px;height:100vh;width:300px;border:none;top:40px}.menu.svelte-1wkb4i .tree.svelte-1wkb4i{overflow-y:auto;overflow-x:hidden}.svelte-1wkb4i.svelte-1wkb4i::-webkit-scrollbar{width:10px}.svelte-1wkb4i.svelte-1wkb4i::-webkit-scrollbar-track{background:#f1f1f1}.svelte-1wkb4i.svelte-1wkb4i::-webkit-scrollbar-thumb{background:var(--c-gray)}.svelte-1wkb4i.svelte-1wkb4i::-webkit-scrollbar-thumb:hover{background:var(--c-darkgray)}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.common.svelte-zvoqsz.svelte-zvoqsz{background-color:white;border:transparent 1px solid;position:fixed;border-top-right-radius:5px;border-bottom-right-radius:5px;box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px}.moreButton.svelte-zvoqsz.svelte-zvoqsz{background-color:#f7f7f7;padding:1rem;z-index:200;font-weight:600;cursor:pointer;transition:0.3s ease-in-out all}.moreButton.svelte-zvoqsz.svelte-zvoqsz:disabled{color:black}.moreButton.active.svelte-zvoqsz.svelte-zvoqsz,.moreButton.svelte-zvoqsz.svelte-zvoqsz:hover{background-color:white}.menu.svelte-zvoqsz.svelte-zvoqsz{z-index:2;display:grid;grid-template-rows:auto 180px;height:100vh;width:300px;border:none;top:40px}.menu.svelte-zvoqsz .tree.svelte-zvoqsz{overflow-y:auto;overflow-x:hidden}.svelte-zvoqsz.svelte-zvoqsz::-webkit-scrollbar{width:10px}.svelte-zvoqsz.svelte-zvoqsz::-webkit-scrollbar-track{background:#f1f1f1}.svelte-zvoqsz.svelte-zvoqsz::-webkit-scrollbar-thumb{background:var(--c-gray)}.svelte-zvoqsz.svelte-zvoqsz::-webkit-scrollbar-thumb:hover{background:var(--c-darkgray)}",
   map: null
 };
 const MinimalNav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -142,9 +153,9 @@ const MinimalNav = create_ssr_component(($$result, $$props, $$bindings, slots) =
   let myButton;
   $$result.css.add(css$3);
   $$unsubscribe_navOpen();
-  return `<button class="${"common moreButton svelte-1wkb4i"}"${add_attribute("this", myButton, 0)}>${escape($navOpen ? "Hide" : "More")}</button>
+  return `<button class="${["common moreButton svelte-zvoqsz", ($navOpen ? "active" : "") ? "active" : ""].join(" ").trim()}"${add_attribute("this", myButton, 0)}>${escape($navOpen ? "Hide" : "More")}</button>
 
-${$navOpen ? `<div class="${"menu common svelte-1wkb4i"}"><div class="${"tree svelte-1wkb4i"}">${validate_component(Tree, "Tree").$$render($$result, {}, {}, {})}</div>
+${$navOpen ? `<div class="${"menu common svelte-zvoqsz"}"><div class="${"tree svelte-zvoqsz"}">${validate_component(Tree, "Tree").$$render($$result, {}, {}, {})}</div>
     ${validate_component(BottomNav, "BottomNav").$$render($$result, {}, {}, {})}</div>` : ``}`;
 });
 var Logo_svelte_svelte_type_style_lang = "";
@@ -172,14 +183,14 @@ const Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     <p>before you go, let\u2019s connect! <a rel="${"external"}" href="${"https://twitter.com/visualsvelte"}" class="${"svelte-1cv6axv"}">@visualsvelte</a></p>
     <p><a sveltekit:prefetch href="${"/about"}" class="${"svelte-1cv6axv"}">read more</a> about visualsvelte!
     </p></div>
-  <div class="${"support svelte-1cv6axv"}"><a href="${"https://ko-fi.com/C0C7BRLF8"}" target="${"_blank"}" class="${"svelte-1cv6axv"}"><img height="${"36"}" style="${"border:0px;height:36px;"}" src="${"https://cdn.ko-fi.com/cdn/kofi2.png?v=3"}" border="${"0"}" alt="${"Buy Me a Coffee at ko-fi.com"}"></a></div>
+  <div class="${"support svelte-1cv6axv"}">${validate_component(Kofi, "Kofi").$$render($$result, {}, {}, {})}</div>
 </div>`;
 });
 const innerWidth = writable(600);
 const scrollY = writable(0);
 var __layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ':root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.dimmer.svelte-ynme6g.svelte-ynme6g{position:fixed;min-width:100%;min-height:100%;z-index:2;background-color:rgba(0, 0, 0, 0.5)}.wrapper.svelte-ynme6g.svelte-ynme6g{min-height:1000px !important;width:100%;background-size:20px 20px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)}.wrapper.svelte-ynme6g main.svelte-ynme6g{padding:10px 10px 100px 10px}*{font-family:"Inconsolata", monospace}p{line-height:1.4rem}h1{padding:1rem 0}a{color:var(--c-darkgray);transition:background 0.3s;background:linear-gradient(180deg, transparent 85%, rgba(119, 227, 35, 0.15) 15%)}a:focus{color:var(--c-darkgray);background:linear-gradient(180deg, transparent 80%, rgba(119, 227, 35, 0.35) 20%)}a:hover{background:rgba(119, 227, 35, 0.35)}',
+  code: ':root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.dimmer.svelte-1ovncbh.svelte-1ovncbh{position:fixed;min-width:100%;min-height:100%;z-index:2;background-color:rgba(0, 0, 0, 0.5)}.wrapper.svelte-1ovncbh.svelte-1ovncbh{min-height:1000px !important;width:100%;background-size:20px 20px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)}.wrapper.svelte-1ovncbh main.svelte-1ovncbh{padding:10px 10px 100px 10px}*{font-family:"Inconsolata", monospace}p{line-height:1.4rem}h1{padding:1rem 0}a{color:var(--c-darkgray);transition:background 0.3s;background:linear-gradient(180deg, transparent 85%, rgba(119, 227, 35, 0.1) 15%)}a:focus{color:var(--c-darkgray);background:linear-gradient(180deg, transparent 80%, rgba(119, 227, 35, 0.35) 20%)}a:hover{background:rgba(119, 227, 35, 0.35)}',
   map: null
 };
 const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -196,9 +207,9 @@ const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `${$$result.head += `<style data-svelte="svelte-14rra2v">@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&display=swap");
   </style>`, ""}
 
-${$navOpen ? `<div class="${"dimmer svelte-ynme6g"}"></div>` : ``}
-<div class="${"wrapper svelte-ynme6g"}"><header>${validate_component(MinimalNav, "MinimalNav").$$render($$result, {}, {}, {})}</header>
-  <main id="${"content"}" class="${"svelte-ynme6g"}">${slots.default ? slots.default({}) : ``}</main>
+${$navOpen ? `<div class="${"dimmer svelte-1ovncbh"}"></div>` : ``}
+<div class="${"wrapper svelte-1ovncbh"}"><header>${validate_component(MinimalNav, "MinimalNav").$$render($$result, {}, {}, {})}</header>
+  <main id="${"content"}" class="${"svelte-1ovncbh"}">${slots.default ? slots.default({}) : ``}</main>
   <footer>${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}</footer>
 </div>`;
 });

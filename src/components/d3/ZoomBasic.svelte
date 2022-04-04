@@ -38,9 +38,9 @@
   }
 </script>
 
-<div>Zoom Here!</div>
 <svg bind:this={bindInitZoom} {width} {height}>
   <g class="points" bind:this={bindHandleZoom}>
+    <text x={width / 2} y={height / 2}>Zoom Here!</text>
     {#each data as d, i}
       <circle
         cx={d.x}
@@ -54,7 +54,7 @@
 
 <style>
   div {
-    position: absolute;
+    /* position: absolute; */
     left: 150px;
     margin-top: 150px;
     z-index: 1;
