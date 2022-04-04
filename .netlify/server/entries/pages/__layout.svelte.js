@@ -72,7 +72,7 @@ const css$6 = {
 const Kofi = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$6);
   return `<a rel="${"external"}" target="${"_blank"}" href="${"https://ko-fi.com/C0C7BRLF8"}" class="${"svelte-xva9ih"}"><div class="${"svelte-xva9ih"}"><span class="${"svelte-xva9ih"}">Buy me a coffee!</span>
-    <img src="${"static/images/kofi.png"}" alt="${""}" class="${"svelte-xva9ih"}"></div>
+    <img src="${"images/kofi.png"}" alt="${""}" class="${"svelte-xva9ih"}"></div>
 </a>`;
 });
 var BottomNav_svelte_svelte_type_style_lang = "";
