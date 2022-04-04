@@ -53,6 +53,7 @@
       }
     }
     .support {
+      margin: 0 auto;
       a {
         background: none !important;
       }

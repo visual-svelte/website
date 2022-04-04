@@ -3,9 +3,9 @@
   import { timeDay } from "d3";
   import { data, colors, names } from "$data/phones.js";
   let svgHere;
-  let width = 600;
-  let height = 500;
-  $: viewBx = [-width / 2, -height / 1.8, width * 1.1, height * 1.1];
+  let width = 500;
+  let height = 400;
+  $: viewBx = [-width / 2.5, -height / 1.8, width * 1.1, height * 1.1];
   $: outerRadius = Math.min(width, height) * 0.5 - 60;
   $: innerRadius = outerRadius - 10;
 

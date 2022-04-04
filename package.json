@@ -32,7 +32,6 @@
     "svelte-highlight": "^5.2.2",
     "svelte-loader": "^3.1.2",
     "svelte-preprocess": "^4.10.4",
-    "svelte-typewriter": "^3.0.0-alpha.11",
     "vite-plugin-autoimport": "^1.4.3",
     "vite-plugin-svgstring": "^1.0.0"
   },

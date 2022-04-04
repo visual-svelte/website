@@ -6,7 +6,6 @@
   import { page } from "$app/stores";
   import { onMount } from "svelte";
   import { annotate } from "svelte-rough-notation";
-  import Typewriter from "svelte-typewriter";
   let visible = false;
   onMount(() => {
     setTimeout(() => (visible = true), 500);

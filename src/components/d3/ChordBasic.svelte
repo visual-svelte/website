@@ -1,9 +1,9 @@
 <script>
   import * as d3 from "d3";
   let svgHere;
-  let width = 600;
+  let width = 500;
   let height = 400;
-  $: viewBx = [-width / 2, -height / 2, width, height];
+  $: viewBx = [-width / 3, -height / 2, width, height];
   let colors = ["#fff775", "#423e42", "#9c334e", "blue"];
   let titles = ["Apples", "Oranges", "Pears", "Bananas"];
   $: outerRadius = Math.min(width, height) * 0.5 - 60;
