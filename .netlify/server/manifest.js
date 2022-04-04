@@ -3,7 +3,7 @@ export const manifest = {
 	assets: new Set(["dataviz.gif","favicon.png","fonts/CONSOLA.TTF","fonts/CONSOLAB.TTF","fonts/consolai.ttf","fonts/Consolas.ttf","fonts/consolaz.ttf","images/favicon/android-chrome-192x192.png","images/favicon/android-chrome-512x512.png","images/favicon/apple-touch-icon.png","images/favicon/favicon-16x16.png","images/favicon/favicon-32x32.png","images/favicon/favicon.ico","images/kofi.png","images/thumbnails/brush.png","images/thumbnails/chord.png","images/thumbnails/contour.png","images/thumbnails/drag.png","images/thumbnails/force.png","images/thumbnails/geo.png","images/thumbnails/graph.png","images/thumbnails/hierarchy.png","images/thumbnails/polygon.png","images/thumbnails/shapes.png","images/thumbnails/zoom.png"]),
 	_: {
 		mime: {".gif":"image/gif",".png":"image/png",".TTF":"font/ttf",".ttf":"font/ttf",".ico":"image/vnd.microsoft.icon"},
-		entry: {"file":"start-04be60ac.js","js":["start-04be60ac.js","chunks/vendor-1ca4a53e.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-0cdc4f15.css"]},
+		entry: {"file":"start-3a246699.js","js":["start-3a246699.js","chunks/vendor-dd17cdd1.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-8f80d76f.css"]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
