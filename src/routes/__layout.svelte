@@ -34,7 +34,8 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
   .wrapper {
-    // min-height: 1000px;
+    min-height: 1000px !important;
+    width: 100%;
     background-size: 20px 20px;
     background-image: linear-gradient(
         to right,
@@ -43,7 +44,7 @@
       ),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
     main {
-      padding: 10px 10px 100px 80px;
+      padding: 10px 10px 100px 10px;
     }
   }
 

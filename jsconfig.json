@@ -12,6 +12,6 @@
     }
   },
   "include": ["src/**/*.js", "src/**/*.svelte"],
-  "exclude": ["tasks/*.js"],
+  "exclude": ["tasks/*"],
   "extends": "./.svelte-kit/tsconfig.json"
 }

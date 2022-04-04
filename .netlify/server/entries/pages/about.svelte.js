@@ -1,4 +1,4 @@
-import { c as create_ssr_component, b as each, a as add_attribute, e as escape } from "../../chunks/index-02532eaa.js";
+import { c as create_ssr_component, b as each, a as add_attribute, e as escape } from "../../chunks/index-b8b7f0d9.js";
 const aboutData = [
   {
     id: 0,
@@ -14,7 +14,7 @@ const css = {
 const About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `<div class="${"container svelte-1t1qmyl"}">${each(aboutData, (sect) => {
-    return `<h2${add_attribute("id", sect.id.toString(), 0)}>${escape(sect.title)}</h2>
+    return `<h1${add_attribute("id", sect.id.toString(), 0)}>${escape(sect.title)}</h1>
     <p><!-- HTML_TAG_START -->${sect.text}<!-- HTML_TAG_END --></p>`;
   })}
 </div>`;

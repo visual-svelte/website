@@ -9,7 +9,7 @@
   import Typewriter from "svelte-typewriter";
   let visible = false;
   onMount(() => {
-    setTimeout(() => (visible = true), 1500);
+    setTimeout(() => (visible = true), 500);
   });
   let metadata = { t: "Home | VisualSvelte", d: "", u: $page.url.pathname };
   $: filteredData = d3CMS
@@ -26,63 +26,79 @@
 
 <!-- <Meta {metadata} /> -->
 <div class="spacer">
-  <Typewriter cascade>
-    <div class="intro">
-      <h1>Unlock your</h1>
-      <h1>
-        <span
-          use:annotate={{
-            color: "lightgreen",
-            type: "highlight",
-            iterations: 2,
-            visible: visible,
-          }}>visual storytelling superpowers</span
-        >
-      </h1>
-      <h1>with Svelte</h1>
-    </div>
-  </Typewriter>
+  <!-- <Typewriter cascade> -->
+  <div class="intro">
+    <h1>Unlock your</h1>
+    <h1>
+      <span
+        use:annotate={{
+          color: "var(--c-green)",
+          type: "highlight",
+          iterations: 2,
+          visible: visible,
+        }}>visual storytelling superpowers</span
+      >
+    </h1>
+    <h1>with Svelte</h1>
+  </div>
+  <!-- </Typewriter> -->
 </div>
 {#if visible}
   <div class="text" in:fly={{ x: -50, duration: 1000, delay: 1200 }}>
-    <p>Svelte is what the pro's use to tell visual stories.</p>
     <p>
-      An educational site providing code and examples of great data
-      visualizations and visual journalism with <a
-        href="https://kit.svelte.dev/">SvelteKit</a
-      >.
+      Welcome to <span
+        use:annotate={{
+          color: "var(--c-green)",
+          type: "highlight",
+          iterations: 2,
+          visible: visible,
+        }}
+      >
+        Visual Svelte</span
+      >
+      - an educational site providing code and examples of great data visualizations
+      and visual journalism with
+      <a href="https://kit.svelte.dev/">SvelteKit</a>.
     </p>
 
     <p>
-      This site was born out of my own frustrations on the learning curve of
-      both D3.js and Javascript/ CSS/ HTML.
+      This site was born out of my own <span
+        use:annotate={{
+          visible: true,
+          type: "underline",
+          color: "blue",
+          iterations: 10,
+        }}>frustrations</span
+      > on the learning curve of both D3.js and Svelte/ Javascript/ CSS/ HTML.
     </p>
     <p>I'm creating the resource I wish I had to learn faster.</p>
     <p>
-      You can read more about how and why I'm doing that, <a href="/about"
+      You can read more about how and why I'm doing that → <a href="/about"
         >here</a
       >.
     </p>
-
-    <p>
-      Intially, the focus focus will be on the legendary D3.js and how to
-      implement the whole library in SvelteKit.
-    </p>
   </div>
 
-  <div in:fly={{ y: 100, duration: 1000, delay: 2500 }}>
+  <div class="bottom-section" in:fly={{ y: 100, duration: 1000, delay: 2500 }}>
     <h2>Recent D3 & SvelteKit Series:</h2>
     <PostGallery posts={filteredData} />
   </div>
 {/if}
 
 <style lang="scss">
-  .spcaer {
-    // min-height: 300px;
+  .spacer {
+    min-height: 50vh;
+    text-align: center;
+  }
+  .bottom-section {
+    text-align: center;
+    margin-top: 150px;
+    max-width: 700px;
+    margin: 0 auto;
   }
   .intro {
     // min-height: 50vh;
-    padding: 100px 0px;
+    padding: 10vh 0px;
 
     h1 {
       text-align: center;
@@ -90,6 +106,8 @@
     }
   }
   .text {
+    max-width: 700px;
+    margin: 0 auto 100px auto;
     text-align: center;
   }
 </style>

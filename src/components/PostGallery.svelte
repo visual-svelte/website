@@ -50,6 +50,7 @@
     display: grid;
     position: relative;
     margin: 0 auto;
+    justify-items: center;
     grid-template-columns: repeat(auto-fill, minmax(180px, 2fr));
   }
 </style>

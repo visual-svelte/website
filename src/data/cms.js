@@ -78,7 +78,7 @@ let d3CMS = [
         id: "AxisLabels",
         title: "Axis Labels",
         notes:
-          "Axis labels can be added simply with a 'text' element in the SVG markup. Sometimes you will have to manually adjust the positioning to fit margin constraints.<br/><br/>Custom styling can be added either inline to the Text element or in the Svelte <style> tags.",
+          "Axis labels can be added simply with a 'text' element in the SVG markup. Sometimes you will have to manually adjust the positioning to fit margin constraints.<br/><br/>Custom styling can be added either inline to the Text element or in the Svelte style tags.",
         component: AxisLabels,
       },
     ],

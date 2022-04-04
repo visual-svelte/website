@@ -127,11 +127,7 @@
   h2 {
     margin: 100px 0 30px 0;
   }
-  .intro {
-    h1 {
-      margin: 0;
-    }
-  }
+
   p {
     font-size: 0.9rem;
     /* text-overflow: wrap; */

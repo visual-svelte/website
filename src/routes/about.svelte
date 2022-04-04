@@ -4,7 +4,7 @@
 
 <div class="container">
   {#each aboutData as sect}
-    <h2 id={sect.id.toString()}>{sect.title}</h2>
+    <h1 id={sect.id.toString()}>{sect.title}</h1>
     <p>{@html sect.text}</p>
   {/each}
 </div>

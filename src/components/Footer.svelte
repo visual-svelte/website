@@ -1,5 +1,6 @@
 <script>
   import Logo from "$components/helpers/Logo.svelte";
+  import { navOpen } from "$stores/menu";
 </script>
 
 <div class="container">
@@ -7,14 +8,17 @@
   <div class="writing">
     <p>thanks for visiting visualsvelte!</p>
     <p>
+      you can read all posts <span on:click={() => ($navOpen = true)}>here</span
+      >
+    </p>
+    <p>
       before you go, let’s connect! <a
         rel="external"
         href="https://twitter.com/visualsvelte">@visualsvelte</a
       >
     </p>
     <p>
-      still hungry for more? <a sveltekit:prefetch href="/about">read more</a> about
-      visualsvelte!
+      <a sveltekit:prefetch href="/about">read more</a> about visualsvelte!
     </p>
   </div>
   <div class="support">
@@ -47,6 +51,12 @@
       a {
         cursor: pointer !important;
         color: var(--c-green);
+      }
+      p {
+        span {
+          color: var(--c-green);
+          text-decoration: underline;
+        }
       }
     }
     .support {
