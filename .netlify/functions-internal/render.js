@@ -1,20 +1,20 @@
-const { init } = require('../handler.js');
+import { init } from '../handler.js';
 
-exports.handler = init({
+export const handler = init({
 	appDir: "_app",
 	assets: new Set(["dataviz.gif","favicon.png","fonts/CONSOLA.TTF","fonts/CONSOLAB.TTF","fonts/consolai.ttf","fonts/Consolas.ttf","fonts/consolaz.ttf","images/thumbnails/brush.png","images/thumbnails/chord.png","images/thumbnails/contour.png","images/thumbnails/drag.png","images/thumbnails/force.png","images/thumbnails/geo.png","images/thumbnails/graph.png","images/thumbnails/hierarchy.png","images/thumbnails/polygon.png","images/thumbnails/shapes.png","images/thumbnails/zoom.png"]),
 	_: {
 		mime: {".gif":"image/gif",".png":"image/png",".TTF":"font/ttf",".ttf":"font/ttf"},
-		entry: {"file":"start-175497ce.js","js":["start-175497ce.js","chunks/vendor-21d61cc0.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-0cdc4f15.css"]},
+		entry: {"file":"start-e87e3a09.js","js":["start-e87e3a09.js","chunks/vendor-21d61cc0.js","chunks/singletons-d1fb5791.js"],"css":["assets/vendor-0cdc4f15.css"]},
 		nodes: [
-			() => Promise.resolve().then(() => require('../server/nodes/0.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/1.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/2.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/3.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/4.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/5.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/6.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/7.js'))
+			() => import('../server/nodes/0.js'),
+			() => import('../server/nodes/1.js'),
+			() => import('../server/nodes/2.js'),
+			() => import('../server/nodes/3.js'),
+			() => import('../server/nodes/4.js'),
+			() => import('../server/nodes/5.js'),
+			() => import('../server/nodes/6.js'),
+			() => import('../server/nodes/7.js')
 		],
 		routes: [
 			{
@@ -51,7 +51,7 @@ exports.handler = init({
 				type: 'endpoint',
 				pattern: /^\/api\/routes\.json$/,
 				params: null,
-				load: () => Promise.resolve().then(() => require('../server/entries/endpoints/api/routes.json.js'))
+				load: () => import('../server/entries/endpoints/api/routes.json.js')
 			},
 			{
 				type: 'page',

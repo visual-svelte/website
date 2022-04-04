@@ -1,21 +1,10 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var http = require('node:http');
-var https = require('node:https');
-var zlib = require('node:zlib');
-var Stream = require('node:stream');
-var node_util = require('node:util');
-var node_url = require('node:url');
-var net = require('net');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
-var https__default = /*#__PURE__*/_interopDefaultLegacy(https);
-var zlib__default = /*#__PURE__*/_interopDefaultLegacy(zlib);
-var Stream__default = /*#__PURE__*/_interopDefaultLegacy(Stream);
+import http from 'node:http';
+import https from 'node:https';
+import zlib from 'node:zlib';
+import Stream, { PassThrough, pipeline } from 'node:stream';
+import { deprecate, types } from 'node:util';
+import { format } from 'node:url';
+import { isIP } from 'net';
 
 /**
  * Returns a `Buffer` instance from the given data URI `uri`.
@@ -4776,13 +4765,13 @@ class Body {
 		} else if (isURLSearchParameters(body)) {
 			// Body is a URLSearchParams
 			body = Buffer.from(body.toString());
-		} else if (isBlob(body)) ; else if (Buffer.isBuffer(body)) ; else if (node_util.types.isAnyArrayBuffer(body)) {
+		} else if (isBlob(body)) ; else if (Buffer.isBuffer(body)) ; else if (types.isAnyArrayBuffer(body)) {
 			// Body is ArrayBuffer
 			body = Buffer.from(body);
 		} else if (ArrayBuffer.isView(body)) {
 			// Body is ArrayBufferView
 			body = Buffer.from(body.buffer, body.byteOffset, body.byteLength);
-		} else if (body instanceof Stream__default["default"]) ; else if (body instanceof FormData) {
+		} else if (body instanceof Stream) ; else if (body instanceof FormData) {
 			// Body is FormData
 			body = formDataToBlob(body);
 			boundary = body.type.split('=')[1];
@@ -4795,9 +4784,9 @@ class Body {
 		let stream = body;
 
 		if (Buffer.isBuffer(body)) {
-			stream = Stream__default["default"].Readable.from(body);
+			stream = Stream.Readable.from(body);
 		} else if (isBlob(body)) {
-			stream = Stream__default["default"].Readable.from(body.stream());
+			stream = Stream.Readable.from(body.stream());
 		}
 
 		this[INTERNALS$2] = {
@@ -4809,7 +4798,7 @@ class Body {
 		};
 		this.size = size;
 
-		if (body instanceof Stream__default["default"]) {
+		if (body instanceof Stream) {
 			body.on('error', error_ => {
 				const error = error_ instanceof FetchBaseError ?
 					error_ :
@@ -4851,7 +4840,7 @@ class Body {
 			return formData;
 		}
 
-		const {toFormData} = await Promise.resolve().then(function () { return require('./multipart-parser-431aff0b.js'); });
+		const {toFormData} = await import('./multipart-parser-5faf185a.js');
 		return toFormData(this.body, ct);
 	}
 
@@ -4899,7 +4888,7 @@ class Body {
 	}
 }
 
-Body.prototype.buffer = node_util.deprecate(Body.prototype.buffer, 'Please use \'response.arrayBuffer()\' instead of \'response.buffer()\'', 'node-fetch#buffer');
+Body.prototype.buffer = deprecate(Body.prototype.buffer, 'Please use \'response.arrayBuffer()\' instead of \'response.buffer()\'', 'node-fetch#buffer');
 
 // In browsers, all properties are enumerable.
 Object.defineProperties(Body.prototype, {
@@ -4937,7 +4926,7 @@ async function consumeBody(data) {
 	}
 
 	/* c8 ignore next 3 */
-	if (!(body instanceof Stream__default["default"])) {
+	if (!(body instanceof Stream)) {
 		return Buffer.alloc(0);
 	}
 
@@ -4996,10 +4985,10 @@ const clone = (instance, highWaterMark) => {
 
 	// Check that body is a stream and not form-data object
 	// note: we can't clone the form-data object without having it as a dependency
-	if ((body instanceof Stream__default["default"]) && (typeof body.getBoundary !== 'function')) {
+	if ((body instanceof Stream) && (typeof body.getBoundary !== 'function')) {
 		// Tee instance body
-		p1 = new Stream.PassThrough({highWaterMark});
-		p2 = new Stream.PassThrough({highWaterMark});
+		p1 = new PassThrough({highWaterMark});
+		p2 = new PassThrough({highWaterMark});
 		body.pipe(p1);
 		body.pipe(p2);
 		// Set instance body to teed body and return the other teed body
@@ -5010,7 +4999,7 @@ const clone = (instance, highWaterMark) => {
 	return body;
 };
 
-const getNonSpecFormDataBoundary = node_util.deprecate(
+const getNonSpecFormDataBoundary = deprecate(
 	body => body.getBoundary(),
 	'form-data doesn\'t follow the spec and requires special treatment. Use alternative package',
 	'https://github.com/node-fetch/node-fetch/issues/1167'
@@ -5048,7 +5037,7 @@ const extractContentType = (body, request) => {
 	}
 
 	// Body is a Buffer (Buffer, ArrayBuffer or ArrayBufferView)
-	if (Buffer.isBuffer(body) || node_util.types.isAnyArrayBuffer(body) || ArrayBuffer.isView(body)) {
+	if (Buffer.isBuffer(body) || types.isAnyArrayBuffer(body) || ArrayBuffer.isView(body)) {
 		return null;
 	}
 
@@ -5062,7 +5051,7 @@ const extractContentType = (body, request) => {
 	}
 
 	// Body is stream - can't really do much about this
-	if (body instanceof Stream__default["default"]) {
+	if (body instanceof Stream) {
 		return null;
 	}
 
@@ -5129,8 +5118,8 @@ const writeToStream = (dest, {body}) => {
  * Headers class offers convenient helpers
  */
 
-const validateHeaderName = typeof http__default["default"].validateHeaderName === 'function' ?
-	http__default["default"].validateHeaderName :
+const validateHeaderName = typeof http.validateHeaderName === 'function' ?
+	http.validateHeaderName :
 	name => {
 		if (!/^[\^`\-\w!#$%&'*+.|~]+$/.test(name)) {
 			const error = new TypeError(`Header name must be a valid HTTP token [${name}]`);
@@ -5139,8 +5128,8 @@ const validateHeaderName = typeof http__default["default"].validateHeaderName ==
 		}
 	};
 
-const validateHeaderValue = typeof http__default["default"].validateHeaderValue === 'function' ?
-	http__default["default"].validateHeaderValue :
+const validateHeaderValue = typeof http.validateHeaderValue === 'function' ?
+	http.validateHeaderValue :
 	(name, value) => {
 		if (/[^\t\u0020-\u007E\u0080-\u00FF]/.test(value)) {
 			const error = new TypeError(`Invalid character in header content ["${name}"]`);
@@ -5177,7 +5166,7 @@ class Headers extends URLSearchParams {
 			for (const [name, values] of Object.entries(raw)) {
 				result.push(...values.map(value => [name, value]));
 			}
-		} else if (init == null) ; else if (typeof init === 'object' && !node_util.types.isBoxedPrimitive(init)) {
+		} else if (init == null) ; else if (typeof init === 'object' && !types.isBoxedPrimitive(init)) {
 			const method = init[Symbol.iterator];
 			// eslint-disable-next-line no-eq-null, eqeqeq
 			if (method == null) {
@@ -5193,7 +5182,7 @@ class Headers extends URLSearchParams {
 				result = [...init]
 					.map(pair => {
 						if (
-							typeof pair !== 'object' || node_util.types.isBoxedPrimitive(pair)
+							typeof pair !== 'object' || types.isBoxedPrimitive(pair)
 						) {
 							throw new TypeError('Each header pair must be an iterable object');
 						}
@@ -5650,7 +5639,7 @@ function isOriginPotentiallyTrustworthy(url) {
 
 	// 4. If origin's host component matches one of the CIDR notations 127.0.0.0/8 or ::1/128 [RFC4632], return "Potentially Trustworthy".
 	const hostIp = url.host.replace(/(^\[)|(]$)/g, '');
-	const hostIPVersion = net.isIP(hostIp);
+	const hostIPVersion = isIP(hostIp);
 
 	if (hostIPVersion === 4 && /^127\./.test(hostIp)) {
 		return true;
@@ -6005,7 +5994,7 @@ class Request extends Body {
 	}
 
 	get url() {
-		return node_url.format(this[INTERNALS].parsedURL);
+		return format(this[INTERNALS].parsedURL);
 	}
 
 	get headers() {
@@ -6211,14 +6200,14 @@ async function fetch(url, options_) {
 		}
 
 		// Wrap http.request into fetch
-		const send = (parsedURL.protocol === 'https:' ? https__default["default"] : http__default["default"]).request;
+		const send = (parsedURL.protocol === 'https:' ? https : http).request;
 		const {signal} = request;
 		let response = null;
 
 		const abort = () => {
 			const error = new AbortError('The operation was aborted.');
 			reject(error);
-			if (request.body && request.body instanceof Stream__default["default"].Readable) {
+			if (request.body && request.body instanceof Stream.Readable) {
 				request.body.destroy(error);
 			}
 
@@ -6337,7 +6326,7 @@ async function fetch(url, options_) {
 						};
 
 						// HTTP-redirect fetch step 9
-						if (response_.statusCode !== 303 && request.body && options_.body instanceof Stream__default["default"].Readable) {
+						if (response_.statusCode !== 303 && request.body && options_.body instanceof Stream.Readable) {
 							reject(new FetchError('Cannot follow redirect with body being a readable stream', 'unsupported-redirect'));
 							finalize();
 							return;
@@ -6374,7 +6363,7 @@ async function fetch(url, options_) {
 				});
 			}
 
-			let body = Stream.pipeline(response_, new Stream.PassThrough(), reject);
+			let body = pipeline(response_, new PassThrough(), reject);
 			// see https://github.com/nodejs/node/pull/29376
 			if (process.version < 'v12.10') {
 				response_.on('aborted', abortAndFinalize);
@@ -6413,13 +6402,13 @@ async function fetch(url, options_) {
 			// by common browsers.
 			// Always using Z_SYNC_FLUSH is what cURL does.
 			const zlibOptions = {
-				flush: zlib__default["default"].Z_SYNC_FLUSH,
-				finishFlush: zlib__default["default"].Z_SYNC_FLUSH
+				flush: zlib.Z_SYNC_FLUSH,
+				finishFlush: zlib.Z_SYNC_FLUSH
 			};
 
 			// For gzip
 			if (codings === 'gzip' || codings === 'x-gzip') {
-				body = Stream.pipeline(body, zlib__default["default"].createGunzip(zlibOptions), reject);
+				body = pipeline(body, zlib.createGunzip(zlibOptions), reject);
 				response = new Response(body, responseOptions);
 				resolve(response);
 				return;
@@ -6429,10 +6418,10 @@ async function fetch(url, options_) {
 			if (codings === 'deflate' || codings === 'x-deflate') {
 				// Handle the infamous raw deflate response from old servers
 				// a hack for old IIS and Apache servers
-				const raw = Stream.pipeline(response_, new Stream.PassThrough(), reject);
+				const raw = pipeline(response_, new PassThrough(), reject);
 				raw.once('data', chunk => {
 					// See http://stackoverflow.com/questions/37519828
-					body = (chunk[0] & 0x0F) === 0x08 ? Stream.pipeline(body, zlib__default["default"].createInflate(), reject) : Stream.pipeline(body, zlib__default["default"].createInflateRaw(), reject);
+					body = (chunk[0] & 0x0F) === 0x08 ? pipeline(body, zlib.createInflate(), reject) : pipeline(body, zlib.createInflateRaw(), reject);
 
 					response = new Response(body, responseOptions);
 					resolve(response);
@@ -6442,7 +6431,7 @@ async function fetch(url, options_) {
 
 			// For br
 			if (codings === 'br') {
-				body = Stream.pipeline(body, zlib__default["default"].createBrotliDecompress(), reject);
+				body = pipeline(body, zlib.createBrotliDecompress(), reject);
 				response = new Response(body, responseOptions);
 				resolve(response);
 				return;
@@ -6528,5 +6517,4 @@ function installFetch() {
 
 installFetch();
 
-exports.File = File;
-exports.FormData = FormData;
+export { FormData as F, File as a };
