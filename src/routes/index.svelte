@@ -95,12 +95,18 @@
     <h2>Recent D3 & Svelte Series:</h2>
     <PostGallery posts={filteredData} />
   </div>
+{:else}
+  <div class="blank" />
 {/if}
 
 <style lang="scss">
   .spacer {
     min-height: 50vh;
     text-align: center;
+  }
+  .blank {
+    height: 400px;
+    width: 100%;
   }
   .bottom-section {
     text-align: center;

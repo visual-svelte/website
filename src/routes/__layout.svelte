@@ -34,7 +34,6 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
   .wrapper {
-    min-height: 1000px !important;
     width: 100%;
     background-size: 20px 20px;
     background-image: linear-gradient(

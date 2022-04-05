@@ -23,6 +23,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^3.2.1",
+    "feather-icons": "^4.29.0",
     "highlight.js": "^11.5.0",
     "node-fetch": "2.6.2",
     "prettier": "^2.5.1",
@@ -32,13 +33,9 @@
     "svelte-highlight": "^5.2.2",
     "svelte-loader": "^3.1.2",
     "svelte-preprocess": "^4.10.4",
+    "svelte-rough-notation": "^0.1.4",
     "vite-plugin-autoimport": "^1.4.3",
     "vite-plugin-svgstring": "^1.0.0"
   },
-  "type": "module",
-  "dependencies": {
-    "feather-icons": "^4.28.0",
-    "lodash": "^4.17.21",
-    "svelte-rough-notation": "^0.1.4"
-  }
+  "type": "module"
 }

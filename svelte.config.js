@@ -37,7 +37,11 @@ const config = {
         dsv(),
         svg(),
         autoImport({
-          components: ["./src/components", "./src/components/d3"],
+          components: [
+            "./src/components",
+            "./src/components/d3",
+            "./src/components/d3/recipes",
+          ],
           include: ["**/*.svelte"],
         }),
       ],

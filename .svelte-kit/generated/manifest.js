@@ -5,6 +5,7 @@ const c = [
 	() => import("..\\..\\src\\routes\\about.svelte"),
 	() => import("..\\..\\src\\routes\\tags\\[tag].svelte"),
 	() => import("..\\..\\src\\routes\\d3\\index.svelte"),
+	() => import("..\\..\\src\\routes\\d3\\recipes\\[slug].svelte"),
 	() => import("..\\..\\src\\routes\\d3\\api\\index.svelte"),
 	() => import("..\\..\\src\\routes\\d3\\api\\[slug].svelte")
 ];
@@ -24,11 +25,14 @@ export const routes = [
 	// src/routes/d3/index.svelte
 	[/^\/d3\/?$/, [c[0], c[5]], [c[1]]],
 
+	// src/routes/d3/recipes/[slug].svelte
+	[/^\/d3\/recipes\/([^/]+?)\/?$/, [c[0], c[6]], [c[1]], (m) => ({ slug: d(m[1])})],
+
 	// src/routes/d3/api/index.svelte
-	[/^\/d3\/api\/?$/, [c[0], c[6]], [c[1]]],
+	[/^\/d3\/api\/?$/, [c[0], c[7]], [c[1]]],
 
 	// src/routes/d3/api/[slug].svelte
-	[/^\/d3\/api\/([^/]+?)\/?$/, [c[0], c[7]], [c[1]], (m) => ({ slug: d(m[1])})]
+	[/^\/d3\/api\/([^/]+?)\/?$/, [c[0], c[8]], [c[1]], (m) => ({ slug: d(m[1])})]
 ];
 
 // we import the root layout/error components eagerly, so that
