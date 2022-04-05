@@ -4,7 +4,7 @@ let d3R = [
   {
     primary_key: "AnimatedTransitions",
     published: "2022-03-13",
-    post_title: "Animated Transitions with D3 and Svelte ",
+    post_title: "Animated Transitions with D3 and Svelte",
     thumbnail: "/images/thumbnails/graph.png",
     keywords: ["d3", "svelte"],
     intro_text:
