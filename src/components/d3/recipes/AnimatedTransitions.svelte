@@ -39,38 +39,39 @@
 
   .chart {
     position: sticky;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
     width: 90%;
+    min-width: 300px;
     background-color: pink;
     top: 20px;
-    // z-index: 1;
     height: 80vh;
-    // margin: 0 50px;
-    // min-height: 300px;
-    // width: 90%;
-    // min-width: 400px;
   }
 
   .text-wrapper {
     min-width: 300px !important;
-    width: 35vw;
+    width: 90%;
     position: relative;
-    margin: 0 auto;
     z-index: 20;
     .text {
       background-color: rgba(255, 255, 255, 0.5);
       margin: 60vh 0 !important;
       padding: 20px;
-      border: 1px gray solid;
+      border: none;
     }
   }
   @media all and (min-width: 700px) {
     .chart {
       left: 90%;
-      width: 50vw;
+      width: 600px;
     }
     .text-wrapper {
       margin: 0;
+      width: 35vw;
       .text {
+        border: 1px gray solid;
         background-color: rgba(255, 255, 255, 1);
       }
     }
