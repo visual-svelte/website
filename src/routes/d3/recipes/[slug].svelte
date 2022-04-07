@@ -5,7 +5,7 @@
     let splits = string.split("-");
     console.log("splits1", splits);
     let results = splits.map((el) => {
-      const upper = el.charAt(0).toUpperCase();
+      const upper = el.charAt(0)?.toUpperCase();
       const concat = upper.concat(el.slice(1));
       return concat;
     });

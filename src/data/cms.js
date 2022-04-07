@@ -44,7 +44,7 @@ let d3CMS = [
     thumbnail: "/images/thumbnails/graph.png",
     keywords: ["d3", "axis", "svelte", "log", "labels", "linear"],
     intro_text:
-      "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in Svelte. Each axis type is similar but implemented slightly differently. The code for each is provided.<br/><br/> There is a variety of different ways to approach the D3/ Svelte integration, my method shown favours describing as much of the SVG elements as possible in Svelte HTML/ SVG markup (as opposed to creating elements programmatically with D3 code). This keeps code really clean and readable and makes it easier to apply Svelte event handlers or custom styles. ",
+      "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in Svelte. Each axis type is similar but implemented slightly differently. The code for each is provided.<br/><br/> There are a variety of different ways to approach the D3/ Svelte integration, my method shown favours describing as much of the SVG elements as possible in Svelte HTML/ SVG markup (as opposed to creating elements programmatically with D3 code). This keeps code really clean and readable and makes it easier to apply Svelte event handlers or custom styles. ",
     components: [
       {
         id: "AxisSimple",

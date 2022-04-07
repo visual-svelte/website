@@ -1,6 +1,7 @@
 <script>
   import Scrolly from "$components/helpers/Scrolly.svelte";
   import scrollyData from "$data/animatedTransitions.js";
+  import AnimatedTransitionsChart2 from "$components/d3/recipes/AnimatedTransitions.Chart2.svelte";
   let scrollValue = 0;
   $: scrollValue, console.log("SV", scrollValue);
 </script>
@@ -17,7 +18,9 @@
     d3 and HTML elements with Svelte animations.
   </p>
   <div class="full-width">
-    <div class="chart">{scrollValue}</div>
+    <div class="chart">
+      <AnimatedTransitionsChart2 value={scrollValue} />
+    </div>
     <div class="text-wrapper">
       <Scrolly bind:value={scrollValue}>
         {#each scrollyData as d, i}

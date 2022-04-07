@@ -12,8 +12,10 @@
       startAngle: arc.startAngle,
       endAngle: arc.endAngle,
     };
+    console.log("svg?", arcGen(input));
     return arcGen(input);
   });
+  console.log("piesme", pies);
 </script>
 
 <!-- Plot the svg paths  -->

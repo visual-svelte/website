@@ -11,7 +11,11 @@
       "$utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src/**/*.js", "src/**/*.svelte"],
+  "include": [
+    "src/**/*.js",
+    "src/**/*.svelte",
+    "src/utils/d3.superformula.min.js"
+  ],
   "exclude": ["tasks/*"],
   "extends": "./.svelte-kit/tsconfig.json"
 }
