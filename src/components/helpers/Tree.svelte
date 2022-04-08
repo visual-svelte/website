@@ -40,8 +40,11 @@
             class:current={link.href == $page.params.slug}
             transition:slide
           >
-            <a rel="internal" href={"/d3/api/" + link.href}
-              ><span>•</span> {link.title}</a
+            <a
+              rel="internal"
+              href={link.href.startsWith("d3")
+                ? "/d3/api/" + link.href
+                : "/d3/recipes/" + link.href}><span>•</span> {link.title}</a
             >
             <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
           </li>
@@ -82,65 +85,4 @@
       }
     }
   }
-
-  // p {
-  //   font-size: 1.1em;
-
-  //   cursor: pointer;
-  //   &.current {
-  //     font-weight: 600;
-  //     cursor: default;
-  //     &:hover {
-  //       background-color: transparent;
-  //     }
-  //   }
-  // }
-  // li {
-  //   min-width: 100px;
-  //   // padding: px 50px 5px 20px;
-  //   background-color: transparent;
-  //   list-style-type: none;
-  //   margin-left: 10px;
-  //   a {
-  //     padding: 10px 10px;
-  //     cursor: pointer;
-  //     font-size: 1.1rem;
-  //     height: 100%;
-  //     width: 100%;
-  //     display: block;
-  //     text-decoration: none;
-  //     opacity: 0.7;
-  //     text-align: left;
-  //     background: none;
-  //     border: none;
-  //     font-family: "Consola";
-  //     position: relative;
-  //     span {
-  //       font-size: 0.8rem;
-  //       margin-top: -4px;
-  //       position: absolute;
-  //     }
-  //   }
-
-  //   &.current {
-  //     a {
-  //       cursor: default;
-
-  //       font-weight: 600;
-  //       opacity: 1;
-  //     }
-  //     cursor: default;
-  //     &:hover {
-  //       background-color: transparent;
-  //     }
-  //   }
-  //   &:hover {
-  //     background-color: rgba(119, 227, 35, 0.15);
-  //   }
-  // }
-  // h5 {
-  //   font-size: 1.2rem;
-
-  //   text-transform: uppercase;
-  // }
 </style>
