@@ -2,64 +2,54 @@
   import { interpolateAll } from "flubber";
   import { onMount } from "svelte";
   import * as d3 from "d3";
+  import { paths, pies, pointsList } from "$data/animatedTransitions";
   export let value;
-  let data = [2, 13, 5, 10, 3, 14];
 
-  function barsFromData(data) {
-    let width = 50;
-    let padding = 20;
-    let startY = 200;
-    let startX = 0;
-    let paths = [];
-    data.map((d, i) => {
-      let localX = (startX + width + padding) * i;
-      let height = d * 15;
-      let combined = `M${localX},${startY},  ${localX + width},${startY},  ${
-        localX + width
-      },${startY - height}, ${localX},${startY - height}Z`;
-
-      paths.push(combined);
-    });
-    console.log("oaths", paths);
-    return paths;
-  }
-
-  const paths = barsFromData(data);
-
-  const arcs = d3.pie()(data); // generate the arc angles from data
-  const arcGen = d3.arc(); // generate the arcs
-  const pies = arcs.map((arc) => {
-    let input = {
-      innerRadius: 10,
-      outerRadius: 100,
-      startAngle: arc.startAngle,
-      endAngle: arc.endAngle,
-    };
-    console.log("svg?", arcGen(input));
-    return arcGen(input);
+  var interpolatorPaPi = interpolateAll(paths, pies, {
+    maxSegmentLength: 4,
   });
-  var interpolatorTo = interpolateAll(paths, pies);
-  var interpolatorFrom = interpolateAll(pies, paths);
+  var interpolatorPiPa = interpolateAll(pies, paths, {
+    maxSegmentLength: 4,
+  });
+  var interpolatorPiPo = interpolateAll(pies, pointsList, {
+    maxSegmentLength: 4,
+  });
+  var interpolatorPoPi = interpolateAll(pointsList, pies, {
+    maxSegmentLength: 4,
+  });
+  var interpolatorPoPa = interpolateAll(pointsList, paths, {
+    maxSegmentLength: 4,
+  });
+  var interpolatorPaPo = interpolateAll(paths, pointsList, {
+    maxSegmentLength: 4,
+  });
 
-  let isOpen = false;
-  let currentAnimation = 0;
-  $: if (value == 3 && allPaths && currentAnimation !== 1) {
-    allPaths
-      .data(interpolatorTo)
-      .transition()
-      .delay(function (d, i) {
-        return 100 * i;
-      })
-      .duration(1000)
-      .attrTween("d", function (d) {
-        return d;
-      });
-    currentAnimation = 1;
+  let currentInterpolator;
+  let previousValue = 0;
+  let firstAnimationComplete = false;
+
+  function updateAnimationProgress() {
+    if (value == 3 && previousValue == 2) {
+      firstAnimationComplete = true;
+      currentInterpolator = interpolatorPaPi;
+    } else if (value == 2 && previousValue == 3) {
+      currentInterpolator = interpolatorPiPa;
+    } else if (value == 6 && previousValue == 5) {
+      currentInterpolator = interpolatorPiPo;
+    } else if (value == 5 && previousValue == 6) {
+      currentInterpolator = interpolatorPoPi;
+    } else if (value == 8 && previousValue == 7) {
+      currentInterpolator = interpolatorPoPa;
+    } else if (value == 7 && previousValue == 8) {
+      currentInterpolator = interpolatorPaPo;
+    }
+    setTimeout(() => (previousValue = value), 200);
   }
 
-  $: if (value == 6 && allPaths && currentAnimation !== 0) {
+  $: value, updateAnimationProgress();
+  $: if (firstAnimationComplete) {
     allPaths
-      .data(interpolatorFrom)
+      .data(currentInterpolator)
       .transition()
       .delay(function (d, i) {
         return 100 * i;
@@ -68,7 +58,6 @@
       .attrTween("d", function (d) {
         return d;
       });
-    currentAnimation = 0;
   }
 
   let allPaths;
