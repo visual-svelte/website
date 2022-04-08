@@ -26,15 +26,21 @@
 </div>
 
 <style lang="scss">
+  footer {
+    //   bottom: 0;
+    //   position: absolute;
+    width: 100% !important;
+  }
   .dimmer {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
-    z-index: 2;
+    z-index: 3;
     background-color: rgba(0, 0, 0, 0.5);
   }
   .wrapper {
     width: 100%;
+    height: 100%;
     background-size: 20px 20px;
     background-image: linear-gradient(
         to right,
@@ -43,7 +49,8 @@
       ),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
     main {
-      padding: 10px 10px 100px 10px;
+      padding: 10px 10px 150px 10px;
+      min-height: 80vh;
     }
   }
 

@@ -122,7 +122,7 @@
 
     <h2>You might also like:</h2>
     {#key updatePosts}
-      <PostGallery posts={filteredData} showMax={3} />
+      <PostGallery posts={filteredData} showMax={3} pathRoute="/d3/api/" />
     {/key}
   {/if}
 </div>

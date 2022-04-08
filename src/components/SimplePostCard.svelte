@@ -1,8 +1,9 @@
 <script>
   export let data;
+  export let pathRoute;
 </script>
 
-<a href={"/d3/api/" + data.id} class="card">
+<a href={pathRoute + data.id} class="card">
   <div class="img-wrap">
     <img
       src={data.thumbnail ? data.thumbnail : "images/graph.png"}

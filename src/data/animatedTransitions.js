@@ -1,20 +1,13 @@
 import * as d3 from "d3";
 const scrollyData = [
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, odio rem! Id magnam magni omnis, debitis ut tempore optio ullam tempora velit rerum voluptate quia a corrupti, odio reprehenderit. Delectus.",
+  "In the starting position, we have a simple bar  with six categoric variables along the x-axis. But what if the user wanted to explore how the categories looked as a pie chart (said no-one ever)? ",
+  "At this point, I should make it clear that this was a technical challenge to see what was possible in terms of SVG path manipulation, not what might be best practice in terms of data visualization. Also the axes have been removed to make the code and animations easier to follow. ",
+  "The theory goes that by morphing between the different chart types, the user can follow a category and as such make better inferences. Any way.... keep scrolling to see the first animation... ",
+  "From the user perspective, each bar magically morphs into an arc in the pie chart. Under the hood, in fact, everything is an SVG path (not SVG rect for the bars).",
+  "In the original video, they showed that by staggering the animations with a slight delay between the categories, the user could follow with categories went where better, so I implemented that too.",
+  "I used the flubber npm package to perform the interpolation. I tried and tested a number of different interpolation methods (see the implementation tips below). ",
+  "Guess what, they may look like circles, but they are actually SVG paths too. ",
+  "And finally, we morph back to the starting position. ",
 ];
 
 let data = [2, 13, 5, 10, 3, 14];
@@ -43,7 +36,7 @@ const arcs = d3.pie()(data); // generate the arc angles from data
 const arcGen = d3.arc(); // generate the arcs
 const pies = arcs.map((arc) => {
   let input = {
-    innerRadius: 10,
+    innerRadius: 50,
     outerRadius: 100,
     startAngle: arc.startAngle,
     endAngle: arc.endAngle,

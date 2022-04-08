@@ -43,7 +43,7 @@
   .moreButton {
     background-color: #f7f7f7;
     padding: 1rem;
-    z-index: 200;
+    z-index: 200 !important;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease-in-out all;
@@ -56,7 +56,7 @@
     }
   }
   .menu {
-    z-index: 2;
+    z-index: 40;
     display: grid;
     grid-template-rows: auto 180px;
     height: 100vh;

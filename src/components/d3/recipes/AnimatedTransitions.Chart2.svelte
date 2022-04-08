@@ -38,9 +38,9 @@
       currentInterpolator = interpolatorPiPo;
     } else if (value == 5 && previousValue == 6) {
       currentInterpolator = interpolatorPoPi;
-    } else if (value == 8 && previousValue == 7) {
+    } else if (value == 7 && previousValue == 6) {
       currentInterpolator = interpolatorPoPa;
-    } else if (value == 7 && previousValue == 8) {
+    } else if (value == 6 && previousValue == 7) {
       currentInterpolator = interpolatorPaPo;
     }
     setTimeout(() => (previousValue = value), 200);
@@ -66,7 +66,7 @@
   });
 </script>
 
-<svg viewBox="-200 -200 700 700">
+<svg viewBox="-200 -200 680 400">
   {#each paths as path, i}
     <path
       fill={d3.schemeCategory10[i]}

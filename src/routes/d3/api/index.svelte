@@ -19,4 +19,4 @@
   We walk through all the key modules in the D3.js API and implmenet them in
   Svelte
 </p>
-<PostGallery posts={filteredData} />
+<PostGallery posts={filteredData} pathRoute="/d3/api/" />

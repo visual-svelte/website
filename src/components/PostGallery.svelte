@@ -1,6 +1,7 @@
 <script>
   import SimplePostCard from "$components/SimplePostCard.svelte";
   export let posts;
+  export let pathRoute;
   export let showMax = undefined;
   import { page } from "$app/stores";
   function getRandomInt(min, max) {
@@ -35,13 +36,17 @@
   $: filtered = getFilteredData();
 </script>
 
-<div class="post-gallery">
-  {#each filtered as post}
-    {#if post.id !== $page.params.slug}
-      <SimplePostCard data={post} />
-    {/if}
-  {/each}
-</div>
+{#if !posts.length}
+  No posts yet!
+{:else}
+  <div class="post-gallery">
+    {#each filtered as post}
+      {#if post.id !== $page.params.slug}
+        <SimplePostCard data={post} {pathRoute} />
+      {/if}
+    {/each}
+  </div>
+{/if}
 
 <style lang="scss">
   .post-gallery {

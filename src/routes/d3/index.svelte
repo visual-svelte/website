@@ -1,5 +1,6 @@
 <script>
   import d3CMS from "$data/cms";
+  import d3R from "$data/cms-d3-recipes";
   import PostGallery from "$components/PostGallery.svelte";
   import { page } from "$app/stores";
   $: filteredData = d3CMS
@@ -12,7 +13,19 @@
         keywords: post.keywords,
       };
     });
+  $: recipes = d3R
+    .filter((d) => d.published)
+    .map((post) => {
+      return {
+        id: post.primary_key,
+        thumbnail: post.thumbnail,
+        title: post.post_title,
+        keywords: post.keywords,
+      };
+    });
 </script>
 
-<h1>All posts about D3 & Svelte</h1>
-<PostGallery posts={filteredData} />
+<h1>D3 API Posts</h1>
+<PostGallery posts={filteredData} pathRoute="/d3/api/" />
+<h1>D3 + Svelte Recipe Posts</h1>
+<PostGallery posts={recipes} pathRoute="/d3/recipes/" />
