@@ -25,13 +25,13 @@
   let container;
   $: top, bottom, update();
   const update = () => {
-    if (!nodes.length) return;
+    if (!nodes?.length) return;
     nodes.forEach(createObserver);
   };
   const mostInView = () => {
     let maxRatio = 0;
     let maxIndex = 0;
-    for (let i = 0; i < steps.length; i++) {
+    for (let i = 0; i < steps?.length; i++) {
       if (steps[i] > maxRatio) {
         maxRatio = steps[i];
         maxIndex = i;

@@ -26,15 +26,15 @@
     }
 
     .tags {
-      justify-self: center;
+      // justify-self: center;
       display: flex;
       position: absolute;
       left: 50%;
       transform: translate(-50%, 0);
       gap: 10px;
       flex-wrap: wrap;
-      :nth-child(2n + 1) {
-        background-color: aquamarine;
+      @media (max-width: 600px) {
+        width: 90%;
       }
       .tag {
         text-decoration: none;

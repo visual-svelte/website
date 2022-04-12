@@ -1,5 +1,5 @@
-import { c as create_ssr_component, v as validate_component, b as each, a as add_attribute, e as escape } from "../../chunks/index-b8b7f0d9.js";
-import { M as Meta } from "../../chunks/Meta-63120277.js";
+import { c as create_ssr_component, v as validate_component, b as each, a as add_attribute, e as escape } from "../../chunks/index-0bcf38cf.js";
+import { M as Meta } from "../../chunks/Meta-f1f3e786.js";
 const aboutData = [
   {
     id: 0,

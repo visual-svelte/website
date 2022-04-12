@@ -93,7 +93,7 @@
 
   <div class="bottom-section" in:fly={{ y: 100, duration: 1000, delay: 2500 }}>
     <h2>Recent D3 & Svelte Series:</h2>
-    <PostGallery posts={filteredData} />
+    <PostGallery posts={filteredData} pathRoute="/d3/api/" />
   </div>
 {:else}
   <div class="blank" />

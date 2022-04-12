@@ -4,7 +4,7 @@
     "src": ".svelte-kit/build/index.js",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js"
+      "_index-0bcf38cf.js"
     ]
   },
   "src/routes/api/routes.json.js": {
@@ -12,9 +12,14 @@
     "src": "src/routes/api/routes.json.js",
     "isEntry": true,
     "imports": [
-      "_dynamicData-b5044baa.js",
-      "_cms-aa22b9c7.js",
-      "_index-b8b7f0d9.js"
+      "_dynamicData-64c7a7fd.js",
+      "_cms-bd84078b.js",
+      "_index-0bcf38cf.js",
+      "_cms-d3-recipes-84d0d2bb.js",
+      "_CodeVisual-c88bf6c4.js"
+    ],
+    "css": [
+      "assets/ActionButton.svelte_svelte_type_style_lang-72a9c1a6.css"
     ]
   },
   "src/routes/__layout.svelte": {
@@ -22,13 +27,17 @@
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_cms-aa22b9c7.js",
-      "_dynamicData-b5044baa.js",
-      "_stores-9d6a58c7.js"
+      "_index-0bcf38cf.js",
+      "_cms-d3-recipes-84d0d2bb.js",
+      "_cms-bd84078b.js",
+      "_dynamicData-64c7a7fd.js",
+      "_Kofi-be4415bc.js",
+      "_stores-c3a3bf24.js",
+      "_CodeVisual-c88bf6c4.js"
     ],
     "css": [
-      "assets/entries/pages/__layout.svelte-a54fe795.css"
+      "assets/entries/pages/__layout.svelte-d3192e43.css",
+      "assets/ActionButton.svelte_svelte_type_style_lang-72a9c1a6.css"
     ]
   },
   "src/routes/__error.svelte": {
@@ -36,7 +45,7 @@
     "src": "src/routes/__error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js"
+      "_index-0bcf38cf.js"
     ],
     "css": [
       "assets/entries/pages/__error.svelte-0107c1ff.css",
@@ -48,15 +57,14 @@
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_Meta-63120277.js",
-      "_cms-aa22b9c7.js",
-      "_stores-9d6a58c7.js"
+      "_index-0bcf38cf.js",
+      "_Meta-f1f3e786.js",
+      "_cms-bd84078b.js",
+      "_stores-c3a3bf24.js"
     ],
     "css": [
-      "assets/entries/pages/index.svelte-9e0018c7.css",
-      "assets/SimplePostCard.svelte_svelte_type_style_lang-3ee6e53e.css",
-      "assets/PostGallery.svelte_svelte_type_style_lang-f94e8230.css"
+      "assets/entries/pages/index.svelte-f3d3cc71.css",
+      "assets/PostGallery.svelte_svelte_type_style_lang-9c044bdb.css"
     ]
   },
   "src/routes/about.svelte": {
@@ -64,8 +72,8 @@
     "src": "src/routes/about.svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_Meta-63120277.js"
+      "_index-0bcf38cf.js",
+      "_Meta-f1f3e786.js"
     ],
     "css": [
       "assets/entries/pages/about.svelte-723a5242.css"
@@ -76,13 +84,17 @@
     "src": "src/routes/tags/[tag].svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_cms-aa22b9c7.js",
-      "_SimplePostCard-b8d61954.js"
+      "_index-0bcf38cf.js",
+      "_cms-d3-recipes-84d0d2bb.js",
+      "_cms-bd84078b.js",
+      "_PostGallery-51af102a.js",
+      "_CodeVisual-c88bf6c4.js",
+      "_stores-c3a3bf24.js"
     ],
     "css": [
-      "assets/entries/pages/tags/_tag_.svelte-cc58cd2f.css",
-      "assets/SimplePostCard.svelte_svelte_type_style_lang-3ee6e53e.css"
+      "assets/entries/pages/tags/_tag_.svelte-c149ce13.css",
+      "assets/ActionButton.svelte_svelte_type_style_lang-72a9c1a6.css",
+      "assets/PostGallery.svelte_svelte_type_style_lang-9c044bdb.css"
     ]
   },
   "src/routes/d3/index.svelte": {
@@ -90,15 +102,36 @@
     "src": "src/routes/d3/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_cms-aa22b9c7.js",
-      "_PostGallery-4b7a9da2.js",
-      "_SimplePostCard-b8d61954.js",
-      "_stores-9d6a58c7.js"
+      "_index-0bcf38cf.js",
+      "_cms-bd84078b.js",
+      "_cms-d3-recipes-84d0d2bb.js",
+      "_PostGallery-51af102a.js",
+      "_CodeVisual-c88bf6c4.js",
+      "_stores-c3a3bf24.js"
     ],
     "css": [
-      "assets/SimplePostCard.svelte_svelte_type_style_lang-3ee6e53e.css",
-      "assets/PostGallery.svelte_svelte_type_style_lang-f94e8230.css"
+      "assets/ActionButton.svelte_svelte_type_style_lang-72a9c1a6.css",
+      "assets/PostGallery.svelte_svelte_type_style_lang-9c044bdb.css"
+    ]
+  },
+  "src/routes/d3/recipes/[slug].svelte": {
+    "file": "entries/pages/d3/recipes/_slug_.svelte.js",
+    "src": "src/routes/d3/recipes/[slug].svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0bcf38cf.js",
+      "_cms-bd84078b.js",
+      "_cms-d3-recipes-84d0d2bb.js",
+      "_PostGallery-51af102a.js",
+      "_Kofi-be4415bc.js",
+      "_Meta-f1f3e786.js",
+      "_CodeVisual-c88bf6c4.js",
+      "_stores-c3a3bf24.js"
+    ],
+    "css": [
+      "assets/entries/pages/d3/recipes/_slug_.svelte-8bbe11a2.css",
+      "assets/ActionButton.svelte_svelte_type_style_lang-72a9c1a6.css",
+      "assets/PostGallery.svelte_svelte_type_style_lang-9c044bdb.css"
     ]
   },
   "src/routes/d3/api/index.svelte": {
@@ -106,15 +139,13 @@
     "src": "src/routes/d3/api/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_cms-aa22b9c7.js",
-      "_PostGallery-4b7a9da2.js",
-      "_SimplePostCard-b8d61954.js",
-      "_stores-9d6a58c7.js"
+      "_index-0bcf38cf.js",
+      "_cms-bd84078b.js",
+      "_PostGallery-51af102a.js",
+      "_stores-c3a3bf24.js"
     ],
     "css": [
-      "assets/SimplePostCard.svelte_svelte_type_style_lang-3ee6e53e.css",
-      "assets/PostGallery.svelte_svelte_type_style_lang-f94e8230.css"
+      "assets/PostGallery.svelte_svelte_type_style_lang-9c044bdb.css"
     ]
   },
   "src/routes/d3/api/[slug].svelte": {
@@ -122,68 +153,87 @@
     "src": "src/routes/d3/api/[slug].svelte",
     "isEntry": true,
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_cms-aa22b9c7.js",
-      "_stores-9d6a58c7.js",
-      "_Meta-63120277.js",
-      "_PostGallery-4b7a9da2.js",
-      "_SimplePostCard-b8d61954.js"
+      "_index-0bcf38cf.js",
+      "_cms-bd84078b.js",
+      "_CodeVisual-c88bf6c4.js",
+      "_stores-c3a3bf24.js",
+      "_Meta-f1f3e786.js",
+      "_PostGallery-51af102a.js"
     ],
     "css": [
-      "assets/entries/pages/d3/api/_slug_.svelte-a89bc062.css",
+      "assets/entries/pages/d3/api/_slug_.svelte-660bec45.css",
       "assets/ActionButton.svelte_svelte_type_style_lang-72a9c1a6.css",
-      "assets/SimplePostCard.svelte_svelte_type_style_lang-3ee6e53e.css",
-      "assets/PostGallery.svelte_svelte_type_style_lang-f94e8230.css"
+      "assets/PostGallery.svelte_svelte_type_style_lang-9c044bdb.css"
     ]
   },
-  "_index-b8b7f0d9.js": {
-    "file": "chunks/index-b8b7f0d9.js"
+  "_index-0bcf38cf.js": {
+    "file": "chunks/index-0bcf38cf.js"
   },
-  "_dynamicData-b5044baa.js": {
-    "file": "chunks/dynamicData-b5044baa.js",
+  "_dynamicData-64c7a7fd.js": {
+    "file": "chunks/dynamicData-64c7a7fd.js",
     "imports": [
-      "_cms-aa22b9c7.js"
+      "_cms-bd84078b.js",
+      "_cms-d3-recipes-84d0d2bb.js"
     ]
   },
-  "_cms-aa22b9c7.js": {
-    "file": "chunks/cms-aa22b9c7.js",
+  "_cms-bd84078b.js": {
+    "file": "chunks/cms-bd84078b.js",
     "imports": [
-      "_index-b8b7f0d9.js"
+      "_index-0bcf38cf.js"
     ],
     "css": [
       "assets/cms-e216298d.css"
     ]
   },
-  "_stores-9d6a58c7.js": {
-    "file": "chunks/stores-9d6a58c7.js",
+  "_cms-d3-recipes-84d0d2bb.js": {
+    "file": "chunks/cms-d3-recipes-84d0d2bb.js",
     "imports": [
-      "_index-b8b7f0d9.js"
-    ]
-  },
-  "_Meta-63120277.js": {
-    "file": "chunks/Meta-63120277.js",
-    "imports": [
-      "_index-b8b7f0d9.js"
-    ]
-  },
-  "_SimplePostCard-b8d61954.js": {
-    "file": "chunks/SimplePostCard-b8d61954.js",
-    "imports": [
-      "_index-b8b7f0d9.js"
+      "_index-0bcf38cf.js",
+      "_CodeVisual-c88bf6c4.js"
     ],
     "css": [
-      "assets/SimplePostCard.svelte_svelte_type_style_lang-3ee6e53e.css"
+      "assets/cms-d3-recipes-c87dd128.css"
     ]
   },
-  "_PostGallery-4b7a9da2.js": {
-    "file": "chunks/PostGallery-4b7a9da2.js",
+  "_CodeVisual-c88bf6c4.js": {
+    "file": "chunks/CodeVisual-c88bf6c4.js",
     "imports": [
-      "_index-b8b7f0d9.js",
-      "_SimplePostCard-b8d61954.js",
-      "_stores-9d6a58c7.js"
+      "_index-0bcf38cf.js"
     ],
     "css": [
-      "assets/PostGallery.svelte_svelte_type_style_lang-f94e8230.css"
+      "assets/CodeVisual-f50c206f.css",
+      "assets/ActionButton.svelte_svelte_type_style_lang-72a9c1a6.css"
+    ]
+  },
+  "_Kofi-be4415bc.js": {
+    "file": "chunks/Kofi-be4415bc.js",
+    "imports": [
+      "_index-0bcf38cf.js"
+    ],
+    "css": [
+      "assets/Kofi-8c77f08c.css"
+    ]
+  },
+  "_stores-c3a3bf24.js": {
+    "file": "chunks/stores-c3a3bf24.js",
+    "imports": [
+      "_index-0bcf38cf.js"
+    ]
+  },
+  "_Meta-f1f3e786.js": {
+    "file": "chunks/Meta-f1f3e786.js",
+    "imports": [
+      "_index-0bcf38cf.js"
+    ]
+  },
+  "_PostGallery-51af102a.js": {
+    "file": "chunks/PostGallery-51af102a.js",
+    "imports": [
+      "_index-0bcf38cf.js",
+      "_stores-c3a3bf24.js"
+    ],
+    "css": [
+      "assets/PostGallery.svelte_svelte_type_style_lang-9c044bdb.css"
     ]
   }
 }

@@ -29,7 +29,7 @@
         stroke={dark ? "var(--c-white)" : "var(--c-darkgray)"}
         direction={localData[i].children[j].expanded ? "s" : "e"}
       />
-      {l2.data}
+      {l2.data} ({l2.data.length ?? 0})
     </p>
     {#if localData[i].children[j].expanded}
       {#if l2.children}
@@ -46,7 +46,6 @@
                 ? "/d3/api/" + link.href
                 : "/d3/recipes/" + link.href}><span>•</span> {link.title}</a
             >
-            <!-- <a rel="internal" href={link.href}>{link.title}</a> -->
           </li>
         {/each}
       {:else}

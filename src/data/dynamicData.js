@@ -1,13 +1,13 @@
 import d3CMS from "$data/cms.js";
 import d3R from "$data/cms-d3-recipes";
-let d3Articles = d3CMS.length
+let d3Articles = d3CMS?.length
   ? d3CMS
       .filter((d) => d.published)
       .map((d) => {
         return { title: d.primary_key, href: `${d.primary_key}` };
       })
   : [];
-let d3Recipes = d3R.length
+let d3Recipes = d3R?.length
   ? d3R
       .filter((d) => d.published)
       .map((d) => {

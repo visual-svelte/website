@@ -14,7 +14,8 @@
   "include": [
     "src/**/*.js",
     "src/**/*.svelte",
-    "src/utils/d3.superformula.min.js"
+    "src/utils/d3.superformula.min.js",
+    "src/data/forceAnimations.cjs"
   ],
   "exclude": ["tasks/*"],
   "extends": "./.svelte-kit/tsconfig.json"

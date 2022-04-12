@@ -4,6 +4,7 @@ import svg from "vite-plugin-svgstring";
 import dsv from "@rollup/plugin-dsv";
 import path from "path";
 import autoImport from "vite-plugin-autoimport";
+// const pkg = require("./package.json");
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,6 +18,9 @@ const config = {
     vite: {
       optimizeDeps: {
         include: ["highlight.js/lib/core"],
+      },
+      ssr: {
+        noExternal: ["flubber"],
       },
 
       resolve: {

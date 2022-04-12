@@ -27,7 +27,6 @@ function barsFromData(data) {
 
     paths.push(combined);
   });
-  console.log("oaths", paths);
   return paths;
 }
 const paths = barsFromData(data);
@@ -41,7 +40,6 @@ const pies = arcs.map((arc) => {
     startAngle: arc.startAngle,
     endAngle: arc.endAngle,
   };
-  console.log("svg?", arcGen(input));
   return arcGen(input);
 });
 

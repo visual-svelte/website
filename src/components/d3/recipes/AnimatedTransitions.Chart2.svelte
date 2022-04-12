@@ -1,5 +1,7 @@
 <script>
+  // import { interpolateAll } from "flubber";
   import { interpolateAll } from "flubber";
+  // const { interpolateAll } = pkg;
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { paths, pies, pointsList } from "$data/animatedTransitions";
