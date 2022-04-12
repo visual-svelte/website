@@ -1,6 +1,6 @@
 <script>
   import ScrollyWrapper from "$components/helpers/ScrollyWrapper.svelte";
-  import ScrollytellingSvelteDemo from "$components/storytelling/ScrollytellingSvelte.Demo.svelte";
+  import ScrollytellingSvelteDemo from "$components/svelte/ScrollytellingSvelte.Demo.svelte";
 
   import data from "$data/scrolltellingDemo";
 

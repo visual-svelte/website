@@ -4,6 +4,7 @@
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
 
+  console.log("tree", $treeData);
   import Icon from "$components/helpers/Icon.svelte";
   import { tree } from "d3";
   export let dark = false;
@@ -11,6 +12,11 @@
   function openTree(i, j) {
     localData[i].children[j].expanded = !localData[i].children[j].expanded;
   }
+
+  $: catCounts = $treeData[0].children.map((cat) => {
+    return cat.children.length;
+  });
+  // $: console.log("cat", catCounts);
 </script>
 
 {#each localData as l1, i}
@@ -29,7 +35,7 @@
         stroke={dark ? "var(--c-white)" : "var(--c-darkgray)"}
         direction={localData[i].children[j].expanded ? "s" : "e"}
       />
-      {l2.data} ({l2.data.length ?? 0})
+      {l2.data} ({catCounts[j] ?? 0})
     </p>
     {#if localData[i].children[j].expanded}
       {#if l2.children}
@@ -42,9 +48,11 @@
           >
             <a
               rel="internal"
-              href={link.href.startsWith("d3")
+              href={j === 0
                 ? "/d3/api/" + link.href
-                : "/d3/recipes/" + link.href}><span>•</span> {link.title}</a
+                : j === 1
+                ? "/d3/recipes/" + link.href
+                : "/svelte/" + link.href}><span>•</span> {link.title}</a
             >
           </li>
         {/each}

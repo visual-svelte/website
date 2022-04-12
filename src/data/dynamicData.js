@@ -1,5 +1,7 @@
 import d3CMS from "$data/cms.js";
 import d3R from "$data/cms-d3-recipes";
+import cmsSvelte from "$data/cms-svelte";
+
 let d3Articles = d3CMS?.length
   ? d3CMS
       .filter((d) => d.published)
@@ -14,6 +16,13 @@ let d3Recipes = d3R?.length
         return { title: d.primary_key, href: `${d.primary_key}` };
       })
   : [];
+let svelteArticles = cmsSvelte?.length
+  ? cmsSvelte
+      .filter((d) => d.published)
+      .map((d) => {
+        return { title: d.primary_key, href: `${d.primary_key}` };
+      })
+  : [];
 
 let sidebarData = [
   {
@@ -22,13 +31,18 @@ let sidebarData = [
     children: [
       {
         data: "D3 API + Svelte",
-        expanded: true,
+        expanded: false,
         children: d3Articles,
       },
       {
         data: "D3 + Svelte recipes ",
-        expanded: true,
+        expanded: false,
         children: d3Recipes,
+      },
+      {
+        data: "Svelte 4 Viz ",
+        expanded: false,
+        children: svelteArticles,
       },
     ],
   },

@@ -1,6 +1,6 @@
 import AnimatedTransitions from "$components/d3/recipes/AnimatedTransitions.svelte";
 import ForceAnimations from "$components/d3/recipes/ForceAnimations.svelte";
-import ScrollytellingSvelte from "$components/storytelling/ScrollytellingSvelte.svelte";
+// import ScrollytellingSvelte from "$components/svelte/Scrollytelling.svelte";
 
 let d3R = [
   {
@@ -22,16 +22,6 @@ let d3R = [
     intro_text:
       "How to make particles dance around the page with Svelte and D3.",
     component: ForceAnimations,
-  },
-  {
-    primary_key: "ScrollytellingSvelte",
-    published: "2022-04-11",
-    post_title: "Scrollytelling with Svelte",
-    thumbnail: "/images/thumbnails/graph.png",
-    keywords: ["svelte", "scrollytelling", "animation"],
-    intro_text:
-      "A few interesting techniques to liven up your Svelte Scrollytelling pieces. ",
-    component: ScrollytellingSvelte,
   },
 ];
 

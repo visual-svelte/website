@@ -8,29 +8,29 @@
 
   let value = 0;
   $: props = { value: value };
-  function handleDownPress(event) {
-    if (snap && event.key === "ArrowDown") {
-      console.log(event);
-      let distance = offsetHeight + (value + 1) * innerHeight * 0.8;
-      console.log("dst", distance);
-      window.scrollTo({
-        top: distance,
-        left: 0,
-        behavior: "smooth",
-      });
-    }
-  }
+  //   function handleDownPress(event) {
+  //     if (snap && event.key === "ArrowDown") {
+  //       console.log(event);
+  //       let distance = offsetHeight + (value + 1) * innerHeight * 0.8;
+  //       console.log("dst", distance);
+  //       window.scrollTo({
+  //         top: distance,
+  //         left: 0,
+  //         behavior: "smooth",
+  //       });
+  //     }
+  //   }
 </script>
 
 {#if snap}
   <h2>You can navigate this next section with your keyboard.</h2>
 {/if}
-<svelte:window
+<!-- <svelte:window
   on:keydown={handleDownPress}
   bind:innerHeight
   bind:scrollY
   bind:outerHeight
-/>
+/> -->
 <div class="full-width chart-wrap">
   <div
     class="chart"
@@ -38,12 +38,12 @@
     class:center={fixPosition === "center"}
     class:right={fixPosition === "right"}
   >
-    <p>Value: {value}</p>
+    <!-- <p>Value: {value}</p>
     <p>ScrollY: {scrollY}</p>
     <p>innerHeight: {innerHeight}</p>
     <p>OuterHeight: {outerHeight}</p>
     <p>ClientHeight: {clientHeight}</p>
-    <p>OffsetHeight: {offsetHeight}</p>
+    <p>OffsetHeight: {offsetHeight}</p> -->
     <svelte:component this={fixedComp} {...props} />
   </div>
   <div
