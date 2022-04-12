@@ -8,6 +8,16 @@ const data = [
       "This is achieved through use of the ternary operator on the Rect styling. ",
     ],
   },
+  {
+    behaviour: [
+      "This is number one",
+      "This is number one",
+      "This is number one",
+      "This is number one",
+      "This is number one",
+      "This is number one",
+    ],
+  },
 ];
 
 export default data;

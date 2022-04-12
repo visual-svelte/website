@@ -1,13 +1,36 @@
 <script>
   export let data;
+  export let snap = false;
   export let fixedComp;
   export let fixPosition;
   import Scrolly from "./Scrolly.svelte";
+  let innerHeight, scrollY, outerHeight, clientHeight, offsetHeight;
 
   let value = 0;
   $: props = { value: value };
+  function handleDownPress(event) {
+    if (snap && event.key === "ArrowDown") {
+      console.log(event);
+      let distance = offsetHeight + (value + 1) * innerHeight * 0.8;
+      console.log("dst", distance);
+      window.scrollTo({
+        top: distance,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }
 </script>
 
+{#if snap}
+  <h2>You can navigate this next section with your keyboard.</h2>
+{/if}
+<svelte:window
+  on:keydown={handleDownPress}
+  bind:innerHeight
+  bind:scrollY
+  bind:outerHeight
+/>
 <div class="full-width chart-wrap">
   <div
     class="chart"
@@ -15,10 +38,18 @@
     class:center={fixPosition === "center"}
     class:right={fixPosition === "right"}
   >
+    <p>Value: {value}</p>
+    <p>ScrollY: {scrollY}</p>
+    <p>innerHeight: {innerHeight}</p>
+    <p>OuterHeight: {outerHeight}</p>
+    <p>ClientHeight: {clientHeight}</p>
+    <p>OffsetHeight: {offsetHeight}</p>
     <svelte:component this={fixedComp} {...props} />
   </div>
   <div
     class="text-wrapper"
+    bind:clientHeight
+    bind:offsetHeight
     class:left={fixPosition === "right"}
     class:center={fixPosition === "center"}
     class:right={fixPosition === "left"}
@@ -114,4 +145,8 @@
     margin-left: -50vw;
     margin-right: -50vw;
   }
+
+  //   html {
+  //     scroll-behavior: smooth;
+  //   }
 </style>

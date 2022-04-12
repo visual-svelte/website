@@ -5,6 +5,7 @@
   import data from "$data/scrolltellingDemo";
 
   $: attentionData = data.find((d) => d.attention)["attention"];
+  $: behaviourData = data.find((d) => d.behaviour)["behaviour"];
 </script>
 
 <div class="wrapper">
@@ -60,24 +61,29 @@
     data={attentionData}
     fixedComp={ScrollytellingSvelteDemo}
   />
+  <h2>Future additions</h2>
+  <p>
+    I hope you found a few of those techniques useful. I will now publish the
+    article, but in the future I hope to add the following features: zooming
+    around a map, customing scroll behaviour (e.g. scroll snap, or horizontal
+    scrolling), and much more on accessible scrollytelling.
+  </p>
+  <!-- 
+      updating data values
+      focus (bar chart, )
+      re-scaling
+      annotations
+      zoom 
+      scroll and stop
+      accessible scrollytelling 
+   -->
+  <!-- <ScrollyWrapper
+    snap={true}
+    fixPosition="right"
+    data={behaviourData}
+    fixedComp={ScrollytellingSvelteDemo}
+  /> -->
 </div>
-
-<!-- 
-
-    updating data values
-    focus (bar chart, )
-    re-scaling
-    annotations
-    zoom 
-    scroll and stop
-    accessible scrollytelling 
-
-
-
-
-
- -->
-*/
 
 <style>
   .wrapper {
