@@ -44,7 +44,7 @@
     background-size: 20px 20px;
     background-image: linear-gradient(
         to right,
-        rgba(0, 0, 0, 0.05) 1px,
+        rgba(0, 0, 0, 0.03) 1px,
         transparent 1px
       ),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);

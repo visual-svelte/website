@@ -40,20 +40,15 @@
     of FLIP to help with visual storytelling.
   </p>
   <p>
-    I've made 5 example components that might inspire you to use FLIP for your
+    I've made 3 example components that might inspire you to use FLIP for your
     next visual essay.
   </p>
 
   {#each content.components as ex}
     <FormattedExample comp={ex} route="svelte/flip/" />
   {/each}
-
-  <!-- a la http://joshwcomeau.github.io/react-flip-move/examples/#/shuffle?_k=y27wok -->
 </div>
 
-<!-- 1)YES  grid management 2) adding things to lists (user input) 3) animating lots of
-blocks into a single one 4) sorting charts smoothly 5) bar-chart race bar
-(https://www.youtube.com/watch?v=oEratnd190o) -->
 <style lang="scss">
   .wrapper {
     max-width: 600px;

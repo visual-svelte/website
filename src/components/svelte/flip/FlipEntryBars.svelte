@@ -5,7 +5,7 @@
 
   let commentary = {
     0: "'16 students were asked what their favourite fruit is, each square represents a student'",
-    1: "Here is how they voted",
+    1: "Here is how they voted for either <span style='color:#8DB600'>apple</span>, <span style='color:#FFE135'>banana</span>, <span style='color:#D2042D'>cherry</span>, or <span style='color:#9F6D2E'>pear</span>.",
     2: "We can re-arrange the data to spot patterns, but would it be nicer in a chart?",
     3: "Smooth transition into the barchart",
   };
@@ -98,7 +98,7 @@
   <button on:click={moveDown}>Stage 3 </button>
   <button on:click={resetData}>Reset</button>
 
-  <p class="commentary">Story (stage {stage}): {commentary[stage]}</p>
+  <p class="commentary">Story (stage {stage}): {@html commentary[stage]}</p>
   <div class="intial-grid top ">
     {#each data.blocks as bar (bar.id)}
       <div
