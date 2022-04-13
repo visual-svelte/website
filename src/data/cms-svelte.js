@@ -2,6 +2,7 @@ import Scrollytelling from "$components/svelte/scrollytelling/index.svelte";
 import Flip from "$components/svelte/flip/index.svelte";
 import FlipGrid from "$components/svelte/flip/FlipGrid.svelte";
 import FlipEntryBars from "$components/svelte/flip/FlipEntryBars.svelte";
+import FlipSortAxes from "$components/svelte/flip/FlipSortAxes.svelte";
 
 let cmsSvelte = [
   {
@@ -35,6 +36,12 @@ let cmsSvelte = [
         title: "Flip Entry Bars",
         notes: "This is a FLIP grid",
         component: FlipEntryBars,
+      },
+      {
+        id: "FlipSortAxes",
+        title: "Flip Sort Axes",
+        notes: "This is a FLIP grid",
+        component: FlipSortAxes,
       },
     ],
   },

@@ -1,7 +1,6 @@
 <script>
   import { flip } from "svelte/animate";
   import { crossfade } from "svelte/transition";
-  import { selectAll } from "d3-selection";
   const [send, receive] = crossfade({});
 
   let commentary = {
@@ -131,7 +130,6 @@
 
 <style lang="scss">
   .wrapper {
-    // position: relative;
     margin-right: 15%;
   }
   .intial-grid {
