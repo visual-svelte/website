@@ -41,7 +41,11 @@
     <Icon name="chevrons-down" fill="gray" width="20px" height="20px" />
     <span>Scroll </span>
   </div>
-  <ScrollyWrapper data={scrollyData} fixedComp={AnimatedTransitionsChart2} />
+  <ScrollyWrapper
+    data={scrollyData}
+    fixedComp={AnimatedTransitionsChart2}
+    fixPosition="left"
+  />
 
   <h2>Data</h2>
   <p>
@@ -92,7 +96,7 @@
   </ul>
   <h2>Svelte code</h2>
   <div class="code-box">
-    <CodeVisual compid="recipes/AnimatedTransitions.Chart2" />
+    <CodeVisual route="d3/" compid="recipes/AnimatedTransitions.Chart2" />
   </div>
 </div>
 
