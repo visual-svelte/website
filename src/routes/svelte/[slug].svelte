@@ -5,12 +5,17 @@
 
   function compontentizeString(string) {
     let splits = string.split("-");
-    let results = splits.map((el) => {
-      const upper = el.charAt(0)?.toUpperCase();
-      const concat = upper.concat(el.slice(1));
-      return concat;
-    });
-    return results.join("");
+    console.log("splits", splits);
+    if (splits.length !== 1) {
+      let results = splits.map((el) => {
+        const upper = el.charAt(0)?.toUpperCase();
+        const concat = upper.concat(el.slice(1));
+        return concat;
+      });
+      return results.join("");
+    } else {
+      return splits[0];
+    }
   }
 
   export async function load(ctx) {

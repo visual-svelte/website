@@ -1,6 +1,5 @@
 import AnimatedTransitions from "$components/d3/recipes/AnimatedTransitions.svelte";
 import ForceAnimations from "$components/d3/recipes/ForceAnimations.svelte";
-// import ScrollytellingSvelte from "$components/svelte/Scrollytelling.svelte";
 
 let d3R = [
   {

@@ -1,6 +1,6 @@
 <script>
   import ScrollyWrapper from "$components/helpers/ScrollyWrapper.svelte";
-  import ScrollytellingSvelteDemo from "$components/svelte/ScrollytellingSvelte.Demo.svelte";
+  import ScrollytellingDemo from "$components/svelte/scrollytelling/Scrollytelling.Demo.svelte";
 
   import data from "$data/scrolltellingDemo";
 
@@ -59,7 +59,7 @@
   <ScrollyWrapper
     fixPosition="left"
     data={attentionData}
-    fixedComp={ScrollytellingSvelteDemo}
+    fixedComp={ScrollytellingDemo}
   />
   <h2>Future additions</h2>
   <p>

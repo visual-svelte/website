@@ -29,16 +29,17 @@
   export let content;
   export let filteredData;
   export let metadata;
-  console.log("slug", metadata.tags);
   import OnThisPage from "$components/OnThisPage.svelte";
   import ComeBackLater from "$components/ComeBackLater.svelte";
-  import CodeVisual from "$components/CodeVisual.svelte";
+  import FormattedExample from "$components/helpers/FormattedExample.svelte";
   import GitHubLink from "$components/GitHubLink.svelte";
-  import Tabs from "$components/Tabs.svelte";
   import Scrolly from "$components/helpers/Scrolly.svelte";
+  import Meta from "$components/helpers/Meta.svelte";
+  import PostGallery from "$components/PostGallery.svelte";
+
   import { tableOfContents } from "$stores/post.js";
   import { page } from "$app/stores";
-  import Meta from "$components/helpers/Meta.svelte";
+  import { onDestroy } from "svelte";
 
   let updatePosts = 0;
   $: $page.url, (updatePosts += 1);
@@ -51,8 +52,6 @@
     $tableOfContents = titles;
   }
 
-  import { onDestroy } from "svelte";
-  import PostGallery from "$components/PostGallery.svelte";
   onDestroy(() => {
     $tableOfContents = [];
   });
@@ -94,7 +93,8 @@
         <OnThisPage points={content.components} />
       </div>
       {#each components as comp, i}
-        <div
+        <FormattedExample {comp} route="d3/" />
+        <!-- <div
           id={comp.id}
           class="container step"
           class:active={scrollValue === i}
@@ -113,10 +113,10 @@
               </div>
             </div>
             <div slot="tab2">
-              <CodeVisual compid={comp.id} />
+              <CodeVisual route="d3/" compid={comp.id} />
             </div>
           </Tabs>
-        </div>
+        </div> -->
       {/each}
     </Scrolly>
 

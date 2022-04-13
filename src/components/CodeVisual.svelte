@@ -1,6 +1,6 @@
 <script>
   export let compid;
-
+  export let route;
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
   import { HighlightSvelte } from "svelte-highlight";
@@ -8,7 +8,7 @@
   import ActionButton from "./helpers/ActionButton.svelte";
   import Copy2Clipboard from "./helpers/Copy2Clipboard.svelte";
 
-  $: url = `https://api.github.com/repos/visual-svelte/website/contents/src/components/d3/${compid}.svelte`;
+  $: url = `https://api.github.com/repos/visual-svelte/website/contents/src/components/${route}${compid}.svelte`;
 
   async function fetchCode() {
     const response = await self.fetch(url);
