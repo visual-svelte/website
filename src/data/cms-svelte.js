@@ -9,7 +9,7 @@ let cmsSvelte = [
     primary_key: "Scrollytelling",
     published: "2022-04-11",
     post_title: "Scrollytelling with Svelte",
-    thumbnail: "/images/thumbnails/graph.png",
+    thumbnail: "/images/thumbnails/scrollytelling.png",
     keywords: ["svelte", "scrollytelling", "animation"],
     intro_text:
       "A few interesting techniques to liven up your Svelte Scrollytelling pieces. ",
@@ -19,7 +19,7 @@ let cmsSvelte = [
     primary_key: "Flip",
     published: "2022-04-12",
     post_title: "Using Svelte FLIP for Visual Storytelling",
-    thumbnail: "/images/thumbnails/graph.png",
+    thumbnail: "/images/thumbnails/flip.png",
     keywords: ["svelte", "FLIP", "animation"],
     intro_text:
       "FLIP (First, Last, Invert, Play) is a cool feature of Svelte, let's explore cool ways to use it for visual storytelling and journalism.",

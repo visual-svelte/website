@@ -6,7 +6,7 @@ let d3R = [
     primary_key: "AnimatedTransitions",
     published: "2022-04-05",
     post_title: "Animated Chart Transitions with Svelte, D3 & Flubber",
-    thumbnail: "/images/thumbnails/graph.png",
+    thumbnail: "/images/thumbnails/animatedTransitions.png",
     keywords: ["d3", "svelte", "animation", "flubber"],
     intro_text:
       "How to make really smooth transitions between different chart types, inspired by <a href='https://www.youtube.com/watch?v=vLk7mlAtEXI'>this YouTube video</a>.",

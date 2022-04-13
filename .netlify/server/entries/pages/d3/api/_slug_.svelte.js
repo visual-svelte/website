@@ -1,9 +1,11 @@
-import { c as create_ssr_component, b as each, e as escape, a as add_attribute, n as null_to_empty, g as subscribe, h as set_store_value, q as onDestroy, v as validate_component, m as missing_component } from "../../../../chunks/index-0bcf38cf.js";
-import { w as writable, d as d3CMS } from "../../../../chunks/cms-bd84078b.js";
-import { S as Scrolly, C as CodeVisual } from "../../../../chunks/CodeVisual-c88bf6c4.js";
-import { p as page } from "../../../../chunks/stores-c3a3bf24.js";
-import { M as Meta } from "../../../../chunks/Meta-f1f3e786.js";
-import { P as PostGallery } from "../../../../chunks/PostGallery-51af102a.js";
+import { c as create_ssr_component, b as each, e as escape, a as add_attribute, d as subscribe, f as set_store_value, x as onDestroy, v as validate_component } from "../../../../chunks/index-72c7b4a0.js";
+import { d as d3CMS } from "../../../../chunks/cms-b18b059f.js";
+import { F as FormattedExample } from "../../../../chunks/FormattedExample-1cda2b50.js";
+import { S as Scrolly } from "../../../../chunks/CodeVisual-07135961.js";
+import { M as Meta } from "../../../../chunks/Meta-c7bef519.js";
+import { P as PostGallery } from "../../../../chunks/PostGallery-ba46f468.js";
+import { w as writable } from "../../../../chunks/index-3ce3f00f.js";
+import { p as page } from "../../../../chunks/stores-391ee53d.js";
 import "d3";
 import "d3-scale";
 import "d3-zoom";
@@ -15,8 +17,9 @@ import "highlight.js/lib/core";
 import "highlight.js/lib/languages/xml";
 import "highlight.js/lib/languages/javascript";
 import "highlight.js/lib/languages/css";
-/* empty css                                                                      *//* empty css                                                                     */var OnThisPage_svelte_svelte_type_style_lang = "";
-const css$4 = {
+/* empty css                                                                      */import "../../../../chunks/textUtils-aba21c2d.js";
+/* empty css                                                                     */var OnThisPage_svelte_svelte_type_style_lang = "";
+const css$3 = {
   code: "li.svelte-1lrdn70{margin-top:0.5rem}",
   map: null
 };
@@ -24,7 +27,7 @@ const OnThisPage = create_ssr_component(($$result, $$props, $$bindings, slots) =
   let { points } = $$props;
   if ($$props.points === void 0 && $$bindings.points && points !== void 0)
     $$bindings.points(points);
-  $$result.css.add(css$4);
+  $$result.css.add(css$3);
   return `<div><p>In this post:</p>
   ${each(points, (point) => {
     return `<li class="${"svelte-1lrdn70"}"><a href="${"#" + escape(point.id)}">${escape(point.title)}</a>
@@ -33,12 +36,12 @@ const OnThisPage = create_ssr_component(($$result, $$props, $$bindings, slots) =
 </div>`;
 });
 var ComeBackLater_svelte_svelte_type_style_lang = "";
-const css$3 = {
+const css$2 = {
   code: "p.svelte-fyff70{overflow:wrap}",
   map: null
 };
 const ComeBackLater = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  $$result.css.add(css$3);
+  $$result.css.add(css$2);
   return `<p class="${"svelte-fyff70"}">Sorry, I&#39;m still working on this piece of content! But I&#39;ll be sure to publish
   it as soon as it&#39;s ready.
 </p>
@@ -46,7 +49,7 @@ const ComeBackLater = create_ssr_component(($$result, $$props, $$bindings, slots
 <p class="${"svelte-fyff70"}">Want to be informed when it is released. sign up to our mailing list.</p>`;
 });
 var GitHubLink_svelte_svelte_type_style_lang = "";
-const css$2 = {
+const css$1 = {
   code: "div.svelte-nh07a1{background-color:rgba(119, 227, 35, 0.15);margin:40px 0;border-radius:20px;padding:20px}",
   map: null
 };
@@ -57,37 +60,16 @@ const GitHubLink = create_ssr_component(($$result, $$props, $$bindings, slots) =
     $$bindings.url(url);
   if ($$props.d3module === void 0 && $$bindings.d3module && d3module !== void 0)
     $$bindings.d3module(d3module);
-  $$result.css.add(css$2);
+  $$result.css.add(css$1);
   return `<div class="${"svelte-nh07a1"}">Note: this page shows you how to implment the ${escape(d3module)} module in Svelte. For
   more details about the ${escape(d3module)} module, please consult the
   <a${add_attribute("href", url, 0)}>docs on GitHub</a>.
 </div>`;
 });
-var Tabs_svelte_svelte_type_style_lang = "";
-const css$1 = {
-  code: ".box.svelte-bm9546.svelte-bm9546{margin-bottom:10px;max-width:90%;min-height:300px;background-color:white;box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;padding:10px;border:1px solid #dee2e6;border-radius:0 0 0.5rem 0.5rem;border-top:0}ul.svelte-bm9546.svelte-bm9546{display:flex;flex-wrap:wrap;padding-left:0;margin-bottom:0;list-style:none;border-bottom:1px solid #dee2e6}li.svelte-bm9546.svelte-bm9546{margin-bottom:-1px}span.svelte-bm9546.svelte-bm9546{border:1px solid transparent;border-top-left-radius:0.25rem;border-top-right-radius:0.25rem;display:block;padding:0.5rem 1rem;cursor:pointer}span.svelte-bm9546.svelte-bm9546:hover{border-color:#e9ecef #e9ecef #dee2e6}li.active.svelte-bm9546>span.svelte-bm9546{color:#495057;background-color:#fff;border-color:#dee2e6 #dee2e6 #fff}",
-  map: null
-};
-const Tabs = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let items = [{ label: "Visual", value: 1 }, { label: "Code", value: 2 }];
-  let activeTabValue = 1;
-  $$result.css.add(css$1);
-  return `<ul class="${"svelte-bm9546"}">${each(items, (item) => {
-    return `<li class="${escape(null_to_empty(activeTabValue === item.value ? "active" : "")) + " svelte-bm9546"}"><span class="${"svelte-bm9546"}">${escape(item.label)}</span>
-    </li>`;
-  })}</ul>
-${each(items, (item) => {
-    return `${activeTabValue == item.value ? `<div class="${"box svelte-bm9546"}">${`${slots.tab1 ? slots.tab1({}) : ``}`}
-      
-
-      
-    </div>` : ``}`;
-  })}`;
-});
 const tableOfContents = writable([]);
 var _slug__svelte_svelte_type_style_lang = "";
 const css = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.wrapper.svelte-dbhb1r{margin:0 auto;max-width:700px}h2.svelte-dbhb1r{margin:100px 0 30px 0}p.svelte-dbhb1r{font-size:0.9rem}.subheading.svelte-dbhb1r{margin-top:5rem;padding-top:20px;border-top:1px solid rgba(119, 227, 35, 0.55)}.comp-description.svelte-dbhb1r span{color:blue;font-style:italic;padding:3px 5px;border-radius:10px;font-family:monospace}.svg-container.svelte-dbhb1r{overflow-y:scroll}.svg-container.svelte-dbhb1r::-webkit-scrollbar{width:0.5em;height:0.5em}.svg-container.svelte-dbhb1r::-webkit-scrollbar-thumb{background-color:rgba(255, 255, 255, 0.1);border-radius:3px}.svg-container.svelte-dbhb1r::-webkit-scrollbar-thumb:hover{background:rgba(255, 255, 255, 0.2)}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.wrapper.svelte-dbhb1r{margin:0 auto;max-width:700px}h2.svelte-dbhb1r{margin:100px 0 30px 0}p.svelte-dbhb1r{font-size:0.9rem}",
   map: null
 };
 async function load(ctx) {
@@ -121,7 +103,6 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
   let { content } = $$props;
   let { filteredData } = $$props;
   let { metadata } = $$props;
-  console.log("slug", metadata.tags);
   let titles = content?.components.map((comp) => {
     return {
       id: comp.id,
@@ -186,20 +167,8 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
         }, {}, {})}
         ${validate_component(OnThisPage, "OnThisPage").$$render($$result, { points: content.components }, {}, {})}</div>
       ${each(components, (comp, i) => {
-          return `<div${add_attribute("id", comp.id, 0)} class="${["container step", scrollValue === i ? "active" : ""].join(" ").trim()}"><h2 class="${"subheading svelte-dbhb1r"}"><!-- HTML_TAG_START -->${comp.title}<!-- HTML_TAG_END --></h2>
-          <p class="${"comp-description svelte-dbhb1r"}"><!-- HTML_TAG_START -->${comp.notes}<!-- HTML_TAG_END --></p>
-
-          ${validate_component(Tabs, "Tabs").$$render($$result, {}, {}, {
-            tab2: () => {
-              return `<div slot="${"tab2"}">${validate_component(CodeVisual, "CodeVisual").$$render($$result, { compid: comp.id }, {}, {})}
-            </div>`;
-            },
-            tab1: () => {
-              return `<div slot="${"tab1"}"><div class="${"svg-container svelte-dbhb1r"}">${validate_component(comp.component || missing_component, "svelte:component").$$render($$result, {}, {}, {})}</div>
-            </div>`;
-            }
-          })}
-        </div>`;
+          return `${validate_component(FormattedExample, "FormattedExample").$$render($$result, { comp, route: "d3/" }, {}, {})}
+        `;
         })}`;
       }
     })}

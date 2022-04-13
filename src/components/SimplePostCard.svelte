@@ -1,6 +1,8 @@
 <script>
   export let data;
   export let pathRoute;
+
+  import { keyToSentence } from "$utils/textUtils";
 </script>
 
 <a href={pathRoute + data.id} class="card">
@@ -10,7 +12,7 @@
       alt="thumbnail"
     />
   </div>
-  <p>{data.id}</p>
+  <p>{keyToSentence(data.id)}</p>
 </a>
 
 <style lang="scss">

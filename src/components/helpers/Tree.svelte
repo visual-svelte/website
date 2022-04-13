@@ -3,6 +3,7 @@
   import { slide } from "svelte/transition";
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
+  import { keyToSentence } from "$utils/textUtils";
 
   console.log("tree", $treeData);
   import Icon from "$components/helpers/Icon.svelte";
@@ -52,7 +53,8 @@
                 ? "/d3/api/" + link.href
                 : j === 1
                 ? "/d3/recipes/" + link.href
-                : "/svelte/" + link.href}><span>•</span> {link.title}</a
+                : "/svelte/" + link.href}
+              ><span>•</span> {keyToSentence(link.title)}</a
             >
           </li>
         {/each}

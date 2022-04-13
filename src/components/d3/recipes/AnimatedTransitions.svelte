@@ -44,7 +44,7 @@
   <ScrollyWrapper
     data={scrollyData}
     fixedComp={AnimatedTransitionsChart2}
-    fixPosition="left"
+    fixPosition="right"
   />
 
   <h2>Data</h2>

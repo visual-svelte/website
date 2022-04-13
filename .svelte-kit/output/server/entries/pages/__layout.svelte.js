@@ -1,22 +1,27 @@
-import { c as create_ssr_component, g as subscribe, b as each, a as add_attribute, e as escape, v as validate_component } from "../../chunks/index-0bcf38cf.js";
-import { I as Icon } from "../../chunks/cms-d3-recipes-84d0d2bb.js";
-import { w as writable } from "../../chunks/cms-bd84078b.js";
-import { s as sidebarData } from "../../chunks/dynamicData-64c7a7fd.js";
-import { K as Kofi } from "../../chunks/Kofi-be4415bc.js";
-import { p as page } from "../../chunks/stores-c3a3bf24.js";
+import { c as create_ssr_component, d as subscribe, b as each, a as add_attribute, e as escape, v as validate_component } from "../../chunks/index-72c7b4a0.js";
+import { I as Icon } from "../../chunks/cms-d3-recipes-afb8dee8.js";
+import { w as writable } from "../../chunks/index-3ce3f00f.js";
+import { s as sidebarData } from "../../chunks/dynamicData-18286a05.js";
+import { K as Kofi } from "../../chunks/Kofi-ad4dfbbe.js";
+import { p as page } from "../../chunks/stores-391ee53d.js";
+import { k as keyToSentence } from "../../chunks/textUtils-aba21c2d.js";
 import "d3";
 import "feather-icons";
-import "../../chunks/CodeVisual-c88bf6c4.js";
+import "../../chunks/CodeVisual-07135961.js";
 import "highlight.js/lib/core";
 import "highlight.js/lib/languages/xml";
 import "highlight.js/lib/languages/javascript";
 import "highlight.js/lib/languages/css";
-/* empty css                                                                */import "d3-scale";
+/* empty css                                                                */import "../../chunks/ScrollyWrapper-21d5279d.js";
+import "../../chunks/cms-b18b059f.js";
+import "d3-scale";
 import "d3-zoom";
 import "d3-scale-chromatic";
 import "d3-selection";
 import "d3-drag";
 import "d3-force";
+import "../../chunks/cms-svelte-f0b68b1d.js";
+import "../../chunks/FormattedExample-1cda2b50.js";
 const navOpen = writable(false);
 const treeData = writable(sidebarData);
 var BottomNav_svelte_svelte_type_style_lang = "";
@@ -49,17 +54,22 @@ const css$4 = {
   map: null
 };
 const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let catCounts;
   let $treeData, $$unsubscribe_treeData;
   let $$unsubscribe_navOpen;
   let $page, $$unsubscribe_page;
   $$unsubscribe_treeData = subscribe(treeData, (value) => $treeData = value);
   $$unsubscribe_navOpen = subscribe(navOpen, (value) => value);
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
+  console.log("tree", $treeData);
   let { dark = false } = $$props;
   let localData = $treeData;
   if ($$props.dark === void 0 && $$bindings.dark && dark !== void 0)
     $$bindings.dark(dark);
   $$result.css.add(css$4);
+  catCounts = $treeData[0].children.map((cat) => {
+    return cat.children.length;
+  });
   $$unsubscribe_treeData();
   $$unsubscribe_navOpen();
   $$unsubscribe_page();
@@ -74,12 +84,13 @@ const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
         stroke: dark ? "var(--c-white)" : "var(--c-darkgray)",
         direction: localData[i].children[j].expanded ? "s" : "e"
       }, {}, {})}
-      ${escape(l2.data)}</p>
+      ${escape(l2.data)} (${escape(catCounts[j] ?? 0)})
+    </p>
     ${localData[i].children[j].expanded ? `${l2.children ? `${each(l2.children, (link) => {
         return `<li class="${[
           "bullet svelte-5m0a0m",
           link.href == $page.params.slug ? "current" : ""
-        ].join(" ").trim()}"><a rel="${"internal"}"${add_attribute("href", link.href.startsWith("d3") ? "/d3/api/" + link.href : "/d3/recipes/" + link.href, 0)} class="${"svelte-5m0a0m"}"><span class="${"svelte-5m0a0m"}">\u2022</span> ${escape(link.title)}</a>
+        ].join(" ").trim()}"><a rel="${"internal"}"${add_attribute("href", j === 0 ? "/d3/api/" + link.href : j === 1 ? "/d3/recipes/" + link.href : "/svelte/" + link.href, 0)} class="${"svelte-5m0a0m"}"><span class="${"svelte-5m0a0m"}">\u2022</span> ${escape(keyToSentence(link.title))}</a>
           </li>`;
       })}` : `<li>Nothing yet!</li>`}` : ``}`;
     })}`;
@@ -133,7 +144,7 @@ const innerWidth = writable(600);
 const scrollY = writable(0);
 var __layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ':root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}footer.svelte-1p1ypn2.svelte-1p1ypn2{width:100% !important}.dimmer.svelte-1p1ypn2.svelte-1p1ypn2{position:fixed;min-width:100%;min-height:100%;z-index:3;background-color:rgba(0, 0, 0, 0.5)}.wrapper.svelte-1p1ypn2.svelte-1p1ypn2{width:100%;height:100%;background-size:20px 20px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)}.wrapper.svelte-1p1ypn2 main.svelte-1p1ypn2{padding:10px 10px 150px 10px;min-height:80vh}*{font-family:"Inconsolata", monospace}p{line-height:1.4rem}h1{padding:1rem 0}a{color:var(--c-darkgray);transition:background 0.3s;background:linear-gradient(180deg, transparent 85%, rgba(119, 227, 35, 0.1) 15%)}a:focus{color:var(--c-darkgray);background:linear-gradient(180deg, transparent 80%, rgba(119, 227, 35, 0.35) 20%)}a:hover{background:rgba(119, 227, 35, 0.35)}',
+  code: ':root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}footer.svelte-apefps.svelte-apefps{width:100% !important}.dimmer.svelte-apefps.svelte-apefps{position:fixed;min-width:100%;min-height:100%;z-index:3;background-color:rgba(0, 0, 0, 0.5)}.wrapper.svelte-apefps.svelte-apefps{width:100%;height:100%;background-size:20px 20px;background-image:linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)}.wrapper.svelte-apefps main.svelte-apefps{padding:10px 10px 150px 10px;min-height:80vh}*{font-family:"Inconsolata", monospace}p{line-height:1.4rem}h1{padding:1rem 0}a{color:var(--c-darkgray);transition:background 0.3s;background:linear-gradient(180deg, transparent 85%, rgba(119, 227, 35, 0.1) 15%)}a:focus{color:var(--c-darkgray);background:linear-gradient(180deg, transparent 80%, rgba(119, 227, 35, 0.35) 20%)}a:hover{background:rgba(119, 227, 35, 0.35)}',
   map: null
 };
 const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -150,10 +161,10 @@ const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `${$$result.head += `<style data-svelte="svelte-14rra2v">@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&display=swap");
   </style>`, ""}
 
-${$navOpen ? `<div class="${"dimmer svelte-1p1ypn2"}"></div>` : ``}
-<div class="${"wrapper svelte-1p1ypn2"}"><header>${validate_component(MinimalNav, "MinimalNav").$$render($$result, {}, {}, {})}</header>
-  <main id="${"content"}" class="${"svelte-1p1ypn2"}">${slots.default ? slots.default({}) : ``}</main>
-  <footer class="${"svelte-1p1ypn2"}">${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}</footer>
+${$navOpen ? `<div class="${"dimmer svelte-apefps"}"></div>` : ``}
+<div class="${"wrapper svelte-apefps"}"><header>${validate_component(MinimalNav, "MinimalNav").$$render($$result, {}, {}, {})}</header>
+  <main id="${"content"}" class="${"svelte-apefps"}">${slots.default ? slots.default({}) : ``}</main>
+  <footer class="${"svelte-apefps"}">${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}</footer>
 </div>`;
 });
 export { _layout as default };
