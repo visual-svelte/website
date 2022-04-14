@@ -1,0 +1,60 @@
+<script>
+  import * as d3 from "d3";
+  var w = 1280,
+    h = 800,
+    force = d3.layout.force().size([w, h]).gravity(0).charge(0).friction(0.7);
+
+  var svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
+
+  force.on("tick", function () {
+    svg
+      .selectAll("circle")
+      .attr("cx", function (d) {
+        return d.x;
+      })
+      .attr("cy", function (d) {
+        return d.y;
+      });
+  });
+
+  svg.on("mousemove", function () {
+    var point = d3.mouse(this),
+      node = { x: point[0], y: point[1] }; // <-A
+
+    svg
+      .append("circle")
+      .data([node])
+      .attr("class", "node")
+      .attr("cx", function (d) {
+        return d.x;
+      })
+      .attr("cy", function (d) {
+        return d.y;
+      })
+      .attr("r", 1e-6)
+      .transition()
+      .attr("r", 4.5)
+      .transition()
+      .delay(7000)
+      .attr("r", 1e-6)
+      .each("end", function () {
+        force.nodes().shift(); // <-B
+      })
+      .remove();
+
+    force.nodes().push(node); // <-C
+    force.start(); // <-D
+  });
+
+  function changeForce(charge, gravity) {
+    force.charge(charge).gravity(gravity);
+  }
+</script>
+
+<div class="control-group">
+  <button onclick="changeForce(0, 0)"> No Force </button>
+  <button onclick="changeForce(-60, 0)"> Mutual Repulsion </button>
+  <button onclick="changeForce(60, 0)"> Mutual Attraction </button>
+  <button onclick="changeForce(0, 0.02)"> Gravity </button>
+  <button onclick="changeForce(-30, 0.1)"> Gravity with Repulsion </button>
+</div>

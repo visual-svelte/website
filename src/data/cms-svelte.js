@@ -3,6 +3,9 @@ import Flip from "$components/svelte/flip/index.svelte";
 import FlipGrid from "$components/svelte/flip/FlipGrid.svelte";
 import FlipEntryBars from "$components/svelte/flip/FlipEntryBars.svelte";
 import FlipSortAxes from "$components/svelte/flip/FlipSortAxes.svelte";
+import Spring from "$components/svelte/spring/index.svelte";
+import SpringyBars from "$components/svelte/spring/SpringyBars.svelte";
+import Springy100Bars from "$components/svelte/spring/Springy100Bars.svelte";
 
 let cmsSvelte = [
   {
@@ -14,6 +17,30 @@ let cmsSvelte = [
     intro_text:
       "A few interesting techniques to liven up your Svelte Scrollytelling pieces. ",
     component: Scrollytelling,
+  },
+  {
+    primary_key: "Spring",
+    published: "2022-04-13",
+    post_title: "Adding life to stories with Svelte Tweened & Spring",
+    thumbnail: "/images/thumbnails/animatedTransitions.png",
+    keywords: ["tweened", "spring", "svelte", "animation"],
+    intro_text:
+      "How to use Svelte Spring and Tweened animations to breath life into visual essays.",
+    component: Spring,
+    components: [
+      {
+        id: "SpringyBars",
+        title: "Charismatic Bar Charts ",
+        notes: "asd",
+        component: SpringyBars,
+      },
+      {
+        id: "Springy100Bars",
+        title: "Springy 100% stacked bars",
+        notes: "asd",
+        component: Springy100Bars,
+      },
+    ],
   },
   {
     primary_key: "Flip",

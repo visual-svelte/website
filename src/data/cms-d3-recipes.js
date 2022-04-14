@@ -12,6 +12,7 @@ let d3R = [
       "How to make really smooth transitions between different chart types, inspired by <a href='https://www.youtube.com/watch?v=vLk7mlAtEXI'>this YouTube video</a>.",
     component: AnimatedTransitions,
   },
+
   {
     primary_key: "ForceAnimations",
     published: "",
