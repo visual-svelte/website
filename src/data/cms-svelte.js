@@ -3,9 +3,10 @@ import Flip from "$components/svelte/flip/index.svelte";
 import FlipGrid from "$components/svelte/flip/FlipGrid.svelte";
 import FlipEntryBars from "$components/svelte/flip/FlipEntryBars.svelte";
 import FlipSortAxes from "$components/svelte/flip/FlipSortAxes.svelte";
-import Spring from "$components/svelte/spring/index.svelte";
-import SpringyBars from "$components/svelte/spring/SpringyBars.svelte";
-import Springy100Bars from "$components/svelte/spring/Springy100Bars.svelte";
+import Motion from "$components/svelte/motion/index.svelte";
+import SpringTweenComp from "$components/svelte/motion/SpringTweenComp.svelte";
+import Springy100Bars from "$components/svelte/motion/Springy100Bars.svelte";
+import TweeningColor from "$components/svelte/motion/TweeningColor.svelte";
 
 let cmsSvelte = [
   {
@@ -19,26 +20,36 @@ let cmsSvelte = [
     component: Scrollytelling,
   },
   {
-    primary_key: "Spring",
+    primary_key: "Motion",
     published: "2022-04-13",
-    post_title: "Adding life to stories with Svelte Tweened & Spring",
+    post_title: "Adding life to stories with Svelte Motion",
     thumbnail: "/images/thumbnails/animatedTransitions.png",
     keywords: ["tweened", "spring", "svelte", "animation"],
     intro_text:
       "How to use Svelte Spring and Tweened animations to breath life into visual essays.",
-    component: Spring,
+    component: Motion,
     components: [
       {
-        id: "SpringyBars",
-        title: "Charismatic Bar Charts ",
-        notes: "asd",
-        component: SpringyBars,
+        id: "SpringTweenComp",
+        title: "Spring vs Tweened",
+        notes:
+          "In this visual, you can animate using both the Spring and Tweened functions to compare how they look and feel. <br/><br/>Adjust the slider parameters and change the easing function and then hit the Animate! button to observe the animations side-by-side. <br/><br/> Personally, I prefer tweened as you can control the duration, have 31 different <a href='https://svelte.dev/repl/6904f0306d6f4985b55f5f9673f762ef?version=3.4.1'>easing profiles</a> to choose from and you can even specific a custom interpolator (see the color example below!)",
+        component: SpringTweenComp,
       },
+
       {
         id: "Springy100Bars",
-        title: "Springy 100% stacked bars",
-        notes: "asd",
+        title: "Eased tweening on 100% stacked bars",
+        notes:
+          "Building on the core concepts, here I've built a 100% Stacked Bar Chart that tweens between two states (Primary and Main Election results) with an ElasticOut easing. <br/><br/> Annoyingly, Svelte Tweened does not allow you to easily add a delay for each item in your array. A typical use case in data viz would be to stagger the animations, such that each bar starts it's animation 100ms after the previous bar's animation begins. If you're looking to implement that kind of effect, see Amelia Wattenberger's post <a href='https://svelte.recipes/components/tweened-staggered/'>here</a>.  ",
         component: Springy100Bars,
+      },
+      {
+        id: "TweeningColor",
+        title: "Tweening Color",
+        notes:
+          "One good thing about tweening is that it can be applied to single numbers, arrays of numbers or even objects (with numbers as values),assuming your array length/ object structure is consistent between states. <br/><br/> In this example, we use d3-interpolate from D3.js as a custom interpolator on our Tween. <br/><br/> Essentially, this takes as input an rgb(r,g,b) color --> converts it to numbers, tweens it, and converts it back to rgb(r,g,b). <br/><br/> The result is a smooth fade between colors. ",
+        component: TweeningColor,
       },
     ],
   },
