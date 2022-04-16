@@ -5,7 +5,6 @@
 
   function compontentizeString(string) {
     let splits = string.split("-");
-    console.log("splits", splits);
     if (splits.length !== 1) {
       let results = splits.map((el) => {
         const upper = el.charAt(0)?.toUpperCase();

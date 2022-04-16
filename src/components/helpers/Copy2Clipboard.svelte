@@ -2,14 +2,16 @@
   // import { googleLight } from "svelte-highlight/src/styles";
   import { fly } from "svelte/transition";
   export let content;
+  export let string = false;
   let copied = false;
+
   function copyCode(code) {
     navigator.clipboard.writeText(code);
     copied = true;
   }
 </script>
 
-<button on:click={() => copyCode(atob(content))}
+<button on:click={() => (string ? copyCode(content) : copyCode(atob(content)))}
   >{copied ? "✔️ Copied!" : "Copy to Clipboard"}
 </button>
 <div style="min-height:25px">

@@ -7,7 +7,8 @@ import Motion from "$components/svelte/motion/index.svelte";
 import SpringTweenComp from "$components/svelte/motion/SpringTweenComp.svelte";
 import Springy100Bars from "$components/svelte/motion/Springy100Bars.svelte";
 import TweeningColor from "$components/svelte/motion/TweeningColor.svelte";
-
+import Transitions from "$components/svelte/transitions/index.svelte";
+import ChartEntry from "$components/svelte/transitions/ChartEntry.svelte";
 let cmsSvelte = [
   {
     primary_key: "Scrollytelling",
@@ -83,6 +84,25 @@ let cmsSvelte = [
         notes:
           "Here, we've given the user the ability to sort the X-axis, alphabetically, or by the values of the Y-axis. <br/><br/> The principles are the same. The key points are that we need to re-draw the axis upon data changes.<br/><br/> Note: a key design consideration here is whether you want the X-axis ticks to move with the bar, I chose not to in this instance as it could look a bit messy. To have the ticks and axis labels move with the bar you would need to re-draw the axis with HTML elements (rather than D3/ SVG). This would make it easier to animate (and style).",
         component: FlipSortAxes,
+      },
+    ],
+  },
+  {
+    primary_key: "Transitions",
+    published: "2022-04-13",
+    post_title: "Svelte transitions for visual storytelling",
+    thumbnail: "/images/thumbnails/flip.png",
+    keywords: ["svelte", "animation", "transition"],
+    intro_text:
+      "How to implement a variety of Svelte transitions to animate the entrance of UI elements (and tell a story).",
+    component: Transitions,
+    components: [
+      {
+        id: "ChartEntry",
+        title: "The result",
+        notes:
+          "It's not 100% identical to the original shown above but I made a few changes to try and explore more of the 'svelte/transition' module.<br/><br/> <strong>Click play below</strong> to see the animation. I've documented interesting observations/ implementation notes below the visual.",
+        component: ChartEntry,
       },
     ],
   },
