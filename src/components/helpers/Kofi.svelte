@@ -1,6 +1,6 @@
 <a rel="external" target="_blank" href="https://ko-fi.com/C0C7BRLF8">
   <div>
-    <span> Buy me a coffee!</span>
+    <p>Buy me a coffee!</p>
     <img src="/images/kofi.png" alt="buy me a coffee link!" />
   </div>
 </a>
@@ -15,6 +15,7 @@
     color: black;
     font-weight: 600;
     float: left;
+    border: gray 1px solid;
     border-radius: 20px;
     transition: all 0.3s;
     &:hover {
@@ -29,16 +30,18 @@
     div {
       padding: 9px 9px;
       position: relative;
-      span {
-        padding: 0;
 
+      p {
+        padding: 0;
+        font-weight: 300;
         font-size: 0.8rem;
-        margin: 0px 0 0 15px;
+        line-height: 0.8rem;
+        margin: 0px 0px 0 5px;
       }
       img {
         position: absolute;
         transition: 0.3s transform;
-        left: -20px;
+        left: -25px;
         top: -20px;
         height: 50px;
         width: 50px;

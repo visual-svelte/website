@@ -9,6 +9,8 @@ import Springy100Bars from "$components/svelte/motion/Springy100Bars.svelte";
 import TweeningColor from "$components/svelte/motion/TweeningColor.svelte";
 import Transitions from "$components/svelte/transitions/index.svelte";
 import ChartEntry from "$components/svelte/transitions/ChartEntry.svelte";
+import SelfExplainingCharts from "$components/svelte/SelfExplainingCharts/index.svelte";
+import ChartExplainers from "$components/svelte/SelfExplainingCharts/ChartExplainers.svelte";
 let cmsSvelte = [
   {
     primary_key: "Scrollytelling",
@@ -103,6 +105,24 @@ let cmsSvelte = [
         notes:
           "It's not 100% identical to the original shown above but I made a few changes to try and explore more of the 'svelte/transition' module.<br/><br/> <strong>Click play below</strong> to see the animation. I've documented interesting observations/ implementation notes below the visual.",
         component: ChartEntry,
+      },
+    ],
+  },
+  {
+    primary_key: "SelfExplainingCharts",
+    published: "2022-04-16",
+    post_title: "Techniques for explaining charts to a user in Svelte",
+    thumbnail: "/images/thumbnails/flip.png",
+    keywords: ["svelte", "animation", "transition"],
+    intro_text: "",
+    component: SelfExplainingCharts,
+    components: [
+      {
+        id: "ChartExplainers",
+        title: "Self-explaining chart",
+        notes:
+          "In this chart, the user is given information slowly about what the problem is and what each axis represents BEFORE they are given data to analyze. <br/> <br/> In doing so, you reduce dramatically the likelihood that the user will misunderstand what they are looking at. I also believe you will minimise the amount of time it takes for the user to understand the chart. <br/> <br/> Implementing this vision was a little hacky, but I hope you find the concept interesting! With a bit more time to polish the transitions, I do believe this could be a powerful technique for interactive storytelling. <br/> <br/> ",
+        component: ChartExplainers,
       },
     ],
   },

@@ -30,10 +30,6 @@
     margin: 100px 0 30px 0;
   }
 
-  p {
-    font-size: 0.9rem;
-    /* text-overflow: wrap; */
-  }
   .subheading {
     margin-top: 5rem;
     padding-top: 20px;

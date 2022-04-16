@@ -38,7 +38,7 @@
   </p>
 
   {#each content.components as ex}
-    <FormattedExample comp={ex} route="svelte/spring/" />
+    <FormattedExample comp={ex} route="svelte/motion/" />
   {/each}
 </div>
 
