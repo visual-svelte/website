@@ -1,7 +1,7 @@
 <a rel="external" target="_blank" href="https://ko-fi.com/C0C7BRLF8">
   <div>
     <span> Buy me a coffee!</span>
-    <img src="images/kofi.png" alt="" />
+    <img src="/images/kofi.png" alt="buy me a coffee link!" />
   </div>
 </a>
 

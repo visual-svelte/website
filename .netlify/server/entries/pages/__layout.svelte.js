@@ -2,7 +2,7 @@ import { c as create_ssr_component, d as subscribe, b as each, a as add_attribut
 import { I as Icon } from "../../chunks/ScrollyWrapper-db835c0e.js";
 import { w as writable } from "../../chunks/index-46acc537.js";
 import { s as sidebarData } from "../../chunks/dynamicData-92b82add.js";
-import { K as Kofi } from "../../chunks/Kofi-a6aeeddc.js";
+import { K as Kofi } from "../../chunks/Kofi-615fc4a4.js";
 import { p as page } from "../../chunks/stores-ca089767.js";
 import { k as keyToSentence } from "../../chunks/textUtils-aba21c2d.js";
 import "d3";

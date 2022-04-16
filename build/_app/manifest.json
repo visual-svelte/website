@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-bfc7a133.js",
+    "file": "start-60fbb983.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -22,7 +22,7 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-b04fdcac.js",
+    "file": "pages/__layout.svelte-bc1aeded.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -32,7 +32,7 @@
       "_cms-2c0d73d9.js",
       "_cms-d3-recipes-c50b2026.js",
       "_cms-svelte-586fac5d.js",
-      "_Kofi-6c37ab94.js",
+      "_Kofi-2bf3c0d7.js",
       "_stores-bc797ba4.js",
       "_ActionButton.svelte_svelte_type_style_lang-19892f2a.js",
       "_CodeVisual-2a072607.js",
@@ -91,7 +91,7 @@
     ]
   },
   "src/routes/svelte/[slug].svelte": {
-    "file": "pages/svelte/_slug_.svelte-f48299ab.js",
+    "file": "pages/svelte/_slug_.svelte-ff5db2bf.js",
     "src": "src/routes/svelte/[slug].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -99,7 +99,7 @@
       "_vendor-5d0334a0.js",
       "_cms-svelte-586fac5d.js",
       "_cms-2c0d73d9.js",
-      "_Thanks-d25bc050.js",
+      "_Thanks-e819529f.js",
       "_Meta-631d494a.js",
       "_ScrollyWrapper-b27d2c58.js",
       "_CodeVisual-2a072607.js",
@@ -108,7 +108,7 @@
       "_FormattedExample-b359715d.js",
       "_PostGallery-404fcc59.js",
       "_stores-bc797ba4.js",
-      "_Kofi-6c37ab94.js"
+      "_Kofi-2bf3c0d7.js"
     ]
   },
   "src/routes/about.svelte": {
@@ -164,7 +164,7 @@
     ]
   },
   "src/routes/d3/recipes/[slug].svelte": {
-    "file": "pages/d3/recipes/_slug_.svelte-0414fefb.js",
+    "file": "pages/d3/recipes/_slug_.svelte-d85ddfc8.js",
     "src": "src/routes/d3/recipes/[slug].svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -172,7 +172,7 @@
       "_vendor-5d0334a0.js",
       "_cms-2c0d73d9.js",
       "_cms-d3-recipes-c50b2026.js",
-      "_Thanks-d25bc050.js",
+      "_Thanks-e819529f.js",
       "_Meta-631d494a.js",
       "_CodeVisual-2a072607.js",
       "_ActionButton.svelte_svelte_type_style_lang-19892f2a.js",
@@ -180,7 +180,7 @@
       "_ScrollyWrapper-b27d2c58.js",
       "_PostGallery-404fcc59.js",
       "_stores-bc797ba4.js",
-      "_Kofi-6c37ab94.js"
+      "_Kofi-2bf3c0d7.js"
     ]
   },
   "src/routes/d3/api/index.svelte": {
@@ -234,8 +234,8 @@
       "assets/ScrollyWrapper-d0ae2cbf.css"
     ]
   },
-  "_Kofi-6c37ab94.js": {
-    "file": "chunks/Kofi-6c37ab94.js",
+  "_Kofi-2bf3c0d7.js": {
+    "file": "chunks/Kofi-2bf3c0d7.js",
     "imports": [
       "_vendor-5d0334a0.js"
     ],
@@ -325,12 +325,12 @@
       "assets/PostGallery-4bb0317a.css"
     ]
   },
-  "_Thanks-d25bc050.js": {
-    "file": "chunks/Thanks-d25bc050.js",
+  "_Thanks-e819529f.js": {
+    "file": "chunks/Thanks-e819529f.js",
     "imports": [
       "_vendor-5d0334a0.js",
       "_PostGallery-404fcc59.js",
-      "_Kofi-6c37ab94.js"
+      "_Kofi-2bf3c0d7.js"
     ],
     "css": [
       "assets/Thanks-3f6aa6d5.css"

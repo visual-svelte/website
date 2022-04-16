@@ -1,7 +1,7 @@
 import { c as create_ssr_component, v as validate_component, m as missing_component } from "../../../chunks/index-1116a07c.js";
 import { c as cmsSvelte } from "../../../chunks/cms-svelte-e7edea6c.js";
 import { d as d3CMS } from "../../../chunks/cms-ede64cff.js";
-import { S as StoryHeader, T as Thanks } from "../../../chunks/Thanks-119536b6.js";
+import { S as StoryHeader, T as Thanks } from "../../../chunks/Thanks-a25b9487.js";
 import { M as Meta } from "../../../chunks/Meta-7f13f532.js";
 import "../../../chunks/ScrollyWrapper-db835c0e.js";
 import "feather-icons";
@@ -24,7 +24,7 @@ import "d3-force";
 import "../../../chunks/PostGallery-4ef78255.js";
 import "../../../chunks/textUtils-aba21c2d.js";
 /* empty css                                                                  */import "../../../chunks/stores-ca089767.js";
-import "../../../chunks/Kofi-a6aeeddc.js";
+import "../../../chunks/Kofi-615fc4a4.js";
 function compontentizeString(string) {
   let splits = string.split("-");
   if (splits.length !== 1) {
