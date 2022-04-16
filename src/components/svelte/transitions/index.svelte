@@ -27,7 +27,7 @@
   </p>
   <figure>
     <img
-      src="images/migrants/migrant.gif"
+      src="/images/migrants/migrant.gif"
       alt="bbc newsnight gif showing the data visualisation"
     />
     <figcaption>

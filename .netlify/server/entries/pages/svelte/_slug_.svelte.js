@@ -1,5 +1,5 @@
 import { c as create_ssr_component, v as validate_component, m as missing_component } from "../../../chunks/index-1116a07c.js";
-import { c as cmsSvelte } from "../../../chunks/cms-svelte-30943fed.js";
+import { c as cmsSvelte } from "../../../chunks/cms-svelte-e7edea6c.js";
 import { d as d3CMS } from "../../../chunks/cms-ede64cff.js";
 import { S as StoryHeader, T as Thanks } from "../../../chunks/Thanks-119536b6.js";
 import { M as Meta } from "../../../chunks/Meta-7f13f532.js";
@@ -27,7 +27,6 @@ import "../../../chunks/textUtils-aba21c2d.js";
 import "../../../chunks/Kofi-a6aeeddc.js";
 function compontentizeString(string) {
   let splits = string.split("-");
-  console.log("splits", splits);
   if (splits.length !== 1) {
     let results = splits.map((el) => {
       const upper = el.charAt(0)?.toUpperCase();

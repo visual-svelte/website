@@ -121,7 +121,7 @@
     height: 300px;
     width: 400px;
     position: relative;
-    background-image: url("images/migrants/migrants.jpg");
+    background-image: url("/images/migrants/migrants.jpg");
     background-size: cover;
     background-blend-mode: saturation;
     .title {

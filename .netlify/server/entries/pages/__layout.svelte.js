@@ -1,7 +1,7 @@
 import { c as create_ssr_component, d as subscribe, b as each, a as add_attribute, e as escape, v as validate_component } from "../../chunks/index-1116a07c.js";
 import { I as Icon } from "../../chunks/ScrollyWrapper-db835c0e.js";
 import { w as writable } from "../../chunks/index-46acc537.js";
-import { s as sidebarData } from "../../chunks/dynamicData-0f85c9b1.js";
+import { s as sidebarData } from "../../chunks/dynamicData-92b82add.js";
 import { K as Kofi } from "../../chunks/Kofi-a6aeeddc.js";
 import { p as page } from "../../chunks/stores-ca089767.js";
 import { k as keyToSentence } from "../../chunks/textUtils-aba21c2d.js";
@@ -21,7 +21,7 @@ import "d3-drag";
 import "d3-force";
 import "../../chunks/cms-d3-recipes-e32f5c0e.js";
 import "d3-array";
-import "../../chunks/cms-svelte-30943fed.js";
+import "../../chunks/cms-svelte-e7edea6c.js";
 import "../../chunks/FormattedExample-af8cc064.js";
 import "d3-interpolate";
 const navOpen = writable(false);
