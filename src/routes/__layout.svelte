@@ -8,14 +8,14 @@
 
 <svelte:head>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap");
   </style>
 </svelte:head>
 <svelte:window bind:innerWidth={$innerWidth} bind:scrollY={$scrollY} />
 {#if $navOpen}
   <div transition:fade class="dimmer" on:click={() => ($navOpen = false)} />
 {/if}
-<div class="wrapper">
+<div class="wrapper" style="">
   <header><MinimalNav /></header>
   <main id="content">
     <slot />
@@ -41,48 +41,34 @@
   .wrapper {
     width: 100%;
     height: 100%;
-    background-size: 20px 20px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.03) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-color: var(--off-white);
+    // background-size: 20px 20px;
+    // background-image: linear-gradient(
+    //     to right,
+    //     rgba(0, 0, 0, 0.03) 1px,
+    //     transparent 1px
+    //   ),
+    //   linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
     main {
-      padding: 10px 10px 150px 10px;
+      // padding: 10px 10px 150px 10px;
+      margin: 0;
       min-height: 80vh;
     }
   }
 
-  :global(*) {
-    font-family: "Inconsolata", monospace;
+  :global(h1, h2, h3, h4) {
+    font-family: "IBM Plex Mono", monospace;
   }
-  :global(p) {
-    line-height: 1.4rem;
+  :global(h1) {
+    line-height: 3rem;
+    font-weight: 300;
+    font-size: 2.4rem;
+  }
+  :global(p, ul, div, a) {
+    line-height: 2rem;
+    font-family: "Josefin Sans", sans-serif;
   }
   :global(h1) {
     padding: 1rem 0;
-  }
-  :global(a) {
-    color: var(--c-darkgray);
-    transition: background 0.3s;
-    background: linear-gradient(
-      180deg,
-      transparent 85%,
-      rgba(119, 227, 35, 0.1) 15%
-    );
-    &:focus {
-      color: var(--c-darkgray);
-
-      background: linear-gradient(
-        180deg,
-        transparent 80%,
-        rgba(119, 227, 35, 0.35) 20%
-      );
-    }
-
-    &:hover {
-      background: rgba(119, 227, 35, 0.35);
-    }
   }
 </style>

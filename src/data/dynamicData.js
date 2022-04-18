@@ -41,7 +41,7 @@ let sidebarData = [
         children: d3Articles,
       },
       {
-        data: "D3 + Svelte recipes ",
+        data: "D3 Charts in Svelte",
         expanded: false,
         children: d3Recipes,
       },

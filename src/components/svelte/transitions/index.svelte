@@ -83,10 +83,18 @@
   .wrapper {
     max-width: 600px;
     margin: 0 auto;
+    padding: 10px;
   }
   figure {
-    margin: 0px;
-    max-width: 600px;
+    margin: 0px auto;
+    width: 90vw;
+    max-width: 550px;
+    position: relative;
+    img {
+      width: 90vw;
+      max-width: 550px;
+      margin: 0 auto;
+    }
     figcaption {
       margin-top: 5px;
       text-align: end;

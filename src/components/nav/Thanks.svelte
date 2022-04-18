@@ -1,5 +1,6 @@
 <script>
   import Kofi from "$components/helpers/Kofi.svelte";
+  import PostGallery from "$components/PostGallery.svelte";
   export let data;
 </script>
 
@@ -15,13 +16,15 @@
   </div>
 
   <h2>You might also like:</h2>
+
+  <!-- Needs to bring in  -->
   <PostGallery posts={data} showMax={3} pathRoute="/d3/api/" />
 </div>
 
 <style>
   .wrapper {
     max-width: 600px;
-    margin: 100px auto 0 auto;
+    margin: 100px 10px 0;
   }
   .kofi-cup {
     margin: 30px;

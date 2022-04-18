@@ -86,7 +86,7 @@
     margin-right: 0;
     padding-right: 0;
     min-width: 300px !important;
-    width: 80vw;
+    width: 70vw;
     position: relative;
     z-index: 2;
     padding-bottom: 100px;
@@ -140,10 +140,10 @@
   .full-width {
     width: 90vw;
     position: relative;
-    left: 65%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+
+    // right: 50%;
+    // margin-left: -50vw;
+    // margin-right: -50vw;
   }
 
   //   html {
