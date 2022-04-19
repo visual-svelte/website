@@ -1,7 +1,7 @@
 <script>
   import Scrolly from "$components/helpers/Scrolly.svelte";
   import { scrollyData } from "$data/animatedTransitions.js";
-  import AnimatedTransitionsChart2 from "$components/d3/recipes/AnimatedTransitions.Chart2.svelte";
+  import Chart2 from "$components/svelte/AnimatedTransitions/Chart2.svelte";
   import CodeVisual from "$components/CodeVisual.svelte";
   import Icon from "$components/helpers/Icon.svelte";
   import YouTube from "$components/helpers/YouTube.svelte";
@@ -41,11 +41,7 @@
     <Icon name="chevrons-down" fill="gray" width="20px" height="20px" />
     <span>Scroll </span>
   </div>
-  <ScrollyWrapper
-    data={scrollyData}
-    fixedComp={AnimatedTransitionsChart2}
-    fixPosition="right"
-  />
+  <ScrollyWrapper data={scrollyData} fixedComp={Chart2} fixPosition="right" />
 
   <h2>Data</h2>
   <p>
@@ -96,7 +92,7 @@
   </ul>
   <h2>Svelte code</h2>
   <div class="code-box">
-    <CodeVisual route="d3/" compid="recipes/AnimatedTransitions.Chart2" />
+    <CodeVisual route="d3/" compid="svelte/AnimatedTransitions/Chart2" />
   </div>
 </div>
 
@@ -113,9 +109,6 @@
     li {
       margin: 10px;
     }
-  }
-  h2 {
-    margin-top: 50px;
   }
 
   .full-width {

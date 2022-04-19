@@ -17,9 +17,7 @@
   <p>
     By scrollytelling, I mean an interactive article that updates automatically
     as the user scrolls down (or across?) the page. You can see an example from
-    my previous article on <a
-      rel="internal"
-      href="/d3/recipes/animated-transitions"
+    my previous article on <a rel="internal" href="/svelte/animated-transitions"
       >Animated Transitions between Chart Types</a
     >.
   </p>

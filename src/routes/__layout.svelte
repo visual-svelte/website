@@ -30,6 +30,7 @@
     //   bottom: 0;
     //   position: absolute;
     width: 100% !important;
+    background-color: var(--dark);
   }
   .dimmer {
     position: fixed;
@@ -63,12 +64,27 @@
     line-height: 3rem;
     font-weight: 300;
     font-size: 2.4rem;
+    padding: 1rem 0;
   }
+  :global(h2) {
+    margin-top: 4rem;
+    padding-top: 20px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      height: 1px;
+      // margin-left: 3rem;
+      width: 20px;
+      border-bottom: 2px solid var(--dragon);
+    }
+  }
+
   :global(p, ul, div, a) {
     line-height: 2rem;
     font-family: "Josefin Sans", sans-serif;
-  }
-  :global(h1) {
-    padding: 1rem 0;
   }
 </style>

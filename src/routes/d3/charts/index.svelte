@@ -1,9 +1,8 @@
 <script>
-  import d3R from "$data/cms-d3-recipes";
+  import d3Charts from "$data/cms-d3-charts";
   import PostGallery from "$components/PostGallery.svelte";
-  import { page } from "$app/stores";
 
-  $: recipes = d3R
+  $: charts = d3Charts
     .filter((d) => d.published)
     .map((post) => {
       return {
@@ -17,5 +16,5 @@
 
 <!-- <h1>D3 API Posts</h1>
 <PostGallery posts={filteredData} pathRoute="/d3/api/" /> -->
-<h1>D3 + Svelte Recipe Posts</h1>
-<PostGallery posts={recipes} pathRoute="/d3/recipes/" />
+<h1>D3 + Svelte Charts</h1>
+<PostGallery posts={charts} pathRoute="/d3/charts/" />

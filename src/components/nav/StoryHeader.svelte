@@ -1,38 +1,37 @@
 <script>
   export let data;
-  import { spring } from "svelte/motion";
   import { scrollY } from "$stores/screen";
-
-  // let scrollY;
 </script>
 
-<div class="header">
-  <div class="circle" style="transform:rotate({$scrollY / 2}deg)" />
-  <div class="inner">
-    <h1 class="head">{data.post_title}</h1>
-    <p class="sub">{@html data.intro_text}</p>
-    <a
-      href="/"
-      rel="internal"
-      aria-label="See more articles from the {data.cat} category"
-      class="category"
-    >
-      <div class="box" />
-      <p>D3 Charts</p>
-    </a>
+{#if data}
+  <div class="header">
+    <div class="circle" style="transform:rotate({$scrollY / 2}deg)" />
+    <div class="inner">
+      <h1 class="head">{data?.post_title}</h1>
+      <p class="sub">{@html data?.intro_text}</p>
+      <a
+        href="/"
+        rel="internal"
+        aria-label="See more articles from the {data?.cat} category"
+        class="category"
+      >
+        <div class="box" />
+        <p>{data?.cat ?? "Category"}</p>
+      </a>
 
-    <div class="tags">
-      {#each data.keywords as tag}
-        <a
-          class="tag"
-          aria-label="See more articles with the {tag} tag"
-          href="/tags/{tag}"
-          rel="internal">#{tag}</a
-        >
-      {/each}
+      <div class="tags">
+        {#each data?.keywords as tag}
+          <a
+            class="tag"
+            aria-label="See more articles with the {tag} tag"
+            href="/tags/{tag}"
+            rel="internal">#{tag}</a
+          >
+        {/each}
+      </div>
     </div>
   </div>
-</div>
+{/if}
 
 <style lang="scss">
   $left-margin: 3rem;
@@ -140,6 +139,16 @@
       text-align: left;
       margin: 2rem 0;
       max-width: 500px;
+      a {
+        color: white;
+
+        &:focused {
+          color: white;
+        }
+        &:active {
+          color: white;
+        }
+      }
     }
 
     .tags {

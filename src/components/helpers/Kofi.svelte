@@ -12,15 +12,14 @@
     text-decoration: none;
     background: none;
     background-color: white;
-    color: black !important;
     font-weight: 600;
     float: left;
     border: gray 1px solid;
     border-radius: 20px;
     transition: all 0.3s;
     &:hover {
-      -webkit-filter: drop-shadow(5px -5px 0 var(--lemon));
-      filter: drop-shadow(5px -4px 0 var(--lemon));
+      // -webkit-filter: drop-shadow(5px -5px 0 var(--lemon));
+      // filter: drop-shadow(5px -4px 0 var(--lemon));
       img {
         transform: scale(1.3);
         transform: rotate(0deg);
@@ -33,10 +32,11 @@
 
       p {
         padding: 0;
-        font-weight: 300;
+        font-weight: 400;
         font-size: 0.8rem;
         line-height: 0.8rem;
-        margin: 0px 0px 0 5px;
+        color: var(--dark) !important;
+        margin: 0px 0px 0 10px;
       }
       img {
         position: absolute;

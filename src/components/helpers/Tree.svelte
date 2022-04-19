@@ -23,7 +23,7 @@
 {#each localData as l1, i}
   <!-- <h5>{l1.data}</h5> -->
   {#each l1.children as l2, j}
-    <p
+    <h4
       class="subh"
       class:current={l2 == "Full API"}
       on:click|preventDefault={() => openTree(i, j)}
@@ -37,7 +37,7 @@
         direction={localData[i].children[j].expanded ? "s" : "e"}
       />
       {l2.data} ({catCounts[j] ?? 0})
-    </p>
+    </h4>
     {#if localData[i].children[j].expanded}
       {#if l2.children}
         {#each l2.children as link}
@@ -52,7 +52,7 @@
               href={j === 0
                 ? "/d3/api/" + link.href
                 : j === 1
-                ? "/d3/recipes/" + link.href
+                ? "/d3/charts/" + link.href
                 : "/svelte/" + link.href}
               ><span>•</span> {keyToSentence(link.title)}</a
             >
@@ -73,12 +73,12 @@
   }
   .bullet {
     list-style-type: none;
-    margin: 0 0 0.5rem 1rem;
+    margin: 0 0 0rem 1rem;
     cursor: pointer;
     a {
       text-decoration: none;
-      font-family: "Consola";
       position: relative;
+      color: var(--dar);
       span {
         color: (--c-darkgray);
         font-size: 0.8rem;

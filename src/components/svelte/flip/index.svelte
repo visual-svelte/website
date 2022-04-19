@@ -54,7 +54,4 @@
     max-width: 600px;
     margin: 0 auto;
   }
-  h2 {
-    margin: 100px 0 30px 0;
-  }
 </style>

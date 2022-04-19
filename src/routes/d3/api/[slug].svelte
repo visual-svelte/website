@@ -5,6 +5,7 @@
     let slug = ctx.url.pathname;
     const primaryKey = slug.split("/").pop();
     const content = d3CMS.find((record) => record.primary_key == primaryKey);
+    content ? (content["cat"] = "D3 API (in Svelte)") : console.log("");
     let metadata = {
       t: `${content?.post_title} | VisualSvelte`,
       d: "Tell visual stories on the internet with Svelte and other technologies.",
@@ -36,7 +37,7 @@
   import Scrolly from "$components/helpers/Scrolly.svelte";
   import Meta from "$components/helpers/Meta.svelte";
   import PostGallery from "$components/PostGallery.svelte";
-
+  import StoryHeader from "$components/nav/StoryHeader.svelte";
   import { tableOfContents } from "$stores/post.js";
   import { page } from "$app/stores";
   import { onDestroy } from "svelte";
@@ -78,14 +79,15 @@
 
 <Meta {metadata} />
 
+<StoryHeader data={content} />
 <div class="wrapper">
   {#if errorState || !content.published}
     <ComeBackLater />
   {:else}
     <Scrolly bind:value={scrollValue}>
       <div id="intro" class="intro">
-        <h1>{content?.post_title}</h1>
-        <p>{@html content?.intro_text}</p>
+        <!-- <h1>{content?.post_title}</h1> -->
+        <!-- <p>{@html content?.intro_text}</p> -->
 
         <GitHubLink
           d3module={content.primary_key}
@@ -108,6 +110,7 @@
 <style lang="scss">
   .wrapper {
     margin: 0 auto;
+    padding: 10px;
     max-width: 700px;
   }
   h2 {
@@ -116,7 +119,6 @@
 
   p {
     font-size: 0.9rem;
-    /* text-overflow: wrap; */
   }
   .subheading {
     margin-top: 5rem;

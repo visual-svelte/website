@@ -91,9 +91,13 @@
     </p>
   </div>
 
-  <div class="bottom-section" in:fly={{ y: 100, duration: 1000, delay: 2500 }}>
-    <h2>Recent D3 & Svelte Series:</h2>
-    <PostGallery posts={filteredData} pathRoute="/d3/api/" />
+  <div class="bottom-section">
+    <PostGallery
+      posts={filteredData}
+      title={true}
+      cat="API"
+      pathRoute="/d3/api/"
+    />
   </div>
 {:else}
   <div class="blank" />
@@ -109,10 +113,10 @@
     width: 100%;
   }
   .bottom-section {
-    text-align: center;
+    // text-align: center;
     margin-top: 150px;
-    max-width: 700px;
-    margin: 0 auto;
+    // max-width: 700px;
+    // margin: 0 auto;
   }
   .intro {
     // min-height: 50vh;
@@ -125,7 +129,7 @@
   }
   .text {
     max-width: 700px;
-    margin: 0 auto 100px auto;
+    margin: 0 10px 100px;
     text-align: center;
   }
 </style>

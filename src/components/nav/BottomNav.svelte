@@ -43,7 +43,7 @@
   }
 
   .fixed {
-    background-color: var(--c-darkgray);
+    background-color: var(--dark);
     margin: 0;
 
     color: var(--c-white);

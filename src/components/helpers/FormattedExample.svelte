@@ -26,15 +26,6 @@
 </div>
 
 <style lang="scss">
-  h2 {
-    margin: 100px 0 30px 0;
-  }
-
-  .subheading {
-    margin-top: 5rem;
-    padding-top: 20px;
-    border-top: 1px solid rgba(119, 227, 35, 0.55);
-  }
   .comp-description :global(span) {
     color: blue;
     font-style: italic;

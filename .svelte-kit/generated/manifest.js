@@ -6,8 +6,8 @@ const c = [
 	() => import("..\\..\\src\\routes\\svelte\\[slug].svelte"),
 	() => import("..\\..\\src\\routes\\about.svelte"),
 	() => import("..\\..\\src\\routes\\tags\\[tag].svelte"),
-	() => import("..\\..\\src\\routes\\d3\\index.svelte"),
-	() => import("..\\..\\src\\routes\\d3\\recipes\\[slug].svelte"),
+	() => import("..\\..\\src\\routes\\d3\\charts\\index.svelte"),
+	() => import("..\\..\\src\\routes\\d3\\charts\\[slug].svelte"),
 	() => import("..\\..\\src\\routes\\d3\\api\\index.svelte"),
 	() => import("..\\..\\src\\routes\\d3\\api\\[slug].svelte")
 ];
@@ -30,11 +30,11 @@ export const routes = [
 	// src/routes/tags/[tag].svelte
 	[/^\/tags\/([^/]+?)\/?$/, [c[0], c[6]], [c[1]], (m) => ({ tag: d(m[1])})],
 
-	// src/routes/d3/index.svelte
-	[/^\/d3\/?$/, [c[0], c[7]], [c[1]]],
+	// src/routes/d3/charts/index.svelte
+	[/^\/d3\/charts\/?$/, [c[0], c[7]], [c[1]]],
 
-	// src/routes/d3/recipes/[slug].svelte
-	[/^\/d3\/recipes\/([^/]+?)\/?$/, [c[0], c[8]], [c[1]], (m) => ({ slug: d(m[1])})],
+	// src/routes/d3/charts/[slug].svelte
+	[/^\/d3\/charts\/([^/]+?)\/?$/, [c[0], c[8]], [c[1]], (m) => ({ slug: d(m[1])})],
 
 	// src/routes/d3/api/index.svelte
 	[/^\/d3\/api\/?$/, [c[0], c[9]], [c[1]]],

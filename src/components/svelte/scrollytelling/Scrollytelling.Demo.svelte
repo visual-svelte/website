@@ -6,7 +6,7 @@
   let pinXAxis; // declare pins
   let margin = 30; // declare initial values for margin and svg_height/width
   let svg_height = 300;
-  let svg_width = 400;
+  let svg_width = 300;
   $: height = svg_height - margin * 2;
   $: width = svg_width - margin * 2;
 

@@ -2,105 +2,96 @@
   import Logo from "$components/helpers/Logo.svelte";
   import { navOpen } from "$stores/menu";
   import Kofi from "$components/helpers/Kofi.svelte";
+  import { link } from "d3";
+  let links = {
+    main: [
+      { text: "Svelte + D3 API Articles", href: "/d3/api" },
+      { text: "Svelte + D3 Charts ", href: "/d3/charts" },
+      { text: "Svelte Visual Storytelling", href: "/svelte" },
+      { text: "Mission", href: "/about" },
+    ],
+    other: [
+      { text: "Privacy", href: "/" },
+      { text: "Terms", href: "/" },
+      { text: "RSS", href: "/" },
+    ],
+  };
 </script>
 
 <div class="container">
-  <div class="logo"><Logo /></div>
-  <div class="writing">
-    <p>thanks for visiting visualsvelte!</p>
-    <p>
-      you can read all posts <span on:click={() => ($navOpen = true)}>here</span
-      >
-    </p>
-    <p>
-      before you go, let’s connect! <a
-        rel="external"
-        href="https://twitter.com/visualsvelte">@visualsvelte</a
-      >
-    </p>
-    <p>
-      <a sveltekit:prefetch href="/about">read more</a> about visualsvelte!
-    </p>
+  <div class="main-links">
+    {#each links.main as link}
+      <a href={link.href}>{link.text}</a>
+    {/each}
   </div>
-  <div class="support">
-    <Kofi />
+  <div class="logo">
+    <div class="circle" />
+    <a rel="internal" href="/">
+      <h2>visualsvelte</h2>
+    </a>
+  </div>
+  <div class="other-links">
+    {#each links.other as link, i}
+      <a href={link.href}>{link.text} </a>
+      <span>{i == 2 ? "" : `     |     `}</span>
+    {/each}
   </div>
 </div>
 
 <style lang="scss">
   .container {
-    justify-items: space-around;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    background-color: var(--c-darkgray);
-    padding: 0px 16px;
-    text-align: center;
-    min-height: 200px;
     color: white;
-    .logo,
-    .support,
-    .writing {
-      padding: 30px;
+    text-align: center;
+    max-width: 1200px;
+    border-top: 1px solid var(--off-white);
+    margin: 0 auto;
+    padding: 40px auto;
+    .main-links {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+    .logo {
+      position: relative;
       a {
-        cursor: pointer !important;
-        color: var(--c-green);
+        line-height: 1rem;
+        h2 {
+          margin-top: 1rem;
+          font-weight: 300;
+          &::before {
+            border: none;
+          }
+        }
       }
-      p {
-        span {
-          color: var(--c-green);
-          text-decoration: underline;
+      .circle {
+        margin: 0 auto;
+        height: 160px;
+        width: 160px;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.2);
+        &::after {
+          height: 1px;
+          bottom: 0px;
+          left: 0px;
+          width: 20px;
+          border-bottom: 1px solid white;
+          position: absolute;
         }
       }
     }
-    .support {
-      margin: 0 auto;
+    .other-links {
       a {
-        background: none !important;
-      }
-    }
-    @media all and (max-width: 700px) {
-      .logo,
-      .writing,
-      .support {
-        grid-column: 1 / 4;
-        padding: 20px;
-      }
-      .container {
-        padding: 15px 0px;
+        font-size: 0.7rem;
       }
     }
   }
-  //   width: 100%;
-
-  //   @media all and (max-width: 700px) {
-  //     .logo,
-  //     .writing,
-  //     .support {
-  //       grid-column: 1 / 4;
-  //       padding: 15px;
-  //     }
-  //     .container {
-  //       padding: 15px 0px;
-  //     }
-  //   }
-
-  //   .writing {
-  //     p {
-  //       color: var(--c-gray);
-
-  //       &:hover {
-  //         color: var(--c-white);
-  //       }
-  //       a {
-  //         cursor: pointer !important;
-  //         color: var(--c-green);
-  //       }
-  //     }
-  //   }
-  // }
-  // @media all and (max-width: 700px) {
-  //   .container {
-  //     padding: 10px 0px;
-  //   }
-  // }
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    line-height: 3rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 </style>

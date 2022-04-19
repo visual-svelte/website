@@ -1,5 +1,4 @@
 <script context="module">
-  //   import d3R from "$data/cms-d3-recipes";
   import d3CMS from "$data/cms";
   import cmsSvelte from "$data/cms-svelte";
 
@@ -22,6 +21,8 @@
     const primaryKey = slug.split("/").pop();
     let compName = compontentizeString(primaryKey);
     const content = cmsSvelte?.find((record) => record.primary_key == compName);
+    content ? (content["cat"] = "Svelte for Visual Stories") : console.log("");
+
     let filteredData = d3CMS
       .filter((d) => d.published)
       .map((post) => {
@@ -53,5 +54,16 @@
 
 <Meta {metadata} />
 <StoryHeader data={content} />
-<svelte:component this={content.component} />
+<div class="container">
+  <!-- {#if content} -->
+  <svelte:component this={content?.component} />
+  <!-- {/if} -->
+</div>
+
 <Thanks data={filteredData} />
+
+<style>
+  .container {
+    padding: 10px;
+  }
+</style>

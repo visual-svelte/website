@@ -1,5 +1,5 @@
 <script context="module">
-  import d3R from "$data/cms-d3-recipes";
+  import d3Charts from "$data/cms-d3-charts";
   import d3CMS from "$data/cms";
 
   function compontentizeString(string) {
@@ -16,7 +16,9 @@
     let slug = ctx.url.pathname;
     const primaryKey = slug.split("/").pop();
     let compName = compontentizeString(primaryKey);
-    const content = d3R?.find((record) => record.primary_key == compName);
+    const content = d3Charts?.find((record) => record.primary_key == compName);
+    content ? (content["cat"] = "D3 Charts (in Svelte)") : console.log("");
+
     let filteredData = d3CMS
       .filter((d) => d.published)
       .map((post) => {
@@ -48,5 +50,13 @@
 
 <Meta {metadata} />
 <StoryHeader data={content} />
-<svelte:component this={content.component} />
+<div class="wrapper">
+  <svelte:component this={content.component} />
+</div>
 <Thanks data={filteredData} />
+
+<style>
+  .wrapper {
+    padding: 10px;
+  }
+</style>
