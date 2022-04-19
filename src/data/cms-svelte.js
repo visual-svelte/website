@@ -11,7 +11,7 @@ import Transitions from "$components/svelte/transitions/index.svelte";
 import ChartEntry from "$components/svelte/transitions/ChartEntry.svelte";
 import SelfExplainingCharts from "$components/svelte/SelfExplainingCharts/index.svelte";
 import ChartExplainers from "$components/svelte/SelfExplainingCharts/ChartExplainers.svelte";
-import AnimatedTransitions from "$components/svelte/AnimatedTransitions/index.svelte";
+import ChartMorphing from "$components/svelte/ChartMorphing/index.svelte";
 
 let cmsSvelte = [
   {
@@ -129,14 +129,14 @@ let cmsSvelte = [
     ],
   },
   {
-    primary_key: "AnimatedTransitions",
+    primary_key: "ChartMorphing",
     published: "2022-04-05",
-    post_title: "Animated Chart Transitions with Svelte, D3 & Flubber",
+    post_title: "Morphing smoothly between chart types Svelte, D3 & Flubber",
     thumbnail: "/images/thumbnails/animatedTransitions.png",
     keywords: ["d3", "svelte", "animation", "flubber"],
     intro_text:
       "How to make really smooth transitions between different chart types, inspired by <a href='https://www.youtube.com/watch?v=vLk7mlAtEXI'>this YouTube video</a>.",
-    component: AnimatedTransitions,
+    component: ChartMorphing,
   },
 ];
 

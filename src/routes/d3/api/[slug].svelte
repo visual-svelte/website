@@ -38,6 +38,7 @@
   import Meta from "$components/helpers/Meta.svelte";
   import PostGallery from "$components/PostGallery.svelte";
   import StoryHeader from "$components/nav/StoryHeader.svelte";
+  import Thanks from "$components/nav/Thanks.svelte";
   import { tableOfContents } from "$stores/post.js";
   import { page } from "$app/stores";
   import { onDestroy } from "svelte";
@@ -100,10 +101,13 @@
       {/each}
     </Scrolly>
 
-    <h2>You might also like:</h2>
-    {#key updatePosts}
-      <PostGallery posts={filteredData} showMax={3} pathRoute="/d3/api/" />
-    {/key}
+    <Thanks />
+    <!-- <div class="full-width">
+      <h2>You might also like:</h2>
+      {#key updatePosts}
+        <PostGallery posts={filteredData} showMax={3} pathRoute="/d3/api/" />
+      {/key}
+    </div> -->
   {/if}
 </div>
 

@@ -1,135 +1,99 @@
 <script>
   import Meta from "$components/helpers/Meta.svelte";
-  import { fade, fly } from "svelte/transition";
-  import d3CMS from "$data/cms";
+  import { fly } from "svelte/transition";
+  import { allArticles } from "$stores/cms";
   import PostGallery from "$components/PostGallery.svelte";
   import { page } from "$app/stores";
-  import { onMount } from "svelte";
-  import { annotate } from "svelte-rough-notation";
-  let visible = false;
-  onMount(() => {
-    setTimeout(() => (visible = true), 500);
-  });
   let metadata = {
     t: "Home | VisualSvelte",
     d: "Tell visual stories on the internet with Svelte and other technologies.",
     u: $page.url.pathname,
   };
-  $: filteredData = d3CMS
-    .filter((d) => d.published)
-    .map((post) => {
-      return {
-        id: post.primary_key,
-        thumbnail: post.thumbnail,
-        title: post.post_title,
-        keywords: post.keywords,
-      };
-    });
+
+  $: posts = {
+    api: $allArticles.filter((d) => d.cat == "D3 API"),
+    chart: $allArticles.filter((d) => d.cat == "D3 Charts"),
+    svelte: $allArticles.filter((d) => d.cat == "Svelte"),
+  };
+  let cats = ["api", "chart", "svelte"];
 </script>
 
 <Meta {metadata} />
-<div class="spacer">
-  <!-- <Typewriter cascade> -->
-  <div class="intro">
-    <h1>Unlock your</h1>
-    <h1>
-      <span
-        use:annotate={{
-          color: "var(--c-green)",
-          type: "highlight",
-          iterations: 2,
-          visible: visible,
-        }}>visual storytelling superpowers</span
-      >
-    </h1>
-    <h1>with Svelte</h1>
+
+<div class="all">
+  <div class="top">
+    <h1 class="header">the craft of visual storytelling with Svelte</h1>
+    <div class="circle" />
+    <div class="mission">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eius optio,
+      magnam quam deleniti eum repellendus sequi! Possimus, ipsum earum aliquam
+      tempora expedita sint dolorum, nisi repudiandae dicta itaque fuga!
+    </div>
   </div>
-  <!-- </Typewriter> -->
+
+  <div class="posts">
+    <h2>Explore articles, by category</h2>
+
+    {#each cats as cat}
+      <PostGallery posts={posts[cat]} title={true} {cat} />
+    {/each}
+  </div>
 </div>
-{#if visible}
-  <div class="text" in:fly={{ x: -50, duration: 1000, delay: 1200 }}>
-    <p>
-      Welcome to <span
-        use:annotate={{
-          color: "var(--c-green)",
-          type: "highlight",
-          iterations: 2,
-          visible: visible,
-        }}
-      >
-        Visual Svelte</span
-      >
-      - an educational site providing code and examples of great data visualizations
-      and visual journalism with
-      <a href="https://kit.svelte.dev/">SvelteKit</a>.
-    </p>
-
-    <p>
-      This site was born out of my own <span
-        use:annotate={{
-          visible: true,
-          type: "underline",
-          color: "blue",
-          iterations: 10,
-        }}>frustrations</span
-      > on the learning curve of both D3.js and Svelte/ Javascript/ CSS/ HTML.
-    </p>
-    <p>
-      I'm creating the resource I wish I had to <span
-        use:annotate={{
-          color: "pink",
-          type: "highlight",
-          iterations: 2,
-          visible: visible,
-        }}>learn faster</span
-      >.
-    </p>
-    <p>
-      You can read more about how and why I'm doing that → <a href="/about"
-        >here</a
-      >.
-    </p>
-  </div>
-
-  <div class="bottom-section">
-    <PostGallery
-      posts={filteredData}
-      title={true}
-      cat="API"
-      pathRoute="/d3/api/"
-    />
-  </div>
-{:else}
-  <div class="blank" />
-{/if}
 
 <style lang="scss">
-  .spacer {
-    min-height: 50vh;
-    text-align: center;
-  }
-  .blank {
-    height: 400px;
-    width: 100%;
-  }
-  .bottom-section {
-    // text-align: center;
-    margin-top: 150px;
-    // max-width: 700px;
-    // margin: 0 auto;
-  }
-  .intro {
-    // min-height: 50vh;
-    padding: 10vh 0px;
-
-    h1 {
-      text-align: center;
-      margin: 0;
+  .all {
+    padding-top: 5rem;
+    background-color: var(--dark);
+    color: var(--off-white);
+    .top {
+      .circle {
+        z-index: 1;
+        height: 300px;
+        width: 300px;
+        right: 20px;
+        top: 20px;
+        border-radius: 100%;
+        position: absolute;
+        background: linear-gradient(
+          295deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(30, 29, 29, 0) 50%
+        );
+        z-index: 1;
+      }
+      .header {
+        max-width: 300px;
+        text-align: center;
+        padding: 1.5rem 4rem;
+        margin: 0 auto;
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0px;
+          width: 20px;
+          height: 1px;
+          border-bottom: var(--off-white);
+        }
+      }
     }
   }
-  .text {
-    max-width: 700px;
-    margin: 0 10px 100px;
-    text-align: center;
+
+  .posts {
+    h2 {
+      text-align: center;
+      padding: 6rem;
+      margin: 0;
+
+      &:before {
+        border: none;
+      }
+    }
+
+    .cat-filters {
+      margin: 0 auto;
+      width: 600px;
+      text-align: center;
+    }
   }
 </style>

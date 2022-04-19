@@ -53,7 +53,7 @@
     main {
       // padding: 10px 10px 150px 10px;
       margin: 0;
-      min-height: 80vh;
+      // min-height: 80vh;
     }
   }
 

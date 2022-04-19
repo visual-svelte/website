@@ -21,7 +21,7 @@
 <div class="container">
   <div class="main-links">
     {#each links.main as link}
-      <a href={link.href}>{link.text}</a>
+      <a rel="internal" href={link.href}>{link.text}</a>
     {/each}
   </div>
   <div class="logo">
@@ -32,7 +32,7 @@
   </div>
   <div class="other-links">
     {#each links.other as link, i}
-      <a href={link.href}>{link.text} </a>
+      <a rel="internal" href={link.href}>{link.text} </a>
       <span>{i == 2 ? "" : `     |     `}</span>
     {/each}
   </div>

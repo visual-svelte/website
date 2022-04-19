@@ -55,12 +55,10 @@
 <Meta {metadata} />
 <StoryHeader data={content} />
 <div class="container">
-  <!-- {#if content} -->
   <svelte:component this={content?.component} />
-  <!-- {/if} -->
 </div>
 
-<Thanks data={filteredData} />
+<Thanks />
 
 <style>
   .container {

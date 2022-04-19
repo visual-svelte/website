@@ -1,18 +1,7 @@
 <script>
-  import cmsSvelte from "$data/cms-svelte";
   import PostGallery from "$components/PostGallery.svelte";
-  import { page } from "$app/stores";
-  $: filteredData = cmsSvelte
-    .filter((d) => d.published)
-    .map((post) => {
-      return {
-        id: post.primary_key,
-        thumbnail: post.thumbnail,
-        title: post.post_title,
-        keywords: post.keywords,
-      };
-    });
+  import { allArticles } from "$stores/cms";
+  let articles = $allArticles.filter((d) => d.cat == "Svelte");
 </script>
 
-<h1>Svelte for Data Visualization</h1>
-<PostGallery posts={filteredData} pathRoute="/svelte/" />
+<PostGallery posts={articles} cat="svelte" title={true} />
