@@ -1,5 +1,7 @@
 <script>
   import { descending } from "d3";
+  import { colorCategorical4 } from "$utils/brand";
+
   import * as d3 from "d3";
   let data = {
     children: [
@@ -34,7 +36,13 @@
 <svg width="260" height="260">
   <g transform="translate(5,5)">
     {#each partition.descendants() as d, i}
-      <circle cx={d.x} cy={d.y} r={d.r} fill="green" fill-opacity={0.4} />
+      <circle
+        cx={d.x}
+        cy={d.y}
+        r={d.r}
+        fill={colorCategorical4[0]}
+        fill-opacity={0.4}
+      />
     {/each}
   </g>
 </svg>

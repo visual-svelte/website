@@ -1,5 +1,7 @@
 <script>
   import { descending } from "d3";
+  import { colorCategorical4 } from "$utils/brand";
+
   import * as d3 from "d3";
   let width = 400;
   let height = 300;
@@ -49,7 +51,7 @@
         cx={0}
         cy={d.y}
         r={10}
-        fill="lightblue"
+        fill={colorCategorical4[0]}
         transform="rotate({d.x + 180},0,0)"
       />
     {/each}

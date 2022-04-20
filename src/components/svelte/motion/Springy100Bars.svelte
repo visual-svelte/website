@@ -1,9 +1,8 @@
 <script>
   import { elasticOut } from "svelte/easing";
   import { tweened } from "svelte/motion";
-
   let primary = true;
-
+  let valueInner;
   let data = {
     primary: [
       [0, 23, 35],
@@ -23,13 +22,14 @@
     duration: 800,
     easing: elasticOut,
   });
-  function updateData() {
-    if (primary) {
+  function updateData(cat) {
+    if (cat == "main") {
       values.set(data.main);
+      primary = false;
     } else {
       values.set(data.primary);
+      primary = true;
     }
-    primary = !primary;
   }
 
   let xStretch = 3;
@@ -57,10 +57,10 @@
     Election
   </h3>
   <div class="buttons">
-    <button class:selected={primary} on:click={updateData}>
+    <button class:selected={primary} on:click={() => updateData("primary")}>
       Primary election
     </button>
-    <button class:selected={!primary} on:click={updateData}>
+    <button class:selected={!primary} on:click={() => updateData("main")}>
       Main election
     </button>
   </div>

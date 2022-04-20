@@ -1,9 +1,11 @@
 <script>
-  import * as d3 from "d3";
+  import { arc, pie } from "d3-shape";
+  import { colorCategoricalDragon } from "$utils/brand";
+
   let data = [2, 3, 5, 8, 13, 21];
 
-  $: arcs = d3.pie()(data); // generate the arc angles from data
-  const arcGen = d3.arc(); // generate the arcs
+  $: arcs = pie()(data); // generate the arc angles from data
+  const arcGen = arc(); // generate the arcs
   $: pies = arcs.map((arc) => {
     // generate the svg paths from the arcs
     let input = {
@@ -23,7 +25,7 @@
     <path
       d={pie}
       style="transform:translate(150px, 150px)"
-      fill={d3.schemeCategory10[i]}
+      fill={colorCategoricalDragon[i]}
     />
   {/each}
 </svg>

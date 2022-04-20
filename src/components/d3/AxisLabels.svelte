@@ -1,5 +1,6 @@
 <script>
   import * as d3 from "d3";
+  import { colorCategorical4 } from "$utils/brand";
 
   let pinXAxis, pinYAxis; // declare pins
   let margin = 50; // declare initial values for margin and svg_height/width
@@ -32,10 +33,19 @@
     bind:this={pinYAxis}
     transform="translate({margin},{margin})"
   />
-  <text class="axis-label" fill="blue" y={svg_height - 10} x={width / 2}
+  <text
+    class="axis-label"
+    fill={colorCategorical4[0]}
+    y={svg_height - 10}
+    x={width / 2}
     >X Axis Label
   </text>
-  <text class="axis-label" fill="red" y={15} x={-height} transform="rotate(270)"
+  <text
+    class="axis-label"
+    fill={colorCategorical4[2]}
+    y={15}
+    x={-height}
+    transform="rotate(270)"
     >Y Axis Label
   </text>
 </svg>

@@ -2,6 +2,7 @@
   import * as d3 from "d3";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
+  import { colorCategorical4 } from "$utils/brand";
   export let value;
   let pinXAxis; // declare pins
   let margin = 30; // declare initial values for margin and svg_height/width
@@ -20,7 +21,7 @@
     { 6: [300, 200, 900, 20] },
   ];
   let cats = ["Apple", "Banana", "Cherry", "Donut"];
-  let colors = ["#003b49", "#d3273e", "#dc582a", "#5d3754"];
+  let colors = colorCategorical4;
 
   const progress = tweened(data.find((d) => d[value])[value], {
     duration: 400,

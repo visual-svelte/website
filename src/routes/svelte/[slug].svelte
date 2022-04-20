@@ -26,10 +26,16 @@
 <div class="container">
   <svelte:component this={content?.component} />
 </div>
-<Thanks />
+<div class="thanks-wrap">
+  <Thanks />
+</div>
 
 <style>
   .container {
     padding: 10px;
+  }
+  .thanks-wrap {
+    margin: 0 auto;
+    max-width: 600px;
   }
 </style>

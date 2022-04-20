@@ -1,5 +1,6 @@
 <script>
   import * as d3 from "d3";
+  import { colorCategorical4 } from "$utils/brand";
 
   let linkGen = d3.linkHorizontal();
 
@@ -18,7 +19,7 @@
 <svg width="400" height="100">
   <path d={links} fill="none" stroke="black" stroke-width="2" />
   {#each Object.values(data) as p}
-    <circle cx={p[0]} cy={p[1]} r="10" fill="lightblue" />
+    <circle cx={p[0]} cy={p[1]} r="10" fill={colorCategorical4[2]} />
   {/each}
 </svg>
 
@@ -31,7 +32,7 @@
         cx={p[0]}
         cy={p[1]}
         r="10"
-        fill="lightblue"
+        fill={colorCategorical4[1]}
         stroke="transparent"
       />
     {/each}

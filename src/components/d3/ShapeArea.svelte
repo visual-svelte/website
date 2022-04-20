@@ -1,5 +1,6 @@
 <script>
   import * as d3 from "d3";
+  import { colorCategorical4 } from "$utils/brand";
 
   //   specify some data
   const data = [
@@ -35,5 +36,5 @@
 </script>
 
 <svg width="400" height="300">
-  <path d={area} fill="pink" stroke="black" />
+  <path d={area} fill={colorCategorical4[0]} stroke="black" />
 </svg>

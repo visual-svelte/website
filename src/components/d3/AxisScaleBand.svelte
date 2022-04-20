@@ -1,6 +1,6 @@
 <script>
   import * as d3 from "d3";
-
+  import { colorCategorical4 } from "$utils/brand";
   let pinXAxis; // declare pins
   let margin = 30; // declare initial values for margin and svg_height/width
   let svg_height = 300;
@@ -32,7 +32,7 @@
     y={height + margin - 50}
     height={50}
     width={x.bandwidth()}
-    fill="#69b3a2"
+    fill={colorCategorical4[0]}
     opacity="0.5"
   />
   <rect
@@ -40,7 +40,7 @@
     y={height + margin - 150}
     height={150}
     width={x.bandwidth()}
-    fill="#453234"
+    fill={colorCategorical4[1]}
     opacity="0.5"
   />
 </svg>

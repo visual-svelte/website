@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { flip } from "svelte/animate";
+  import { colorScaleLinear } from "$utils/brand";
   import * as d3 from "d3";
   let images = [
     { id: 0 },
@@ -14,8 +15,7 @@
     { id: 8 },
     { id: 9 },
   ];
-  let color = d3.scaleSequential(d3.interpolatePuBuGn).domain([0, 10]);
-
+  let color = colorScaleLinear("dragon", 10);
   function doShuffle() {
     let currentIndex = images.length,
       randomIndex;

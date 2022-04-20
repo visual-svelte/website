@@ -1,5 +1,7 @@
 <script>
   import { descending } from "d3";
+  import { colorCategorical4 } from "$utils/brand";
+
   import * as d3 from "d3";
   let width = 400;
   let height = 300;
@@ -40,8 +42,10 @@
 
     <!-- Nodes & Labels -->
     {#each tree.descendants() as d}
-      <circle cx={d.x} cy={d.y} r={10} fill="lightblue" />
-      <text x={d.x - 5} y={d.y + 5} fill="black"> {d.data.name}</text>
+      <circle cx={d.x} cy={d.y} r={10} fill={colorCategorical4[0]} />
+      <text x={d.x - 5} y={d.y + 5} fill="var(--off-white)">
+        {d.data.name}</text
+      >
     {/each}
   </g>
 </svg>

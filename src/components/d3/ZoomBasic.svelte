@@ -1,11 +1,17 @@
 <script>
   import * as d3 from "d3";
+  import { colorScaleLinear } from "$utils/brand";
+
   $: data = getData();
   let width = 400;
   let height = 300;
   let numPoints = 100;
   let bindHandleZoom, bindInitZoom;
   let showText = true;
+  let colorScale;
+  $: if (data) {
+    colorScale = colorScaleLinear("dragon", data.length);
+  }
 
   $: zoom = d3
     .zoom()
@@ -42,12 +48,7 @@
   <g class="points" bind:this={bindHandleZoom}>
     <text x={width / 2} y={height / 2}>Zoom Here!</text>
     {#each data as d, i}
-      <circle
-        cx={d.x}
-        cy={d.y}
-        r="4"
-        fill={d3.interpolateBlues(30 / (i + 1))}
-      />
+      <circle cx={d.x} cy={d.y} r="4" fill={colorScale(i)} />
     {/each}
   </g>
 </svg>

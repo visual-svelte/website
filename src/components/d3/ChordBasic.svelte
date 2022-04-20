@@ -1,10 +1,11 @@
 <script>
   import * as d3 from "d3";
+
+  import { colorCategorical4 } from "$utils/brand";
   let svgHere;
   let width = 500;
   let height = 400;
   $: viewBx = [-width / 3, -height / 2, width, height];
-  let colors = ["#fff775", "#423e42", "#9c334e", "blue"];
   let titles = ["Apples", "Oranges", "Pears", "Bananas"];
   $: outerRadius = Math.min(width, height) * 0.5 - 60;
   $: innerRadius = outerRadius - 10;
@@ -36,7 +37,7 @@
   <g class="outer-arcs">
     {#each chords["groups"] as chord, i}
       <g class="outer">
-        <path fill={colors[i]} d={arcGen(chord)} />
+        <path fill={colorCategorical4[i]} d={arcGen(chord)} />
       </g>
     {/each}
   </g>
@@ -45,7 +46,7 @@
     {#each chords as chord, i}
       <path
         style="mix-blend-mode: multiply;"
-        fill={colors[chord.source.index]}
+        fill={colorCategorical4[chord.source.index]}
         class="ribbon"
         d={ribbonGen(chord)}
       />

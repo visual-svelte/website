@@ -1,6 +1,8 @@
 <script>
-  import * as d3 from "d3";
-  const arcGen = d3.arc(); // specify an arc generator
+  import { arc } from "d3-shape";
+  import { colorCategorical4 } from "$utils/brand";
+
+  const arcGen = arc(); // specify an arc generator
 
   //generate an arc from data
   $: arcPath = arcGen({
@@ -12,5 +14,9 @@
 </script>
 
 <svg width="400" height="300" style="padding:30px">
-  <path d={arcPath} fill="brown" style="transform:translate(120px,120px)" />
+  <path
+    d={arcPath}
+    fill={colorCategorical4[0]}
+    style="transform:translate(120px,120px)"
+  />
 </svg>

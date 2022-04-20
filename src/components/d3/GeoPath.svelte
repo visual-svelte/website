@@ -1,9 +1,11 @@
 <script>
-  import * as d3 from "d3";
+  import { geoPath } from "d3-geo";
+  import { colorCategorical4 } from "$utils/brand";
+
   import walesData from "$data/wales.json";
   let width = 400;
   let height = 300;
-  $: pathGen = d3.geoPath();
+  $: pathGen = geoPath();
   $: path = pathGen(walesData);
 </script>
 
@@ -11,7 +13,7 @@
   <path
     d={path}
     transform="translate(100,100)"
-    fill="lightblue"
+    fill={colorCategorical4[0]}
     stroke="darkgray"
     stroke-width="0.05"
   />

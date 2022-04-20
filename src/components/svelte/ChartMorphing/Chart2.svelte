@@ -1,9 +1,8 @@
 <script>
-  // import { interpolateAll } from "flubber";
   import { interpolateAll } from "flubber";
-  // const { interpolateAll } = pkg;
   import { onMount } from "svelte";
   import * as d3 from "d3";
+  import { colorCategoricalDragon } from "$utils/brand";
   import { paths, pies, pointsList } from "$data/animatedTransitions";
   export let value;
 
@@ -71,7 +70,7 @@
 <svg viewBox="-200 -200 680 400">
   {#each paths as path, i}
     <path
-      fill={d3.schemeCategory10[i]}
+      fill={colorCategoricalDragon[i]}
       stroke-width="3"
       stroke-linecap="round"
       d={path}

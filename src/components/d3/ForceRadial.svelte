@@ -1,6 +1,9 @@
 <script>
   import * as d3 from "d3";
+  import { colorCategorical4 } from "$utils/brand";
+
   import { onMount } from "svelte";
+  import { color } from "d3";
   let svg;
   let width = 500;
   let height = 450;
@@ -91,7 +94,7 @@
     <circle
       class="node"
       r={5}
-      fill={point.type == "a" ? "brown" : "steelblue"}
+      fill={point.type == "a" ? colorCategorical4[0] : colorCategorical4[1]}
       cx={point.x}
       cy={point.y}
     >

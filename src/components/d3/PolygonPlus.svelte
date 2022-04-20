@@ -1,5 +1,6 @@
 <script>
   import * as d3 from "d3";
+  import { colorCategorical4 } from "$utils/brand";
 
   let width = 400;
   let height = 300;
@@ -41,7 +42,11 @@
   {#each data as point}
     <circle cx={xScale(point[0])} cy={yScale(point[1])} r={5} />
   {/each}
-  <path fill="pink" fill-opacity="0.5" d={`M${scaledHull.join("L")}Z`} />
+  <path
+    fill={colorCategorical4[0]}
+    fill-opacity="0.5"
+    d={`M${scaledHull.join("L")}Z`}
+  />
 
   <!-- plot and test points to see if they fall within hull area.  -->
   {#each testPoints as tp}

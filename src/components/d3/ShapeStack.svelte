@@ -1,6 +1,8 @@
 <script>
   import * as d3 from "d3";
   import fruitData from "$data/fruit.js";
+  import { colorCategorical4 } from "$utils/brand";
+
   let pinXAxis, pinYAxis;
   let height = 300;
   let width = 400;
@@ -60,7 +62,7 @@
               y={yScale(time_period[1])}
               width={xScale.bandwidth()}
               height={yScale(time_period[0]) - yScale(time_period[1])}
-              fill={d3.schemeCategory10[f]}
+              fill={colorCategorical4[f]}
             />
           {/each}
         </g>

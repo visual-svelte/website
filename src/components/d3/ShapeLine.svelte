@@ -1,5 +1,9 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleLinear, scaleTime } from "d3-scale";
+  import { extent } from "d3-array";
+  import { line } from "d3-shape";
+  import { curveBundle } from "d3";
+  import { colorCategorical4 } from "$utils/brand";
 
   //   specify some data
   const data = [
@@ -12,11 +16,10 @@
   ];
 
   // make some scales
-  $: yScale = d3.scaleLinear().domain([90, 105]).range([300, 0]);
-  $: xScale = d3
-    .scaleTime()
+  $: yScale = scaleLinear().domain([90, 105]).range([300, 0]);
+  $: xScale = scaleTime()
     .domain(
-      d3.extent(
+      extent(
         data.map((d) => {
           return d.date;
         })
@@ -25,22 +28,20 @@
     .range([0, 400]);
 
   // specify the line generator
-  const lineGen = d3
-    .line()
+  const lineGen = line()
     .x((d) => xScale(d.date))
     .y((d) => yScale(d.value));
 
-  const curveGen = d3
-    .line()
+  const curveGen = line()
     .x((d) => xScale(d.date))
     .y((d) => yScale(d.value))
-    .curve(d3.curveBundle.beta(1.2));
+    .curve(curveBundle.beta(1.2));
 
-  $: line = lineGen(data); // get SVG path
+  $: myLine = lineGen(data); // get SVG path
   $: curve = curveGen(data); // get SVG path
 </script>
 
 <svg width="400" height="300">
-  <path d={line} fill="none" stroke="black" />
-  <path d={curve} fill="none" stroke="blue" />
+  <path d={myLine} fill="none" stroke="black" />
+  <path d={curve} fill="none" stroke={colorCategorical4[0]} />
 </svg>

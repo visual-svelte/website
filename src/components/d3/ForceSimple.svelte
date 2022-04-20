@@ -1,12 +1,13 @@
 <script>
   import * as d3 from "d3";
   import { onMount } from "svelte";
-  let simulation;
+  import { colorScaleLinear } from "$utils/brand";
 
+  let simulation;
   let width = 300;
   let height = 300;
 
-  const colourScale = d3.scaleOrdinal(d3.schemeCategory10); // make a nice colorscale
+  const colourScale = colorScaleLinear("dragon", 100); // make a nice colorscale
 
   // generate a toy dataset for this example.
   $: nodes = [].concat(
