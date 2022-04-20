@@ -1,6 +1,7 @@
 <script>
   export let data;
   import { scrollY } from "$stores/screen";
+  let catToPath = { api: "/d3/api", chart: "d3/charts", svelte: "/svelte" };
 </script>
 
 {#if data}
@@ -10,7 +11,7 @@
       <h1 class="head">{data?.post_title}</h1>
       <p class="sub">{@html data?.intro_text}</p>
       <a
-        href="/"
+        href={catToPath[data.cat]}
         rel="internal"
         aria-label="See more articles from the {data?.cat} category"
         class="category"

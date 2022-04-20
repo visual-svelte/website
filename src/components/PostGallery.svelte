@@ -2,6 +2,7 @@
   export let posts;
   export let title;
   export let cat;
+  export let scroll = true;
   import Card from "$components/nav/Card.svelte";
   import { keyToSentence } from "$utils/textUtils";
   let list_style = "carousel";
@@ -97,16 +98,24 @@
           <p>{selectedCat?.desc}</p>
         </div>
       {/if}
-      <p class="view-as">
-        View as: <span on:click={() => (list_style = "carousel")}>Carousel</span
-        >
-        | <span on:click={() => (list_style = "list")}>List</span>
-      </p>
+      {#if scroll}
+        <p class="view-as">
+          View as: <span on:click={() => (list_style = "carousel")}
+            >Carousel</span
+          >
+          | <span on:click={() => (list_style = "list")}>List</span>
+        </p>
+      {/if}
       {#if list_style === "carousel"}
-        <div class="carousel">
+        <div
+          class="carousel"
+          style={scroll
+            ? "flex-direction: row;overflow-x: auto;"
+            : "flex-wrap:wrap"}
+        >
           {#each filtered as post, i}
             {#if post.id !== $page.params.slug}
-              <Card data={post} pathRoute={selectedCat?.route} />
+              <Card data={post} />
             {/if}
           {/each}
         </div>
@@ -167,9 +176,7 @@
 
     .carousel {
       display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-
+     
       margin: 0 auto;
       max-width: 1000px;
       padding-top: 20px;
@@ -208,7 +215,7 @@
         padding: 10px 20px;
 
         transition: 0.3 all;
-        color: white !important;
+        color: var(--off-white) ;
         text-decoration: none;
         &:hover {
           text-decoration: underline;

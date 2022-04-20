@@ -1,11 +1,10 @@
 <script>
   export let data;
-  export let pathRoute;
 
   import { keyToSentence } from "$utils/textUtils";
 </script>
 
-<a href={pathRoute + data.id} class="card">
+<a href={data.href} class="card">
   <p class="card-title">{keyToSentence(data.id)}</p>
 
   <p class="card-desc">
