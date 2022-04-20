@@ -1,44 +1,63 @@
-import { c as create_ssr_component, d as subscribe, v as validate_component } from "../../chunks/index-1116a07c.js";
-import { M as Meta } from "../../chunks/Meta-7f13f532.js";
-import { d as d3CMS } from "../../chunks/cms-ede64cff.js";
-/* empty css                                                               */import { p as page } from "../../chunks/stores-ca089767.js";
+import { c as create_ssr_component, g as subscribe, v as validate_component, b as each } from "../../chunks/index-769cbf91.js";
+import { M as Meta } from "../../chunks/Meta-c267e72e.js";
+import { a as allArticles } from "../../chunks/cms-1bd8cf3f.js";
+import { P as PostGallery } from "../../chunks/PostGallery-95622167.js";
+import { p as page } from "../../chunks/stores-85ad27c0.js";
+import "../../chunks/cms-svelte-147b3ebc.js";
 import "d3";
-import "../../chunks/index-46acc537.js";
 import "d3-scale";
 import "d3-zoom";
 import "d3-scale-chromatic";
 import "d3-selection";
 import "d3-drag";
 import "d3-force";
+import "highlight.js/lib/core";
+import "highlight.js/lib/languages/xml";
+import "highlight.js/lib/languages/javascript";
+import "highlight.js/lib/languages/css";
+/* empty css                                                                */import "d3-array";
+import "feather-icons";
+import "d3-interpolate";
+import "../../chunks/textUtils-e37746b6.js";
 var index_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.spacer.svelte-14zcl.svelte-14zcl{min-height:50vh;text-align:center}.blank.svelte-14zcl.svelte-14zcl{height:400px;width:100%}.bottom-section.svelte-14zcl.svelte-14zcl{text-align:center;margin-top:150px;max-width:700px;margin:0 auto}.intro.svelte-14zcl.svelte-14zcl{padding:10vh 0px}.intro.svelte-14zcl h1.svelte-14zcl{text-align:center;margin:0}.text.svelte-14zcl.svelte-14zcl{max-width:700px;margin:0 auto 100px auto;text-align:center}",
+  code: ':root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--white:#ffffff;--off-white:#f3f3f3;--dragon:#b40d61;--lemon:#f7c419;--berry:#fb3636;--dark:#1e1d1d;--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.all.svelte-jyumw3.svelte-jyumw3{padding-top:5rem;background-color:var(--dark);color:var(--off-white)}.all.svelte-jyumw3 .top .circle.svelte-jyumw3{z-index:1;height:300px;width:300px;right:20px;top:20px;border-radius:100%;position:absolute;background:linear-gradient(295deg, rgba(255, 255, 255, 0.2), rgba(30, 29, 29, 0) 50%);z-index:1}.all.svelte-jyumw3 .top .header.svelte-jyumw3{max-width:300px;text-align:center;padding:1.5rem 4rem;margin:0 auto;position:relative}.all.svelte-jyumw3 .top .header.svelte-jyumw3:before{content:"";position:absolute;top:0px;width:20px;height:1px;border-bottom:var(--off-white)}.posts.svelte-jyumw3 h2.svelte-jyumw3{text-align:center;padding:6rem;margin:0}.posts.svelte-jyumw3 h2.svelte-jyumw3:before{border:none}',
   map: null
 };
 const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let posts;
+  let $allArticles, $$unsubscribe_allArticles;
   let $page, $$unsubscribe_page;
+  $$unsubscribe_allArticles = subscribe(allArticles, (value) => $allArticles = value);
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
   let metadata = {
     t: "Home | VisualSvelte",
     d: "Tell visual stories on the internet with Svelte and other technologies.",
     u: $page.url.pathname
   };
+  let cats = ["api", "chart", "svelte"];
   $$result.css.add(css);
-  d3CMS.filter((d) => d.published).map((post) => {
-    return {
-      id: post.primary_key,
-      thumbnail: post.thumbnail,
-      title: post.post_title,
-      keywords: post.keywords
-    };
-  });
+  posts = {
+    api: $allArticles.filter((d) => d.cat == "D3 API"),
+    chart: $allArticles.filter((d) => d.cat == "D3 Charts"),
+    svelte: $allArticles.filter((d) => d.cat == "Svelte")
+  };
+  $$unsubscribe_allArticles();
   $$unsubscribe_page();
   return `${validate_component(Meta, "Meta").$$render($$result, { metadata }, {}, {})}
-<div class="${"spacer svelte-14zcl"}">
-  <div class="${"intro svelte-14zcl"}"><h1 class="${"svelte-14zcl"}">Unlock your</h1>
-    <h1 class="${"svelte-14zcl"}"><span>visual storytelling superpowers</span></h1>
-    <h1 class="${"svelte-14zcl"}">with Svelte</h1></div>
-  </div>
-${`<div class="${"blank svelte-14zcl"}"></div>`}`;
+
+<div class="${"all svelte-jyumw3"}"><div class="${"top"}"><h1 class="${"header svelte-jyumw3"}">the craft of visual storytelling with Svelte</h1>
+    <div class="${"circle svelte-jyumw3"}"></div>
+    <div class="${"mission"}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eius optio,
+      magnam quam deleniti eum repellendus sequi! Possimus, ipsum earum aliquam
+      tempora expedita sint dolorum, nisi repudiandae dicta itaque fuga!
+    </div></div>
+
+  <div class="${"posts svelte-jyumw3"}"><h2 class="${"svelte-jyumw3"}">Explore articles, by category</h2>
+
+    ${each(cats, (cat) => {
+    return `${validate_component(PostGallery, "PostGallery").$$render($$result, { posts: posts[cat], title: true, cat }, {}, {})}`;
+  })}</div>
+</div>`;
 });
 export { Routes as default };

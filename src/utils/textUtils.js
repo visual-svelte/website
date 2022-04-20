@@ -32,4 +32,13 @@ function slugToId(string) {
   }
 }
 
-export { slugToId, urlToText, keyToSentence };
+function metaFromRecord(content, path) {
+  return {
+    t: `${content?.post_title} | VisualSvelte`,
+    d: content?.desc,
+    u: path,
+    tags: content?.keywords.join(),
+  };
+}
+
+export { slugToId, urlToText, keyToSentence, metaFromRecord };

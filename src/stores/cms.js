@@ -10,6 +10,8 @@ const content = d3CMS
   .map((post) => {
     return {
       id: post.primary_key,
+      desc: post.desc,
+
       cat: "D3 API",
       thumbnail: post.thumbnail,
       title: post.post_title,
@@ -22,6 +24,8 @@ const charts = d3Charts
   .map((post) => {
     return {
       id: post.primary_key,
+      desc: post.desc,
+
       cat: "D3 Charts",
       thumbnail: post.thumbnail,
       title: post.post_title,
@@ -34,6 +38,7 @@ const svelteArticles = cmsSvelte
   .map((post) => {
     return {
       id: post.primary_key,
+      desc: post.desc,
       cat: "Svelte",
       thumbnail: post.thumbnail,
       title: post.post_title,

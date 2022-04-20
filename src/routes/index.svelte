@@ -35,7 +35,9 @@
     <h2>Explore articles, by category</h2>
 
     {#each cats as cat}
-      <PostGallery posts={posts[cat]} title={true} {cat} />
+      {#if posts[cat]?.length}
+        <PostGallery posts={posts[cat]} title={true} {cat} />
+      {/if}
     {/each}
   </div>
 </div>

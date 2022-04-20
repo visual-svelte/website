@@ -3,13 +3,6 @@
   const content = cmsSvelte?.find(
     (record) => record.primary_key == "Transitions"
   );
-
-  let metadata = {
-    t: `${content?.post_title} | VisualSvelte`,
-    d: content?.intro_text,
-    u: "/svelte/transitions",
-    tags: content?.keywords.join(),
-  };
   import FormattedExample from "$components/helpers/FormattedExample.svelte";
 </script>
 

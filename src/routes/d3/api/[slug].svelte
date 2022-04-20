@@ -1,15 +1,11 @@
 <script context="module">
   import d3CMS from "$data/cms";
+  import { metaFromRecord } from "$utils/textUtils";
   export async function load(ctx) {
     const primaryKey = ctx.params.slug;
     const content = d3CMS.find((record) => record.primary_key == primaryKey);
     content ? (content["cat"] = "D3 API (in Svelte)") : console.log("");
-    let metadata = {
-      t: `${content?.post_title} | VisualSvelte`,
-      d: "Tell visual stories on the internet with Svelte and other technologies.",
-      u: ctx.url.pathname,
-      tags: content.keywords.join(),
-    };
+    let metadata = metaFromRecord(content, ctx.url.pathname);
 
     return { props: { content, metadata } };
   }

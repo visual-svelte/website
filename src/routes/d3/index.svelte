@@ -6,5 +6,5 @@
   console.log("charts", apiArticles);
 </script>
 
-<PostGallery posts={apiArticles} cat="api" title={true} />
-<PostGallery posts={chartArticles} cat="chart" title={true} />
+<PostGallery posts={apiArticles} cat="api" title={true} scroll={false} />
+<PostGallery posts={chartArticles} cat="chart" title={true} scroll={false} />

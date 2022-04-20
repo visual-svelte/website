@@ -1,6 +1,6 @@
-import { c as create_ssr_component, e as escape, v as validate_component } from "../../chunks/index-1116a07c.js";
+import { c as create_ssr_component, e as escape, v as validate_component } from "../../chunks/index-769cbf91.js";
 /* empty css                                                                */const css$1 = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}button.svelte-v785rl{align-self:center;box-shadow:2px -2px 0 0 var(--c-green);border:none;background-color:var(--c-white);padding:10px 20px;opacity:0.9;transition:all 0.5s;cursor:pointer}button.svelte-v785rl:hover{opacity:1;box-shadow:4px -4px 0 0 var(--c-green)}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--white:#ffffff;--off-white:#f3f3f3;--dragon:#b40d61;--lemon:#f7c419;--berry:#fb3636;--dark:#1e1d1d;--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}button.svelte-9qvgfj{align-self:center;box-shadow:2px -2px 0 0 var(--c-green);border:none;background-color:var(--c-white);padding:10px 20px;opacity:0.9;transition:all 0.5s;cursor:pointer}button.svelte-9qvgfj:hover{opacity:1;box-shadow:4px -4px 0 0 var(--c-green)}",
   map: null
 };
 const ActionButton = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -11,7 +11,7 @@ const ActionButton = create_ssr_component(($$result, $$props, $$bindings, slots)
   if ($$props.text === void 0 && $$bindings.text && text !== void 0)
     $$bindings.text(text);
   $$result.css.add(css$1);
-  return `<button class="${"svelte-v785rl"}">${escape(text)}</button>`;
+  return `<button class="${"svelte-9qvgfj"}">${escape(text)}</button>`;
 });
 var __error_svelte_svelte_type_style_lang = "";
 const css = {

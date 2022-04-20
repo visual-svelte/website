@@ -45,7 +45,6 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-    // display: inline-block;
     .post-grid {
       text-align: center;
       width: 100%;

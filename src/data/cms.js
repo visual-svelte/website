@@ -43,6 +43,7 @@ let d3CMS = [
     post_title: "Implementing D3 Axis in Svelte",
     thumbnail: "/images/thumbnails/graph.png",
     keywords: ["d3", "axis", "svelte", "log", "labels", "linear"],
+    desc: "Create a variety of axis types. ",
     intro_text:
       "d3-axis provides a set of tools to create and customize graph axes. This article will describe how to create a number of the most useful ones, specifically in Svelte. Each axis type is similar but implemented slightly differently. The code for each is provided.<br/><br/> There are a variety of different ways to approach the D3/ Svelte integration, my method shown favours describing as much of the SVG elements as possible in Svelte HTML/ SVG markup (as opposed to creating elements programmatically with D3 code). This keeps code really clean and readable and makes it easier to apply Svelte event handlers or custom styles. ",
     components: [
@@ -88,6 +89,7 @@ let d3CMS = [
     primary_key: "d3-brush",
     published: "2022-03-25",
     post_title: "D3-brush techniques in Svelte",
+    desc: "Learn to implement the 'brushing' technique with D3 charts",
     thumbnail: "/images/thumbnails/brush.png",
     keywords: ["d3", "brush", "svelte"],
     intro_text:
@@ -120,6 +122,7 @@ let d3CMS = [
     primary_key: "d3-chord",
     published: "2022-03-27",
     post_title: "D3-Chord in Svelte ",
+    desc: "Create chord geometry",
     thumbnail: "/images/thumbnails/chord.png",
     keywords: ["d3", "chord", "svelte"],
     intro_text:
@@ -149,6 +152,7 @@ let d3CMS = [
     published: "2022-03-28",
     post_title: "Contours with D3 and Svelte",
     thumbnail: "/images/thumbnails/contour.png",
+    desc: "Create contour geometry",
     keywords: ["d3", "contour", "svelte", "topography"],
     intro_text:
       "Contours are an interesting visual type - used typically for maps, but can also be used to display continuous functions by sampling. In this article, we provide an example of how to use d3-contour within Svelte.",
@@ -167,6 +171,7 @@ let d3CMS = [
     primary_key: "d3-drag",
     published: "2022-03-28",
     post_title: "Drag interactions in Svelte with d3-drag",
+    desc: "Learn a number of ways to implement drag functionality",
     thumbnail: "/images/thumbnails/drag.png",
     keywords: ["d3", "svelte", "drag", "interaction"],
     intro_text:
@@ -199,6 +204,7 @@ let d3CMS = [
     primary_key: "d3-force",
     published: "2022-04-01",
     post_title: "D3 Force Simulation and Svelte",
+    desc: "Create force simulations",
     thumbnail: "/images/thumbnails/force.png",
     keywords: ["d3", "svelte", "force", "collide", "simulation", "radial"],
     intro_text:
@@ -232,6 +238,7 @@ let d3CMS = [
     primary_key: "d3-geo",
     published: "2022-03-30",
     post_title: "Visualizing geo data with D3 and Svelte",
+    desc: "Learn how to work with geo data",
     thumbnail: "/images/thumbnails/geo.png",
     keywords: ["d3", "geo", "geoJSON", "svelte"],
     intro_text:
@@ -250,6 +257,7 @@ let d3CMS = [
     primary_key: "d3-hierarchy",
     published: "2022-03-30",
     post_title: "Visualizing hierarchies with D3 and Svelte",
+    desc: "Learn to build hierarchical models and visualisations",
     thumbnail: "/images/thumbnails/hierarchy.png",
     keywords: [
       "d3",
@@ -298,6 +306,7 @@ let d3CMS = [
     primary_key: "d3-polygon",
     published: "2022-03-29",
     post_title: "Polygons with D3 and Svelte",
+    desc: "Create polygon geometry with D3",
     thumbnail: "/images/thumbnails/polygon.png",
     keywords: ["d3", "polygon"],
     intro_text:
@@ -324,6 +333,7 @@ let d3CMS = [
     primary_key: "d3-shape",
     published: "2022-03-29",
     post_title: "D3 Shapes with Svelte",
+    desc: "Create arcs, pies, lines, areas, links and stacks",
     thumbnail: "/images/thumbnails/shapes.png",
     keywords: ["d3", "svelte", "arc", "pie", "line", "area", "links", "stack"],
     intro_text:
@@ -378,6 +388,7 @@ let d3CMS = [
     primary_key: "d3-zoom",
     published: "2022-03-31",
     post_title: "Zooming with D3 and Svelte",
+    desc: "Learn to implement Zoom functionality in visuals",
     thumbnail: "/images/thumbnails/zoom.png",
     keywords: ["d3", "zoom"],
     intro_text:

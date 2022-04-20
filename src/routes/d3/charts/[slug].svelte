@@ -1,6 +1,6 @@
 <script context="module">
   import d3Charts from "$data/cms-d3-charts";
-  import { slugToId } from "$utils/textUtils";
+  import { slugToId, metaFromRecord } from "$utils/textUtils";
   export async function load(ctx) {
     const primaryKey = ctx.params.slug;
     let compName = slugToId(primaryKey);
@@ -8,13 +8,8 @@
       (record) => record.primary_key.toLowerCase() == compName.toLowerCase()
     );
     content ? (content["cat"] = "D3 Charts (in Svelte)") : console.log("");
+    let metadata = metaFromRecord(content, ctx.url.pathname);
 
-    let metadata = {
-      t: `${content?.post_title} | VisualSvelte`,
-      d: content?.intro_text,
-      u: ctx.url.pathname,
-      tags: content?.keywords.join(),
-    };
     return { props: { content, metadata } };
   }
 </script>

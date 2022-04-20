@@ -18,6 +18,7 @@ let cmsSvelte = [
     primary_key: "Scrollytelling",
     published: "2022-04-11",
     post_title: "Scrollytelling with Svelte",
+    desc: "Tell visual stories whilst the user scrolls",
     thumbnail: "/images/thumbnails/scrollytelling.png",
     keywords: ["svelte", "scrollytelling", "animation"],
     intro_text:
@@ -28,6 +29,7 @@ let cmsSvelte = [
     primary_key: "Motion",
     published: "2022-04-13",
     post_title: "Adding life to stories with Svelte Motion",
+    desc: "Add life to stories with Svelte Motion",
     thumbnail: "/images/thumbnails/animatedTransitions.png",
     keywords: ["tweened", "spring", "svelte", "animation"],
     intro_text:
@@ -62,6 +64,7 @@ let cmsSvelte = [
     primary_key: "Flip",
     published: "2022-04-12",
     post_title: "Using Svelte FLIP for Visual Storytelling",
+    desc: "Animate movement with Svelte FLIP",
     thumbnail: "/images/thumbnails/flip.png",
     keywords: ["svelte", "FLIP", "animation"],
     intro_text:
@@ -95,6 +98,7 @@ let cmsSvelte = [
     primary_key: "Transitions",
     published: "2022-04-13",
     post_title: "Svelte transitions for visual storytelling",
+    desc: "Svelte transitions for visual storytelling",
     thumbnail: "/images/thumbnails/flip.png",
     keywords: ["svelte", "animation", "transition"],
     intro_text:
@@ -114,6 +118,7 @@ let cmsSvelte = [
     primary_key: "SelfExplainingCharts",
     published: "2022-04-16",
     post_title: "Techniques for explaining charts to a user in Svelte",
+    desc: "How to explain a chart as it reveals itself",
     thumbnail: "/images/thumbnails/flip.png",
     keywords: ["svelte", "animation", "transition"],
     intro_text: "",
@@ -132,6 +137,7 @@ let cmsSvelte = [
     primary_key: "ChartMorphing",
     published: "2022-04-05",
     post_title: "Morphing smoothly between chart types Svelte, D3 & Flubber",
+    desc: "Animate smoothly between chart types",
     thumbnail: "/images/thumbnails/animatedTransitions.png",
     keywords: ["d3", "svelte", "animation", "flubber"],
     intro_text:

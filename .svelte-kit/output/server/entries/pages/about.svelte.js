@@ -1,5 +1,5 @@
-import { c as create_ssr_component, v as validate_component, b as each, a as add_attribute, e as escape } from "../../chunks/index-1116a07c.js";
-import { M as Meta } from "../../chunks/Meta-7f13f532.js";
+import { c as create_ssr_component, v as validate_component, b as each, a as add_attribute, e as escape } from "../../chunks/index-769cbf91.js";
+import { M as Meta } from "../../chunks/Meta-c267e72e.js";
 const aboutData = [
   {
     id: 0,
@@ -9,7 +9,7 @@ const aboutData = [
 ];
 var about_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.container.svelte-1t1qmyl{margin:0 auto;max-width:800px}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--white:#ffffff;--off-white:#f3f3f3;--dragon:#b40d61;--lemon:#f7c419;--berry:#fb3636;--dark:#1e1d1d;--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.container.svelte-p3ixli{margin:0 auto;padding:10px;max-width:800px}",
   map: null
 };
 const About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -22,7 +22,7 @@ const About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `${validate_component(Meta, "Meta").$$render($$result, { metadata }, {}, {})}
 
-<div class="${"container svelte-1t1qmyl"}">${each(aboutData, (sect) => {
+<div class="${"container svelte-p3ixli"}">${each(aboutData, (sect) => {
     return `<h1${add_attribute("id", sect.id.toString(), 0)}>${escape(sect.title)}</h1>
     <p><!-- HTML_TAG_START -->${sect.text}<!-- HTML_TAG_END --></p>`;
   })}

@@ -8,7 +8,7 @@
       { text: "Svelte + D3 API Articles", href: "/d3/api" },
       { text: "Svelte + D3 Charts ", href: "/d3/charts" },
       { text: "Svelte Visual Storytelling", href: "/svelte" },
-      { text: "Mission", href: "/about" },
+      { text: "About visualsvelte", href: "/about" },
     ],
     other: [
       { text: "Privacy", href: "/" },

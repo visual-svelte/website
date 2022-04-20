@@ -7,9 +7,7 @@
 <a href={data.href} class="card">
   <p class="card-title">{keyToSentence(data.id)}</p>
 
-  <p class="card-desc">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-  </p>
+  <p class="card-desc">{data.desc}</p>
   <!-- <div class="img-wrap">
     <img
       src={data.thumbnail ? data.thumbnail : "images/graph.png"}
@@ -35,17 +33,19 @@
     text-decoration: none;
     margin-bottom: 20px;
     min-width: 240px;
+    // padding: 10px;
     width: 240px;
     height: 300px;
     transition: 0.3s all;
     .card-title {
       font-size: 1rem;
-      margin: 10px;
+      // margin: 10px 10px 0px;
       align-self: center;
     }
     .card-desc {
       font-size: 1rem;
-      margin: 0px 10px;
+      width: 230px;
+      margin-right: 50px;
       line-height: 1.4rem;
       font-weight: 300;
     }

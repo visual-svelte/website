@@ -1,15 +1,6 @@
 <script>
   import cmsSvelte from "$data/cms-svelte";
-
   const content = cmsSvelte?.find((record) => record.primary_key == "Flip");
-  console.log("content", content);
-
-  let metadata = {
-    t: `${content?.post_title} | VisualSvelte`,
-    d: content?.intro_text,
-    u: "/svelte/flip",
-    tags: content?.keywords.join(),
-  };
   import FormattedExample from "$components/helpers/FormattedExample.svelte";
 </script>
 

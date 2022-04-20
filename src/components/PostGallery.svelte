@@ -87,17 +87,17 @@
   onMount(() => {});
 </script>
 
-{#if !posts.length}
-  <!-- No posts yet! -->
-{:else}
-  <div class="gallery" bind:this={gallery}>
-    <div class="inner">
-      {#if title}
-        <div class="text">
-          <h1>{selectedCat?.name}</h1>
-          <p>{selectedCat?.desc}</p>
-        </div>
-      {/if}
+<div class="gallery" bind:this={gallery}>
+  <div class="inner">
+    {#if title}
+      <div class="text">
+        <h1>{selectedCat?.name}</h1>
+        <p>{selectedCat?.desc}</p>
+      </div>
+    {/if}
+    {#if !posts?.length}
+      <div class="text">No posts yet!</div>
+    {:else}
       {#if scroll}
         <p class="view-as">
           View as: <span on:click={() => (list_style = "carousel")}
@@ -126,9 +126,9 @@
           {/each}
         </div>
       {/if}
-    </div>
+    {/if}
   </div>
-{/if}
+</div>
 
 <style lang="scss">
   .gallery {
