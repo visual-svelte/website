@@ -1,7 +1,11 @@
 <script>
   export let data;
   import { scrollY } from "$stores/screen";
-  let catToPath = { api: "/d3/api", chart: "d3/charts", svelte: "/svelte" };
+  let catToPath = {
+    "D3 API (in Svelte)": "/d3/api",
+    "D3 Charts (in Svelte)": "/d3/charts",
+    "Svelte for Visual Stories": "/svelte",
+  };
 </script>
 
 {#if data}

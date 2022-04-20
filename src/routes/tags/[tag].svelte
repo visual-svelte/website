@@ -31,7 +31,8 @@
 
 <div class="holder">
   <h1>
-    Articles with the {tag_id.upperTag} tag:
+    {filtered ? filtered.length : 0}
+    {filtered.length == 1 ? "article" : "articles"} with the {tag_id.upperTag} tag:
   </h1>
   <PostGallery posts={filtered} title={false} scroll={false} cat="api" />
 </div>
