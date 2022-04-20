@@ -1,5 +1,14 @@
 <script>
-  import * as d3 from "d3";
+  import {
+    range,
+    forceSimulation,
+    zoomIdentity,
+    forceCollide,
+    select,
+    drag,
+    zoom,
+    forceRadial,
+  } from "d3";
   import { colorCategorical4 } from "$utils/brand";
 
   import { onMount } from "svelte";
@@ -14,32 +23,30 @@
 
   const nodeRadius = 5;
   $: nodes = [].concat(
-    d3.range(88).map(function () {
+    range(88).map(function () {
       return { type: "a" };
     }),
-    d3.range(45).map(function () {
+    range(45).map(function () {
       return { type: "b" };
     })
   );
 
-  let transform = d3.zoomIdentity;
+  let transform = zoomIdentity;
 
   let simulation;
   onMount(() => {
-    simulation = d3
-      .forceSimulation(nodes)
-      .force("charge", d3.forceCollide().radius(5).iterations(2))
+    simulation = forceSimulation(nodes)
+      .force("charge", forceCollide().radius(5).iterations(2))
       .force(
         "r",
-        d3.forceRadial((d) => (d.type === "a" ? r1 : r2), x, y).strength(10)
+        forceRadial((d) => (d.type === "a" ? r1 : r2), x, y).strength(10)
       )
       .on("tick", simulationUpdate)
       .alphaTarget(0.1);
 
-    d3.select(svg)
+    select(svg)
       .call(
-        d3
-          .drag()
+        drag()
           .container(svg)
           .subject(dragsubject)
           .on("start", dragstarted)
@@ -47,8 +54,7 @@
           .on("end", dragended)
       )
       .call(
-        d3
-          .zoom()
+        zoom()
           .scaleExtent([1 / 10, 8])
           .on("zoom", zoomed)
       );

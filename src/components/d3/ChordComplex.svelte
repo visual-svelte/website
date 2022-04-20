@@ -1,5 +1,14 @@
 <script>
-  import * as d3 from "d3";
+  import {
+    chord,
+    descending,
+    arc,
+    ribbon,
+    tickStep,
+    sum,
+    format,
+    range,
+  } from "d3";
   import { timeDay } from "d3";
   import { data, colors, names } from "$data/phones.js";
   let svgHere;
@@ -10,26 +19,24 @@
   $: innerRadius = outerRadius - 10;
 
   //generator functions
-  $: chordGen = d3
-    .chord()
+  $: chordGen = chord()
     .padAngle(10 / innerRadius)
-    .sortSubgroups(d3.descending)
-    .sortChords(d3.descending);
+    .sortSubgroups(descending)
+    .sortChords(descending);
 
-  $: arcGen = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
-  $: ribbonGen = d3
-    .ribbon()
+  $: arcGen = arc().innerRadius(innerRadius).outerRadius(outerRadius);
+  $: ribbonGen = ribbon()
     .radius(innerRadius - 1)
     .padAngle(1 / innerRadius);
 
   $: chords = chordGen(data); //
 
   // tick logic
-  $: tickStep = d3.tickStep(0, d3.sum(data.flat()), 100);
-  let formatValue = d3.format(".1~%");
+  $: tickStepX = tickStep(0, sum(data.flat()), 100);
+  let formatValue = format(".1~%");
   function ticks({ startAngle, endAngle, value }) {
     const k = (endAngle - startAngle) / value;
-    return d3.range(0, value, tickStep * 2).map((value) => {
+    return range(0, value, tickStepX * 2).map((value) => {
       return { value, angle: value * k + startAngle };
     });
   }

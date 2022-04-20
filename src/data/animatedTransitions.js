@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import { arc, pie } from "d3";
 const scrollyData = [
   "In the starting position, we have a simple bar  with six categoric variables along the x-axis. But what if the user wanted to explore how the categories looked as a pie chart (said no-one ever)? ",
   "At this point, I should make it clear that this was a technical challenge to see what was possible in terms of SVG path manipulation, not what might be best practice in terms of data visualization. Also the axes have been removed to make the code and animations easier to follow. ",
@@ -31,8 +31,8 @@ function barsFromData(data) {
 }
 const paths = barsFromData(data);
 
-const arcs = d3.pie()(data); // generate the arc angles from data
-const arcGen = d3.arc(); // generate the arcs
+const arcs = pie()(data); // generate the arc angles from data
+const arcGen = arc(); // generate the arcs
 const pies = arcs.map((arc) => {
   let input = {
     innerRadius: 50,

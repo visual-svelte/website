@@ -1,8 +1,7 @@
 <script>
-  import { descending } from "d3";
+  import { descending, cluster, hierarchy } from "d3";
   import { colorCategorical4 } from "$utils/brand";
 
-  import * as d3 from "d3";
   let width = 400;
   let height = 300;
   let margin = 30;
@@ -17,13 +16,11 @@
   };
 
   //   First, consutrct the hierarchical model to feed into the tree generator
-  $: root = d3
-    .hierarchy(data)
-    .sort(
-      (a, b) => b.height - a.height || a.data.name.localeCompare(b.data.name)
-    );
+  $: root = hierarchy(data).sort(
+    (a, b) => b.height - a.height || a.data.name.localeCompare(b.data.name)
+  );
 
-  $: treeGen = d3.cluster().size([width - 2 * margin, 50]); // the second size param here represents radius
+  $: treeGen = cluster().size([width - 2 * margin, 50]); // the second size param here represents radius
   $: tree = treeGen(root);
 </script>
 

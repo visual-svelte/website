@@ -1,6 +1,4 @@
 <script>
-  import * as d3 from "d3";
-  import { onMount } from "svelte";
   let left = 50;
   let top = 50;
   let moving = false;

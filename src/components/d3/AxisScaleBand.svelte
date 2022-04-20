@@ -1,5 +1,8 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleBand } from "d3-scale";
+  import { select } from "d3-selection";
+  import { axisBottom } from "d3-axis";
+
   import { colorCategorical4 } from "$utils/brand";
   let pinXAxis; // declare pins
   let margin = 30; // declare initial values for margin and svg_height/width
@@ -9,15 +12,14 @@
   $: width = svg_width - margin * 2;
 
   // define generator functions for x axis
-  $: x = d3
-    .scaleBand()
+  $: x = scaleBand()
     .domain(["Apple", "Banana", "Cherry", "Donut"])
     .range([0, width])
     .padding([0.5]);
 
   // call axis generators on the scale and pin the SVG pins.
   $: if (pinXAxis) {
-    d3.select(pinXAxis).call(d3.axisBottom(x).ticks(width / 60));
+    select(pinXAxis).call(axisBottom(x).ticks(width / 60));
   }
 </script>
 

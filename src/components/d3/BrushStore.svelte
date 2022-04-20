@@ -1,15 +1,14 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleLinear, brushX, select } from "d3";
   import { brushData, filtered } from "$stores/brush";
 
   let pinBrush;
   let width = 400;
   let height = 300;
   let bounds = [0, 0];
-  $: x = d3.scaleLinear().domain([0, 400]).range([0, width]); // define generator functions for x and y axes
+  $: x = scaleLinear().domain([0, 400]).range([0, width]); // define generator functions for x and y axes
 
-  $: brush = d3
-    .brushX()
+  $: brush = brushX()
     .extent([
       [0, 0],
       [width, height],
@@ -31,7 +30,7 @@
 
   // pin brush to DOM
   $: if (pinBrush) {
-    d3.select(pinBrush).attr("class", "brush").call(brush);
+    select(pinBrush).attr("class", "brush").call(brush);
   }
 </script>
 

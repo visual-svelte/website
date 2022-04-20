@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { select, drag } from "d3";
   import { onMount } from "svelte";
   let bindSvgHere;
   let svg;
@@ -11,13 +11,13 @@
   ];
 
   function started(event) {
-    circle = d3.select(this); // set circle to the element that has been dragged.
+    circle = select(this); // set circle to the element that has been dragged.
     circle.attr("cx", event.x).attr("cy", event.y); // move the x/y position
   }
-  $: dragHandler = d3.drag().on("drag", started); // setup a simple dragHandler
+  $: dragHandler = drag().on("drag", started); // setup a simple dragHandler
 
   onMount(() => {
-    svg = d3.select(bindSvgHere);
+    svg = select(bindSvgHere);
     circle = svg
       .selectAll("circle")
       .data(data)

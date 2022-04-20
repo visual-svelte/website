@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleBand, scaleLinear, axisLeft, axisBottom, select } from "d3";
   import { flip } from "svelte/animate";
   import { fly } from "svelte/transition";
   let pinXAxis, pinYAxis;
@@ -24,13 +24,13 @@
   });
 
   // define generator functions for x axis
-  $: x = d3.scaleBand().domain(categories).range([0, width]).padding([0.5]);
-  $: y = d3.scaleLinear().domain([0, 200]).range([height, 0]);
+  $: x = scaleBand().domain(categories).range([0, width]).padding([0.5]);
+  $: y = scaleLinear().domain([0, 200]).range([height, 0]);
 
   // important to include 'data' in the reactive property to ensure it runs everytime the data changes.
   $: if (data) {
-    d3.select(pinXAxis).call(d3.axisBottom(x).ticks(width / 60));
-    d3.select(pinYAxis).call(d3.axisLeft(y).ticks(height / 60));
+    select(pinXAxis).call(axisBottom(x).ticks(width / 60));
+    select(pinYAxis).call(axisLeft(y).ticks(height / 60));
   }
 
   let ascAZ = true; // ascending bool specific for the AZ sorting

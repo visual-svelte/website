@@ -1,8 +1,6 @@
 <script>
-  import { onMount } from "svelte";
   import { flip } from "svelte/animate";
   import { colorScaleLinear } from "$utils/brand";
-  import * as d3 from "d3";
   let images = [
     { id: 0 },
     { id: 1 },

@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { select, axisBottom, scaleBand, scaleLinear } from "d3";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   import { colorCategorical4 } from "$utils/brand";
@@ -33,10 +33,10 @@
   $: progress.set(data.find((d) => d[value])[value]);
   $: angleProgress.set(value > 2 ? 90 : 0);
 
-  $: x = d3.scaleBand().domain(cats).range([0, height]).padding([0.1]);
-  $: y = d3.scaleLinear().domain([0, 1000]).range([height, 0]);
+  $: x = scaleBand().domain(cats).range([0, height]).padding([0.1]);
+  $: y = scaleLinear().domain([0, 1000]).range([height, 0]);
   $: if (pinXAxis) {
-    d3.select(pinXAxis).call(d3.axisBottom(x).ticks(width / 60));
+    select(pinXAxis).call(axisBottom(x).ticks(width / 60));
   }
 </script>
 

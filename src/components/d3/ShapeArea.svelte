@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleLinear, scaleTime, extent, area } from "d3";
   import { colorCategorical4 } from "$utils/brand";
 
   //   specify some data
@@ -13,11 +13,10 @@
   ];
 
   // make some scales
-  $: yScale = d3.scaleLinear().domain([90, 105]).range([300, 0]);
-  $: xScale = d3
-    .scaleTime()
+  $: yScale = scaleLinear().domain([90, 105]).range([300, 0]);
+  $: xScale = scaleTime()
     .domain(
-      d3.extent(
+      extent(
         data.map((d) => {
           return d.date;
         })
@@ -26,15 +25,14 @@
     .range([0, 400]);
 
   // specify the area generator
-  const areaGen = d3
-    .area()
+  const areaGen = area()
     .x((d) => xScale(d.date))
     .y1((d) => yScale(d.value))
     .y0((d) => yScale(0)); // area goes down to y=0 (with yScaled)
 
-  $: area = areaGen(data); // get SVG path
+  $: areaX = areaGen(data); // get SVG path
 </script>
 
 <svg width="400" height="300">
-  <path d={area} fill={colorCategorical4[0]} stroke="black" />
+  <path d={areaX} fill={colorCategorical4[0]} stroke="black" />
 </svg>

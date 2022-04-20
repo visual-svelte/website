@@ -1,5 +1,7 @@
 <script>
-  import * as d3 from "d3";
+  import { scalePoint } from "d3-scale";
+  import { select } from "d3-selection";
+  import { axisBottom } from "d3-axis";
 
   let pinXAxis; // declare pins
   let margin = 30; // declare initial values for margin and svg_height/width
@@ -11,11 +13,11 @@
   let categories = ["Apple", "Banana", "Cherry", "Donut"];
 
   // define generator functions for x and y axes
-  $: x = d3.scalePoint().domain(categories).range([0, width]);
+  $: x = scalePoint().domain(categories).range([0, width]);
 
   // call axis generator on the scale and pin the SVG pin.
   $: if (pinXAxis) {
-    d3.select(pinXAxis).call(d3.axisBottom(x).ticks(width / 60));
+    select(pinXAxis).call(axisBottom(x).ticks(width / 60));
   }
 </script>
 

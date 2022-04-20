@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleLinear, line, zoom, select, curveBundle, axisBottom } from "d3";
   $: data = getData().sort((a, b) => a.x - b.x);
 
   let svg_width = 500;
@@ -11,25 +11,24 @@
   let bindHandleZoom, bindInitZoom, bindAxis;
   let bindLine;
   let xDomain = [0, 1000];
-  $: x = d3.scaleLinear().range([0, width]).domain(xDomain);
+  $: x = scaleLinear().range([0, width]).domain(xDomain);
 
-  let y = d3.scaleLinear().domain([1000, 0]).range([0, height]);
+  let y = scaleLinear().domain([1000, 0]).range([0, height]);
 
-  $: lineGen = d3
-    .line()
+  $: lineGen = line()
     .x((d) => x(d.x))
     .y((d) => y(d.y))
-    .curve(d3.curveBundle.beta(1.2));
+    .curve(curveBundle.beta(1.2));
 
-  $: line = lineGen(data);
+  $: lineX = lineGen(data);
 
   // $: console.log("linex", lineGen.curve);
 
   $: if (bindAxis) {
-    d3.select(bindAxis).call(d3.axisBottom(x));
+    select(bindAxis).call(axisBottom(x));
   }
 
-  $: zoom = d3.zoom().scaleExtent([1, 3]).on("zoom", handleZoom);
+  $: zoomX = zoom().scaleExtent([1, 3]).on("zoom", handleZoom);
 
   function handleZoom(e) {
     let t = e.transform;
@@ -38,7 +37,7 @@
   }
 
   $: if (bindInitZoom) {
-    d3.select(bindInitZoom).call(zoom);
+    select(bindInitZoom).call(zoomX);
   }
 
   function getData() {

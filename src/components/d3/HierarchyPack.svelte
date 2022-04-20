@@ -1,8 +1,7 @@
 <script>
-  import { descending } from "d3";
+  import { hierarchy, pack } from "d3";
   import { colorCategorical4 } from "$utils/brand";
 
-  import * as d3 from "d3";
   let data = {
     children: [
       { children: [{ stat: 1 }, { stat: 1 }, { stat: 1 }] },
@@ -24,12 +23,11 @@
     ],
   };
 
-  $: root = d3
-    .hierarchy(data)
+  $: root = hierarchy(data)
     .sum((d) => (d.hasOwnProperty("stat") ? d.stat : 0))
     .sort((a, b) => b.value - a.value);
 
-  $: partitionGen = d3.pack().size([250, 250]).padding(10);
+  $: partitionGen = pack().size([250, 250]).padding(10);
   $: partition = partitionGen(root);
 </script>
 

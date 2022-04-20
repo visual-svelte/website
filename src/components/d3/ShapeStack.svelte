@@ -1,5 +1,14 @@
 <script>
-  import * as d3 from "d3";
+  import {
+    stack,
+    stackOrderNone,
+    stackOffsetNone,
+    scaleLinear,
+    scaleBand,
+    axisBottom,
+    axisLeft,
+    select,
+  } from "d3";
   import fruitData from "$data/fruit.js";
   import { colorCategorical4 } from "$utils/brand";
 
@@ -10,39 +19,36 @@
   let keys = ["apples", "bananas", "cherries", "dates"];
 
   // create a stack generator
-  const stackGen = d3
-    .stack()
+  const stackGen = stack()
     .keys(keys)
-    .order(d3.stackOrderNone)
-    .offset(d3.stackOffsetNone);
+    .order(stackOrderNone)
+    .offset(stackOffsetNone);
 
   // then initialize the stacks from the data.
   $: series = stackGen(fruitData);
 
   // specify scales and x/y axes.
-  $: yScale = d3
-    .scaleLinear()
+  $: yScale = scaleLinear()
     .domain([0, 7500])
     .range([height - 2 * margin, 0]);
 
-  $: xScale = d3
-    .scaleBand()
+  $: xScale = scaleBand()
     .domain(["TP1", "TP2", "TP3", "TP4"])
     .range([0, width - margin * 2])
     .padding([0.2]);
 
-  $: xAxis = d3.axisBottom(xScale).ticks(width / 60); //specify axes
+  $: xAxis = axisBottom(xScale).ticks(width / 60); //specify axes
 
-  $: yAxis = d3.axisLeft(yScale).ticks(width / 60); //specify axes
+  $: yAxis = axisLeft(yScale).ticks(width / 60); //specify axes
 
   // bind the axes to their group
   $: if (pinXAxis) {
-    d3.select(pinXAxis)
+    select(pinXAxis)
       .attr("transform", "translate(0," + (height - margin) + ")")
       .call(xAxis);
   }
   $: if (pinYAxis) {
-    d3.select(pinYAxis)
+    select(pinYAxis)
       .attr("transform", "translate(0," + margin + ")")
       .call(yAxis);
   }

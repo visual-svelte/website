@@ -1,8 +1,8 @@
 <script>
-  import * as d3 from "d3";
+  import { linkHorizontal } from "d3";
   import { colorCategorical4 } from "$utils/brand";
 
-  let linkGen = d3.linkHorizontal();
+  let linkGen = linkHorizontal();
 
   let data = { source: [30, 30], target: [70, 70] }; //example 1
   // example 2

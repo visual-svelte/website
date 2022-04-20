@@ -1,7 +1,7 @@
 <script>
   import { interpolateAll } from "flubber";
   import { onMount } from "svelte";
-  import * as d3 from "d3";
+  import { selectAll } from "d3";
   import { colorCategoricalDragon } from "$utils/brand";
   import { paths, pies, pointsList } from "$data/animatedTransitions";
   export let value;
@@ -63,7 +63,7 @@
 
   let allPaths;
   onMount(() => {
-    allPaths = d3.selectAll("path");
+    allPaths = selectAll("path");
   });
 </script>
 

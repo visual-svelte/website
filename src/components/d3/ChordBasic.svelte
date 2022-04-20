@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { chord, arc, ribbon, descending } from "d3";
 
   import { colorCategorical4 } from "$utils/brand";
   let svgHere;
@@ -11,16 +11,14 @@
   $: innerRadius = outerRadius - 10;
 
   //generator functions
-  $: chordGen = d3
-    .chord()
+  $: chordGen = chord()
     .padAngle(15 / innerRadius) // outer gap between chords
-    .sortSubgroups(d3.descending) //ensure both groups are sorted the same
-    .sortChords(d3.descending); //ensure both groups are sorted the same
+    .sortSubgroups(descending) //ensure both groups are sorted the same
+    .sortChords(descending); //ensure both groups are sorted the same
 
-  $: arcGen = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
+  $: arcGen = arc().innerRadius(innerRadius).outerRadius(outerRadius);
 
-  $: ribbonGen = d3
-    .ribbon()
+  $: ribbonGen = ribbon()
     .radius(innerRadius - 1)
     .padAngle(1 / innerRadius);
 

@@ -1,10 +1,14 @@
 <script>
-  import * as d3 from "d3";
+  import { scaleLinear } from "d3-scale";
+  import { select } from "d3-selection";
+  import { brushX } from "d3-brush";
+  import { randomUniform, randomNormal } from "d3";
+  import { axisBottom, axisLeft } from "d3-axis";
+
   let pinBrush, circles, myBrush;
   let width = 400;
   let height = 300;
-  $: brush = d3
-    .brushX()
+  $: brush = brushX()
     .extent([
       [0, 0],
       [width, height],
@@ -12,12 +16,12 @@
     .on("start brush end", brushed);
 
   $: if (pinBrush) {
-    myBrush = d3.select(pinBrush).call(brush);
+    myBrush = select(pinBrush).call(brush);
   }
 
-  $: x = d3.scaleLinear().domain([0, 400]).range([0, width]); // define generator functions for x and y axes
-  $: rx = d3.randomUniform(...x.domain()); // for data generator only
-  $: ry = d3.randomNormal(height / 2, height / 12); // for data generator only
+  $: x = scaleLinear().domain([0, 400]).range([0, width]); // define generator functions for x and y axes
+  $: rx = randomUniform(...x.domain()); // for data generator only
+  $: ry = randomNormal(height / 2, height / 12); // for data generator only
   $: data = Float64Array.from({ length: 40 }, rx); // for data generator only
   let bounds = [0, 0];
   let selectionMade = false;

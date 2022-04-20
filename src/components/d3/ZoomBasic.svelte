@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { zoom, select } from "d3";
   import { colorScaleLinear } from "$utils/brand";
 
   $: data = getData();
@@ -13,8 +13,7 @@
     colorScale = colorScaleLinear("dragon", data.length);
   }
 
-  $: zoom = d3
-    .zoom()
+  $: zoomX = zoom()
     .scaleExtent([1, 5])
     .translateExtent([
       [0, 0],
@@ -24,11 +23,11 @@
 
   function handleZoom(e) {
     console.log("ev", e.transform);
-    d3.select(bindHandleZoom).attr("transform", e.transform);
+    select(bindHandleZoom).attr("transform", e.transform);
   }
 
   $: if (bindInitZoom) {
-    d3.select(bindInitZoom).call(zoom);
+    select(bindInitZoom).call(zoomX);
   }
 
   function getData() {

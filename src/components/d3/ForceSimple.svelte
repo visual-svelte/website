@@ -1,5 +1,12 @@
 <script>
-  import * as d3 from "d3";
+  import {
+    range,
+    randomInt,
+    forceSimulation,
+    forceX,
+    forceY,
+    forceCollide,
+  } from "d3";
   import { onMount } from "svelte";
   import { colorScaleLinear } from "$utils/brand";
 
@@ -11,8 +18,8 @@
 
   // generate a toy dataset for this example.
   $: nodes = [].concat(
-    d3.range(88).map(function () {
-      return { r: d3.randomInt(5, 10)() };
+    range(88).map(function () {
+      return { r: randomInt(5, 10)() };
     })
   );
 
@@ -23,11 +30,10 @@
   }
 
   onMount(() => {
-    simulation = d3
-      .forceSimulation(nodes)
-      .force("x", d3.forceX(150))
-      .force("y", d3.forceY(150))
-      .force("collide", d3.forceCollide(12))
+    simulation = forceSimulation(nodes)
+      .force("x", forceX(150))
+      .force("y", forceY(150))
+      .force("collide", forceCollide(12))
       .on("tick", simulationUpdate)
       .alphaTarget(0.1);
   });

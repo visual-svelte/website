@@ -1,24 +1,28 @@
 import { c as create_ssr_component, b as each, e as escape, a as add_attribute, v as validate_component } from "../../../../chunks/index-769cbf91.js";
-import { d as d3CMS, F as FormattedExample } from "../../../../chunks/cms-svelte-147b3ebc.js";
+import { m as metaFromRecord } from "../../../../chunks/textUtils-217980c7.js";
+import { d as d3CMS, F as FormattedExample } from "../../../../chunks/cms-svelte-a7c6b755.js";
 import { M as Meta } from "../../../../chunks/Meta-c267e72e.js";
-import { S as StoryHeader, T as Thanks } from "../../../../chunks/Thanks-75adbe02.js";
+import { S as StoryHeader, T as Thanks } from "../../../../chunks/Thanks-d21d274a.js";
 import "d3";
 import "d3-scale";
+import "d3-selection";
+import "d3-axis";
+import "d3-brush";
 import "d3-zoom";
 import "d3-scale-chromatic";
-import "d3-selection";
 import "d3-drag";
 import "d3-force";
+import "d3-shape";
+import "d3-array";
+import "d3-geo";
 import "highlight.js/lib/core";
 import "highlight.js/lib/languages/xml";
 import "highlight.js/lib/languages/javascript";
 import "highlight.js/lib/languages/css";
-/* empty css                                                                      */import "d3-array";
-import "feather-icons";
+/* empty css                                                                      */import "feather-icons";
 import "d3-interpolate";
-import "../../../../chunks/screen-6c02c18e.js";
-import "../../../../chunks/cms-1bd8cf3f.js";
-import "../../../../chunks/textUtils-e37746b6.js";
+import "../../../../chunks/screen-6364735e.js";
+import "../../../../chunks/cms-86c250c1.js";
 var OnThisPage_svelte_svelte_type_style_lang = "";
 const css$2 = {
   code: "li.svelte-1lrdn70{margin-top:0.5rem}",
@@ -63,12 +67,7 @@ async function load(ctx) {
   const primaryKey = ctx.params.slug;
   const content = d3CMS.find((record) => record.primary_key == primaryKey);
   content ? content["cat"] = "D3 API (in Svelte)" : console.log("");
-  let metadata = {
-    t: `${content?.post_title} | VisualSvelte`,
-    d: "Tell visual stories on the internet with Svelte and other technologies.",
-    u: ctx.url.pathname,
-    tags: content.keywords.join()
-  };
+  let metadata = metaFromRecord(content, ctx.url.pathname);
   return { props: { content, metadata } };
 }
 const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {

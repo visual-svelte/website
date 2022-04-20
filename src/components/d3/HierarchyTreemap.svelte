@@ -1,5 +1,5 @@
 <script>
-  import * as d3 from "d3";
+  import { hierarchy, treemap, schemeCategory10 } from "d3";
   import { get_root_for_style } from "svelte/internal";
   let width = 400;
   let height = 300;
@@ -14,12 +14,12 @@
       { name: "Staten Island", population: 479458 },
     ],
   };
-  $: root = d3
-    .hierarchy(data)
-    .sum((d) => (d.hasOwnProperty("population") ? d.value : 0));
+  $: root = hierarchy(data).sum((d) =>
+    d.hasOwnProperty("population") ? d.value : 0
+  );
   // .sort((a, b) => b.height - a.height || b.value - a.value);
 
-  $: treeMapGen = d3.treemap().size([250, 250]);
+  $: treeMapGen = treemap().size([250, 250]);
   $: treeMap = treeMapGen(root);
   $: console.log("tm", treeMap.descendants());
 </script>
@@ -32,7 +32,7 @@
       height={d.y1 - d.y0}
       width={d.x1 - d.x0}
       fill-opacity="0.7"
-      fill={d3.schemeCategory10[i]}
+      fill={schemeCategory10[i]}
     />
   {/each}
 </svg>
