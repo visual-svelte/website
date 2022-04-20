@@ -1,6 +1,6 @@
 <script>
-  import ForceAnimationsTwo from "$components/d3/recipes/ForceAnimations.Two.svelte";
-  import ForceAnimationsOne from "$components/d3/recipes/ForceAnimations.One coo.svelte";
+  import Two from "$components/d3/charts/ForceAnimations/Two.svelte";
+  import Onecoo from "$components/d3/charts/ForceAnimations/One-coo.svelte";
 </script>
 
 <div class="wrapper">
@@ -32,13 +32,11 @@
     possible just with <a rel="internal" href="/d3/api/d3-force">d3-force</a>.
   </p>
   <h2>First</h2>
-  <div class="full-width">
-    <!-- <ForceAnimationsOne /> -->
-  </div>
+  <div class="full-width" />
 
   <h2>Second</h2>
   <div class="full-width">
-    <ForceAnimationsTwo />
+    <Two />
   </div>
 </div>
 

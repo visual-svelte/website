@@ -1,4 +1,4 @@
-import ForceAnimations from "$components/d3/recipes/ForceAnimations.svelte";
+import ForceAnimations from "$components/d3/charts/ForceAnimations/index.svelte";
 
 let d3Charts = [
   {

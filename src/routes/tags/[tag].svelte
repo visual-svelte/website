@@ -1,8 +1,6 @@
 <script context="module">
   import { urlToText, keyToSentence } from "$utils/textUtils";
   export async function load(ctx) {
-    // const primaryKey = pathname.split("/").pop();
-
     let tag_id = urlToText(ctx.url.pathname);
 
     let metadata = {
