@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { scale, fade, fly, slide } from "svelte/transition";
   import { cubicInOut, backOut } from "svelte/easing";
+  import { flip } from "svelte/animate";
   const timer = (ms) => new Promise((res) => setTimeout(res, ms));
   let yAxis = [0, 50, 100, 150, 200, 250, 300];
   let xAxis = [5, 10, 15, 20];
@@ -64,11 +65,12 @@
         <p
           class="y-title all"
           in:fade
-          style={step[3]
-            ? "transform:translate(-70px,-40px); width: 20px; font-size:0.7rem;line-height:0.7rem;text-align:end"
-            : "transform:translate(0px, 0px)"}
+          class:animated={step[3]}
+          class:initial={!step[3]}
         >
-          🍦 Ice Creams Sold
+          {#each ["🍦", "Ice Creams", "Sold"] as tkn (tkn)}
+            <span animate:flip>{tkn}</span>
+          {/each}
         </p>
         {#if !step[3]}
           <p class="all middle-text" transition:fade>vs.</p>
@@ -259,6 +261,27 @@
     .y-title {
       transition: all 1s;
       top: 30px;
+      transition-property: transform, width, font-size, line-height;
+      transition-duration: 1s, 1s, 1s, 1s;
+      transition-delay: 0s, 0s, 0s, 0s;
+      transition-timing-function: linear;
+
+      &.initial {
+        transform: translate(0px, 0px);
+        * {
+          margin-right: 3px;
+        }
+      }
+
+      &.animated {
+        display: flex;
+        flex-wrap: wrap;
+        transform: translate(-70px, -40px);
+        width: 10px;
+        font-size: 0.7rem;
+        line-height: 0.7rem;
+        // text-align: end;
+      }
     }
     .middle-text {
       color: gray;
