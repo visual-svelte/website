@@ -1,6 +1,6 @@
 <script>
-  import { scale, fly, slide } from "svelte/transition";
-  import { cubicInOut } from "svelte/easing";
+  import { scale, fly, slide, fade } from "svelte/transition";
+  import { cubicInOut, cubicOut } from "svelte/easing";
   let yAxis = [0, 5000, 10000, 15000, 20000, 25000, 30000];
   let xAxis = [2018, 2019, 2020, 2021];
   let data = [299, 1843, 8466, 28524];
@@ -39,10 +39,9 @@
   {#if vis}
     <!-- TITLE BLOCK -->
     <div class="title">
-      <h4 in:slide={{ duration: 600 }}>
-        DETECTED ARRIVALS BY SMALL BOAT IN THE UK
-      </h4>
-      <p in:slide={{ delay: 300, duration: 600 }}>Source: Home Office</p>
+      <h4 in:fade>DETECTED ARRIVALS BY SMALL BOAT IN THE UK</h4>
+      <!-- <br /> -->
+      <p in:fade>Source: Home Office</p>
     </div>
     <div class="chart-area">
       <!-- WHITE X AXIS LINE -->
@@ -118,47 +117,42 @@
 
 <style lang="scss">
   .container {
+    border-radius: 10px;
     height: 300px;
-    width: 400px;
+    // width: min(340px, 400px);
+    width: 100%;
+    min-width: 320px;
+    max-width: 400px;
+
     position: relative;
     background-image: url("/images/migrants/migrants.jpg");
     background-size: cover;
     background-blend-mode: saturation;
     .title {
-      height: 40px;
+      padding-top: 7px;
+      min-height: 50px;
+      max-width: 300px;
+      margin: 0px;
       text-align: center;
       color: white;
+      margin-left: min(6vw, 50px);
       h4,
       p {
-        padding: 2px 10px;
-        margin: 10px 0px 0px 0px;
-        background-color: purple;
-        display: inline-block;
-      }
-      h4 {
-        max-height: 16px;
-        overflow: hidden;
-        .reveal {
-          height: 20px;
-          position: absolute;
-          top: 0px;
-          width: 100%;
-          background-color: white;
-          left: 0px;
-          right: 0px;
-          bottom: 0px;
-        }
-      }
-      p {
         font-size: 0.7rem;
-        line-height: 0.7rem;
+        line-height: 1.2rem;
+        padding: 0px 5px;
+        margin: 0;
+        display: inline-block;
+        background-color: purple;
       }
     }
     .chart-area {
       background-color: rgba(255, 255, 255, 0.05);
       height: 150px;
       width: 200px;
-      margin: 50px 100px;
+      margin-left: min(23vw, 110px);
+      margin-top: 10px;
+      // margin: 50px 50px;
       position: relative;
       .bottom-axis {
         border-bottom: 1px solid white;
@@ -218,7 +212,7 @@
       background-color: rgba(255, 255, 255, 0);
       color: white;
       bottom: 0px;
-      width: 80px;
+      width: 70px;
       margin: 10px;
       cursor: pointer;
 

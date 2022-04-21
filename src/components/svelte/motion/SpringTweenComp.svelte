@@ -14,7 +14,7 @@
 
   let data = { initial: zeros, final: range(16).reverse() };
 
-  let duration = [300, 3000];
+  let duration = [300, 2000];
   let stiffness = [0.15, 1];
   let damping = [0.8, 1];
 
@@ -27,12 +27,15 @@
     damping: damping[0],
   });
 
+  let showVisuals = false;
+
   const timer = (ms) => new Promise((res) => setTimeout(res, ms));
   async function updateStore() {
-    tween.set(data.initial);
+    showVisuals = false;
+    tween.set(data.initial, { duration: 0 });
     springer.set(data.initial);
     await timer(1000);
-
+    showVisuals = true;
     tween.set(data.final, {
       duration: duration[0],
       easing: easing[selectedTween],
@@ -55,7 +58,7 @@
     <div class="tween">
       <div class="ctrl-title">TWEENED</div>
       Tween Duration: {duration[0]}
-      <Slider max={3000} step={100} bind:value={duration} />
+      <Slider max={2000} step={100} bind:value={duration} />
       <Select
         label="Easing:"
         options={Object.keys(easing).map((d) => {
@@ -73,44 +76,45 @@
       </Select>
     </div>
   </div>
-  <div class="axis" />
-  <div class="bar-wrapper">
-    <div class="tweens">
-      {#each $tween as bar, i}
-        <div
-          class="bar tween"
-          style="height:{8}px; width:{bar *
-            6}px; clear:both;background-color:darkblue;opacity:{1 -
-            i / 20}; transform:translate(30px,{10 * i}px);"
-        />
-      {/each}
+  {#if showVisuals}
+    <div class="bar-wrapper">
+      <div class="tweens">
+        {#each $tween as bar, i}
+          <div
+            class="bar tween"
+            style="height:{8}px; width:{bar *
+              6}px; clear:both;background-color:var(--dragon);opacity:{1 -
+              i / 20}; transform:translate(30px,{10 * i}px);"
+          />
+        {/each}
+      </div>
+      <div class="springs">
+        {#each $springer as bar, i}
+          <div
+            class="bar"
+            style="height:{8}px; width:{bar *
+              6}px; clear:both;background-color:var(--dark);opacity:{1 -
+              i / 20};transform:translate(30px,{10 * i}px);"
+          />
+        {/each}
+      </div>
     </div>
-    <div class="springs">
-      {#each $springer as bar, i}
-        <div
-          class="bar"
-          style="height:{8}px; width:{bar *
-            6}px; clear:both;background-color:darkmagenta;opacity:{1 -
-            i / 20};transform:translate(30px,{10 * i}px);"
-        />
-      {/each}
-    </div>
-  </div>
+  {/if}
 </div>
 
 <style lang="scss">
   .container {
     position: relative;
-    height: 290px;
+    height: 350px;
     .animate-button {
       background-color: white;
       border-radius: 100%;
       z-index: 100;
       cursor: pointer;
       position: absolute;
-      padding: 5px 10px;
-      top: 100px;
-      left: 110px;
+      padding: 10px 20px;
+      top: 170px;
+      left: 102px;
     }
     .ctrl-title {
       border-bottom: 1px solid white;
@@ -121,25 +125,27 @@
     }
     .controls {
       font-size: 0.7rem;
-      height: 100px;
+      height: 150px;
       width: 300px;
       position: relative;
       .spring {
         max-width: 140px;
         min-width: 140px;
-        height: 105px;
+        height: 170px;
         left: 150px;
         position: absolute;
-        background-color: darkmagenta;
+        background-color: var(--dark);
         color: white;
         padding: 5px;
+        border-top-right-radius: 20px;
       }
       .tween {
+        border-top-left-radius: 20px;
         position: absolute;
-        background-color: darkblue;
+        background-color: var(--dragon);
         color: white;
         width: 140px;
-        height: 105px;
+        height: 170px;
         padding: 5px;
       }
     }
@@ -147,7 +153,7 @@
       margin-top: 15px;
       position: absolute;
       //   border-left: 1px solid black;
-      border-top: 1px solid black;
+      // border-top: 1px solid black;
       height: 100px;
       width: 300px;
       overflow: hidden;

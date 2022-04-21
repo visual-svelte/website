@@ -3,7 +3,7 @@
   import { flip } from "svelte/animate";
   import { fly } from "svelte/transition";
   let pinXAxis, pinYAxis;
-  let margin = 40;
+  let margin = 50;
   let svg_height = 300;
   let svg_width = 400;
   let newDataAdded = false;
@@ -24,7 +24,10 @@
   });
 
   // define generator functions for x axis
-  $: x = scaleBand().domain(categories).range([0, width]).padding([0.5]);
+  $: x = scaleBand()
+    .domain(categories)
+    .range([0, width * 0.9])
+    .padding([0.3]);
   $: y = scaleLinear().domain([0, 200]).range([height, 0]);
 
   // important to include 'data' in the reactive property to ensure it runs everytime the data changes.

@@ -41,7 +41,7 @@
     position: fixed;
   }
   .svg-container {
-    overflow-y: scroll;
+    overflow-y: auto;
     &::-webkit-scrollbar {
       width: 0.5em;
       height: 0.5em;

@@ -25,9 +25,7 @@
       { id: 10, cat: "cherry" },
       { id: 11, cat: "banana" },
       { id: 1, cat: "apple" },
-      { id: 14, cat: "cherry" },
       { id: 8, cat: "pear" },
-      { id: 15, cat: "cherry" },
     ],
     bars: [],
   };
@@ -82,9 +80,7 @@
         { id: 10, cat: "cherry" },
         { id: 11, cat: "banana" },
         { id: 1, cat: "apple" },
-        { id: 14, cat: "cherry" },
         { id: 8, cat: "pear" },
-        { id: 15, cat: "cherry" },
       ],
       bars: [],
     };
@@ -116,7 +112,7 @@
     {#each ["apple", "banana", "cherry", "pear"] as category, j}
       {#each data.bars.filter((d) => d.cat == category) as bar, i (bar.id)}
         <div
-          style="transform:translate({50 + j * 50}px,{120 -
+          style="transform:translate({50 + j * 50}px,{50 -
             i * 21}px);background-color:{colors[bar.cat][0]}"
           class="block lower"
           animate:flip
@@ -131,12 +127,14 @@
 <style lang="scss">
   .wrapper {
     margin-right: 15%;
+    // min-height: 400px;
   }
   .intial-grid {
     &.top {
       min-height: 20px;
     }
     display: grid;
+    width: 320px;
     grid-template-columns: repeat(auto-fill, minmax(10px, 20px));
     gap: 2px;
     .block {

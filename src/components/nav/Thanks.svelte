@@ -81,8 +81,8 @@
 <style lang="scss">
   .wrapper {
     max-width: 600px;
-    margin: 100px autoc 0;
-    padding-bottom: 50px;
+    margin: 100px auto 0;
+    padding: 0px 0px 50px;
   }
   .kofi-cup {
     margin: 20px;

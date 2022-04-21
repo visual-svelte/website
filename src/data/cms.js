@@ -51,7 +51,7 @@ let d3CMS = [
         id: "AxisSimple",
         title: "Basic axis - scaleLinear()",
         notes:
-          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. In Svelte, I make use of the bind:this={} syntax to select an empty SVG group element and call the axis generator function. See the full code for details.",
+          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. In Svelte, I make use of the bind:this={} syntax to select an empty SVG group element and call the axis generator function. See the full code for details.<br/><br/>This makes it really easy to implement, but make animating the graph axes difficult. If animation of the axis is a key part of your design, I recommend my article on <a rel = 'internal' href='/svelte/motion'>Svelte Motion</a>.",
         component: AxisSimple,
       },
       {

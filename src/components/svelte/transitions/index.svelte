@@ -12,7 +12,7 @@
     Previously, we've explored the individual components of Svelte's animation
     capabilities - like <a rel="internal" href="/svelte/FLIP">FLIP</a>,
     <a rel="internal" href="/svelte/Motion">Motion</a>, and some other
-    <a rel="internal" href="/svelte/FLIP">cool stuff</a>.
+    <a rel="internal" href="/svelte/ChartMorphing">cool stuff</a>.
   </p>
   <p>
     In this article, I'll be using the "svelte/transition" module to re-create a
@@ -76,7 +76,6 @@
   .wrapper {
     max-width: 600px;
     margin: 0 auto;
-    padding: 10px;
   }
   figure {
     margin: 0px auto;
@@ -95,10 +94,5 @@
   }
   li {
     margin: 20px 0px;
-  }
-  .subheading {
-    margin-top: 5rem;
-    padding-top: 20px;
-    border-top: 1px solid rgba(119, 227, 35, 0.55);
   }
 </style>

@@ -45,7 +45,7 @@
         class="title"
         style="{step[1]
           ? 'transform:translate(0px, 0px)'
-          : 'transform:translate(100px, 100px)'} 
+          : 'transform:translate(min(5vw, 100px), 100px)'} 
     "
       >
         <p>QUESTION:</p>
@@ -78,12 +78,12 @@
           class="x-title all"
           in:fade
           style={step[3]
-            ? "transform:translate(220px,60px); width: 20px; font-size:0.7rem;line-height:0.7rem;"
+            ? "transform:translate(190px,50px); width: 20px; font-size:0.7rem;line-height:0.7rem;"
             : "transform:translate(0px, 0px)"}
         >
           🚑 Ambulance callouts
         </p>
-        {#if step[3]}
+        {#if step[4]}
           {#each yAxis as line, i}
             <div
               class="grid-line"
@@ -151,9 +151,14 @@
       height: 40px;
       transition: transform 0.3s ease-in-out;
       * {
+        line-height: 1.1rem;
         margin: 0px;
       }
+      h4 {
+        max-width: 300px;
+      }
       p {
+        // line-height: 1rem;
         font-size: 0.6rem;
         font-style: italic;
       }
@@ -168,7 +173,9 @@
       width: 200px;
       top: 50px;
       left: 0px;
-      margin: 50px 100px;
+      margin-top: 40px;
+      margin-left: min(20vw, 100px);
+      // margin: 50px 100px;
       position: absolute;
 
       .bar-container {
