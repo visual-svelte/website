@@ -1,9 +1,7 @@
 <script>
-  import BottomNav from "./BottomNav.svelte";
-
+  import BottomNav from "$components/nav/BottomNav.svelte";
   import Tree from "$components/helpers/Tree.svelte";
   import { fly } from "svelte/transition";
-  import Icon from "$components/helpers/Icon.svelte";
   import { navOpen } from "$stores/menu";
   let myButton;
   const handleClick = () => {

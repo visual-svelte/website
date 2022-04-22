@@ -3,6 +3,7 @@
   import { navOpen } from "$stores/menu";
   import Kofi from "$components/helpers/Kofi.svelte";
   import { link } from "d3";
+  import BrandShape from "./helpers/BrandShape.svelte";
   let links = {
     main: [
       { text: "Svelte + D3 API Articles", href: "/d3/api" },
@@ -25,7 +26,9 @@
     {/each}
   </div>
   <div class="logo">
-    <div class="circle" />
+    <div class="circle">
+      <BrandShape fill="dragon" shape="circle" />
+    </div>
     <a rel="internal" href="/">
       <h2>visualsvelte</h2>
     </a>
@@ -68,15 +71,6 @@
         height: 160px;
         width: 160px;
         position: relative;
-        background-color: rgba(255, 255, 255, 0.2);
-        &::after {
-          height: 1px;
-          bottom: 0px;
-          left: 0px;
-          width: 20px;
-          border-bottom: 1px solid white;
-          position: absolute;
-        }
       }
     }
     .other-links {

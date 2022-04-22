@@ -41,7 +41,7 @@
     <Icon name="chevrons-down" fill="gray" width="20px" height="20px" />
     <span>Scroll </span>
   </div>
-  <ScrollyWrapper data={scrollyData} fixedComp={Chart2} fixPosition="center" />
+  <ScrollyWrapper data={scrollyData} fixedComp={Chart2} fixPosition="right" />
 
   <h2>Data</h2>
   <p>
@@ -92,7 +92,7 @@
   </ul>
   <h2>Svelte code</h2>
   <div class="code-box">
-    <CodeVisual route="d3/" compid="svelte/ChartMorphing/Chart2" />
+    <CodeVisual route="svelte/ChartMorphing/" compid="Chart2" />
   </div>
 </div>
 

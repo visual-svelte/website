@@ -40,7 +40,7 @@
 
 <style lang="scss">
   .outer {
-    padding: 1rem 0 6rem 0;
+    padding: 1rem 10px 6rem;
     color: var(--off-white);
     background-color: var(--dark);
     .wrapper {

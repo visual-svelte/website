@@ -1,8 +1,6 @@
 <script>
   export let metadata;
-  // export let title = "Visual S";
-  // export let description = "Informed";
-  // export let url = "https://visualsvelte.com";
+  // metadata should look like {}
 </script>
 
 <svelte:head>
@@ -21,10 +19,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
 
-  <meta
-    property="og:image"
-    content="/assets/images/thumbnails/d3-{metadata.u}.png"
-  />
+  <meta property="og:image" content="/assets/images/twitter/{metadata.u}.png" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="600" />

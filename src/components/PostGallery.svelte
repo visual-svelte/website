@@ -63,7 +63,8 @@
   $: filtered = getFilteredData();
 
   function setScrollColor() {
-    if (cat == "api") {
+    if (cat == "svelte") {
+      // berry svelte
       console.log("running set scroll colr;");
       gallery.style.setProperty("--track-color", "rgba(251,54,54,0.2)");
       gallery.style.setProperty("--thumb-color", "rgba(251,54,54,0.7)");
@@ -74,7 +75,7 @@
       gallery.style.setProperty("--thumb-color", "rgba(180,13,97,0.7)");
       gallery.style.setProperty("--hover-color", "rgba(180,13,97,1)");
     } else {
-      // lemon - svelte
+      // lemon - api
       gallery.style.setProperty("--track-color", "rgba(247,196,25,0.2)");
       gallery.style.setProperty("--thumb-color", "rgba(247,196,25,0.7)");
       gallery.style.setProperty("--hover-color", "rgba(247,196,25,1)");

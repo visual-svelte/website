@@ -32,7 +32,7 @@
   }
 
   onMount(() => {
-    runAnimation();
+    // runAnimation();
   });
 </script>
 

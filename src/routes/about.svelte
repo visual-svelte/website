@@ -2,6 +2,7 @@
   import aboutData from "$data/about.js";
   import Meta from "$components/helpers/Meta.svelte";
   let metadata = {
+    id: "About",
     t: "About | VisualSvelte",
     d: "Tell visual stories on the internet with Svelte and other technologies.",
     u: "/about",

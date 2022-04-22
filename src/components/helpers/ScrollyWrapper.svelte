@@ -2,35 +2,18 @@
   export let data;
   export let snap = false;
   export let fixedComp;
-  export let fixPosition;
+  export let fixPosition = "left";
   import Scrolly from "./Scrolly.svelte";
   let innerHeight, scrollY, outerHeight, clientHeight, offsetHeight;
 
   let value = 0;
   $: props = { value: value };
-  //   function handleDownPress(event) {
-  //     if (snap && event.key === "ArrowDown") {
-  //       console.log(event);
-  //       let distance = offsetHeight + (value + 1) * innerHeight * 0.8;
-  //       console.log("dst", distance);
-  //       window.scrollTo({
-  //         top: distance,
-  //         left: 0,
-  //         behavior: "smooth",
-  //       });
-  //     }
-  //   }
 </script>
 
 {#if snap}
   <h2>You can navigate this next section with your keyboard.</h2>
 {/if}
-<!-- <svelte:window
-  on:keydown={handleDownPress}
-  bind:innerHeight
-  bind:scrollY
-  bind:outerHeight
-/> -->
+
 <div class="full-width chart-wrap">
   <div
     class="chart"
@@ -38,12 +21,6 @@
     class:center={fixPosition === "center"}
     class:right={fixPosition === "right"}
   >
-    <!-- <p>Value: {value}</p>
-    <p>ScrollY: {scrollY}</p>
-    <p>innerHeight: {innerHeight}</p>
-    <p>OuterHeight: {outerHeight}</p>
-    <p>ClientHeight: {clientHeight}</p>
-    <p>OffsetHeight: {offsetHeight}</p> -->
     <svelte:component this={fixedComp} {...props} />
   </div>
   <div
@@ -65,28 +42,36 @@
 </div>
 
 <style lang="scss">
+  .chart-wrap {
+    margin-bottom: 100px;
+    padding-right: 10px;
+  }
+  .full-width {
+    width: 80vw;
+    left: 65%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+  }
   .chart {
     position: sticky;
     position: -webkit-sticky;
     position: -moz-sticky;
     position: -ms-sticky;
     position: -o-sticky;
-    margin-right: 0px !important;
 
     padding: 10px;
     background-color: white !important;
-    width: 80vw;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    min-width: 300px;
-    top: 30vh;
-    height: 50vh;
+    top: 10vh;
+    height: min(50vh, 400px);
   }
 
   .text-wrapper {
     margin-right: 0;
     padding-right: 0;
     min-width: 300px !important;
-    width: 70vw;
     position: relative;
     z-index: 2;
     padding-bottom: 100px;
@@ -94,12 +79,12 @@
       margin: 60vh 0 !important;
       padding: 20px;
       border: none;
-      background-color: rgba(255, 255, 255, 0.6);
+      background-color: rgba(255, 255, 255, 0.8);
     }
   }
-  @media all and (min-width: 700px) {
+  @media all and (min-width: 800px) {
     .chart {
-      height: 80vh;
+      min-height: 80vh;
       top: 20px;
       width: 600px;
       &.left {
@@ -133,20 +118,4 @@
       }
     }
   }
-  .chart-wrap {
-    margin-bottom: 100px;
-    // overflow: hidden;
-  }
-  .full-width {
-    width: 90vw;
-    position: relative;
-
-    // right: 50%;
-    // margin-left: -50vw;
-    // margin-right: -50vw;
-  }
-
-  //   html {
-  //     scroll-behavior: smooth;
-  //   }
 </style>
