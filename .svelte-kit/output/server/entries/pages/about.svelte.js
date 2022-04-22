@@ -1,5 +1,5 @@
 import { c as create_ssr_component, v as validate_component, b as each, a as add_attribute, e as escape } from "../../chunks/index-769cbf91.js";
-import { M as Meta } from "../../chunks/Meta-c267e72e.js";
+import { M as Meta } from "../../chunks/Meta-5a17e0cf.js";
 const aboutData = [
   {
     id: 0,
@@ -14,6 +14,7 @@ const css = {
 };
 const About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let metadata = {
+    id: "About",
     t: "About | VisualSvelte",
     d: "Tell visual stories on the internet with Svelte and other technologies.",
     u: "/about",

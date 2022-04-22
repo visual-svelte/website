@@ -112,7 +112,7 @@
           max-width: 300px;
           text-align: end;
           margin-top: 1rem;
-          padding: 1rem 4rem;
+          padding: 1rem 3rem;
           margin: 2rem auto;
           position: relative;
           &:before {

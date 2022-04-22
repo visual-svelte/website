@@ -1,11 +1,11 @@
 import { c as create_ssr_component, g as subscribe, b as each, a as add_attribute, e as escape, v as validate_component } from "../../chunks/index-769cbf91.js";
-import { w as writable, I as Icon } from "../../chunks/cms-svelte-a7c6b755.js";
-import { s as sidebarData } from "../../chunks/dynamicData-9e677b46.js";
-import { K as Kofi, i as innerWidth, s as scrollY } from "../../chunks/screen-6364735e.js";
+import { w as writable, I as Icon } from "../../chunks/cms-svelte-89dc672e.js";
+import { s as sidebarData } from "../../chunks/dynamicData-72e433f6.js";
+import { K as Kofi, i as innerWidth, s as scrollY } from "../../chunks/screen-a99cf991.js";
 import { p as page } from "../../chunks/stores-85ad27c0.js";
-import { k as keyToSentence } from "../../chunks/textUtils-217980c7.js";
+import { k as keyToSentence } from "../../chunks/textUtils-39f3d08b.js";
 import "d3";
-import "feather-icons";
+import { B as BrandShape } from "../../chunks/BrandShape-d1421571.js";
 import "d3-scale";
 import "d3-selection";
 import "d3-axis";
@@ -21,7 +21,8 @@ import "highlight.js/lib/core";
 import "highlight.js/lib/languages/xml";
 import "highlight.js/lib/languages/javascript";
 import "highlight.js/lib/languages/css";
-/* empty css                                                                */import "d3-interpolate";
+/* empty css                                                                */import "feather-icons";
+import "d3-interpolate";
 const navOpen = writable(false);
 const treeData = writable(sidebarData);
 var BottomNav_svelte_svelte_type_style_lang = "";
@@ -115,7 +116,7 @@ ${$navOpen ? `<div class="${"menu common svelte-p1dycw"}"><div class="${"tree sv
 var Logo_svelte_svelte_type_style_lang = "";
 var Footer_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--white:#ffffff;--off-white:#f3f3f3;--dragon:#b40d61;--lemon:#f7c419;--berry:#fb3636;--dark:#1e1d1d;--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.container.svelte-1p9xrmt.svelte-1p9xrmt{color:white;text-align:center;max-width:1200px;border-top:1px solid var(--off-white);margin:0 auto;padding:40px auto}.container.svelte-1p9xrmt .main-links.svelte-1p9xrmt{display:flex;flex-direction:column;padding:2rem 1rem}.container.svelte-1p9xrmt .logo.svelte-1p9xrmt{position:relative}.container.svelte-1p9xrmt .logo a.svelte-1p9xrmt{line-height:1rem}.container.svelte-1p9xrmt .logo a h2.svelte-1p9xrmt{margin-top:1rem;font-weight:300}.container.svelte-1p9xrmt .logo a h2.svelte-1p9xrmt::before{border:none}.container.svelte-1p9xrmt .logo .circle.svelte-1p9xrmt{margin:0 auto;height:160px;width:160px;position:relative;background-color:rgba(255, 255, 255, 0.2)}.container.svelte-1p9xrmt .logo .circle.svelte-1p9xrmt::after{height:1px;bottom:0px;left:0px;width:20px;border-bottom:1px solid white;position:absolute}.container.svelte-1p9xrmt .other-links a.svelte-1p9xrmt{font-size:0.7rem}a.svelte-1p9xrmt.svelte-1p9xrmt{color:white;text-decoration:none;font-weight:300;line-height:3rem}a.svelte-1p9xrmt.svelte-1p9xrmt:hover{text-decoration:underline}",
+  code: ":root{--z-bottom:-100;--z-middle:0;--z-top:100;--z-overlay:1000;--border-radius:4px;--font-body:var(--serif);--font-form:var(--serif);--color-bg:#ffffff;--color-fg:var(--color-off-black);--color-placeholder:var(--color-gray-dark);--color-link:var(--color-purple);--color-focus:transparent;--color-form-bg:var(--color-gray-dark);--color-form-fg:var(--color-off-black);--color-border:var(--color-gray-light);--color-selection:var(--color-gray-light);--color-highlight:var(--color-yellow);--white:#ffffff;--off-white:#f3f3f3;--dragon:#b40d61;--lemon:#f7c419;--berry:#fb3636;--dark:#1e1d1d;--c-white:#fff;--c-gray:#dfdfdf;--c-green:#77e323;--c-darkgray:#42453d;--c-black:#000000;--c-green-15:rgba(119, 227, 35, 0.15)}.container.svelte-telm9i.svelte-telm9i{color:white;text-align:center;max-width:1200px;border-top:1px solid var(--off-white);margin:0 auto;padding:40px auto}.container.svelte-telm9i .main-links.svelte-telm9i{display:flex;flex-direction:column;padding:2rem 1rem}.container.svelte-telm9i .logo.svelte-telm9i{position:relative}.container.svelte-telm9i .logo a.svelte-telm9i{line-height:1rem}.container.svelte-telm9i .logo a h2.svelte-telm9i{margin-top:1rem;font-weight:300}.container.svelte-telm9i .logo a h2.svelte-telm9i::before{border:none}.container.svelte-telm9i .logo .circle.svelte-telm9i{margin:0 auto;height:160px;width:160px;position:relative}.container.svelte-telm9i .other-links a.svelte-telm9i{font-size:0.7rem}a.svelte-telm9i.svelte-telm9i{color:white;text-decoration:none;font-weight:300;line-height:3rem}a.svelte-telm9i.svelte-telm9i:hover{text-decoration:underline}",
   map: null
 };
 const Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -145,13 +146,13 @@ const Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     ]
   };
   $$result.css.add(css$1);
-  return `<div class="${"container svelte-1p9xrmt"}"><div class="${"main-links svelte-1p9xrmt"}">${each(links.main, (link) => {
-    return `<a rel="${"internal"}"${add_attribute("href", link.href, 0)} class="${"svelte-1p9xrmt"}">${escape(link.text)}</a>`;
+  return `<div class="${"container svelte-telm9i"}"><div class="${"main-links svelte-telm9i"}">${each(links.main, (link) => {
+    return `<a rel="${"internal"}"${add_attribute("href", link.href, 0)} class="${"svelte-telm9i"}">${escape(link.text)}</a>`;
   })}</div>
-  <div class="${"logo svelte-1p9xrmt"}"><div class="${"circle svelte-1p9xrmt"}"></div>
-    <a rel="${"internal"}" href="${"/"}" class="${"svelte-1p9xrmt"}"><h2 class="${"svelte-1p9xrmt"}">visualsvelte</h2></a></div>
+  <div class="${"logo svelte-telm9i"}"><div class="${"circle svelte-telm9i"}">${validate_component(BrandShape, "BrandShape").$$render($$result, { fill: "dragon", shape: "circle" }, {}, {})}</div>
+    <a rel="${"internal"}" href="${"/"}" class="${"svelte-telm9i"}"><h2 class="${"svelte-telm9i"}">visualsvelte</h2></a></div>
   <div class="${"other-links"}">${each(links.other, (link, i) => {
-    return `<a rel="${"internal"}"${add_attribute("href", link.href, 0)} class="${"svelte-1p9xrmt"}">${escape(link.text)}</a>
+    return `<a rel="${"internal"}"${add_attribute("href", link.href, 0)} class="${"svelte-telm9i"}">${escape(link.text)}</a>
       <span>${escape(i == 2 ? "" : `     |     `)}</span>`;
   })}</div>
 </div>`;

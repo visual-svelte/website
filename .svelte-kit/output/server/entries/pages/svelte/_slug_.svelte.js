@@ -1,8 +1,8 @@
 import { c as create_ssr_component, v as validate_component, m as missing_component } from "../../../chunks/index-769cbf91.js";
-import { s as slugToId, m as metaFromRecord } from "../../../chunks/textUtils-217980c7.js";
-import { c as cmsSvelte } from "../../../chunks/cms-svelte-a7c6b755.js";
-import { S as StoryHeader, T as Thanks } from "../../../chunks/Thanks-d21d274a.js";
-import { M as Meta } from "../../../chunks/Meta-c267e72e.js";
+import { s as slugToId, m as metaFromRecord } from "../../../chunks/textUtils-39f3d08b.js";
+import { c as cmsSvelte } from "../../../chunks/cms-svelte-89dc672e.js";
+import { S as StoryHeader, T as Thanks } from "../../../chunks/Thanks-e0d2a89e.js";
+import { M as Meta } from "../../../chunks/Meta-5a17e0cf.js";
 import "d3";
 import "d3-scale";
 import "d3-selection";
@@ -21,16 +21,17 @@ import "highlight.js/lib/languages/javascript";
 import "highlight.js/lib/languages/css";
 /* empty css                                                                   */import "feather-icons";
 import "d3-interpolate";
-import "../../../chunks/screen-6364735e.js";
-import "../../../chunks/cms-86c250c1.js";
+import "../../../chunks/screen-a99cf991.js";
+import "../../../chunks/cms-b70a773a.js";
 var _slug__svelte_svelte_type_style_lang = "";
 const css = {
-  code: ".container.svelte-1r8ttxn{padding:10px}.thanks-wrap.svelte-1r8ttxn{margin:0 auto;max-width:600px}",
+  code: ".container.svelte-1xq7ovf{padding:10px}",
   map: null
 };
 async function load(ctx) {
   const primaryKey = ctx.params.slug;
   let compName = slugToId(primaryKey);
+  console.log("compName", compName);
   const content = cmsSvelte?.find((record) => record.primary_key == compName);
   content ? content["cat"] = "Svelte for Visual Stories" : console.log("");
   let metadata = metaFromRecord(content, ctx.url.pathname);
@@ -39,6 +40,7 @@ async function load(ctx) {
 const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { metadata } = $$props;
   let { content } = $$props;
+  console.log("content", content);
   if ($$props.metadata === void 0 && $$bindings.metadata && metadata !== void 0)
     $$bindings.metadata(metadata);
   if ($$props.content === void 0 && $$bindings.content && content !== void 0)
@@ -46,8 +48,8 @@ const U5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) =
   $$result.css.add(css);
   return `${validate_component(Meta, "Meta").$$render($$result, { metadata }, {}, {})}
 ${validate_component(StoryHeader, "StoryHeader").$$render($$result, { data: content }, {}, {})}
-<div class="${"container svelte-1r8ttxn"}">${validate_component(content?.component || missing_component, "svelte:component").$$render($$result, {}, {}, {})}</div>
-<div class="${"thanks-wrap svelte-1r8ttxn"}">${validate_component(Thanks, "Thanks").$$render($$result, {}, {}, {})}
+<div class="${"container svelte-1xq7ovf"}">${validate_component(content?.component || missing_component, "svelte:component").$$render($$result, {}, {}, {})}
+  ${validate_component(Thanks, "Thanks").$$render($$result, {}, {}, {})}
 </div>`;
 });
 export { U5Bslugu5D as default, load };
