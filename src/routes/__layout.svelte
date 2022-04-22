@@ -82,6 +82,12 @@
       border-bottom: 2px solid var(--dragon);
     }
   }
+  :global(.snippet) {
+    background-color: white;
+    // color: blue;
+    padding: 5px;
+    border-radius: 10px;
+  }
 
   :global(p, ul, div, a) {
     line-height: 2rem;

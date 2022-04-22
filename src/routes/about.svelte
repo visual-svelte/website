@@ -3,7 +3,7 @@
   import Meta from "$components/helpers/Meta.svelte";
   let metadata = {
     id: "About",
-    t: "About | VisualSvelte",
+    t: "About | visualsvelte",
     d: "Tell visual stories on the internet with Svelte and other technologies.",
     u: "/about",
     tags: "d3,svelte,visual,storytelling,data,journalism",

@@ -42,7 +42,7 @@
   .wrapper {
     margin: 0 auto;
     padding: 10px;
-    max-width: 700px;
+    max-width: 600px;
   }
   h2 {
     margin: 100px 0 30px 0;

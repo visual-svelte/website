@@ -4,7 +4,7 @@
     let tag_id = urlToText(ctx.url.pathname);
 
     let metadata = {
-      t: `${tag_id.upperTag} articles | VisualSvelte`,
+      t: `${tag_id.upperTag} articles | visualsvelte`,
       d: `Articles with the tags ${tag_id.upperTag}`,
       u: ctx.url.pathname,
       tags: [tag_id.lowerTag, "tag"],

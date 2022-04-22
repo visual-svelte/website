@@ -31,7 +31,7 @@ function slugToId(string) {
 function metaFromRecord(content, path) {
   return {
     id: content.primary_key,
-    t: `${content?.post_title} | VisualSvelte`,
+    t: `${content?.post_title} | visualsvelte`,
     d: content?.desc,
     u: path,
     tags: content?.keywords.join(),

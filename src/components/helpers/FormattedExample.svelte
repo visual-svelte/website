@@ -26,14 +26,6 @@
 </div>
 
 <style lang="scss">
-  .comp-description :global(span) {
-    color: blue;
-    font-style: italic;
-    padding: 3px 5px;
-    border-radius: 10px;
-    font-family: monospace;
-  }
-
   .topone {
     height: 600px;
   }

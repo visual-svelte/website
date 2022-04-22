@@ -26,10 +26,10 @@
     {/each}
   </div>
   <div class="logo">
-    <div class="circle">
-      <BrandShape fill="dragon" shape="circle" />
-    </div>
     <a rel="internal" href="/">
+      <div class="circle">
+        <BrandShape shape="circle" />
+      </div>
       <h2>visualsvelte</h2>
     </a>
   </div>

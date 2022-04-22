@@ -22,21 +22,29 @@
     return list;
   }
 
-  let asc = { id: false, cat: false };
+  let asc = false;
 
   $: console.log("asc", asc);
 
-  function sortAZ(key) {
-    if (asc[key]) {
+  function sortAZ() {
+    if (asc) {
       articles = articles.sort((a, b) =>
-        a[key] < b[key] ? 1 : b[key] < a[key] ? -1 : 0
+        a.id.toLowerCase() < b.id.toLowerCase()
+          ? 1
+          : b.id.toLowerCase() < a.id.toLowerCase()
+          ? -1
+          : 0
       );
-      asc[key] = !asc[key];
+      asc = !asc;
     } else {
       articles = articles.sort((a, b) =>
-        a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0
+        a.id.toLowerCase() > b.id.toLowerCase()
+          ? 1
+          : b.id.toLowerCase() > a.id.toLowerCase()
+          ? -1
+          : 0
       );
-      asc[key] = !asc[key];
+      asc = !asc;
     }
   }
 
@@ -57,7 +65,7 @@
   <h2>Pick your next article</h2>
 
   <p class="sorting">
-    Sort:<span on:click={() => sortAZ("id")}>A->Z</span>
+    Sort:<span on:click={() => sortAZ()}>A->Z</span>
     <!-- |
     <span on:click={() => sortAZ("cat")}> by Category</span> -->
   </p>

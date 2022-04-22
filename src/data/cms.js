@@ -51,28 +51,28 @@ let d3CMS = [
         id: "AxisSimple",
         title: "Basic axis - scaleLinear()",
         notes:
-          "<span class='test'>d3.scaleLinear()</span>is the most basic axis type - it allows you to create linearly incremented axes. In Svelte, I make use of the bind:this={} syntax to select an empty SVG group element and call the axis generator function. See the full code for details.<br/><br/>This makes it really easy to implement, but make animating the graph axes difficult. If animation of the axis is a key part of your design, I recommend my article on <a rel = 'internal' href='/svelte/motion'>Svelte Motion</a>.",
+          "<span class='snippet'>d3.scaleLinear()</span> is the most basic axis type - it allows you to create linearly incremented axes. In Svelte, I make use of the <span class='snippet'>bind:this={}</span> syntax to select an empty SVG group element and call the axis generator function. See the full code for details.<br/><br/>This makes it really easy to implement, but make animating the graph axes difficult. If animation of the axis is a key part of your design, I recommend my article on <a rel = 'internal' href='/svelte/motion'>Svelte Motion</a>.",
         component: AxisSimple,
       },
       {
         id: "AxisLog",
         title: "Log scale - scaleLog()",
         notes:
-          "To create a logarithmic axis, we need to use the <span>scaleLog()</span> generator (see code block below for full example). The rest of the implementation in Svelte is the same as the <span class='test'>d3.scaleLinear()</span> example above. <br/><br/> I have also added a <span class='test'>tickFormat()</span> to make it easy for the reader to see that a logarithmic scale is being used.",
+          "To create a logarithmic axis, we need to use the <span class='snippet>scaleLog()</span> generator (see code block below for full example). The rest of the implementation in Svelte is the same as the <span class='snippet'>d3.scaleLinear()</span> example above. <br/><br/> I have also added a <span class='test'>tickFormat()</span> to make it easy for the reader to see that a logarithmic scale is being used.",
         component: AxisLog,
       },
       {
         id: "AxisScalePoint",
         title: "Categorical axis - scalePoint()",
         notes:
-          "Axes for categorical data can be created using either the <span>scalePoint()</span> or the <span>scaleBand()</span> functions. <span>scalePoint()</span> is typically used with points and scatter plots; when the data/visual marker you are plotting does not have a width.<br/><br/><span>scaleBand()</span>(as we see in the next example below) is typically used with bar charts and histograms.",
+          "Axes for categorical data can be created using either the <span class='snippet'>scalePoint()</span> or the <span class='snippet'>scaleBand()</span> functions. <span class='snippet'>scalePoint()</span> is typically used with points and scatter plots; when the data/visual marker you are plotting does not have a width.<br/><br/><span class='snippet'>scaleBand()</span> - as we see in the next example below - is typically used with bar charts and histograms.",
         component: AxisScalePoint,
       },
       {
         id: "AxisScaleBand",
         title: "Categorical (bars) - scaleBand()",
         notes:
-          "The <span>scaleBand()</span> scale is implemented similarly to the previous <span>scalePoint()</span> but we add <span>.padding([0.5])</span> to the end of the construction chain. <br/><br/> This tells D3 to generate an axis with a bandwidth (retrievable using <span>x.bandwith()</span> where x is what you named your scaleBand(). This can then be passed to the svg rect to dictate the width of the 'bar').",
+          "The <span class='snippet'>scaleBand()</span> scale is implemented similarly to the previous <span class='snippet'>scalePoint()</span> but we add <span class='snippet'>.padding([0.5])</span> to the end of the construction chain. <br/><br/> This tells D3 to generate an axis with a bandwidth (retrievable using <span class='snippet'>x.bandwith()</span> where x is what you named your <span class='snippet>scaleBand()</span>. This can then be passed to the svg rect to dictate the width of the 'bar').",
         component: AxisScaleBand,
       },
 

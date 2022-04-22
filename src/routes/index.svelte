@@ -7,7 +7,7 @@
   import BrandShape from "$components/helpers/BrandShape.svelte";
   let metadata = {
     id: "Home",
-    t: "Home | VisualSvelte",
+    t: "Home | visualsvelte",
     d: "Tell visual stories on the internet with Svelte and other technologies.",
     u: $page.url.pathname,
   };
@@ -60,8 +60,6 @@
   </div>
 
   <div id="learn" class="posts">
-    <h2>Explore articles, by category</h2>
-
     {#each cats as cat}
       {#if posts[cat]?.length}
         <PostGallery posts={posts[cat]} title={true} {cat} />
@@ -80,11 +78,10 @@
       max-width: 900px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
       gap: 3rem;
       .top {
         position: relative;
-        // padding-top: 3em;
         p {
           position: absolute;
           right: 4rem;
@@ -127,13 +124,10 @@
         }
       }
       .options {
-        // background-color: pink;
         overflow-x: hidden !important;
         min-height: 240px;
-        // overflow-y: visible !important;
         max-width: 300px;
         margin: 1rem 2rem;
-
         display: grid;
         grid-template-rows: repeat(auto-fit, minmax(80px, 80px));
         .option {
@@ -159,7 +153,15 @@
       margin: 0 auto;
       padding: 20vh 5vw;
       a {
+        transition: 0.3s all;
         color: var(--off-white);
+        background-color: rgba(180, 13, 97, 0.7);
+        text-decoration: none;
+        padding: 15px 20px;
+        border-radius: 40px;
+        &:hover {
+          background-color: rgba(180, 13, 97, 1);
+        }
       }
     }
   }
