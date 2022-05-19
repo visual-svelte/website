@@ -17,15 +17,7 @@
     {/each}
   </div>
   <div class="right">
-    <div class="socials">
-      Say hi: <a
-        target="_blank"
-        rel="external"
-        href="https://twitter.com/visualsvelte"
-      >
-        <Icon name="twitter" fill="var(--c-white)" width="20px" height="20px" />
-      </a>
-    </div>
+    
     <div class="donate">
       <Kofi />
     </div>
