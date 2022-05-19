@@ -33,13 +33,7 @@
       <h2>visualsvelte</h2>
     </a>
   </div>
-  <div class="other-links">
-    {#each links.other as link, i}
-      <a rel="internal" href={link.href}>{link.text} </a>
-      <span>{i == 2 ? "" : `     |     `}</span>
-    {/each}
   </div>
-</div>
 
 <style lang="scss">
   .container {
